@@ -9,6 +9,7 @@ data class Bounds(val left: Int, val top: Int, val right: Int, val bottom: Int)
  * 一次遍历得到的节点快照。
  *
  * nodeId 仅是当前快照内从 0 开始的唯一索引，不是持久 view ID，不允许跨快照复用。
+ * 文本快照由无障碍侧按字段上限截断后传入；core 不读取 Android 节点。
  */
 data class UiNode(
     val nodeId: Int,
@@ -23,7 +24,7 @@ data class UiNode(
     val bounds: Bounds
 )
 
-/** 窗口级输入快照；敏感字段（锁屏、敏感包）由无障碍侧实时判定后传入。 */
+/** 窗口级输入快照；锁屏、敏感包、遍历完整性由无障碍侧实时判定后传入。 */
 data class AdWindowSnapshot(
     val packageName: String,
     val windowId: Int,
@@ -38,19 +39,9 @@ data class AdWindowSnapshot(
     val nodes: List<UiNode>
 )
 
-/** 规则候选；仅表示“可以尝试一次点击”，执行前后仍需无障碍侧全部复核。 */
+/** 规则候选：仅表示“可以尝试一次点击”，执行前后仍需无障碍侧全部复核。 */
 data class SkipCandidate(val nodeId: Int, val ruleId: String, val reason: String)
 
 interface AdRuleEngine {
     fun evaluate(config: ProtectionConfig, window: AdWindowSnapshot): List<SkipCandidate>
-}
-
-/**
- * 骨架占位实现 —— 规则实现与几何/时间边界单测由 t7（core 实现任务）交付。
- *
- * 当前语义为“永远不产生候选”：不点击、不宣称保护。这里不构造假成功，也不返回
- * 任何未经验证的候选；t7 落地前任何界面/诊断不得据此显示“已保护”。
- */
-class ConservativeAdRuleEngine : AdRuleEngine {
-    override fun evaluate(config: ProtectionConfig, window: AdWindowSnapshot): List<SkipCandidate> = emptyList()
 }
