@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="probe_app_name">Anti-ads 诊断</string>
+    <string name="skeleton_placeholder">骨架阶段占位界面
+
+传感器计数与广告样例由 t10 实现。
+本页不注册传感器、不代表任何实测结论。</string>
+</resources>

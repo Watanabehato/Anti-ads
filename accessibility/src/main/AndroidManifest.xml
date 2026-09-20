@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  :accessibility 库 Manifest（骨架基线）。
+  由 t9(accessibility-engineer) 追加：AdSkipService 声明、BIND_ACCESSIBILITY_SERVICE 权限、
+  exported=true、android:exported 与 service XML（canRetrieveWindowContent=true、
+  canPerformGestures=false、typeWindowStateChanged|typeWindowContentChanged、
+  feedbackGeneric、notificationTimeout=100、flagRetrieveInteractiveWindows|flagReportViewIds）。
+  只由系统绑定，不声明任何可被普通应用调用的入口。
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" />

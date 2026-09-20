@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  :app 宿主 Manifest（骨架基线）。
+  约束（docs/contracts.md 第 1 节）：
+  - 不申请 INTERNET、不申请 QUERY_ALL_PACKAGES；
+  - 无 debug applicationIdSuffix，Provider authority 稳定为 com.antiads.app.config；
+  - Provider 由 t8 追加（exported=true、grantUriPermissions=false、directBootAware=false，
+    不设置 signature 读权限，鉴权在 call 内逐次执行）；
+  - 无障碍服务由 :accessibility 库 Manifest 合入。
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 包可见性：只做 LAUNCHER 应用列表与诊断 APK 的明确查询 -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <package android:name="com.antiads.probe" />
+    </queries>
+
+    <application
+        android:name=".AntiAdsApplication"
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AntiAds">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- TODO(t8): 追加 ConfigProvider（authority com.antiads.app.config）与 RuntimeReportStore 接线 -->
+    </application>
+</manifest>

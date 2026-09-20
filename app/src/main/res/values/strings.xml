@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Anti-ads 防护</string>
+    <!-- 骨架占位文案：明确说明当前不代表已具备防护能力 -->
+    <string name="skeleton_placeholder">骨架阶段占位界面
+
+功能实现由对应模块所有者完成：
+界面与配置存储 = t8
+无障碍跳过 = t9
+Root/LSPosed 拦截与诊断 = t10
+
+本页不代表任何“已保护 / 已激活”结论。</string>
+</resources>

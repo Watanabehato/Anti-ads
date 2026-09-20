@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  :hook 库 Manifest（骨架基线）。本模块不生成可独立安装的模块 APK，经 library manifest 合入 :app。
+  由 t10(hook-engineer) 追加：meta-data xposedmodule=true、xposeddescription、xposedminversion=82
+  与 assets/xposed_init（一行 com.antiads.hook.AntiAdsHookEntry）。
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" />

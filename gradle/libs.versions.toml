@@ -1,0 +1,26 @@
+[versions]
+# 冻结的工具链与依赖版本（architecture.md 第 1 节）
+agp = "8.7.2"
+kotlin = "2.1.10"
+kotlinxSerialization = "1.7.3"
+junit = "4.13.2"
+androidxTestRunner = "1.6.2"
+androidxTestExtJunit = "1.2.1"
+xposedApi = "82"
+compileSdk = "35"
+minSdk = "29"
+targetSdk = "35"
+
+[libraries]
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestRunner" }
+androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "androidxTestExtJunit" }
+xposed-api = { module = "de.robv.android.xposed:api", version.ref = "xposedApi" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

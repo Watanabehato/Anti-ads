@@ -1,0 +1,41 @@
+# 独立仓库：绝不提交父目录 D:/test 的任何内容
+# 团队协作状态（.agent-teams/）与本地工具缓存（.tooling/）
+.agent-teams/
+.tooling/
+
+# 本机配置：SDK/JDK 路径，不入库
+local.properties
+local.properties.bak
+
+# 签名与凭据，绝不入库
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+
+# 构建输出
+build/
+.gradle/
+*/build/
+captures/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.hprof
+out/
+
+# IDE / 编辑器
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日志与临时文件
+*.log
+*.tmp
+*.bak
