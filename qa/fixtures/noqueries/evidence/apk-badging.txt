@@ -1,0 +1,16 @@
+package: name='com.antiads.fixture.target' versionCode='1' versionName='1.0-qa' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+minSdkVersion:'29'
+targetSdkVersion:'35'
+application-label:'无 queries 测试目标'
+application-icon-160:'res/drawable/ic_fixture.xml'
+application: label='无 queries 测试目标' icon='res/drawable/ic_fixture.xml'
+application-debuggable
+launchable-activity: name='com.antiads.fixture.target.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+main
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '160'

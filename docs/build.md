@@ -74,29 +74,80 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 /d/test/Anti-ads/.tooling/android-sdk/platform-tools/adb.exe devices -l
 ```
 
-## 3. 骨架阶段的实现状态（不得当作产品能力证据）
+## 3. 当前实现状态（t11 集成后）
 
-**已按冻结合同实现（core 纯函数，含单测）**
+五条并行成果已接线为同一个应用，**没有残留在产品路径上的占位实现**：
 
-- `ConfigValidator`：schema 版本、revision 边界、包名语法/拒止键、传感器类型子集、规则 ID 白名单、包数量上限。
-- `ConfigCodec`：`encodeDefaults=true`/`ignoreUnknownKeys=true`；**缺失或非 1 的 `schemaVersion` 一律拒绝**；
-  未知枚举、错误类型、无效包名、越界数据、超过 256 KiB 的 payload 抛 `IllegalArgumentException`。
-- `PolicyResolver`：总开关 ∧ 全局模式 ∧ 每包模式 的交集；关闭时 `hookEnabled=false` 且清空类型集合，保留真实 revision。
-- `SensorPolicyEngine`：租约 1..5000ms、`now >= expires` 放行、包名/schema/时钟回退一律放行（reason 为稳定英文码）。
+| 模块 | 现状 |
+| --- | --- |
+| `:core` | 配置模型/校验/JSON 编解码、开关求交、传感器策略、保守广告规则 v1（唯一判定实现，26 例边界测试） |
+| `:app` | 中文界面（首页事实分列、应用列表、应用详情）、`AppConfigRepository`（AtomicFile + revision CAS + health 四态 + observe）、`ConfigProvider`（两个只读 call、逐次 UID 鉴权）、`RuntimeReportStore`、`AntiAdsApplication` 注入 `AccessibilityDependencies` |
+| `:accessibility` | `AdSkipService`（事件合并/epoch/遍历预算）、`SkipGate`+`ExecutionGuards` 执行前复核、`AccessibilityRuntime` 真实状态、服务 XML/Manifest/中文资源 |
+| `:hook` | `AntiAdsHookEntry` + `assets/xposed_init` + 四条 xposed 元数据（minversion 82、建议作用域仅 probe）、单线程策略客户端、Java 分发 Hook |
+| `:probe` | 真实传感器计数、摇动计数、5 个广告样例场景、诊断行与快照文件（无 INTERNET） |
 
-**显式占位（未实现，禁止据此宣称已保护）**
+跨模块接线要点（与 `docs/contracts.md` 第 9 节核对清单对应）：
 
-- `ConservativeAdRuleEngine`：当前**一律返回空候选**（不点击）；规则实现与几何/时间边界单测属 t7。
-- `AccessibilityDependencies` / `AccessibilityRuntime`：只保存引用 / 永远返回 `DISCONNECTED` + `lastErrorCode=NOT_IMPLEMENTED`（t9 实现真实服务状态）。
-- `app` 的 `AntiAdsApplication`、`MainActivity` 与 `probe` 的 `MainActivity`：占位界面，明确写明不代表已具备防护能力（t8/t10 实现）。
-- `hook` 模块：无入口类、无 `assets/xposed_init`、无 xposed 元数据（t10 实现）；`:app` 仍不引用 `AntiAdsHookEntry`。
-- app 的 `ConfigProvider`/`RuntimeReportStore` 与无障碍服务声明尚未加入（分别属 t8、t9）。
+- `:app` 的 `AntiAdsApplication.onCreate` 调用 `AccessibilityDependencies.install(AppConfigRepository.get(this))`；Provider 通过同一个 `get(context)` 惰性初始化，兼容 Provider 先于 Application 启动。
+- 候选 → 执行前复核请求的映射集中在 `accessibility` 的 `SkipRequestBuilder`（t11 提取），服务与集成测试共用同一份逻辑。
+- 最终 APK 内已核验（不是只看 AAR）：`assets/xposed_init` 为一行 `com.antiads.hook.AntiAdsHookEntry`；四条 xposed 元数据齐全且 `xposedminversion=82`；APK 内**不含** `de/robv/android/xposed` 类；`AdSkipService` + `BIND_ACCESSIBILITY_SERVICE` + 服务 XML 已合入；Provider authority 为 `com.antiads.app.config`；两个 APK 均无任何 `uses-permission`（因此无 INTERNET）。
+
+### 3.1 历史：骨架阶段（t2，仅存档）
+
+骨架阶段（提交 `e027e19`）曾明确列出以下**占位**，它们在 t7/t8/t9/t10 已被真实实现替换，仅作历史记录：
+`ConservativeAdRuleEngine` 返回空候选；`AccessibilityDependencies`/`AccessibilityRuntime` 只保存引用并永远返回 `DISCONNECTED`+`NOT_IMPLEMENTED`；
+`app`/`probe` 为占位界面；`hook` 无入口类与 `xposed_init`；`ConfigProvider` 与无障碍服务声明尚未加入。
+**这些描述不代表当前代码状态**，旧的行为证据（构建日志、哈希）也仅对应当时的产物。
 
 ## 4. 验证结果（骨架合同命令）
 
 执行时间、命令与退出码见本节；完整日志保留在 `.tooling/`（不入库）。
 
-### 4.1 合同验证命令（原样执行）
+### 4.1 当前全量集成验证（t11，最终交付口径）
+
+```bash
+$ cd /d/test/Anti-ads
+$ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:testDebugUnitTest :hook:testDebugUnitTest :probe:testDebugUnitTest \
+    :app:lintDebug :accessibility:lintDebug :hook:lintDebug :probe:lintDebug \
+    :app:assembleDebug :probe:assembleDebug :app:assembleDebugAndroidTest :probe:assembleDebugAndroidTest
+BUILD SUCCESSFUL in 2m 21s
+246 actionable tasks: 32 executed, 214 up-to-date
+EXIT=0
+```
+
+明细（完整日志 `.tooling/t11-verify-final.log`，不入库）：
+
+| 项目 | 结果 |
+| --- | --- |
+| 五模块单元测试 | **285 例，0 失败 0 错误**：`:core` 67、`:app` 44、`:accessibility` 103（含跨模块链 11 例）、`:hook` 46、`:probe` 25 |
+| 四个模块 lint | `:app` 0 error / 1 warning、`:hook` 0 error / 1 warning、`:accessibility` 与 `:probe` **No issues found** |
+| 两个应用 APK | `app-debug.apk`、`probe-debug.apk`（versionName 0.1.0，minSdk 29 / targetSdk 35，无任何 `uses-permission`） |
+| 两个仪器测试 APK | `app-debug-androidTest.apk`（t8 `ConfigToggleTest`）、`probe-debug-androidTest.apk`（t10 `RegistrationHoldTest`） |
+
+产物哈希（**对应本次构建，重新构建即变化**；真机安装请重新计算并在证据中记录）：
+
+| 产物 | 字节数 | SHA-256 |
+| --- | --- | --- |
+| `app/build/outputs/apk/debug/app-debug.apk` | 3,391,976 | `c79b04a4d001b4c6037945ae7e06dfe657288f98bf153f3b4db7d85a33233138` |
+| `probe/build/outputs/apk/debug/probe-debug.apk` | 3,162,423 | `35af8de90197df511d0be8b22530f9bc59558b6fda620743e8a7f7bbb3b7ff5c` |
+| `app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk` | 2,173,141 | `d0d205ba051a62c7c838229770f0a0618ec1fbe17d005aa9975308f8c562a66d` |
+| `probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk` | 2,172,101 | `a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680` |
+
+**产物级核验（直接读最终 APK，不是只看 AAR 或中间产物）**：
+
+- `assets/xposed_init` 内容为一行 `com.antiads.hook.AntiAdsHookEntry`；
+- 四条 xposed 元数据齐全：`xposedmodule=true`、`xposeddescription`、**`xposedminversion=82`**、`xposedscope`（资源数组只列 `com.antiads.probe`）；
+- APK 内**不含** `de/robv/android/xposed` 类（`compileOnly` 未被打包）；
+- `com.antiads.accessibility.AdSkipService` + `BIND_ACCESSIBILITY_SERVICE` + `android.accessibilityservice` meta-data + 服务 XML 已合入；服务 XML 为 `typeWindowStateChanged|typeWindowContentChanged`、`canRetrieveWindowContent=true`、`canPerformGestures=false`、`notificationTimeout=100`、`flagRetrieveInteractiveWindows|flagReportViewIds`；
+- Provider authority 为 `com.antiads.app.config`，`exported=true`、`grantUriPermissions=false`、`directBootAware=false`；
+- 两个 APK 的合并 Manifest 中 `uses-permission` 条数为 **0**（即不含 INTERNET），组件计数：3 activity / 1 service / 1 provider / 5 meta-data。
+
+两条**保留**的 lint warning 与理由（未添加任何 lint 抑制或 baseline）：
+
+- `:app` `ExportedContentProvider`：Provider 必须 `exported=true` 才能让目标应用读取**自己**的最小策略；安全边界由每次 `call` 内的 `Binder.getCallingUid()` 现场鉴权承担（无任何写接口、不设 signature 读权限），见 `docs/contracts.md` 第 6 节。
+- `:hook` `PrivateApi`：目标是非公开框架类，只能通过反射定位；形状不符即 `UNSUPPORTED` 并保持原始调用，见 `docs/hook.md` 的专门说明。
+
+### 4.2 骨架阶段历史（t2，仅存档）
 
 ```bash
 $ cd /d/test/Anti-ads
@@ -111,7 +162,7 @@ EXIT=0
 日志保留在 `.tooling/`（不入库）：`build-attempt-1..3.log`、`build-verify.log`（= 成功那一次）、`build-verify-clean.log`（缓存后复跑）。
 **依赖缓存已就绪，此后同一条命令可稳定通过（复跑 33s，全部 up-to-date）。**
 
-### 4.2 附加验证（不替代合同命令）
+### 4.3 骨架阶段附加验证（历史，不替代合同命令）
 
 - `bash ./gradlew --no-daemon :core:test` → `BUILD SUCCESSFUL`，EXIT=0；共 **34 个单测全部通过**
   （`ConfigCodecTest` 11、`ConfigValidatorTest` 9、`PolicyResolverTest` 5、`SensorPolicyEngineTest` 9；日志 `.tooling/core-test.log`）。
@@ -136,6 +187,7 @@ EXIT=0
 - **构建成功 ≠ 服务已连接/框架已注入**：编译通过只说明工程与接口可解析。
 - 本机到 Maven 仓库存在**间歇性 TLS 失败**（实测约 20% 请求失败），已在 `gradle.properties` 提高传输层重试与超时；
   首次解析依赖可能需要重跑，依赖成功缓存后 (`~/.gradle/caches`) 可稳定复现。
-- `.github/workflows/build.yml` 为骨架 CI 配置，**尚未在 GitHub 上执行过**（仓库未创建）。
-- 本地未运行 `lint`/`androidTest`（`assembleDebugAndroidTest` 由顺序集成 t11 统一执行）。
-- 无障碍、Hook、probe 的实机行为与 PR 中的任何设备结论，均以 QA 独立证据为准。
+- `.github/workflows/build.yml` 已更新为五模块单测 + 四模块 lint + 两个 APK + 两个测试 APK 的完整流程，但**尚未在 GitHub 上执行过**（仓库尚未创建/推送）。
+- 本地已执行 `lint` 与 `assembleDebugAndroidTest`（见 4.1）；**仪器测试本身（`connectedAndroidTest`）未执行**：没有设备或模拟器，两个测试 APK 只证明可组装、类可解析。
+- 无障碍、Hook、probe 的实机行为与任何设备结论，均以 QA 独立证据为准（QA 正在按 t15 准备可丢弃的 API29 模拟器环境，该环境与本仓库工具链独立，本任务不重复安装）。
+- 跨模块“纯逻辑链”（真实 core 候选 → 快照 → `SkipRequestBuilder` → `SkipGate`/`ExecutionGuards`）已由 11 例 JVM 用例覆盖，但它**不能**替代系统授权与真实页面实验。

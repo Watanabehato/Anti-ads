@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  :probe 独立诊断 APK Manifest（骨架基线）：不申请 INTERNET，不作为框架模块，不依赖 :app。
-  由 t10 追加：AdFixtureActivity（Intent extra "scenario"）与 Provider authority 查询。
+  :probe 独立诊断 APK Manifest：不申请 INTERNET，不作为框架模块，不依赖 :app。
+  声明 Provider authority 查询（contracts 第 1 节），使 probe 在 API30+ 包可见性下仍能读取自身策略；
+  这对普通第三方目标不适用，也不得据此外推。
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <queries>
+        <provider android:authorities="com.antiads.app.config" />
+    </queries>
+
     <application
         android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_probe"
         android:label="@string/probe_app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AntiAdsProbe">
 
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/probe_app_name">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- QA 用 adb 直接启动的广告样例页；只产生本地测试内容。 -->
+        <activity
+            android:name=".AdFixtureActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 </manifest>

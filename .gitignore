@@ -17,6 +17,8 @@ signing.properties
 build/
 .gradle/
 */build/
+.kotlin/
+**/.kotlin/
 captures/
 *.apk
 *.aab

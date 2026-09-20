@@ -1,0 +1,59 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :preBuild UP-TO-DATE
+> Task :preDebugBuild UP-TO-DATE
+> Task :mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :javaPreCompileDebug UP-TO-DATE
+> Task :checkDebugAarMetadata UP-TO-DATE
+> Task :generateDebugResValues UP-TO-DATE
+> Task :mapDebugSourceSetPaths
+> Task :generateDebugResources
+> Task :packageDebugResources
+> Task :createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :extractDeepLinksDebug UP-TO-DATE
+> Task :mergeDebugResources
+> Task :parseDebugLocalResources
+> Task :processDebugMainManifest
+> Task :processDebugManifest
+> Task :mergeDebugShaders UP-TO-DATE
+> Task :compileDebugShaders NO-SOURCE
+> Task :generateDebugAssets UP-TO-DATE
+> Task :mergeDebugAssets UP-TO-DATE
+> Task :compressDebugAssets UP-TO-DATE
+> Task :desugarDebugFileDependencies UP-TO-DATE
+> Task :processDebugJavaRes NO-SOURCE
+> Task :mergeDebugJavaResource UP-TO-DATE
+> Task :checkDebugDuplicateClasses UP-TO-DATE
+> Task :mergeExtDexDebug UP-TO-DATE
+> Task :mergeLibDexDebug UP-TO-DATE
+> Task :mergeDebugJniLibFolders UP-TO-DATE
+> Task :mergeDebugNativeLibs NO-SOURCE
+> Task :stripDebugDebugSymbols NO-SOURCE
+> Task :validateSigningDebug UP-TO-DATE
+> Task :writeDebugAppMetadata UP-TO-DATE
+> Task :writeDebugSigningConfigVersions UP-TO-DATE
+> Task :preDebugAndroidTestBuild SKIPPED
+> Task :generateDebugAndroidTestResValues UP-TO-DATE
+> Task :extractProguardFiles UP-TO-DATE
+> Task :preDebugUnitTestBuild UP-TO-DATE
+> Task :processDebugManifestForPackage
+> Task :processDebugResources
+> Task :compileDebugJavaWithJavac
+> Task :dexBuilderDebug
+> Task :mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :bundleDebugClassesToCompileJar
+> Task :generateDebugLintReportModel
+> Task :generateDebugAndroidTestLintModel
+> Task :generateDebugUnitTestLintModel
+> Task :mergeProjectDexDebug
+> Task :packageDebug
+> Task :createDebugApkListingFileRedirect UP-TO-DATE
+> Task :assembleDebug
+> Task :lintAnalyzeDebugAndroidTest
+> Task :lintAnalyzeDebugUnitTest
+> Task :lintAnalyzeDebug
+> Task :lintReportDebug
+> Task :lintDebug
+
+BUILD SUCCESSFUL in 1m 58s
+43 actionable tasks: 22 executed, 21 up-to-date

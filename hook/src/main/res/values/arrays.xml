@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 建议作用域：只列诊断用 probe；其他应用由用户在框架中主动勾选（合同第 1 节）。 -->
+    <string-array name="hook_suggested_scope">
+        <item>com.antiads.probe</item>
+    </string-array>
+</resources>

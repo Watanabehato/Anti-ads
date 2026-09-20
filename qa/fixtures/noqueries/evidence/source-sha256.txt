@@ -1,0 +1,8 @@
+c57867af831c91124769d4f2271eb46ebb9893af834e14af1ad463af58eb2093 *qa/fixtures/noqueries/settings.gradle.kts
+5d6b303755021596f47164862170161808ef9d7861f2fd031224c2725ae726a6 *qa/fixtures/noqueries/build.gradle.kts
+a79d1df3ecfbd93199df8c3b720583ffee39456c5b81e3dbf83ff533f7d5ec43 *qa/fixtures/noqueries/gradle.properties
+5dcf5f41cc9141e7ce5f15af183df41c0b82e50c73c4b21ab92d487c21bf23a3 *qa/fixtures/noqueries/src/main/AndroidManifest.xml
+dfb5749a8c6d93e21386b665bd0f6aa659505c38838802967bc56a742b4ab1e8 *qa/fixtures/noqueries/src/main/java/com/antiads/fixture/target/MainActivity.java
+ae0004e0cef681902d09f8832960578c021a1c076c19e71e590603a175f35aa6 *qa/fixtures/noqueries/src/main/res/values/strings.xml
+cb029b35db0e976c087100424e16e14a6256b46962398887520e51508c3b5842 *qa/fixtures/noqueries/src/main/res/xml/data_extraction_rules.xml
+e498fb435980945d8819f31eba6bd26aa88802de3c29d6842c2d6dc98b93ca92 *qa/fixtures/noqueries/src/main/res/drawable/ic_fixture.xml

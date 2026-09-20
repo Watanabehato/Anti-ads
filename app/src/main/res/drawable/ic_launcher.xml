@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 简单的应用图标：不引入任何第三方资源 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#1F6FEB"
+        android:pathData="M54,6 L96,22 L96,54 C96,78 78,96 54,102 C30,96 12,78 12,54 L12,22 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,52 L48,66 L76,38 L82,44 L48,78 L28,58 Z" />
+</vector>

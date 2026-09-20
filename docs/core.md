@@ -139,13 +139,13 @@
 
 | 测试类 | 数量 | 关注点 |
 | --- | --- | --- |
-| `ConservativeAdRuleEngineTest` | 25 | 上下文/文案/几何/时间的精确边界；误触反例；开关关闭与目标排除 |
+| `ConservativeAdRuleEngineTest` | 26 | 上下文/文案/几何/时间的精确边界；误触反例；开关关闭与目标排除；屏幕上界 |
 | `SensorPolicyScopeTest` | 7 | 作用范围、未选类型、运动应用不受影响、停用与租约过期恢复 |
 | `SensorPolicyEngineTest` | 9 | 租约 4999/5000/5001、5999/6000 边界、负数与时钟回退 |
 | `ConfigCodecTest` | 11 | 缺 schema、坏 JSON、未知枚举、越界、策略与报告字段校验 |
 | `ConfigValidatorTest` | 9 | revision 边界、包名语法、保留包键、类型/规则白名单、包数量上限 |
 | `PolicyResolverTest` | 5 | 三层开关交集、包不存在、关闭时清空类型但保留 revision |
-| **合计** | **66** | 全部通过（`BUILD SUCCESSFUL`，日志 `.tooling/core-test-t7.log`、`.tooling/core-test-restored.log`） |
+| **合计** | **67** | 全部通过（`BUILD SUCCESSFUL`，日志 `.tooling/core-test-t7.log`、`.tooling/core-test-t7b.log`） |
 
 **变异检查（证明测试能发现缺陷，不只是“跑绿”）**：临时注入 3 处缺陷后重跑，恰好且仅有 3 个用例失败：
 几何阈值放大（`geometryBoundariesAreExact`）、取消可编辑/密码节点整窗放弃（`editableOrPasswordNodeBlocksWholeWindow`）、

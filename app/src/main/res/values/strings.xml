@@ -1,13 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Anti-ads 防护</string>
-    <!-- 骨架占位文案：明确说明当前不代表已具备防护能力 -->
-    <string name="skeleton_placeholder">骨架阶段占位界面
 
-功能实现由对应模块所有者完成：
-界面与配置存储 = t8
-无障碍跳过 = t9
-Root/LSPosed 拦截与诊断 = t10
+    <string name="value_yes">是</string>
+    <string name="value_no">否</string>
+    <string name="value_unknown">未知</string>
 
-本页不代表任何“已保护 / 已激活”结论。</string>
+    <!-- 首页 -->
+    <string name="home_title">Anti-ads 防护（摇一摇广告防护）</string>
+    <string name="home_subtitle">两种模式相互独立：免 Root 无障碍跳过；增强模式需要 Root + LSPosed 框架。</string>
+    <string name="home_section_switches">总开关与两种模式</string>
+    <string name="home_master_switch">总开关（所有防护的上级开关）</string>
+    <string name="home_accessibility_switch">免 Root 模式：无障碍跳过（全局）</string>
+    <string name="home_hook_switch">增强模式：传感器拦截（全局，需要 Root/LSPosed）</string>
+    <string name="home_configured_count">已配置应用：%1$d 个</string>
+    <string name="home_saved_state">已保存配置，版本 %1$d；配置文件状态：%2$s</string>
+    <string name="health_ready">正常</string>
+    <string name="health_defaults">尚无配置文件（全部关闭）</string>
+    <string name="health_corrupt">配置文件损坏，已回到全部关闭（代码：%1$s）</string>
+    <string name="health_io_error">配置文件读取失败，已回到全部关闭（代码：%1$s）</string>
+
+    <!-- 免 Root 模式状态 -->
+    <string name="home_section_accessibility">免 Root 模式状态</string>
+    <string name="accessibility_system_authorized">系统设置授权：%1$s</string>
+    <string name="accessibility_actually_connected">服务实际已连接：%1$s</string>
+    <string name="accessibility_phase">运行阶段：%1$s</string>
+    <string name="accessibility_active_package">正在观察：%1$s</string>
+    <string name="accessibility_last_action">最近一次跳过动作：%1$s（%2$d 秒前，%3$s）</string>
+    <string name="accessibility_last_action_none">最近一次跳过动作：无记录</string>
+    <string name="accessibility_error_code">最近状态码：%1$s</string>
+    <string name="phase_disconnected">未连接（系统未绑定服务）</string>
+    <string name="phase_idle">已连接，当前没有合格目标</string>
+    <string name="phase_watching">已连接，正在观察合格目标</string>
+    <string name="phase_paused">已连接，但防护开关已关闭</string>
+    <string name="phase_error">错误</string>
+    <string name="action_accepted_true">系统已接受点击动作（不代表广告已消失）</string>
+    <string name="action_accepted_false">系统未接受点击动作</string>
+
+    <!-- 增强模式状态 -->
+    <string name="home_section_hook">增强模式状态（进程自报，不等于可信框架证明）</string>
+    <string name="hook_no_report">未观察到注入/尚未报告：可能未激活模块、目标未加入作用域、目标进程未重启，或该应用本来就没有传感器回调。</string>
+    <string name="hook_report_line">%1$s · PID %2$d · 令牌 %3$s\n安装状态：%4$s\n读取状态：%5$s；策略版本：%6$s\n累计 Java 回调：%7$d；累计丢弃：%8$d\n时间：%9$s（进程自报）</string>
+    <string name="install_state_waiting">等待目标进程 Context（尚未安装 Hook）</string>
+    <string name="install_state_installed">Java 回调 Hook 已安装</string>
+    <string name="install_state_unsupported">读取成功，但当前实现不支持拦截</string>
+    <string name="install_state_error">安装出错</string>
+    <string name="transport_never_read">从未读取配置</string>
+    <string name="transport_ok">已读取配置</string>
+    <string name="transport_unavailable">宿主不可达</string>
+    <string name="transport_unauthorized">读取被拒绝</string>
+    <string name="transport_invalid">回复无效</string>
+    <string name="transport_expired">租约已过期</string>
+    <string name="report_age_seconds">%1$d 秒前</string>
+    <string name="report_expired">报告已过期（超过 15 秒）</string>
+
+    <!-- 入口 -->
+    <string name="home_section_actions">权限与入口</string>
+    <string name="home_open_accessibility_settings">打开系统无障碍设置</string>
+    <string name="home_open_framework_manager">打开框架管理器（LSPosed）</string>
+    <string name="home_open_probe">打开诊断应用（probe）</string>
+    <string name="home_manage_packages">应用选择与每应用配置</string>
+    <string name="toast_no_accessibility_settings">未找到系统无障碍设置入口，请到“设置 → 无障碍”手动开启</string>
+    <string name="toast_no_framework_manager">未找到兼容的框架管理器：请在 Root/LSPosed 管理器内激活“Anti-ads 防护”，并把目标应用加入作用域</string>
+    <string name="toast_no_probe">未找到诊断应用（com.antiads.probe），请先安装 probe-debug.apk</string>
+    <string name="toast_saved_revision">已保存配置，版本 %1$d</string>
+    <string name="toast_rejected_conflict">配置已被其他更改更新（版本冲突），已刷新为最新配置，请重试</string>
+    <string name="toast_rejected_invalid">配置无效，未保存</string>
+    <string name="toast_rejected_io">写入失败，未保存（磁盘错误）</string>
+    <string name="toast_rejected_exhausted">版本号已耗尽，无法再保存</string>
+    <string name="toast_rejected_unknown">保存被拒绝：%1$s</string>
+
+    <!-- 能力边界与停用恢复 -->
+    <string name="home_section_limits">能力边界（必须知道）</string>
+    <string name="home_limits_text">• 免 Root 模式：需要你在系统设置里手动授予无障碍权限；自绘界面、游戏画面、无法访问的 WebView、没有语义节点的按钮都可能无法处理。\n• 增强模式：只在设备已有 Root + 兼容 LSPosed 框架，且模块已激活、目标应用已加入作用域、目标进程重启完成后才可能生效；只拦截已识别的 Java 传感器事件分发路径。\n• Native/直接通道（NDK、JNI 自建读取、SensorDirectChannel 共享内存）不在 v1 拦截范围内。\n• 多进程、多用户、工作资料、共享 UID 应用需要单独验证，不保证自动覆盖。\n• 本应用不申请网络权限，不上传包列表、界面内容或传感器数据；Android 版本与 OEM 差异请以“未验证”看待。</string>
+    <string name="home_section_disable_recovery">停用与恢复</string>
+    <string name="home_disable_recovery_text">• 关闭总开关或对应模式开关后：无障碍会在点击前重新读取配置并取消排队动作；增强模式一般在 2 秒左右收到关闭（含最多 1 秒读取时间），最迟在 5 秒租约到期后无条件放行。\n• 撤销系统无障碍授权会立即停止处理。\n• 停止 LSPosed 注入本身需要目标应用重启；只关框架模块不关产品开关时，已注入进程可能继续工作到该进程重启，请优先在产品内关闭开关。\n• 卸载本应用后，目标进程最迟在该次配置租约（5 秒）到期后放行。</string>
+
+    <!-- 应用选择 -->
+    <string name="list_title">应用选择</string>
+    <string name="list_section_configured">已配置的应用</string>
+    <string name="list_section_launchable">可启动应用（点击进入每应用配置）</string>
+    <string name="list_empty_configured">还没有配置任何应用。</string>
+    <string name="list_empty_launchable">没有查询到可启动应用（Android 11 及以上包可见性限制可能使列表不完整）。</string>
+    <string name="list_visibility_note">Android 11（API 30）及以上默认限制包可见性：本列表只包含可启动应用与已配置包，因此可能不完整。目标不在列表中时，请用下方输入包名添加。</string>
+    <string name="list_add_hint">直接输入包名添加（例如 com.example.app）</string>
+    <string name="list_add_button">按包名添加</string>
+    <string name="list_add_success">已添加应用配置：%1$s</string>
+    <string name="list_add_invalid">包名不合法，未添加</string>
+    <string name="list_add_rejected">该包名不允许配置（宿主、系统界面或包名格式不符）</string>
+    <string name="row_configured_summary">无障碍跳过：%1$s；传感器拦截：%2$s</string>
+    <string name="row_not_configured">未配置（点击进入配置）</string>
+    <string name="row_label_suffix">（%1$s）</string>
+
+    <!-- 每应用配置 -->
+    <string name="detail_title">每应用配置</string>
+    <string name="detail_package">包名：%1$s</string>
+    <string name="detail_label">应用名：%1$s</string>
+    <string name="detail_label_unavailable">应用名：未知（当前包可见性下无法读取，仅按包名配置）</string>
+    <string name="detail_section_modes">该应用的防护模式</string>
+    <string name="detail_accessibility_switch">免 Root 模式：跳过明确标注的广告“跳过”按钮</string>
+    <string name="detail_hook_switch">增强模式：拦截该应用的 Java 传感器事件</string>
+    <string name="detail_section_sensors">增强模式要拦截的传感器类型</string>
+    <string name="sensor_accelerometer">加速度计（摇一摇常用）</string>
+    <string name="sensor_gyroscope">陀螺仪</string>
+    <string name="sensor_gravity">重力</string>
+    <string name="sensor_linear_acceleration">线性加速度</string>
+    <string name="sensor_rotation_vector">旋转矢量</string>
+    <string name="detail_sensor_note">全部取消选中表示不做传感器拦截（空集合不拦截）。运动、导航、游戏、计步等正常功能可能受影响。</string>
+    <string name="detail_effect_note">保存成功只代表配置已持久化，不代表已经拦截：还需要总开关与对应全局开关开启、目标进程实际读取到配置，并在系统或框架内完成授权。</string>
+    <string name="detail_inactive_note">注意：总开关或对应的全局模式开关当前未开启，该应用的这项配置尚未实际生效。</string>
+    <string name="detail_rule_note">内置保守规则：只点击独立“广告”标签旁、位于右上角、文案严格匹配“跳过/跳过 5 秒/Skip”等的按钮；输入框、密码框、锁屏、系统界面一律不处理。</string>
+    <string name="detail_remove_button">移除该应用的配置</string>
+    <string name="detail_removed">已移除该应用的配置：%1$s</string>
 </resources>

@@ -15,7 +15,7 @@ android {
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "0.1.0-skeleton"
+        versionName = "0.1.0"
         // 仅 androidTest 作用域的基础设施；产品运行依赖不包含 androidx.test
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // 无 debug applicationIdSuffix：Provider authority 必须稳定为 com.antiads.app.config

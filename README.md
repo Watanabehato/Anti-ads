@@ -1,58 +1,57 @@
 # Anti-ads：摇一摇广告防护（Android 10 / API 29+）
 
-本仓库是 Anti-ads 五模块 Android 工程：**免 Root 无障碍跳过** 与 **Root/LSPosed 传感器拦截** 双模式并行，
-另含一个独立诊断 APK 用于提供可复现的广告样例与传感器计数基线。
+Anti-ads 是一个**本地运行、无联网**的 Android 防护工具，用两种互补方式降低“摇一摇”开屏广告带来的误跳转：
 
-> 当前处于**工程骨架阶段**（任务 t2）。骨架只提供可编译的五模块结构、统一工具链与 core 公共接口基线，
-> **不代表任何“已保护/已生效”结论**。真实设备验证尚未进行。
-
-## 平台与能力边界（不承诺全面覆盖）
-
-- Android 不存在“普通应用无条件禁止其他应用读取传感器”的公共接口；本项目只降低被识别的摇一摇触发概率。
-- 免 Root 模式：需要用户手动授予无障碍权限，仅对明确启用且可访问的窗口尝试点击文案精确匹配的“跳过”按钮；
-  自绘画面、游戏画面、不可访问 WebView、无语义节点等场景不处理。
-- Root/LSPosed 模式：需要用户已有兼容框架并激活模块、勾选作用域、重启目标进程；只拦截已定位的
-  Java 传感器分发路径，NDK/JNI 自建读取、SensorDirectChannel、厂商私有接口不在 v1 覆盖范围。
-- 首批目标为 API 29～34（框架候选范围），API 35+ 需使用明确支持该版本的维护版框架并逐版本验证。
-- 两种模式默认全部关闭，应用名单为空；每包默认屏蔽加速度计/陀螺仪/重力/线性加速度/旋转矢量，
-  可能影响运动、导航、游戏、计步等正常功能。
-
-## 模块结构
-
-| 模块 | 类型 | 命名空间 | 职责 |
+| 模式 | 前提 | 能做什么 | 不能做什么 |
 | --- | --- | --- | --- |
-| `:core` | Kotlin/JVM 纯库 | com.antiads.core | 配置模型、JSON 编解码、校验、策略求交、传感器决策、规则输入输出 |
-| `:app` | 宿主 APK | com.antiads.app | 中文界面、配置存储、只读策略 Provider、状态聚合（同时承载 LSPosed 模块入口） |
-| `:accessibility` | Android 库 | com.antiads.accessibility | 无障碍服务、窗口/节点快照、保守点击执行 |
-| `:hook` | Android 库 | com.antiads.hook | LSPosed 入口、Java 传感器分发 Hook、异步配置客户端 |
-| `:probe` | 独立 APK | com.antiads.probe | 无联网传感器计数与广告正反例样例页 |
+| 免 Root（无障碍） | 用户在系统设置中手动启用本应用的无障碍服务 | 在**明确启用**的目标应用窗口里，点击文案精确匹配“跳过”且位于右上角的按钮；执行前后有完整复核 | 不改动/不阻断传感器；自绘画面、游戏、不可访问 WebView、无语义节点、按钮不在右上角时不处理；无法保证比广告跳转更早 |
+| Root / LSPosed（增强） | 用户已有兼容框架，已激活模块、勾选作用域并重启目标进程 | 在**被注入的目标进程内**丢弃所选传感器类型的 Java 分发回调 | 不覆盖 NDK/JNI 自建读取、`SensorDirectChannel`、厂商私有接口；不注销原监听器、不改写读数 |
 
-依赖方向：`:accessibility`/`:hook` → `:core`；`:app` → 三者；`:probe` → `:core`。
-`:core` 不依赖 Android/Context/Binder/Xposed，也不依赖其他工程模块。
+两种模式可以同时使用，也各自独立关闭；**首次安装时全部关闭、应用名单为空**，只有用户显式勾选的应用才会被处理。
 
-## 快速开始（本机已固定工具链）
+> **本项目不承诺覆盖所有应用、所有系统版本或所有广告形式。** 已实现范围、平台边界与未测项在
+> [docs/requirements.md](docs/requirements.md)、[docs/install.md](docs/install.md) 与 [docs/qa-plan.md](docs/qa-plan.md) 中原样披露。
+
+## 工程结构（五模块）
+
+| 模块 | 类型 | 职责 |
+| --- | --- | --- |
+| `:core` | Kotlin/JVM 纯库 | 配置模型与校验、JSON 编解码、开关求交、传感器决策、保守广告规则（**唯一**判定实现） |
+| `:app` | 宿主 APK（同时是 LSPosed 模块） | 中文界面、配置持久化、受控只读 Provider、状态事实展示 |
+| `:accessibility` | Android 库 | 无障碍服务、窗口/节点快照、执行前复核、保守点击 |
+| `:hook` | Android 库 | LSPosed 入口、Java 传感器分发 Hook、异步配置客户端（合入 `:app`） |
+| `:probe` | 独立诊断 APK | 真实传感器计数、广告正反例样例页（QA 用，不申请 INTERNET） |
+
+## 构建与测试
 
 ```bash
-# 骨架编译与组装（合同验证命令，原样可复现）
-bash ./gradlew --no-daemon :core:compileKotlin :accessibility:assembleDebug :hook:assembleDebug :app:assembleDebug :probe:assembleDebug
+# 全量约定验证（五个模块单测 + 四个模块 lint + 两个 APK + 两个测试 APK）
+bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:testDebugUnitTest :hook:testDebugUnitTest :probe:testDebugUnitTest \
+  :app:lintDebug :accessibility:lintDebug :hook:lintDebug :probe:lintDebug \
+  :app:assembleDebug :probe:assembleDebug :app:assembleDebugAndroidTest :probe:assembleDebugAndroidTest
 
-# core 纯 JVM 单测
-bash ./gradlew --no-daemon :core:test
+# 产物
+#   app/build/outputs/apk/debug/app-debug.apk      （管理端，同时是 LSPosed 模块）
+#   probe/build/outputs/apk/debug/probe-debug.apk  （诊断）
 ```
 
-工具链版本、绝对路径、SDK 已装包、重建方法与环境限制见 [docs/build.md](docs/build.md)。
+工具链版本、工具绝对路径、SDK 已装包与复现方法见 [docs/build.md](docs/build.md)（本仓库不携带 JDK/SDK/工具缓存）。
 
-## 文档
+## 使用与边界
 
-- [需求与验收基线](docs/requirements.md)
-- [五模块架构与协作边界](docs/architecture.md)
-- [跨模块接口合同](docs/contracts.md)
-- [构建、工具链与复用命令](docs/build.md)
+- 安装、授予无障碍权限、启用增强模式（框架作用域）、停用与卸载：[docs/install.md](docs/install.md)
+- 隐私说明（不联网、不采集、不外传）：[docs/privacy.md](docs/privacy.md)
+- 各模式实现细节：[docs/core.md](docs/core.md)、[docs/accessibility.md](docs/accessibility.md)、[docs/hook.md](docs/hook.md)、[docs/probe.md](docs/probe.md)
+- 需求、架构与接口合同：[docs/requirements.md](docs/requirements.md)、[docs/architecture.md](docs/architecture.md)、[docs/contracts.md](docs/contracts.md)
+- QA 场景矩阵与设备验证计划：[docs/qa-plan.md](docs/qa-plan.md)
 
-## 隐私与安全
+## 隐私与安全设计
 
-不申请 INTERNET、不上传包列表/界面内容/传感器数据；不自动提权、不修改 SELinux、不代替用户授予权限。
-配置只持久化在管理端应用私有目录；目标进程仅能读取自己所属包的最小策略。
+- 不申请 `INTERNET`，不上传包名列表、界面文本、传感器数据或使用统计。
+- 配置只写入应用私有目录（AtomicFile + revision 比较后提交）；Provider 仅暴露两个只读 `call` 方法，
+  每次调用都用 `Binder.getCallingUid()` 现场鉴权，只返回调用方自己那个包的最小策略，**没有任何远程写接口**。
+- 无障碍只执行通过全部约束的 `ACTION_CLICK`；不做坐标点击、滑动、返回/Home、自动同意权限、支付或安装确认。
+- 关闭总开关/模式开关/每包开关后，排队动作取消、执行前重读配置；Hook 侧最多 5 秒租约后放行未来回调。
 
 ## 许可证
 

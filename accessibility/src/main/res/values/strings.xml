@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_service_label">Anti-ads 无障碍跳过</string>
+    <string name="accessibility_service_summary">仅对已选应用里的“跳过”控件点击一次</string>
+    <string name="accessibility_service_description">免 Root 跳过：只在你选择的应用中，当窗口同时出现独立的“广告”上下文与“跳过”控件，且执行前复核通过（未锁屏、非敏感界面、窗口期与快照新鲜、节点仍可点击且文案未变）时发送一次点击。不模拟手势，不使用返回键，不做模糊匹配，不保证对所有应用有效。</string>
+</resources>

@@ -1,0 +1,106 @@
+package com.antiads.probe.diag
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Test
+
+/** 诊断行格式必须是可机器解析的一行 JSON，且不包含界面文本/传感器读数。 */
+class DiagJsonTest {
+
+    private fun frame(rows: List<TypeMeasurement>) = DiagFrame(
+        seq = 3L,
+        sessionId = "11111111-2222-4333-8444-555555555555",
+        registrationSeq = 2,
+        host = DiagHost.INSTRUMENTATION,
+        activityResumed = false,
+        pid = 1234,
+        elapsedMs = 98765L,
+        controlType = 2,
+        rows = rows
+    )
+
+    private fun row(
+        sensorType: Int = 1,
+        selected: Boolean = true,
+        registerResult: Boolean? = true,
+        state: SamplingState = SamplingState.REGISTERED,
+        callbacks: Long = 42L,
+        lastCallback: Long? = 98700L
+    ) = TypeMeasurement(
+        sensorType = sensorType,
+        exists = true,
+        selected = selected,
+        registerAttempted = true,
+        registerResult = registerResult,
+        samplingState = state,
+        callbacks = callbacks,
+        callbacksSinceRegister = callbacks,
+        lastCallbackElapsedMs = lastCallback,
+        gapSinceLastMs = lastCallback?.let { 98765L - it },
+        shakes = 2L
+    )
+
+    @Test
+    fun rowLineCarriesIdentityAndCounters() {
+        val line = DiagJson.row(frame(listOf(row())), row())
+        assertTrue(line.contains("\"tag\":\"" + DiagJson.LOG_TAG + "\""))
+        assertTrue(line.contains("\"sessionId\":\"11111111-2222-4333-8444-555555555555\""))
+        assertTrue(line.contains("\"registrationSeq\":2"))
+        assertTrue(line.contains("\"host\":\"INSTRUMENTATION\""))
+        assertTrue(line.contains("\"activityResumed\":false"))
+        assertTrue(line.contains("\"type\":1"))
+        assertTrue(line.contains("\"callbacks\":42"))
+        assertTrue(line.contains("\"samplingState\":\"REGISTERED\""))
+        assertTrue(line.contains("\"control\":false"))
+        assertTrue("行必须单行输出", !line.contains("\n"))
+        assertTrue(line.startsWith("{") && line.endsWith("}"))
+    }
+
+    @Test
+    fun nullFieldsAreEmittedAsJsonNull() {
+        val line = DiagJson.row(
+            frame(listOf(row(registerResult = null, lastCallback = null))),
+            row(registerResult = null, lastCallback = null)
+        )
+        assertTrue(line.contains("\"registerResult\":null"))
+        assertTrue(line.contains("\"lastCallbackElapsedMs\":null"))
+        assertTrue(line.contains("\"gapSinceLastMs\":null"))
+    }
+
+    @Test
+    fun controlRowIsMarked() {
+        val controlRow = row(sensorType = 2, selected = false)
+        val line = DiagJson.row(frame(listOf(controlRow)), controlRow)
+        assertTrue(line.contains("\"control\":true"))
+        assertTrue(line.contains("\"selected\":false"))
+    }
+
+    @Test
+    fun summaryCarriesVerdictAndControlGate() {
+        val line = DiagJson.summary(
+            frame(listOf(row())),
+            verdict = "INCONCLUSIVE_CONTROL_SILENT",
+            controlContinuous = false,
+            note = "no_callbacks_during_window"
+        )
+        assertTrue(line.contains("\"kind\":\"summary\""))
+        assertTrue(line.contains("\"verdict\":\"INCONCLUSIVE_CONTROL_SILENT\""))
+        assertTrue(line.contains("\"controlContinuous\":false"))
+        assertTrue(line.contains("\"controlType\":2"))
+    }
+
+    @Test
+    fun noteIsEscaped() {
+        val line = DiagJson.summary(frame(listOf(row())), "X", true, "quote\"and\\slash")
+        assertTrue(line.contains("quote\\\"and\\\\slash"))
+    }
+
+    @Test
+    fun silenceWindowLineExposesBeforeAndAfterTimestamps() {
+        val line = DiagJson.silenceWindow(sensorType = 1, lastBeforeMs = 1000L, resumedAtMs = 6800L, silenceMs = 5800L)
+        assertTrue(line.contains("\"kind\":\"silenceWindow\""))
+        assertTrue(line.contains("\"lastCallbackBeforeGapMs\":1000"))
+        assertTrue(line.contains("\"resumedAtMs\":6800"))
+        assertTrue(line.contains("\"silenceMs\":5800"))
+    }
+}

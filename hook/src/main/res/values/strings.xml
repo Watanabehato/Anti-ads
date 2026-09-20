@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 显示在 LSPosed 模块列表里的中文说明；不夸大覆盖范围。 -->
+    <string name="hook_module_description">Anti-ads 传感器防护（增强模式）：仅拦截所选应用进程内已识别的 Java 传感器事件分发，用于减少“摇一摇”广告触发。需要用户在框架中激活模块、勾选具体应用作用域并重启目标应用；不改写传感器数据、不注销原监听器、不覆盖 Native/Direct Channel 路径。</string>
+</resources>

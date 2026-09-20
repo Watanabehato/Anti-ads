@@ -1,8 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="probe_app_name">Anti-ads 诊断</string>
-    <string name="skeleton_placeholder">骨架阶段占位界面
+    <string name="probe_title">Anti-ads 诊断（无联网）</string>
+    <string name="probe_note">本页使用真实 SensorManager 计数，仅用于对比不同开关状态下的回调变化。它不伪造广告、不联网、不写任何配置；"被拦截"只能由回调缺口与对照类型共同判定。</string>
+    <string name="probe_state_placeholder">待刷新…</string>
+    <string name="probe_state_running">运行中</string>
+    <string name="probe_state_stopped">已停止</string>
+    <string name="probe_state_line">采样状态：%1$s · 承载=ACTIVITY · sessionId=%2$s · registrationSeq=%3$d · activityResumed=%4$s</string>
+    <string name="probe_control_line">对照类型（设备可用且未被选入拦截）：%1$s</string>
+    <string name="probe_control_fmt">%1$s（类型 %2$d）</string>
+    <string name="probe_control_none">无对照（设备没有可用的未选类型）</string>
+    <string name="probe_shake_line">摇动计数=%1$d · 超阈值运动事件=%2$d（仅诊断用，不代表拦截成功）</string>
+    <string name="probe_row_format">%1$s（类型 %2$d）
+存在=%3$s · 注册返回=%4$s · 回调=%5$d · 本次注册=%6$d · 最近=%7$s · 状态=%8$s · 摇动=%9$d</string>
+    <string name="probe_yes">是</string>
+    <string name="probe_no">否</string>
+    <string name="probe_not_attempted">未尝试</string>
+    <string name="probe_last_ms_fmt">%1$d ms 前</string>
+    <string name="probe_no_callback">无回调</string>
+    <string name="probe_button_start">开始采样</string>
+    <string name="probe_button_stop">停止采样</string>
+    <string name="probe_button_scenario_fmt">打开广告样例：%1$s</string>
+    <string name="probe_start_hint">点"开始采样"注册监听；离开本页会注销，返回后不会自动重启。</string>
+    <string name="probe_running_hint">采样中：可切到管理端改变开关，再回到本页观察（切换页面会暂停采样）。</string>
+    <string name="probe_paused_hint">离开页面已自动注销监听；需要重新点"开始采样"（不会自动重启）。</string>
+    <string name="probe_stopped_hint">已停止采样并注销全部监听。</string>
+    <string name="probe_start_failed_hint">没有可用类型注册成功：本机型可能没有对应传感器或注册被拒绝。</string>
+    <string name="probe_section_fixtures">广告样例（本地测试内容）</string>
+    <string name="probe_fixture_note">样例页只产生本地内容：正例含独立"广告"标签与右上角可点击"跳过 5 秒"；反例分别缺少广告上下文、按钮不可点击、按钮位于下方、窗口含输入框。未知 scenario 回落 no_ad_label。</string>
+    <string name="probe_section_self_check">策略自查（默认关闭，非拦截证据）</string>
+    <string name="probe_self_check_toggle">读取本机策略（probe 自读，最多 1 次/秒）</string>
+    <string name="probe_self_check_off">未开启（自读结果不代表目标进程的 Hook 状态）</string>
+    <string name="probe_self_check_fmt">状态=%1$s · revision=%2$s · hookEnabled=%3$s · blockedTypes=[%4$s] · error=%5$s</string>
+    <string name="probe_section_lifecycle">生命周期与判定</string>
+    <string name="probe_lifecycle_note">onPause 注销全部监听并停止 UI timer；onResume 不会偷偷重启采样。要验证"关闭总开关后同一注册恢复"，请用 probe/src/androidTest 的 RegistrationHoldTest（instrumentation 承载，不随 Activity pause 注销），并保证对照类型在基线与关闭窗口内持续有回调，否则该次实验判为不可判定。</string>
 
-传感器计数与广告样例由 t10 实现。
-本页不注册传感器、不代表任何实测结论。</string>
+    <string name="fixture_ad_context">广告</string>
+    <string name="fixture_skip_text">跳过 5 秒</string>
+    <string name="fixture_status_idle">等待</string>
+    <string name="fixture_status_skipped">已跳过</string>
+    <string name="fixture_local_only">（本地测试内容）</string>
+    <string name="fixture_scenario_title_fmt">场景：%1$s %2$s</string>
+    <string name="fixture_editable_hint">输入框（本窗口不应被自动点击）</string>
 </resources>

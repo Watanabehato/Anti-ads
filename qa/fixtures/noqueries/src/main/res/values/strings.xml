@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">无 queries 测试目标</string>
+    <string name="title">Provider 可见性对照夹具</string>
+    <string name="description">独立测试应用，不拦截传感器、不自动读取策略。手动读取结果只说明本次 Provider 调用，不证明 Hook 生效。零事件也可能是无硬件、注册失败、静止或后台限制。</string>
+    <string name="start">开始新一轮采样（清零计数）</string>
+    <string name="stop">停止采样</string>
+    <string name="read_once">以自身 UID 读取一次策略</string>
+    <string name="query_wait">读取进行中（不重试，不阻塞采样）</string>
+    <string name="not_read">尚未手动读取；不会自动重试或轮询。</string>
+    <string name="missing_sensor">不存在</string>
+    <string name="query_description">只调用 get_policy_v1，自身包名作为 arg。异常、null 或失败 Bundle 均如实显示；不会写配置或因读取结果停止传感器。</string>
+    <string name="identity">包：%1$s\nUID：%2$d　PID：%3$d　API：%4$d\n页面会话：%5$s</string>
+    <string name="lifecycle">生命周期：%1$s　RESUMED=%2$b\n采样请求：%3$b　注册轮次：%4$d　注销调用次数：%5$d\n页面创建/最近resume/pause（elapsed ms）：%6$d / %7$d / %8$d\n返回页面不会自动恢复；旋转重建会产生新会话。当前elapsed ms：%9$d</string>
+    <string name="sensor_row">类型 %1$d：%2$s\n硬件：%3$s\nregisterListener 返回：%4$s　状态：%5$s\n回调数：%6$d　最近回调 elapsed ms：%7$d\n注册成功/注销调用 elapsed ms：%8$d / %9$d</string>
+</resources>

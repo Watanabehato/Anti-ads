@@ -3,6 +3,9 @@
 *.bat text eol=crlf
 gradlew text eol=lf
 *.sh text eol=lf
+# QA 证据文件保持原始字节：不做行尾转换，避免改变已记录的证据哈希
+qa/fixtures/noqueries/evidence/** -text
+
 *.jar binary
 *.zip binary
 *.png binary

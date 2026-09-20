@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  :accessibility 库 Manifest（骨架基线）。
-  由 t9(accessibility-engineer) 追加：AdSkipService 声明、BIND_ACCESSIBILITY_SERVICE 权限、
-  exported=true、android:exported 与 service XML（canRetrieveWindowContent=true、
-  canPerformGestures=false、typeWindowStateChanged|typeWindowContentChanged、
-  feedbackGeneric、notificationTimeout=100、flagRetrieveInteractiveWindows|flagReportViewIds）。
-  只由系统绑定，不声明任何可被普通应用调用的入口。
+  :accessibility 库 Manifest（t9）。
+  只声明一个由系统绑定的无障碍服务：exported=true 且带 BIND_ACCESSIBILITY_SERVICE 权限，
+  普通应用既不能启动也不能绑定；除系统外没有任何调用入口。
+  服务配置见 res/xml/accessibility_service_config.xml（内容检索、无手势、无触摸探索/按键过滤）。
 -->
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <service
+            android:name="com.antiads.accessibility.AdSkipService"
+            android:description="@string/accessibility_service_description"
+            android:exported="true"
+            android:label="@string/accessibility_service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+    </application>
+
+</manifest>

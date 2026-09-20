@@ -1,0 +1,62 @@
+D:\test\Anti-ads\qa\fixtures\noqueries\local.properties:1: Error: Windows file separators (\) and drive letter separators (':') must be escaped (\\) in property files; use D\:/test/Anti-ads/.tooling/android-sdk [PropertyEscape]
+sdk.dir=D:/test/Anti-ads/.tooling/android-sdk
+         ~
+D:\test\Anti-ads\qa\fixtures\noqueries\local.properties:1: Error: Windows file separators (\) and drive letter separators (':') must be escaped (\\) in property files; use D\:/test/Anti-ads/.tooling/android-sdk [PropertyEscape]
+sdk.dir=D:/test/Anti-ads/.tooling/android-sdk
+         ~
+D:\test\Anti-ads\qa\fixtures\noqueries\local.properties:1: Error: Windows file separators (\) and drive letter separators (':') must be escaped (\\) in property files; use D\:/test/Anti-ads/.tooling/android-sdk [PropertyEscape]
+sdk.dir=D:/test/Anti-ads/.tooling/android-sdk
+         ~
+
+   Explanation for issues of type "PropertyEscape":
+   All backslashes and colons in .property files must be escaped with a
+   backslash (). This means that when writing a Windows path, you must escape
+   the file separators, so the path MyFiles should be written as
+   key=\\My\\Files.
+
+D:\test\Anti-ads\qa\fixtures\noqueries\src\main\res\values\strings.xml:12: Error: Formatting %d followed by words ("Activity"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="identity">包：%1$s
+    ^
+
+   Explanation for issues of type "PluralsCandidate":
+   This lint check looks for potential errors in internationalization where
+   you have translated a message which involves a quantity and it looks like
+   other parts of the string may need grammatical changes.
+
+   For example, rather than something like this:
+     <string name="try_again">Try again in %d seconds.</string>
+   you should be using a plural:
+      <plurals name="try_again">
+           <item quantity="one">Try again in %d second</item>
+           <item quantity="other">Try again in %d seconds</item>
+       </plurals>
+   This will ensure that in other languages the right set of translations are
+   provided for the different quantity classes.
+
+   (This check depends on some heuristics, so it may not accurately determine
+   whether a string really should be a quantity. You can use tools:ignore to
+   filter out false positives.
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+D:\test\Anti-ads\qa\fixtures\noqueries\src\main\AndroidManifest.xml:5: Error: The attribute android:allowBackup is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute android:dataExtractionRules specifying an @xml resource which configures cloud backups and device transfers on Android 12 and higher. [DataExtractionRules]
+        android:allowBackup="false"
+                             ~~~~~
+
+   Explanation for issues of type "DataExtractionRules":
+   Before Android 12, the attributes android:allowBackup and
+   android:fullBackupContent were used to configure all forms of backup,
+   including cloud backups, device-to-device transfers and adb backup.
+
+   In Android 12 and higher, these attributes have been deprecated and will
+   only apply to cloud backups. You should instead use the attribute
+   android:dataExtractionRules, specifying an @xml resource that configures
+   which files to back up, for cloud backups and for device-to-device
+   transfers, separately. If your minSdkVersion supports older versions,
+   you'll still want to specify an android:fullBackupContent resource if the
+   default behavior is not right for your app.
+
+   https://developer.android.com/about/versions/12/backup-restore#xml-changes
+   https://goo.gle/DataExtractionRules
+
+5 errors, 0 warnings

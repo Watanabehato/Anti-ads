@@ -35,15 +35,19 @@ jobs:
             ~/.gradle/wrapper
           key: gradle-8.9-deps-v1
 
-      - name: Skeleton build (contract verify command)
+      # 与 docs/build.md 的“全量约定验证”完全一致：五模块单测 + 四模块 lint + 两个 APK + 两个测试 APK
+      - name: Unit tests (5 modules)
         run: |
           chmod +x gradlew
-          ./gradlew --no-daemon :core:compileKotlin :accessibility:assembleDebug :hook:assembleDebug :app:assembleDebug :probe:assembleDebug
+          ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:testDebugUnitTest :hook:testDebugUnitTest :probe:testDebugUnitTest
 
-      - name: Core unit tests
-        run: ./gradlew --no-daemon :core:test
+      - name: Lint (4 Android modules)
+        run: ./gradlew --no-daemon :app:lintDebug :accessibility:lintDebug :hook:lintDebug :probe:lintDebug
 
-      - name: Upload debug APKs
+      - name: Assemble APKs and instrumentation test APKs
+        run: ./gradlew --no-daemon :app:assembleDebug :probe:assembleDebug :app:assembleDebugAndroidTest :probe:assembleDebugAndroidTest
+
+      - name: Upload APKs and test APKs
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -51,4 +55,6 @@ jobs:
           path: |
             app/build/outputs/apk/debug/*.apk
             probe/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/androidTest/debug/*.apk
+            probe/build/outputs/apk/androidTest/debug/*.apk
           if-no-files-found: warn
