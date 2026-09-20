@@ -103,7 +103,7 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 
 执行时间、命令与退出码见本节；完整日志保留在 `.tooling/`（不入库）。
 
-### 4.1 当前全量集成验证（t11，最终交付口径）
+### 4.1 全量集成验证（t11 集成口径；QA-01～04 修复后的产物见 [修复对照](repair-qa01-04.md)）
 
 ```bash
 $ cd /d/test/Anti-ads
