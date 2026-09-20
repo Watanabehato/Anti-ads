@@ -265,11 +265,34 @@ class ConservativeAdRuleEngineTest {
     }
 
     @Test
+    fun screenDimensionLimitIsExactAndConservative() {
+        val limit = ConservativeAdRuleEngine.MAX_SCREEN_DIMENSION_PX
+        assertEquals(100_000, limit)
+
+        // 上界内的大屏幕：按比例放在右上角的按钮仍能被命中（证明比例乘法在 Long 域正确）
+        val bigNodes = listOf(
+            contextNode().copy(bounds = Bounds(10_000, 40_000, 20_000, 50_000)),
+            node(0, text = "跳过", bounds = Bounds(66_000, 0, 69_000, 20_000))
+        )
+        assertEquals(1, engine.evaluate(config(), window(bigNodes, width = limit, height = limit)).size)
+
+        // 超限：保守不匹配，返回空列表
+        assertTrue(engine.evaluate(config(), window(bigNodes, width = limit + 1, height = limit)).isEmpty())
+        assertTrue(engine.evaluate(config(), window(bigNodes, width = limit, height = limit + 1)).isEmpty())
+    }
+
+    @Test
     fun extremeBoundsDoNotOverflow() {
         val huge = Bounds(Int.MAX_VALUE - 1, Int.MAX_VALUE - 1, Int.MAX_VALUE, Int.MAX_VALUE)
         assertTrue(engine.evaluate(config(), window(listOf(contextNode(), node(0, text = "跳过", bounds = huge)))).isEmpty())
         val negative = Bounds(Int.MIN_VALUE, Int.MIN_VALUE, Int.MIN_VALUE + 10, Int.MIN_VALUE + 10)
         assertTrue(engine.evaluate(config(), window(listOf(contextNode(), node(0, text = "跳过", bounds = negative)))).isEmpty())
+
+        // left + right 若按 Int 计算会溢出（2e9 + 2e9 > Int.MAX_VALUE）：越界守卫先于算术生效
+        val wouldOverflowInt = Bounds(2_000_000_000, 0, 2_000_000_100, 100)
+        assertTrue(
+            engine.evaluate(config(), window(listOf(contextNode(), node(0, text = "跳过", bounds = wouldOverflowInt)))).isEmpty()
+        )
     }
 
     @Test

@@ -72,7 +72,31 @@
 - `^skip(?:\s+ads?)?(?:\s+[0-9]{1,2}\s*s)?$`
 
 “看到跳过文本就点击”在实现上被显式禁止：没有独立广告上下文节点时一律返回空列表。
-几何与时间全部用 Long 计算，异常输入（`Int.MAX_VALUE` 边界、负尺寸、越界矩形）先被拒再做乘除，避免溢出误判。
+
+### 3.1 几何实现细节（供 t11/t12 核对）
+
+- **全部算术在 Long 域进行**：`left`/`top`/`right`/`bottom` 先 `toLong()`，连 `left + right`、`top + bottom`
+  加法也在 Long 域完成，之后才做乘法与比较（`10*(left+right) >= 13*W`、`2*(top+bottom) <= H`、
+  `area*100 <= screenArea*12`），因此不存在 Int 加法或乘法溢出导致的误判。
+- **判定顺序**：先拒绝异常屏幕尺寸与越界/零面积矩形，再做面积与比例乘法；乘法两端的量级因此被
+  `MAX_SCREEN_DIMENSION_PX` 与屏幕尺寸共同限定（见 3.2）。
+- **证据**：`ConservativeAdRuleEngineTest.geometryBoundariesAreExact`（中心 X=702 恰好 65% 接受 / 700 拒绝；
+  中心 Y 边界；面积 311040 恰好 12% 接受 / 312000 拒绝）、`invalidBoundsAreRejected`、
+  `extremeBoundsDoNotOverflow`（Int 级极大/极小坐标与 `left+right` 会溢出 Int 的输入都不崩溃、不命中）、
+  `screenDimensionLimitIsExactAndConservative`（大尺寸下比例正确、上界恰好可用、超限保守不匹配）。
+
+### 3.2 附加实现常量 `MAX_SCREEN_DIMENSION_PX`（非原合同数值，需集成与审查确认）
+
+- **值**：`100_000`（像素；宽或高任一超过即视为异常输入）。
+- **依据**：`docs/contracts.md` 第 5 节只要求“尺寸正常”，未规定数值；实现需要一个有限上界，使几何乘法
+  （`area*100`、`screenArea*12`）在 Long 内必然安全。真实设备屏幕宽度远小于 10 万像素（当前主流为千级像素），
+  该上界不会影响任何正常设备与快照。
+- **超限行为（保守不匹配）**：`isEligibleWindow` 直接返回 false，规则引擎返回**空列表**——不点击、不抛异常、
+  不改变目标应用行为；仅表示本规则不产生候选，不代表“已保护”。
+- **证据**：`ConservativeAdRuleEngineTest.screenDimensionLimitIsExactAndConservative`、
+  `abnormalScreenDimensionsBlockCandidates`（0、负数、上界+1 均返回空列表）。
+- **变更通道**：若 Plan/审查认为应改用其他数值或改为可配置项，属实现细节调整、不涉及任何冻结签名，
+  请在 t11 集成前提出，由顺序集成统一落地。
 
 ## 4. 传感器策略（`SensorPolicyEngine`）
 
