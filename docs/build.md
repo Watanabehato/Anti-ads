@@ -189,5 +189,5 @@ EXIT=0
   首次解析依赖可能需要重跑，依赖成功缓存后 (`~/.gradle/caches`) 可稳定复现。
 - `.github/workflows/build.yml` 已更新为五模块单测 + 四模块 lint + 两个 APK + 两个测试 APK 的完整流程，但**尚未在 GitHub 上执行过**（仓库尚未创建/推送）。
 - 本地已执行 `lint` 与 `assembleDebugAndroidTest`（见 4.1）；**仪器测试本身（`connectedAndroidTest`）未执行**：没有设备或模拟器，两个测试 APK 只证明可组装、类可解析。
-- 无障碍、Hook、probe 的实机行为与任何设备结论，均以 QA 独立证据为准（QA 正在按 t15 准备可丢弃的 API29 模拟器环境，该环境与本仓库工具链独立，本任务不重复安装）。
+- 无障碍、Hook、probe 的实机行为与任何设备结论，均以 QA 独立证据为准。QA 正在准备**独立的**可丢弃 API29 模拟器环境（与本仓库工具链分离，本任务不重复安装）：该环境曾出现 boot 日志但 ADB 连接不稳定，**是否可用、能否复现均以 QA 的实测与更新的环境记录为准**；本仓库的任何文档都不据此声明设备验证结论，也不把一次启动视为持续在线。
 - 跨模块“纯逻辑链”（真实 core 候选 → 快照 → `SkipRequestBuilder` → `SkipGate`/`ExecutionGuards`）已由 11 例 JVM 用例覆盖，但它**不能**替代系统授权与真实页面实验。
