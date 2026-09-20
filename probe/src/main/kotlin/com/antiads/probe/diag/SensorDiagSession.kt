@@ -40,6 +40,7 @@ class SensorDiagSession(
     private val sessionId: String = UUID.randomUUID().toString()
     private val debuggable: Boolean =
         (context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
+    private val diagFileThrottle = DiagFileThrottle()
 
     val controlType: Int?
 
@@ -209,26 +210,34 @@ class SensorDiagSession(
 
     fun lastSeenElapsedMs(sensorType: Int): Long? = silence[sensorType]?.lastSeenElapsedMs(sensorType)
 
-    /** debuggable 变体额外写文件快照，便于 adb run-as 拉取。 */
-    fun dumpFile(): String? {
+    /**
+     * debuggable 变体额外写文件快照（docs/probe.md 承诺的 `files/probe-diag.json`），便于 adb run-as 拉取。
+     *
+     * - 只在 debuggable 构建里生效：非 debuggable 直接返回 null，不进入任何运行路径；
+     * - 节流：默认最多 1 次/秒；关键状态变化（开始/停止/onPause/onResume）传 `force = true` 立即写一次；
+     * - 返回写入路径；返回 null 表示“未写”（非 debuggable 或被节流）或写入失败；
+     * - 内容只含计数、状态与时间戳（见 [DiagJson.snapshot]），不含界面文本/输入内容/传感器读数；
+     * - 生命周期安全：任何异常都被吞掉并返回 null，绝不影响采样、日志与界面。
+     */
+    fun dumpFile(nowElapsedMs: Long, force: Boolean): String? {
         if (!debuggable) return null
+        if (!diagFileThrottle.shouldWrite(nowElapsedMs, force)) return null
         return try {
             val file = File(context.filesDir, DIAG_FILE_NAME)
-            val frame = frame()
-            val json = buildString {
-                append('[')
-                frame.rows.forEachIndexed { index, row ->
-                    if (index > 0) append(',')
-                    append(DiagJson.row(frame, row))
-                }
-                append(']')
-            }
+            val json = DiagJson.snapshot(
+                frame(),
+                writtenAtElapsedMs = nowElapsedMs,
+                samplingRunning = running
+            )
             file.writeText(json, Charsets.UTF_8)
             file.absolutePath
         } catch (t: Throwable) {
             null
         }
     }
+
+    /** 最近一次写快照的 elapsedRealtime 数值；从未写过时为 [DiagFileThrottle.NEVER]。 */
+    fun lastSnapshotAtMs(): Long = diagFileThrottle.lastWriteAtMs()
 
     private fun isThreeAxis(sensorType: Int): Boolean =
         sensorType in THREE_AXIS_TYPES

@@ -180,14 +180,41 @@ EXIT=0
 - 注意：以上只证明“工程可编译、接口可解析、产物可生成”。AccessibilityService 是否被系统绑定、LSPosed 是否注入、
   规则是否真的点到广告，均**未**验证。
 
-## 5. 尚未验证 / 已知限制
+## 5. 环境现状、实际验证范围与已知限制
 
-- **设备项全部未测**：`adb devices -l` 输出为空（无真机/USB 调试设备）；未安装 `emulator` 包与系统镜像，**无 AVD**。
-  安装/启动、无障碍正反例、Hook 注入、传感器对照等所有真机结论必须由具备设备的任务补充，不得用编译或单测结果代替。
-- **构建成功 ≠ 服务已连接/框架已注入**：编译通过只说明工程与接口可解析。
-- 本机到 Maven 仓库存在**间歇性 TLS 失败**（实测约 20% 请求失败），已在 `gradle.properties` 提高传输层重试与超时；
-  首次解析依赖可能需要重跑，依赖成功缓存后 (`~/.gradle/caches`) 可稳定复现。
-- `.github/workflows/build.yml` 已更新为五模块单测 + 四模块 lint + 两个 APK + 两个测试 APK 的完整流程，但**尚未在 GitHub 上执行过**（仓库尚未创建/推送）。
-- 本地已执行 `lint` 与 `assembleDebugAndroidTest`（见 4.1）；**仪器测试本身（`connectedAndroidTest`）未执行**：没有设备或模拟器，两个测试 APK 只证明可组装、类可解析。
-- 无障碍、Hook、probe 的实机行为与任何设备结论，均以 QA 独立证据为准。QA 正在准备**独立的**可丢弃 API29 模拟器环境（与本仓库工具链分离，本任务不重复安装）：该环境曾出现 boot 日志但 ADB 连接不稳定，**是否可用、能否复现均以 QA 的实测与更新的环境记录为准**；本仓库的任何文档都不据此声明设备验证结论，也不把一次启动视为持续在线。
-- 跨模块“纯逻辑链”（真实 core 候选 → 快照 → `SkipRequestBuilder` → `SkipGate`/`ExecutionGuards`）已由 11 例 JVM 用例覆盖，但它**不能**替代系统授权与真实页面实验。
+本节按**时间顺序**区分四种状态，避免把不同阶段的结论混用。环境细节以 QA 的 [模拟器环境记录](emulator-environment.md) 与 [独立 QA 报告](verification.md) 为准。
+
+### 5.1 工具与设备环境（截至 t16 修复提交）
+
+| 项目 | 现状 |
+| --- | --- |
+| 项目工具链 | 仓库内 `.tooling/`：Temurin JDK 17.0.20.1+1、Gradle wrapper 8.9、Android SDK（cmdline-tools 12.0、platform-tools 37.0.1、platforms;android-35 rev2、build-tools 35.0.0） |
+| 模拟器组件 | **已安装**（本项目 SDK 内、官方源）：`emulator 37.1.11.0` 与 `system-images;android-29;default;x86_64`（rev 8）；未下载任何第三方镜像 |
+| AVD | **已创建**项目专用 AVD `AntiAds_QA_API29`（`ANDROID_AVD_HOME=.tooling/emulator-qa/avd`，Pixel 模板 1080×1920、swiftshader 无窗口）；未改动或删除用户 AVD |
+| 曾启动 | t15 记录一次启动成功：serial `emulator-5580`、`sys.boot_completed=1`、`ro.build.version.sdk=29`（**那是当时的记录，不等于当前在线**） |
+| t3 复用 | QA 以自有受管进程重新启动同一 AVD，安装固定 `b19f67f` 的五个 APK 并执行有限场景；运行区间与命令见环境记录“t3实际复用与清理”一节 |
+| 当前实例 | **已清理**：t3 结束时按 serial 执行 `emu kill`（exit 0），随后 `adb devices` 为空；SDK、官方镜像、AVD 与测试 APK **保留**供修复后复测 |
+| 重新启动 | 按 [模拟器环境记录](emulator-environment.md) 的启动命令以受管后台任务启动，先确认 AVD 名称与 `sys.boot_completed` 再安装 APK；不要在同一端口启动第二实例 |
+
+### 5.2 已执行的实际设备验证与结论（t3，源码 `b19f67f`）
+
+- app instrumentation **1 例通过**（`ConfigToggleTest`）；probe 的 `RegistrationHoldTest` **未执行**。
+- API29 上完成有限场景：无障碍正例/反例、策略读取、故障回退取证；同时记录到**授权真值错报（QA-01）**、probe 生命周期（QA-03）与诊断快照缺失（QA-04）。
+- 门禁结论为**失败／需修订**，该结论只针对 `b19f67f` 构建，**不得移用**到修复后的版本。
+- 三个缺陷已由 t16 修复并附 JVM/设备级回归用例（见 [修复对照](repair-qa01-04.md)），但**修复版尚未在设备上复测**，复测由独立 QA 执行。
+
+### 5.3 仍未验证
+
+- **Root / LSPosed**：无 Root 设备，注入、作用域、关闭恢复（H01 A1/A2）全部未执行。
+- **API30+ 包可见性、API35+ WindowInsets、Android 15/16 行为**：未测。
+- **真机**：未连接任何真机；模拟器传感器是**模拟来源**，不能冒充真机传感器结论。
+- **GitHub CI**：`.github/workflows/build.yml` 已覆盖五模块单测 + 四模块 lint + 两个 APK + 两个测试 APK，但**尚未在 GitHub 上执行过**（仓库尚未推送）。
+- **构建成功 ≠ 服务已连接/框架已注入**：编译、单测与 lint 通过只说明工程与接口可解析。
+- 跨模块“纯逻辑链”（真实 core 候选 → 快照 → `SkipRequestBuilder` → `SkipGate`/`ExecutionGuards`）由 JVM 用例覆盖，但**不能**替代系统授权与真实页面实验。
+- 本机到 Maven 仓库存在**间歇性 TLS 失败**（实测约 20% 请求失败），已在 `gradle.properties` 提高传输层重试与超时；依赖缓存就绪后可稳定复现。
+
+### 5.4 历史记录（仅存档，勿当作现状）
+
+- **t2 骨架期**：当时本机确实没有 JDK/SDK/模拟器（`adb devices -l` 为空、无 AVD），因此“未安装 emulator/镜像、无 AVD”只对**那一刻**成立；t2 的构建日志与产物哈希同样只描述当时的骨架产物。
+- **t11 集成期**：当时没有可用设备，故写下“仪器测试未执行、设备项全部未测”；该结论已被 t3 的 API29 有限场景部分推进（见 5.2），但**修复后的版本仍未设备复测**。
+- 5.1 中“曾启动”与“当前实例已清理”是两件事：启动成功不等于持续在线，实例清理也不等于环境被删除。

@@ -15,6 +15,12 @@
 每类型一行：`存在`（`getDefaultSensor(type) != null`）、`注册返回`（`registerListener` 真实返回值，未尝试则显示"未尝试"）、`回调`（跨注册累计）、`本次注册`（本次注册后计数）、`最近`（距最近回调的毫秒数）、`状态`（`IDLE/REGISTERED/REGISTER_FAILED/UNREGISTERED`）、`摇动`（该类型触发的摇动计数）。
 
 - 默认 `SENSOR_DELAY_NORMAL`；"开始采样/停止采样"为显式按钮；`onPause` 注销全部监听并停止 UI timer；`onResume` **不**自动重启采样（页面提示"离开页面已自动注销监听"）。
+- **生命周期状态一致性（t16 修复 QA-03）**：按钮、提示与周期刷新由单一同步点 `applyUiState()` 统一设置，它使用纯逻辑规则 `ProbeUiStateRules.of(samplingRunning, activityResumed)`：
+  - `startEnabled = !samplingRunning`：无论显式停止还是 `onPause` 自动注销，**"开始采样"都必须立即可用**（修复前返回页面时仍禁用、而"停止"仍可用）；
+  - `stopEnabled = samplingRunning`；
+  - `periodicRefresh = activityResumed`：返回页面必须重建每秒刷新（状态行、策略自查与诊断快照节流都依赖它）；
+  - `startSampling` **恒为 false**：生命周期规则永不请求自动开始，恢复采样只能由用户点击"开始采样"，不允许用自动重注册绕过"显式开始"。
+  - 回归用例：`ProbeUiStateRulesTest`（4 例，含"任意组合都不自动开始"）。
 - 实验页最多 5 种配置支持类型，并自动选择**设备真实可用且未被选入拦截集合**的类型作对照（优先磁场；设备没有可用对照时显示"无对照"，该次实验不可判定）。
 - 摇动计数只用于观察运动事件是否随开关变化，**不是拦截成功证据**；无回调也不能自动判为"被拦截"。
 
@@ -24,9 +30,18 @@
 
 ```bash
 adb logcat -s AntiAdsProbe.Diag:V
-# debuggable 变体还写文件快照（≤1 次/秒节流，状态变化立即）：
+# debuggable 变体还写文件快照（最多 1 次/秒；开始/停止/onPause/onResume 立即写一次）：
 adb exec-out run-as com.antiads.probe cat files/probe-diag.json
 ```
+
+**文件快照（t16 修复 QA-04，之前只定义未接线）**：debuggable 构建下，Activity 在每秒刷新（`force=false`，≤1 次/秒节流）与关键状态变化（开始/停止/onPause/onResume，`force=true`）时写 `files/probe-diag.json`；非 debuggable 构建**不进入该路径**（`dumpFile` 首行返回 null）。内容为单行 JSON 对象，字段固定：
+
+```text
+{schemaVersion, kind:"probeDiagSnapshot", tag, sessionId, registrationSeq, host, pid,
+ activityResumed, samplingRunning, elapsedMs, writtenAtElapsedMs, controlType, rows[]}
+```
+
+`rows[]` 与 logcat 行字段一致（`type/exists/selected/registerResult/samplingState/callbacks/callbacksSinceRegister/lastCallbackElapsedMs/gapSinceLastMs/shakes/control`）。只含计数、状态与时间戳，**不含界面文本、输入内容、包列表或传感器读数**。写入成功时会额外输出一行 `kind=snapshotFile` 诊断（含 `force` 与 `path`），便于确认文件确实生成；节流、非 debuggable 或写入失败时静默跳过，不影响采样与界面。回归用例：`DiagFileThrottleTest`（5 例：首次可写、1 秒内拒绝、恰好 1000ms 可写、force 立即并重置窗口、自定义间隔）与 `DiagJsonTest.snapshotIsParseableAndCarriesOnlyDiagFields`（用 kotlinx-serialization 解析并断言字段集合恰好等于上表）。
 
 行字段：`sessionId registrationSeq host(ACTIVITY|INSTRUMENTATION) activityResumed pid elapsedMs type exists selected registerResult samplingState callbacks callbacksSinceRegister lastCallbackElapsedMs gapSinceLastMs shakes control`。另有 `kind=summary`（verdict/controlContinuous）与 `kind=silenceWindow`（静默窗口 lastBefore→resumedAt）。
 

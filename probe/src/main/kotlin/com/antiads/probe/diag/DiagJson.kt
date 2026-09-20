@@ -104,6 +104,66 @@ object DiagJson {
         append('}')
     }
 
+    /**
+     * Activity 诊断快照（docs/probe.md 承诺的 debuggable 文件内容）。
+     *
+     * 结构固定为对象：`schemaVersion/kind/sessionId/registrationSeq/host/pid/activityResumed/
+     * samplingRunning/elapsedMs/writtenAtElapsedMs/controlType/rows[]`，
+     * 只含计数、状态与时间戳——**不含**界面文本、输入内容、包列表或传感器读数。
+     */
+    fun snapshot(frame: DiagFrame, writtenAtElapsedMs: Long, samplingRunning: Boolean): String = buildString {
+        append('{')
+        appendField("tag", LOG_TAG)
+        append(',')
+        appendField("kind", SNAPSHOT_KIND)
+        append(',')
+        appendField("schemaVersion", SNAPSHOT_SCHEMA_VERSION)
+        append(',')
+        appendField("sessionId", frame.sessionId)
+        append(',')
+        appendField("registrationSeq", frame.registrationSeq)
+        append(',')
+        appendField("host", frame.host.name)
+        append(',')
+        appendField("pid", frame.pid)
+        append(',')
+        appendField("activityResumed", frame.activityResumed)
+        append(',')
+        appendField("samplingRunning", samplingRunning)
+        append(',')
+        appendField("elapsedMs", frame.elapsedMs)
+        append(',')
+        appendField("writtenAtElapsedMs", writtenAtElapsedMs)
+        append(',')
+        appendField("controlType", frame.controlType)
+        append(',')
+        append('"').append("rows").append('"').append(':').append('[')
+        frame.rows.forEachIndexed { index, row ->
+            if (index > 0) append(',')
+            append(row(frame, row))
+        }
+        append(']')
+        append('}')
+    }
+
+    /** 写快照成功的诊断行（便于 QA 在 logcat 里确认文件确实生成）。 */
+    fun snapshotFile(path: String, force: Boolean, elapsedMs: Long): String = buildString {
+        append('{')
+        appendField("tag", LOG_TAG)
+        append(',')
+        appendField("kind", "snapshotFile")
+        append(',')
+        appendField("force", force)
+        append(',')
+        appendField("path", path)
+        append(',')
+        appendField("elapsedMs", elapsedMs)
+        append('}')
+    }
+
+    const val SNAPSHOT_KIND: String = "probeDiagSnapshot"
+    const val SNAPSHOT_SCHEMA_VERSION: Int = 1
+
     private fun StringBuilder.appendField(name: String, value: String?) {
         append('"').append(name).append("\":")
         if (value == null) {

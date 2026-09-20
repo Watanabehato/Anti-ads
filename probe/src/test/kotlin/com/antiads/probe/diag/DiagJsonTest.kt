@@ -1,5 +1,11 @@
 package com.antiads.probe.diag
 
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.boolean
+import kotlinx.serialization.json.int
+import kotlinx.serialization.json.jsonArray
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -93,6 +99,57 @@ class DiagJsonTest {
     fun noteIsEscaped() {
         val line = DiagJson.summary(frame(listOf(row())), "X", true, "quote\"and\\slash")
         assertTrue(line.contains("quote\\\"and\\\\slash"))
+    }
+
+    @Test
+    fun snapshotIsParseableAndCarriesOnlyDiagFields() {
+        val json = DiagJson.snapshot(
+            frame(listOf(row(), row(sensorType = 2, selected = false))),
+            writtenAtElapsedMs = 99_000L,
+            samplingRunning = true
+        )
+        assertTrue("文件内容必须是单行 JSON", !json.contains("\n"))
+
+        val parsed = Json.parseToJsonElement(json).jsonObject
+        assertEquals(
+            setOf(
+                "tag", "kind", "schemaVersion", "sessionId", "registrationSeq", "host", "pid",
+                "activityResumed", "samplingRunning", "elapsedMs", "writtenAtElapsedMs",
+                "controlType", "rows"
+            ),
+            parsed.keys
+        )
+        assertEquals(DiagJson.LOG_TAG, parsed["tag"]!!.jsonPrimitive.content)
+        assertEquals(DiagJson.SNAPSHOT_KIND, parsed["kind"]!!.jsonPrimitive.content)
+        assertEquals(DiagJson.SNAPSHOT_SCHEMA_VERSION, parsed["schemaVersion"]!!.jsonPrimitive.int)
+        assertEquals("11111111-2222-4333-8444-555555555555", parsed["sessionId"]!!.jsonPrimitive.content)
+        assertEquals(2, parsed["registrationSeq"]!!.jsonPrimitive.int)
+        assertEquals("INSTRUMENTATION", parsed["host"]!!.jsonPrimitive.content)
+        assertEquals(true, parsed["samplingRunning"]!!.jsonPrimitive.boolean)
+        assertEquals(99_000L, parsed["writtenAtElapsedMs"]!!.jsonPrimitive.int.toLong())
+        assertEquals(2, parsed["controlType"]!!.jsonPrimitive.int)
+
+        val rows = parsed["rows"]!!.jsonArray
+        assertEquals(2, rows.size)
+        // 行字段固定：只有计数/状态/时间戳，没有界面文本、输入内容或传感器读数
+        assertEquals(
+            setOf(
+                "tag", "seq", "sessionId", "registrationSeq", "host", "activityResumed", "pid",
+                "elapsedMs", "type", "exists", "selected", "registerResult", "samplingState",
+                "callbacks", "callbacksSinceRegister", "lastCallbackElapsedMs", "gapSinceLastMs",
+                "shakes", "control"
+            ),
+            rows[0].jsonObject.keys
+        )
+    }
+
+    @Test
+    fun snapshotFileLineRecordsPathAndForce() {
+        val line = DiagJson.snapshotFile("/data/user/0/com.antiads.probe/files/probe-diag.json", true, 12_345L)
+        assertTrue(line.contains("\"kind\":\"snapshotFile\""))
+        assertTrue(line.contains("\"force\":true"))
+        assertTrue(line.contains("probe-diag.json"))
+        assertTrue(line.contains("\"elapsedMs\":12345"))
     }
 
     @Test

@@ -16,6 +16,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import com.antiads.probe.diag.DiagJson
 import com.antiads.probe.diag.ProbeTypes
+import com.antiads.probe.diag.ProbeUiStateRules
 import com.antiads.probe.diag.SensorDiagSession
 
 /**
@@ -45,9 +46,16 @@ class MainActivity : Activity() {
     private var selfCheck: PolicySelfCheck? = null
     private var lastSelfCheckAtMs: Long = 0L
 
+    /** 生命周期状态（QA-03）：onPause 停止采样后置位，用于提示与按钮同步，直到用户显式开始/停止。 */
+    private var pausedByLifecycle: Boolean = false
+    private var lastStartFailed: Boolean = false
+    private var hasStopped: Boolean = false
+
     private val ticker = object : Runnable {
         override fun run() {
             refresh()
+            // QA-04：debuggable 变体按不超过 1 次/秒 写 files/probe-diag.json（非 debuggable 内部直接跳过）
+            writeDiagSnapshot(force = false)
             handler.postDelayed(this, REFRESH_INTERVAL_MS)
         }
     }
@@ -63,16 +71,20 @@ class MainActivity : Activity() {
     override fun onResume() {
         super.onResume()
         session.activityResumed = true
-        refresh()
+        // QA-03：返回页面必须重建周期刷新并同步按钮状态；不自动开始采样（见 ProbeUiStateRules）
+        applyUiState()
+        writeDiagSnapshot(force = true)
     }
 
     override fun onPause() {
         session.activityResumed = false
         if (session.isRunning()) {
             session.stop()
-            hintView.text = getString(R.string.probe_paused_hint)
+            pausedByLifecycle = true
         }
-        handler.removeCallbacks(ticker)
+        // QA-03：停止后同步按钮/提示/周期刷新，保证返回时"开始采样"可用、"停止"禁用
+        applyUiState()
+        writeDiagSnapshot(force = true)
         super.onPause()
     }
 
@@ -169,21 +181,59 @@ class MainActivity : Activity() {
 
     private fun startSampling() {
         val started = session.start()
-        hintView.text = getString(if (started) R.string.probe_running_hint else R.string.probe_start_failed_hint)
-        startButton.isEnabled = !started
-        stopButton.isEnabled = started
-        refresh()
-        handler.removeCallbacks(ticker)
-        if (started) handler.postDelayed(ticker, REFRESH_INTERVAL_MS)
+        pausedByLifecycle = false
+        lastStartFailed = !started
+        hasStopped = started
+        applyUiState()
+        writeDiagSnapshot(force = true)
     }
 
     private fun stopSampling() {
         session.stop()
-        handler.removeCallbacks(ticker)
-        hintView.text = getString(R.string.probe_stopped_hint)
-        startButton.isEnabled = true
-        stopButton.isEnabled = false
+        pausedByLifecycle = false
+        lastStartFailed = false
+        hasStopped = true
+        applyUiState()
+        writeDiagSnapshot(force = true)
+    }
+
+    /**
+     * 按钮、提示与周期刷新的唯一同步点（QA-03）。
+     *
+     * 所有会改变采样状态的地方（显式开始/停止、onPause 自动注销、onResume 返回）都必须经过这里，
+     * 避免出现"采样已停但按钮仍是运行态"。规则本身永不请求自动开始，
+     * 因此返回页面后只能由用户点击"开始采样"重新注册（不得用自动重注册绕开显式开始）。
+     */
+    private fun applyUiState() {
+        val state = ProbeUiStateRules.of(
+            samplingRunning = session.isRunning(),
+            activityResumed = session.activityResumed
+        )
+        startButton.isEnabled = state.startEnabled
+        stopButton.isEnabled = state.stopEnabled
+        hintView.text = getString(
+            when {
+                session.isRunning() -> R.string.probe_running_hint
+                pausedByLifecycle -> R.string.probe_paused_hint
+                lastStartFailed -> R.string.probe_start_failed_hint
+                hasStopped -> R.string.probe_stopped_hint
+                else -> R.string.probe_start_hint
+            }
+        )
         refresh()
+        handler.removeCallbacks(ticker)
+        if (state.periodicRefresh) handler.postDelayed(ticker, REFRESH_INTERVAL_MS)
+        // 恒为 false：生命周期逻辑不得自动重注册（"显式开始"是合同要求）
+        if (state.startSampling) startSampling()
+    }
+
+    /** QA-04：debuggable 下写诊断快照；非 debuggable、被节流或写入失败时静默跳过。 */
+    private fun writeDiagSnapshot(force: Boolean) {
+        val now = SystemClock.elapsedRealtime()
+        val path = session.dumpFile(now, force)
+        if (path != null) {
+            Log.i(DiagJson.LOG_TAG, DiagJson.snapshotFile(path, force, now))
+        }
     }
 
     private fun refresh() {

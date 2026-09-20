@@ -31,7 +31,7 @@
 | --- | --- | --- |
 | 配置已保存 | `ConfigWriteResult.Saved` + revision | “已保存配置，版本 N” |
 | 配置文件状态 | `ConfigRepository.health()` 四态 | 正常 / 尚无文件 / 损坏回退 / 读取失败（附稳定错误码） |
-| 系统设置已授权无障碍 | `AccessibilityManager.getEnabledAccessibilityServiceList()` 中匹配 `com.antiads.accessibility.AdSkipService` | “系统设置授权：是/否” |
+| 系统设置已授权无障碍 | `AccessibilityManager.getEnabledAccessibilityServiceList()` 中匹配**宿主自身包名**（`Context.packageName` = applicationId）+ **完整类名** `com.antiads.accessibility.AdSkipService` | “系统设置授权：是/否” |
 | 服务实际已连接 | `AccessibilityRuntime.state().connected` | “服务实际已连接：是/否”（与上一行独立） |
 | 运行阶段 | `state().phase` | 未连接 / 无目标 / 正在观察 / 已连接但防护关闭 / 错误 |
 | 最近一次跳过 | `state().lastAction` | “系统已接受点击动作（不代表广告已消失）” |
@@ -97,11 +97,14 @@
 | `RateLimiterTest` | 窗口边界（999ms 仍限流、1000ms 放行）、UID 隔离、时钟回退保守限流、跟踪表有界 |
 | `RuntimeReportStoreTest` | 每包 8 进程上限、全局 128 条上限、按接收时间从新到旧、同 token 替换 |
 | `ProviderEntryPolicyTest` | 只有 query/getType 返回 null，其余入口全部抛错；call 方法白名单只有两个只读方法 |
-| `StatusFactsTest` | 15 秒过期边界（15000/15001）、报告排序、系统授权与“实际已连接”独立成事实、最近动作年龄、服务身份精确匹配 |
+| `StatusFactsTest` | 15 秒过期边界（15000/15001）、报告排序、系统授权与“实际已连接”独立成事实、最近动作年龄、**服务归属包=宿主包且类名精确匹配**（QA-01 回归：库 namespace 不算归属包、类名必须完整相等） |
 
 ### 7.2 仪器测试（需设备；test APK 由 t11 组装）
 
 `app/src/androidTest/kotlin/com/antiads/app/ConfigToggleTest.kt`：宿主 UID、真实仓储写路径，不启动 Activity、不使用 exported 写接口。
+该用例已在 QA 的 API29 模拟器上执行 1 例通过（t3 报告）。
+
+`app/src/androidTest/kotlin/com/antiads/app/ServiceOwnershipTest.kt`（t16 新增，QA-01 设备级回归）：用真实 `PackageManager` 断言无障碍服务组件归属 `com.antiads.app`，且用库 namespace `com.antiads.accessibility` 解析不到该组件。**尚未在设备上执行**，由修复后的独立 QA 复测运行。
 
     adb shell am instrument -w -e action master_off com.antiads.app.test/androidx.test.runner.AndroidJUnitRunner
     adb shell am instrument -w -e class com.antiads.app.ConfigToggleTest -e action master_on com.antiads.app.test/androidx.test.runner.AndroidJUnitRunner
@@ -114,7 +117,7 @@
 
 | 项目 | 实测结果 |
 | --- | --- |
-| 单元测试 | 44 个用例，0 失败 / 0 错误（AppConfigRepositoryTest 15、ProviderCallRouterTest 14、StatusFactsTest 5、RateLimiterTest 4、RuntimeReportStoreTest 4、ProviderEntryPolicyTest 2） |
+| 单元测试 | t8 时 44 个用例 0 失败；**t16 修复 QA-01 后为 46 个**（StatusFactsTest 由 5 增至 7，新增“宿主包 vs 库 namespace”“错误/缺失标识拒绝”） |
 | lint | 0 errors，2 warnings：`ExportedContentProvider`（合同第 6 节要求 Provider 导出且只读，鉴权在 call 内逐次执行）、`DataExtractionRules`（已同时提供 allowBackup=false 与 dataExtractionRules，仅提示可再补 fullBackupContent） |
 | 组装 | `app/build/outputs/apk/debug/app-debug.apk`（3.4 MB，SHA-256 b80380f06d0f61550fc32d62e0cdd0f9184f5e6f624d9b63c88d504d22e97352） |
 | androidTest 编译 | 附加执行 `:app:assembleDebugAndroidTest` 通过，生成 app-debug-androidTest.apk（SHA-256 d0d205ba051a62c7c838229770f0a0618ec1fbe17d005aa9975308f8c562a66d），证明 ConfigToggleTest 对真实实现签名编译通过 |

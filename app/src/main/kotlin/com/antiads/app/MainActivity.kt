@@ -271,7 +271,8 @@ class MainActivity : ManagedActivity() {
         }
         return services.any { info ->
             val serviceInfo = info.resolveInfo?.serviceInfo
-            StatusFacts.matchesAdSkipService(serviceInfo?.packageName, serviceInfo?.name)
+            // 归属包用宿主自身包名（applicationId），不能硬编码 :accessibility 的库 namespace
+            StatusFacts.matchesAdSkipService(packageName, serviceInfo?.packageName, serviceInfo?.name)
         }
     }
 

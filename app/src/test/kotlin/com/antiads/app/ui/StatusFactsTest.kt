@@ -10,6 +10,7 @@ import com.antiads.core.status.SkipActionRecord
 import java.util.UUID
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -87,16 +88,54 @@ class StatusFactsTest {
     }
 
     @Test
-    fun serviceIdentityMatchRequiresExactPackageAndClass() {
+    fun serviceIdentityUsesHostPackageAndExactServiceClass() {
+        // 真实 API29 系统条目：packageName 是宿主包，类名来自 :accessibility 库（QA-01 实测值）
         assertTrue(
             StatusFacts.matchesAdSkipService(
+                HOST_PACKAGE,
+                "com.antiads.app",
+                "com.antiads.accessibility.AdSkipService"
+            )
+        )
+        assertTrue(
+            StatusFacts.matchesAdSkipService(
+                HOST_PACKAGE,
+                HOST_PACKAGE,
+                StatusFacts.AD_SKIP_SERVICE_CLASS
+            )
+        )
+    }
+
+    @Test
+    fun libraryNamespaceIsNotTheServiceOwningPackage() {
+        // 回归（QA-01）：库 namespace 不等于组件归属包，用它当归属包时必须判定为“不是本产品服务”
+        assertFalse(
+            StatusFacts.matchesAdSkipService(
+                HOST_PACKAGE,
                 "com.antiads.accessibility",
                 "com.antiads.accessibility.AdSkipService"
             )
         )
-        assertFalse(StatusFacts.matchesAdSkipService("com.antiads.accessibility", null))
-        assertFalse(StatusFacts.matchesAdSkipService("com.other.app", "com.antiads.accessibility.AdSkipService"))
-        assertFalse(StatusFacts.matchesAdSkipService(null, null))
+        // 反向：宿主包本身不是库 namespace
+        assertNotEquals(HOST_PACKAGE, "com.antiads.accessibility")
+    }
+
+    @Test
+    fun serviceIdentityRejectsWrongOrMissingIdentifiers() {
+        assertFalse(StatusFacts.matchesAdSkipService(HOST_PACKAGE, null, null))
+        assertFalse(StatusFacts.matchesAdSkipService(HOST_PACKAGE, "com.other.app", StatusFacts.AD_SKIP_SERVICE_CLASS))
+        assertFalse(StatusFacts.matchesAdSkipService(HOST_PACKAGE, HOST_PACKAGE, null))
+        // 类名必须完整精确匹配：同后缀的其他类不算
+        assertFalse(
+            StatusFacts.matchesAdSkipService(
+                HOST_PACKAGE,
+                HOST_PACKAGE,
+                "other.pkg.com.antiads.accessibility.AdSkipService"
+            )
+        )
+        assertFalse(StatusFacts.matchesAdSkipService(HOST_PACKAGE, HOST_PACKAGE, "com.antiads.accessibility.AdSkipServiceX"))
+        // 宿主包名缺失时不得匹配（避免把空 host 当成通配）
+        assertFalse(StatusFacts.matchesAdSkipService("", "", StatusFacts.AD_SKIP_SERVICE_CLASS))
     }
 
     private fun received(packageName: String, pid: Int, receivedAt: Long): ReceivedHookReport =
@@ -115,4 +154,9 @@ class StatusFactsTest {
             ),
             receivedAtElapsedMs = receivedAt
         )
+
+    private companion object {
+        /** 宿主 applicationId（debug 无 suffix，与 app/build.gradle.kts 的 applicationId 一致）。 */
+        const val HOST_PACKAGE: String = "com.antiads.app"
+    }
 }

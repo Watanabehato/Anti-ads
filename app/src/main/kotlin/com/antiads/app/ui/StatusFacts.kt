@@ -46,7 +46,10 @@ internal data class AccessibilityFact(
  */
 internal object StatusFacts {
 
-    const val AD_SKIP_SERVICE_PACKAGE: String = "com.antiads.accessibility"
+    /**
+     * 无障碍服务的**类名**。实现来自 :accessibility 库，但组件在最终 APK 中归属宿主包。
+     * 注意：没有“库 namespace”常量——服务归属包必须用宿主 applicationId 判断（见下）。
+     */
     const val AD_SKIP_SERVICE_CLASS: String = "com.antiads.accessibility.AdSkipService"
 
     fun freshness(receivedAtElapsedMs: Long, nowElapsedMs: Long): ReportFreshness {
@@ -95,7 +98,22 @@ internal object StatusFacts {
         )
     }
 
-    /** 系统“已启用服务”列表里的条目是否就是本产品的无障碍服务。 */
-    fun matchesAdSkipService(servicePackageName: String?, serviceClassName: String?): Boolean =
-        servicePackageName == AD_SKIP_SERVICE_PACKAGE && serviceClassName == AD_SKIP_SERVICE_CLASS
+    /**
+     * 系统“已启用服务”列表里的条目是否就是本产品的无障碍服务。
+     *
+     * 归属包必须等于**宿主自身包名**（applicationId，运行时由 `Context.packageName` 提供）：
+     * 服务实现来自 :accessibility 库，但合并进最终 APK 后系统看到的组件是
+     * `<宿主包>/com.antiads.accessibility.AdSkipService`，返回的 packageName 是**宿主包**而不是库 namespace。
+     * 历史缺陷（QA-01）：这里硬编码库 namespace `com.antiads.accessibility`，导致真实授权后仍显示“未授权”。
+     *
+     * 类名仍要求**完整精确匹配**，避免把其他服务误判成本产品服务。
+     */
+    fun matchesAdSkipService(
+        hostPackageName: String,
+        servicePackageName: String?,
+        serviceClassName: String?
+    ): Boolean =
+        hostPackageName.isNotEmpty() &&
+            servicePackageName == hostPackageName &&
+            serviceClassName == AD_SKIP_SERVICE_CLASS
 }
