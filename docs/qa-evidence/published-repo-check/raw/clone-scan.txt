@@ -1,0 +1,85 @@
+== git clone ==
+Cloning into '.tooling/published-repo-check/clone'...
+clone_exit=0
+== clone HEAD ==
+138d5dd docs: 记录产物不可复现事实与仓库/CI 说明（t22）
+138d5dd1f9a66b0f56a03a8cfe659ec20825fdfc
+branch: main
+== tracked files in clone ==
+658
+== remote == 
+origin	https://github.com/Watanabehato/Anti-ads (fetch)
+origin	https://github.com/Watanabehato/Anti-ads (push)
+== forbidden scan in clone (tracked files) ==
+  (no matches)
+== top-level entries ==
+.
+..
+.git
+.gitattributes
+.github
+.gitignore
+LICENSE
+README.md
+accessibility
+app
+build.gradle.kts
+core
+docs
+gradle
+gradle.properties
+gradlew
+gradlew.bat
+hook
+probe
+qa
+settings.gradle.kts
+== .gitignore ==
+# 独立仓库：绝不提交父目录 D:/test 的任何内容
+# 团队协作状态（.agent-teams/）与本地工具缓存（.tooling/）
+.agent-teams/
+.tooling/
+
+# 本机配置：SDK/JDK 路径，不入库
+local.properties
+local.properties.bak
+
+# 签名与凭据，绝不入库
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+
+# 构建输出
+build/
+.gradle/
+*/build/
+.kotlin/
+**/.kotlin/
+captures/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.hprof
+out/
+
+# IDE / 编辑器
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 日志与临时文件
+*.log
+*.tmp
+*.bak
+== LICENSE head ==
+MIT License
+
+Copyright (c) 2025 Watanabehato and Anti-ads contributors
+done

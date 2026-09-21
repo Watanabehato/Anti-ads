@@ -1,0 +1,33 @@
+{
+  "tree_entries": 811,
+  "truncated": false,
+  "forbidden": {
+    ".tooling/": 0,
+    "local.properties": 0,
+    ".agent-teams/": 0,
+    "build/": 0,
+    ".gradle/": 0,
+    ".idea/": 0
+  },
+  "signing_or_apk": [],
+  "top_level": [
+    ".gitattributes",
+    ".github",
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "accessibility",
+    "app",
+    "build.gradle.kts",
+    "core",
+    "docs",
+    "gradle",
+    "gradle.properties",
+    "gradlew",
+    "gradlew.bat",
+    "hook",
+    "probe",
+    "qa",
+    "settings.gradle.kts"
+  ]
+}

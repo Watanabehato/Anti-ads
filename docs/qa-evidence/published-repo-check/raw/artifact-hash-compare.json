@@ -1,0 +1,62 @@
+{
+  "run1(bf98279, artifact 10619189887)": {
+    "app-debug-androidTest.apk": {
+      "bytes": 2174433,
+      "bytes_match_doc": true,
+      "sha256": "ff4ee8d311ec9e2df641d6522d2c33572dc7c07ad62994f14e84926cc841b952",
+      "matches_doc_ci_prefix": true,
+      "matches_doc_dev_prefix": false
+    },
+    "app-debug.apk": {
+      "bytes": 3392024,
+      "bytes_match_doc": true,
+      "sha256": "0a7d37abe91cf9fdd4b5bb0996539af574cc2490419138591bbb2331ca9b0712",
+      "matches_doc_ci_prefix": true,
+      "matches_doc_dev_prefix": false
+    },
+    "probe-debug-androidTest.apk": {
+      "bytes": 2172101,
+      "bytes_match_doc": true,
+      "sha256": "ef8b2fd156907758e801f2ee967f79ad937c2457ec0b47c134f79c49391c8e63",
+      "matches_doc_ci_prefix": true,
+      "matches_doc_dev_prefix": false
+    },
+    "probe-debug.apk": {
+      "bytes": 3169147,
+      "bytes_match_doc": true,
+      "sha256": "19ec39009aea5dbf83780258ce9048a8684f63ab370ddb743551f0b811a6eb1b",
+      "matches_doc_ci_prefix": true,
+      "matches_doc_dev_prefix": false
+    }
+  },
+  "run2(138d5dd, artifact 10620950392)": {
+    "app-debug-androidTest.apk": {
+      "bytes": 2174433,
+      "bytes_match_doc": true,
+      "sha256": "500bd3cc1bf74b4e664d9aa0ed7b0483a655846f387b1b0372d5ebfc7c6e0eac",
+      "matches_doc_ci_prefix": false,
+      "matches_doc_dev_prefix": false
+    },
+    "app-debug.apk": {
+      "bytes": 3392024,
+      "bytes_match_doc": true,
+      "sha256": "b6b33a064df4be97c6af69fcc4ff88d8e0a5f3ed0022c9551a7c3500497d3bf6",
+      "matches_doc_ci_prefix": false,
+      "matches_doc_dev_prefix": false
+    },
+    "probe-debug-androidTest.apk": {
+      "bytes": 2172101,
+      "bytes_match_doc": true,
+      "sha256": "6a27d71d89dd5fe0d9f36fe250b08dacba87122dc0b8b948542879c4be20c505",
+      "matches_doc_ci_prefix": false,
+      "matches_doc_dev_prefix": false
+    },
+    "probe-debug.apk": {
+      "bytes": 3169147,
+      "bytes_match_doc": true,
+      "sha256": "617327d71ac15e50c77b6ce6b70838b6b60bfbf517e5404008545ca704ec39c5",
+      "matches_doc_ci_prefix": false,
+      "matches_doc_dev_prefix": false
+    }
+  }
+}

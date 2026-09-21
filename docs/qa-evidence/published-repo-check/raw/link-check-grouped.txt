@@ -1,0 +1,9 @@
+dead links by file:
+   25  docs/qa-evidence/history/t3-b19f67f-verification.md
+   10  docs/qa-evidence/t17-bea37e8/t17-verification.md
+    3  docs/qa-evidence/history/t3-emulator-environment.md
+    1  docs/qa-evidence/t17-bea37e8/doc-status-sync.md
+dead links outside docs/qa-evidence: 0
+dead links in t17-bea37e8 (excluding frozen copy): 1
+    {'file': 'docs/qa-evidence/t17-bea37e8/doc-status-sync.md', 'line': 19, 'target': 'verification.md'}
+total dead: 39 abs: 0

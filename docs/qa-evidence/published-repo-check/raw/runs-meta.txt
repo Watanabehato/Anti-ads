@@ -1,0 +1,33 @@
+== run2 (current HEAD) ==
+   id: 35555960362
+   name: android-build
+   head_branch: main
+   head_sha: 138d5dd1f9a66b0f56a03a8cfe659ec20825fdfc
+   event: push
+   status: completed
+   conclusion: success
+   run_attempt: 1
+   created_at: 2026-09-21T02:59:23Z
+   run_started_at: 2026-09-21T02:59:23Z
+   updated_at: 2026-09-21T03:00:40Z
+   html_url: https://github.com/Watanabehato/Anti-ads/actions/runs/35555960362
+   workflow_id: 363013034
+== run1 (bf98279) ==
+   id: 35555546226
+   name: android-build
+   head_branch: main
+   head_sha: bf98279b302686a4cbbb06e8d075a4b7cac84cbf
+   event: push
+   status: completed
+   conclusion: success
+   run_attempt: 1
+   created_at: 2026-09-21T02:51:35Z
+   run_started_at: 2026-09-21T02:51:35Z
+   updated_at: 2026-09-21T02:55:06Z
+   html_url: https://github.com/Watanabehato/Anti-ads/actions/runs/35555546226
+   workflow_id: 363013034
+== description ==
+    Android 10+ 摇一摇广告防护：免 Root 无障碍保守跳过 + Root/LSPosed 传感器拦截（增强模式，需自备设备与框架）
+== description len == 70
+== run2 artifacts == debug-apks 10620950392 3887554 False sha256:a6253d950d0f12169755457d65f0c70ac5f4ee792b22a4669b2a9abd52d62636 2026-12-20T02:59:23Z
+== run1 artifacts == debug-apks 10619189887 3887556 False sha256:e9459d6d187c54074f060e9d87beba24685c0f180aeb5c56f86545657f8ff95b 2026-12-20T02:51:35Z

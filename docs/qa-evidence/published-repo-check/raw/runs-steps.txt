@@ -1,0 +1,38 @@
+== run 35555960362 ==
+  job build concl=success started=2026-09-21T02:59:26Z completed=2026-09-21T03:00:39Z steps=13
+     1. completed/success Set up job
+     2. completed/success Checkout
+     3. completed/success Set up JDK 17 (Temurin)
+     4. completed/success Set up Android SDK (platform 35 / build-tools 35.0.0)
+     5. completed/success Cache Gradle
+     6. completed/success Unit tests (5 modules)
+     7. completed/success Lint (4 Android modules)
+     8. completed/success Assemble APKs and instrumentation test APKs
+     9. completed/success Upload APKs and test APKs
+    16. completed/success Post Cache Gradle
+    17. completed/success Post Set up JDK 17 (Temurin)
+    18. completed/success Post Checkout
+    19. completed/success Complete job
+== run 35555546226 ==
+  job build concl=success started=2026-09-21T02:51:39Z completed=2026-09-21T02:55:05Z steps=13
+     1. completed/success Set up job
+     2. completed/success Checkout
+     3. completed/success Set up JDK 17 (Temurin)
+     4. completed/success Set up Android SDK (platform 35 / build-tools 35.0.0)
+     5. completed/success Cache Gradle
+     6. completed/success Unit tests (5 modules)
+     7. completed/success Lint (4 Android modules)
+     8. completed/success Assemble APKs and instrumentation test APKs
+     9. completed/success Upload APKs and test APKs
+    16. completed/success Post Cache Gradle
+    17. completed/success Post Set up JDK 17 (Temurin)
+    18. completed/success Post Checkout
+    19. completed/success Complete job
+Traceback (most recent call last):
+  File "D:\test\Anti-ads\.tooling\published-repo-check\summarize-runs.py", line 10, in <module>
+    r2=json.load(open(f"{RAW}/run-35555960362.json"))
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+                 ^^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x93 in position 253: illegal multibyte sequence

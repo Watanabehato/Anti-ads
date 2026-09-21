@@ -16,7 +16,7 @@
 ### 2.1 install.md（原第 6–7 行，现第 6–7 行）
 
 - 原文：`本页描述的操作步骤已在代码与单一来源合同中定义，但尚未在真机/模拟器上逐条执行（当前开发环境无设备）。设备实测结论以 QA 的执行记录为准，见 docs/qa-plan.md。`
-- 现文：步骤**已在项目 API29 模拟器（AVD `AntiAds_QA_API29`，serial `emulator-5580`）按序列实际执行**（安装、系统 UI 授权与撤权、应用选择与每应用开关、probe 采样/暂停/返回、Provider 真实 UID 读取），链接改为 [独立 QA 报告](verification.md) 与 `docs/qa-evidence/t17-bea37e8/`；并新增“**仍未在真机、Root/LSPosed 设备与 API30+ 上逐条执行**”。
+- 现文：步骤**已在项目 API29 模拟器（AVD `AntiAds_QA_API29`，serial `emulator-5580`）按序列实际执行**（安装、系统 UI 授权与撤权、应用选择与每应用开关、probe 采样/暂停/返回、Provider 真实 UID 读取），链接改为 [独立 QA 报告](../../verification.md) 与 `docs/qa-evidence/t17-bea37e8/`；并新增“**仍未在真机、Root/LSPosed 设备与 API30+ 上逐条执行**”。
 - 依据：`r2-qa01-*.png|txt`、`r2-close-conditions.txt`、`r2-fixture-policy-read-result.png`、`r2-probe-*.png`。
 
 ### 2.2 probe.md（第 4 行；原第 97 行标题与第 99 行）

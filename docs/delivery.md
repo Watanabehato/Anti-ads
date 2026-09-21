@@ -62,7 +62,9 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 
 ### 3.2 产物不可复现：CI artifact 与本机组字节数相同、SHA-256 不同（如实记录）
 
-GitHub Actions 的 `debug-apks` artifact 是**同一提交（`bf98279`）在 CI 环境中的另一次构建**：
+GitHub Actions 的 `debug-apks` artifact 是**同一提交（`bf98279`）在 CI 环境中的另一次构建**
+（对应 **run [35555546226](https://github.com/Watanabehato/Anti-ads/actions/runs/35555546226) / artifact id `10619189887`**；
+该提交已在三处各构建过一次：本机组、该 run，以及其后 `138d5dd` 的 run `35555960362`）：
 
 | 产物 | 字节数（两组相同） | 本机组（设备核对，见 §3.1） | CI artifact 组 |
 | --- | --- | --- | --- |
@@ -76,6 +78,7 @@ GitHub Actions 的 `debug-apks` artifact 是**同一提交（`bf98279`）在 CI 
 - **CI artifact 不能当作设备验证过的那组产物**：设备上安装并逐字节核对的是 §3.1 的本机组；CI 组只证明“同一提交在 CI 环境可构建、可上传”。
 - 该现象与 `docs/repair-qa01-04.md` §3.1 的 QA-R3-01(F1) 一致：**APK 跨构建环境不可复现**（字节数相同、哈希不同）。
 - **任何重新构建都会改变字节**：安装前请自行重新计算哈希并记录到对应证据里，不要长期引用本表数字。
+- **该表只作示例对照，不作安装依据**：每次构建都会产生新的哈希组（例如 `138d5dd` 的 run 又生成了一组），不要按表比对文件、也不要据此判断产物新旧。
 - 本文**不宣称“可复现构建”**，也未加入任何未经验证的签名/时间戳处理（不通过固定时间戳、重排 zip 等手段去凑哈希）。
 
 ## 4. 安装 / 开启 / 关闭 / 恢复 / 卸载
@@ -107,7 +110,12 @@ GitHub Actions 的 `debug-apks` artifact 是**同一提交（`bf98279`）在 CI 
 
 - **包含**：五模块源码（`app/`、`core/`、`accessibility/`、`hook/`、`probe/`）、`gradle/` 目录与 `gradlew`/`gradlew.bat`（含官方 wrapper JAR）、`settings.gradle.kts`/`build.gradle.kts`/`gradle.properties`、`.github/workflows/build.yml`、全部中文文档（`docs/`，含 `docs/qa-evidence/` 设备证据）、QA 夹具 `qa/fixtures/noqueries/`、`README.md`、`LICENSE`(MIT)、`.gitignore`/`.gitattributes`。
 - **排除（`.gitignore`）**：`.tooling/`（JDK/SDK/模拟器/缓存）、`.agent-teams/`（团队状态）、`local.properties`（本机 SDK 路径）、签名密钥与 `keystore.properties`、`build/` 与 APK、Gradle/Kotlin 缓存；父目录 `D:/test` 的任何内容都不在仓库内。
-- 远端仓库与推送**尚未执行**（本任务只准备本地交付材料，由后续任务用 `gh` 建仓并统一推送）。
+**远端仓库与推送已完成**（不再是“待执行”状态）：
+
+- 公开仓库：**https://github.com/Watanabehato/Anti-ads**（public、默认分支 `main`）。
+- 首次推送提交：`bf98279`（创建仓库并推送 main）；后续提交 `138d5dd`（产物可复现性与 CI 说明），以及本轮 t24 的文档修正提交（SHA 见 `git log`，当前 HEAD 以 GitHub 为准）。
+- 仍未做：**未创建 release、未推送 tag、未部署任何服务**。
+- 归档副本说明：`docs/qa-evidence/history/` 与 `docs/qa-evidence/t17-bea37e8/t17-verification.md` 按撰写时相对路径逐字节保留，**其内部链接不作为有效链接检查对象**（仅 `docs/qa-evidence/t17-bea37e8/doc-status-sync.md` 的 1 条链接已修正为可解析路径）。
 
 ## 7. 本地可下载的交付文件
 
@@ -119,11 +127,21 @@ GitHub Actions 的 `debug-apks` artifact 是**同一提交（`bf98279`）在 CI 
 | 项目 | 事实 |
 | --- | --- |
 | 仓库 | **https://github.com/Watanabehato/Anti-ads** —— public、默认分支 `main`、`LICENSE`=MIT、topics=`android, accessibility-service, lsposed, xposed, adblock` |
-| 远端 main HEAD | `bf98279b302686a4cbbb06e8d075a4b7cac84cbf`（= 本地 HEAD，推送时一致；其后仅本文档修订） |
-| CI run | **https://github.com/Watanabehato/Anti-ads/actions/runs/35555546226** —— `conclusion=success`、事件 push、attempt 1、总时长 211s（job `build` 3m26s） |
+| 当前 main HEAD | **以 GitHub 为准**：<https://github.com/Watanabehato/Anti-ads/commits/main>。本文件不复述具体 SHA——文档自身的每次提交都会让该值变化 |
 | CI 步骤 | 13/13 全部 success：Checkout → JDK 17 (Temurin) → Android SDK (platform 35 / build-tools 35.0.0) → Gradle 缓存 → **五模块单测** → **四模块 lint** → **两个 APK + 两个测试 APK 组装** → 上传 artifact |
-| Artifact | name=`debug-apks`（id `10619189887`、3,887,556B、未过期）；下载页 https://github.com/Watanabehato/Anti-ads/actions/runs/35555546226/artifacts/10619189887 ；内含 4 个 APK（校验和见 §3.2：**与设备核对组不同**） |
+| 最新 run | 见仓库 Actions：<https://github.com/Watanabehato/Anti-ads/actions/workflows/build.yml> |
 | 未做 | 未创建 release、未推送 tag、未部署任何服务；仓库只有 `main` 一个分支 |
+
+**已发生的 CI run（历史记录）**：
+
+| run id | 提交（短 SHA） | 结论 | 时长 | artifact |
+| --- | --- | --- | --- | --- |
+| [35555546226](https://github.com/Watanabehato/Anti-ads/actions/runs/35555546226) | `bf98279` | success | 211s（job `build` 3m26s） | `debug-apks` id `10619189887`、3,887,556B、未过期 |
+| [35555960362](https://github.com/Watanabehato/Anti-ads/actions/runs/35555960362) | `138d5dd` | success | 77s | `debug-apks` id `10620950392`、3,887,554B、未过期 |
+
+> 本文件之后的每次提交都会各自产生一个新的 run；最新 run 与 artifact **以仓库 Actions 页面为准**，上表只是已发生 run 的历史记录。
+> 归档副本（`docs/qa-evidence/history/` 与 `docs/qa-evidence/t17-bea37e8/t17-verification.md`）按撰写时的相对路径逐字节保留，
+> **其内部链接不作为有效链接检查对象**。
 
 **已知告警（非阻断，原文记录；本轮未改工作流）**：
 

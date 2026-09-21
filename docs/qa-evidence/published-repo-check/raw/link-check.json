@@ -1,0 +1,202 @@
+{
+  "files": 27,
+  "checked": 120,
+  "dead": [
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 3,
+      "target": "qa-evidence/t3-b19f67f/"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 13,
+      "target": "qa-evidence/t3-b19f67f/home-authorized.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 13,
+      "target": "qa-evidence/t3-b19f67f/home-authorized-later.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 13,
+      "target": "qa-evidence/t3-b19f67f/system-authorization-readonly.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 13,
+      "target": "qa-evidence/t3-b19f67f/accessibility-authorized.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 23,
+      "target": "qa-evidence/t3-b19f67f/probe-after-home.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 23,
+      "target": "qa-evidence/t3-b19f67f/probe-lifecycle-runtime.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 27,
+      "target": "qa-evidence/t3-b19f67f/probe-missing-snapshot.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 38,
+      "target": "qa-evidence/t3-b19f67f/gradle-full.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 38,
+      "target": "qa-evidence/t3-b19f67f/fixture-build.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 49,
+      "target": "qa-evidence/t3-b19f67f/jvm-results.json"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 57,
+      "target": "qa-evidence/t3-b19f67f/instrument-master-off.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 59,
+      "target": "qa-evidence/t3-b19f67f/apk-sha256.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 63,
+      "target": "qa-evidence/t3-b19f67f/lint-summary.json"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 76,
+      "target": "emulator-environment.md"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 101,
+      "target": "qa-evidence/t3-b19f67f/ad-all-rounds-runtime.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 105,
+      "target": "qa-evidence/t3-b19f67f/post-reboot-ad-runtime.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 106,
+      "target": "qa-evidence/t3-b19f67f/probe-policy-success.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 107,
+      "target": "qa-evidence/t3-b19f67f/fixture-unselected-policy.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 107,
+      "target": "qa-evidence/t3-b19f67f/fixture-selected-policy-full.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 108,
+      "target": "qa-evidence/t3-b19f67f/provider-cold-success.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 109,
+      "target": "qa-evidence/t3-b19f67f/corrupt-provider-fail-closed.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 109,
+      "target": "qa-evidence/t3-b19f67f/corrupt-config-home.png"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 112,
+      "target": "qa-evidence/t3-b19f67f/final-authorization-revoked.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-b19f67f-verification.md",
+      "line": 189,
+      "target": "qa-evidence/t3-b19f67f/devices-after-emulator-exit.txt"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-emulator-environment.md",
+      "line": 3,
+      "target": "verification.md"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-emulator-environment.md",
+      "line": 7,
+      "target": "build.md"
+    },
+    {
+      "file": "docs/qa-evidence/history/t3-emulator-environment.md",
+      "line": 136,
+      "target": "verification.md"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/doc-status-sync.md",
+      "line": 19,
+      "target": "verification.md"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 5,
+      "target": "qa-evidence/history/t3-b19f67f-verification.md"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 5,
+      "target": "repair-qa01-04.md"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 6,
+      "target": "qa-evidence/t17-bea37e8/"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 6,
+      "target": "qa-evidence/t17-bea37e8/run-manifest.json"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 6,
+      "target": "qa-evidence/t17-bea37e8/r2-device-commands-and-outcomes.md"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 46,
+      "target": "qa-evidence/t17-bea37e8/r2-gradle-full.txt"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 46,
+      "target": "qa-evidence/t17-bea37e8/r2-fixture-build.txt"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 57,
+      "target": "qa-evidence/t17-bea37e8/r2-jvm-results.json"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 69,
+      "target": "qa-evidence/t17-bea37e8/r2-lint-summary.json"
+    },
+    {
+      "file": "docs/qa-evidence/t17-bea37e8/t17-verification.md",
+      "line": 186,
+      "target": "qa-evidence/t17-bea37e8/r2-pos-ad_positive.png"
+    }
+  ],
+  "absolute": []
+}
