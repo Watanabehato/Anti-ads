@@ -37,7 +37,12 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 **变异检查（证明回归用例真的抓得住原缺陷）**：临时注入与 QA 报告对应缺陷（归属包改回库 namespace、停止后不启用开始按钮且不重建刷新、完全取消节流）后重跑，恰好 **9 个**新用例失败
 （QA-01：`libraryNamespaceIsNotTheServiceOwningPackage`、`serviceIdentityUsesHostPackageAndExactServiceClass`；QA-03：`afterPauseStopsSamplingStartIsEnabledAndStopIsDisabled`、`returningToPageReEnablesExplicitStartAndPeriodicRefresh`、`runningSamplingKeepsStartDisabled`；QA-04：`writesWithinOneSecondAreThrottled`、`forceWriteIsImmediateAndResetsWindow`、`resetClearsThrottleWindow`、`customIntervalIsRespected`），恢复后重新全绿。
 
-## 3. 修复版产物（供独立 QA 复测）
+## 3. 修复版产物（哈希表：测量时点、可复现性与安装依据）
+
+> **先读结论**：下面 3.1 的表是 t16 当时的**本机测量记录**，**未被独立复现**，也**不是设备实际安装的那一组**，
+> 因此**不得作为安装依据或交付证据**；修复版的安装与复测请使用 3.2 中经设备逐字节核对的一组。
+
+### 3.1 t16 当时的本机测量记录（历史记录，**该组未被独立复现、不得作为安装依据**）
 
 | 产物 | 字节数 | SHA-256 |
 | --- | --- | --- |
@@ -47,8 +52,27 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 | `probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk` | 2,172,101 | `a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680` |
 
 字节数与 SHA-256 均在 `be2278c` 提交后由本机重新测量（`stat -c %s` 与 `sha256sum` 同时读取同一次构建产物）。
-哈希对应**本次修复版构建**（versionName 0.1.0、minSdk 29 / targetSdk 35），重新构建即变化；安装前请按 QA 流程重新计算并记录。
-QA 首轮报告中的 `c79b04a4…`（app）与 `35af8de9…`（probe）属于 `b19f67f`，**不得移用**到修复版结论。
+哈希对应**t16 当时的那一次构建**（versionName 0.1.0、minSdk 29 / targetSdk 35）。
+
+**该组的局限（独立验证发现，QA-R3-01(F1)）**：用同一源码重新构建**无法复现**上表的字节数与哈希，磁盘上也不存在匹配这些
+字节数的 APK 文件；也就是说该表既不可复现、也不对应 QA 实际安装过的那组产物。保留它只为记录当时的测量结果，
+**不得**据此安装、比对或宣称设备验证结论。
+
+QA 首轮报告中的 `c79b04a4…`（app）与 `35af8de9…`（probe）属于 `b19f67f`，同样**不得移用**到修复版结论。
+
+### 3.2 可复现且经设备逐字节核对的一组（**安装依据**）
+
+| 产物 | 字节数 | SHA-256 | 来源与核对方式 |
+| --- | --- | --- | --- |
+| `app/build/outputs/apk/debug/app-debug.apk` | 3,392,024 | `a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5` | `docs/qa-evidence/t17-bea37e8/installed-apks.json`：`sha256` 与设备内 `installedSha256` 完全相同；同哈希见 `docs/qa-evidence/t3-be2278c/apk-sha256.txt` |
+| `probe/build/outputs/apk/debug/probe-debug.apk` | 3,169,147 | `0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896` | 同上（t17 installed+本地逐字节一致；t3 亦记录同哈希与字节数） |
+| `app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk` | 2,174,433 | `9b72ae61121fa0fe400d13e7b57f04da32217c2866ec86a061aab4a6e9e8c153` | `docs/qa-evidence/t3-be2278c/apk-sha256.txt`（t17 `apk-sha256.txt` 记录同一哈希） |
+| `probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk` | 2,172,101 | `a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680` | 同上 |
+| `qa/fixtures/noqueries/build/outputs/apk/debug/noqueries-debug.apk` | 见来源文件 | `533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a` | `docs/qa-evidence/t17-bea37e8/apk-sha256.txt` 与 `docs/qa-evidence/t3-be2278c/fixture-hash-before.txt` |
+
+- 来源目录：`docs/qa-evidence/t17-bea37e8/`（第二轮独立复测，含设备内 installed 哈希核对）与 `docs/qa-evidence/t3-be2278c/`（第三轮独立验证的强制重跑记录）。
+- 这一组在独立 QA 的“重建 → 安装”之间**逐字节一致**（`sha256 == installedSha256`），因此可作为修复版的安装依据。
+- 跨环境或再次重新构建仍**可能**改变字节；任何新的安装都应重新计算哈希并在对应 run 证据里记录，不要长期引用本表。
 
 ## 4. 交给独立 QA 的复测项（本任务未执行）
 
