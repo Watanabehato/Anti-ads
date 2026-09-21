@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.core.config.ConfigCodecTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-09-20T09:18:30" hostname="qa-windows-host" time="0.319">
+  <properties/>
+  <testcase name="missingSchemaVersionIsRejected" classname="com.antiads.core.config.ConfigCodecTest" time="0.188"/>
+  <testcase name="defaultConfigRoundTrip" classname="com.antiads.core.config.ConfigCodecTest" time="0.056"/>
+  <testcase name="brokenJsonIsRejected" classname="com.antiads.core.config.ConfigCodecTest" time="0.005"/>
+  <testcase name="unknownExtraFieldIsIgnored" classname="com.antiads.core.config.ConfigCodecTest" time="0.001"/>
+  <testcase name="policyEncodeDecodeAndValidation" classname="com.antiads.core.config.ConfigCodecTest" time="0.009"/>
+  <testcase name="configRoundTripKeepsFieldsAndDefaults" classname="com.antiads.core.config.ConfigCodecTest" time="0.002"/>
+  <testcase name="reportEncodeDecodeAndBounds" classname="com.antiads.core.config.ConfigCodecTest" time="0.039"/>
+  <testcase name="wrongFieldTypeIsRejected" classname="com.antiads.core.config.ConfigCodecTest" time="0.004"/>
+  <testcase name="oversizedPayloadIsRejected" classname="com.antiads.core.config.ConfigCodecTest" time="0.006"/>
+  <testcase name="invalidPackageNameAndSensorTypeAreRejected" classname="com.antiads.core.config.ConfigCodecTest" time="0.003"/>
+  <testcase name="unknownSchemaVersionIsRejected" classname="com.antiads.core.config.ConfigCodecTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

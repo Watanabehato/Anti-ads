@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.core.config.ConfigValidatorTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:33:59" hostname="DESKTOP-26RJE8H" time="0.082">
+  <properties/>
+  <testcase name="unsupportedSchemaVersionRejected" classname="com.antiads.core.config.ConfigValidatorTest" time="0.0"/>
+  <testcase name="errorCodesDoNotLeakInput" classname="com.antiads.core.config.ConfigValidatorTest" time="0.0"/>
+  <testcase name="revisionBoundaries" classname="com.antiads.core.config.ConfigValidatorTest" time="0.001"/>
+  <testcase name="ruleIdsOnlyBuiltinOrEmpty" classname="com.antiads.core.config.ConfigValidatorTest" time="0.0"/>
+  <testcase name="sensorTypesOnlyAllowedSubset" classname="com.antiads.core.config.ConfigValidatorTest" time="0.001"/>
+  <testcase name="defaultConfigIsValidAndAllOff" classname="com.antiads.core.config.ConfigValidatorTest" time="0.001"/>
+  <testcase name="packageCountLimitIs500" classname="com.antiads.core.config.ConfigValidatorTest" time="0.067"/>
+  <testcase name="hostAndSystemUiKeysRejected" classname="com.antiads.core.config.ConfigValidatorTest" time="0.001"/>
+  <testcase name="packageNameSyntax" classname="com.antiads.core.config.ConfigValidatorTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

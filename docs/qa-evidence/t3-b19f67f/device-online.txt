@@ -1,0 +1,4 @@
+device
+1
+AntiAds_QA_API29
+OK

@@ -1,0 +1,233 @@
+Binary APK
+Package name=com.antiads.app id=7f
+  type array id=01 entryCount=1
+    resource 0x7f010000 array/hook_suggested_scope
+      () (array) size=1
+        ["com.antiads.probe"]
+  type drawable id=02 entryCount=1
+    resource 0x7f020000 drawable/ic_launcher
+      () (file) res/drawable/ic_launcher.xml type=XML
+  type string id=03 entryCount=101
+    resource 0x7f030000 string/accessibility_active_package
+      () "正在观察：%1$s"
+    resource 0x7f030001 string/accessibility_actually_connected
+      () "服务实际已连接：%1$s"
+    resource 0x7f030002 string/accessibility_error_code
+      () "最近状态码：%1$s"
+    resource 0x7f030003 string/accessibility_last_action
+      () "最近一次跳过动作：%1$s（%2$d 秒前，%3$s）"
+    resource 0x7f030004 string/accessibility_last_action_none
+      () "最近一次跳过动作：无记录"
+    resource 0x7f030005 string/accessibility_phase
+      () "运行阶段：%1$s"
+    resource 0x7f030006 string/accessibility_service_description
+      () "免 Root 跳过：只在你选择的应用中，当窗口同时出现独立的“广告”上下文与“跳过”控件，且执行前复核通过（未锁屏、非敏感界面、窗口期与快照新鲜、节点仍可点击且文案未变）时发送一次点击。不模拟手势，不使用返回键，不做模糊匹配，不保证对所有应用有效。"
+    resource 0x7f030007 string/accessibility_service_label
+      () "Anti-ads 无障碍跳过"
+    resource 0x7f030008 string/accessibility_service_summary
+      () "仅对已选应用里的“跳过”控件点击一次"
+    resource 0x7f030009 string/accessibility_system_authorized
+      () "系统设置授权：%1$s"
+    resource 0x7f03000a string/action_accepted_false
+      () "系统未接受点击动作"
+    resource 0x7f03000b string/action_accepted_true
+      () "系统已接受点击动作（不代表广告已消失）"
+    resource 0x7f03000c string/app_name
+      () "Anti-ads 防护"
+    resource 0x7f03000d string/detail_accessibility_switch
+      () "免 Root 模式：跳过明确标注的广告“跳过”按钮"
+    resource 0x7f03000e string/detail_effect_note
+      () "保存成功只代表配置已持久化，不代表已经拦截：还需要总开关与对应全局开关开启、目标进程实际读取到配置，并在系统或框架内完成授权。"
+    resource 0x7f03000f string/detail_hook_switch
+      () "增强模式：拦截该应用的 Java 传感器事件"
+    resource 0x7f030010 string/detail_inactive_note
+      () "注意：总开关或对应的全局模式开关当前未开启，该应用的这项配置尚未实际生效。"
+    resource 0x7f030011 string/detail_label
+      () "应用名：%1$s"
+    resource 0x7f030012 string/detail_label_unavailable
+      () "应用名：未知（当前包可见性下无法读取，仅按包名配置）"
+    resource 0x7f030013 string/detail_package
+      () "包名：%1$s"
+    resource 0x7f030014 string/detail_remove_button
+      () "移除该应用的配置"
+    resource 0x7f030015 string/detail_removed
+      () "已移除该应用的配置：%1$s"
+    resource 0x7f030016 string/detail_rule_note
+      () "内置保守规则：只点击独立“广告”标签旁、位于右上角、文案严格匹配“跳过/跳过 5 秒/Skip”等的按钮；输入框、密码框、锁屏、系统界面一律不处理。"
+    resource 0x7f030017 string/detail_section_modes
+      () "该应用的防护模式"
+    resource 0x7f030018 string/detail_section_sensors
+      () "增强模式要拦截的传感器类型"
+    resource 0x7f030019 string/detail_sensor_note
+      () "全部取消选中表示不做传感器拦截（空集合不拦截）。运动、导航、游戏、计步等正常功能可能受影响。"
+    resource 0x7f03001a string/detail_title
+      () "每应用配置"
+    resource 0x7f03001b string/health_corrupt
+      () "配置文件损坏，已回到全部关闭（代码：%1$s）"
+    resource 0x7f03001c string/health_defaults
+      () "尚无配置文件（全部关闭）"
+    resource 0x7f03001d string/health_io_error
+      () "配置文件读取失败，已回到全部关闭（代码：%1$s）"
+    resource 0x7f03001e string/health_ready
+      () "正常"
+    resource 0x7f03001f string/home_accessibility_switch
+      () "免 Root 模式：无障碍跳过（全局）"
+    resource 0x7f030020 string/home_configured_count
+      () "已配置应用：%1$d 个"
+    resource 0x7f030021 string/home_disable_recovery_text
+      () "• 关闭总开关或对应模式开关后：无障碍会在点击前重新读取配置并取消排队动作；增强模式一般在 2 秒左右收到关闭（含最多 1 秒读取时间），最迟在 5 秒租约到期后无条件放行。
+      • 撤销系统无障碍授权会立即停止处理。
+      • 停止 LSPosed 注入本身需要目标应用重启；只关框架模块不关产品开关时，已注入进程可能继续工作到该进程重启，请优先在产品内关闭开关。
+      • 卸载本应用后，目标进程最迟在该次配置租约（5 秒）到期后放行。"
+    resource 0x7f030022 string/home_hook_switch
+      () "增强模式：传感器拦截（全局，需要 Root/LSPosed）"
+    resource 0x7f030023 string/home_limits_text
+      () "• 免 Root 模式：需要你在系统设置里手动授予无障碍权限；自绘界面、游戏画面、无法访问的 WebView、没有语义节点的按钮都可能无法处理。
+      • 增强模式：只在设备已有 Root + 兼容 LSPosed 框架，且模块已激活、目标应用已加入作用域、目标进程重启完成后才可能生效；只拦截已识别的 Java 传感器事件分发路径。
+      • Native/直接通道（NDK、JNI 自建读取、SensorDirectChannel 共享内存）不在 v1 拦截范围内。
+      • 多进程、多用户、工作资料、共享 UID 应用需要单独验证，不保证自动覆盖。
+      • 本应用不申请网络权限，不上传包列表、界面内容或传感器数据；Android 版本与 OEM 差异请以“未验证”看待。"
+    resource 0x7f030024 string/home_manage_packages
+      () "应用选择与每应用配置"
+    resource 0x7f030025 string/home_master_switch
+      () "总开关（所有防护的上级开关）"
+    resource 0x7f030026 string/home_open_accessibility_settings
+      () "打开系统无障碍设置"
+    resource 0x7f030027 string/home_open_framework_manager
+      () "打开框架管理器（LSPosed）"
+    resource 0x7f030028 string/home_open_probe
+      () "打开诊断应用（probe）"
+    resource 0x7f030029 string/home_saved_state
+      () "已保存配置，版本 %1$d；配置文件状态：%2$s"
+    resource 0x7f03002a string/home_section_accessibility
+      () "免 Root 模式状态"
+    resource 0x7f03002b string/home_section_actions
+      () "权限与入口"
+    resource 0x7f03002c string/home_section_disable_recovery
+      () "停用与恢复"
+    resource 0x7f03002d string/home_section_hook
+      () "增强模式状态（进程自报，不等于可信框架证明）"
+    resource 0x7f03002e string/home_section_limits
+      () "能力边界（必须知道）"
+    resource 0x7f03002f string/home_section_switches
+      () "总开关与两种模式"
+    resource 0x7f030030 string/home_subtitle
+      () "两种模式相互独立：免 Root 无障碍跳过；增强模式需要 Root + LSPosed 框架。"
+    resource 0x7f030031 string/home_title
+      () "Anti-ads 防护（摇一摇广告防护）"
+    resource 0x7f030032 string/hook_module_description
+      () "Anti-ads 传感器防护（增强模式）：仅拦截所选应用进程内已识别的 Java 传感器事件分发，用于减少“摇一摇”广告触发。需要用户在框架中激活模块、勾选具体应用作用域并重启目标应用；不改写传感器数据、不注销原监听器、不覆盖 Native/Direct Channel 路径。"
+    resource 0x7f030033 string/hook_no_report
+      () "未观察到注入/尚未报告：可能未激活模块、目标未加入作用域、目标进程未重启，或该应用本来就没有传感器回调。"
+    resource 0x7f030034 string/hook_report_line
+      () "%1$s · PID %2$d · 令牌 %3$s
+      安装状态：%4$s
+      读取状态：%5$s；策略版本：%6$s
+      累计 Java 回调：%7$d；累计丢弃：%8$d
+      时间：%9$s（进程自报）"
+    resource 0x7f030035 string/install_state_error
+      () "安装出错"
+    resource 0x7f030036 string/install_state_installed
+      () "Java 回调 Hook 已安装"
+    resource 0x7f030037 string/install_state_unsupported
+      () "读取成功，但当前实现不支持拦截"
+    resource 0x7f030038 string/install_state_waiting
+      () "等待目标进程 Context（尚未安装 Hook）"
+    resource 0x7f030039 string/list_add_button
+      () "按包名添加"
+    resource 0x7f03003a string/list_add_hint
+      () "直接输入包名添加（例如 com.example.app）"
+    resource 0x7f03003b string/list_add_invalid
+      () "包名不合法，未添加"
+    resource 0x7f03003c string/list_add_rejected
+      () "该包名不允许配置（宿主、系统界面或包名格式不符）"
+    resource 0x7f03003d string/list_add_success
+      () "已添加应用配置：%1$s"
+    resource 0x7f03003e string/list_empty_configured
+      () "还没有配置任何应用。"
+    resource 0x7f03003f string/list_empty_launchable
+      () "没有查询到可启动应用（Android 11 及以上包可见性限制可能使列表不完整）。"
+    resource 0x7f030040 string/list_section_configured
+      () "已配置的应用"
+    resource 0x7f030041 string/list_section_launchable
+      () "可启动应用（点击进入每应用配置）"
+    resource 0x7f030042 string/list_title
+      () "应用选择"
+    resource 0x7f030043 string/list_visibility_note
+      () "Android 11（API 30）及以上默认限制包可见性：本列表只包含可启动应用与已配置包，因此可能不完整。目标不在列表中时，请用下方输入包名添加。"
+    resource 0x7f030044 string/phase_disconnected
+      () "未连接（系统未绑定服务）"
+    resource 0x7f030045 string/phase_error
+      () "错误"
+    resource 0x7f030046 string/phase_idle
+      () "已连接，当前没有合格目标"
+    resource 0x7f030047 string/phase_paused
+      () "已连接，但防护开关已关闭"
+    resource 0x7f030048 string/phase_watching
+      () "已连接，正在观察合格目标"
+    resource 0x7f030049 string/report_age_seconds
+      () "%1$d 秒前"
+    resource 0x7f03004a string/report_expired
+      () "报告已过期（超过 15 秒）"
+    resource 0x7f03004b string/row_configured_summary
+      () "无障碍跳过：%1$s；传感器拦截：%2$s"
+    resource 0x7f03004c string/row_label_suffix
+      () "（%1$s）"
+    resource 0x7f03004d string/row_not_configured
+      () "未配置（点击进入配置）"
+    resource 0x7f03004e string/sensor_accelerometer
+      () "加速度计（摇一摇常用）"
+    resource 0x7f03004f string/sensor_gravity
+      () "重力"
+    resource 0x7f030050 string/sensor_gyroscope
+      () "陀螺仪"
+    resource 0x7f030051 string/sensor_linear_acceleration
+      () "线性加速度"
+    resource 0x7f030052 string/sensor_rotation_vector
+      () "旋转矢量"
+    resource 0x7f030053 string/toast_no_accessibility_settings
+      () "未找到系统无障碍设置入口，请到“设置 → 无障碍”手动开启"
+    resource 0x7f030054 string/toast_no_framework_manager
+      () "未找到兼容的框架管理器：请在 Root/LSPosed 管理器内激活“Anti-ads 防护”，并把目标应用加入作用域"
+    resource 0x7f030055 string/toast_no_probe
+      () "未找到诊断应用（com.antiads.probe），请先安装 probe-debug.apk"
+    resource 0x7f030056 string/toast_rejected_conflict
+      () "配置已被其他更改更新（版本冲突），已刷新为最新配置，请重试"
+    resource 0x7f030057 string/toast_rejected_exhausted
+      () "版本号已耗尽，无法再保存"
+    resource 0x7f030058 string/toast_rejected_invalid
+      () "配置无效，未保存"
+    resource 0x7f030059 string/toast_rejected_io
+      () "写入失败，未保存（磁盘错误）"
+    resource 0x7f03005a string/toast_rejected_unknown
+      () "保存被拒绝：%1$s"
+    resource 0x7f03005b string/toast_saved_revision
+      () "已保存配置，版本 %1$d"
+    resource 0x7f03005c string/transport_expired
+      () "租约已过期"
+    resource 0x7f03005d string/transport_invalid
+      () "回复无效"
+    resource 0x7f03005e string/transport_never_read
+      () "从未读取配置"
+    resource 0x7f03005f string/transport_ok
+      () "已读取配置"
+    resource 0x7f030060 string/transport_unauthorized
+      () "读取被拒绝"
+    resource 0x7f030061 string/transport_unavailable
+      () "宿主不可达"
+    resource 0x7f030062 string/value_no
+      () "否"
+    resource 0x7f030063 string/value_unknown
+      () "未知"
+    resource 0x7f030064 string/value_yes
+      () "是"
+  type style id=04 entryCount=1
+    resource 0x7f040000 style/Theme.AntiAds
+      () (style) size=0 parent=0x01030241
+  type xml id=05 entryCount=3
+    resource 0x7f050000 xml/accessibility_service_config
+      () (file) res/xml/accessibility_service_config.xml type=XML
+    resource 0x7f050001 xml/backup_rules
+      () (file) res/xml/backup_rules.xml type=XML
+    resource 0x7f050002 xml/data_extraction_rules
+      () (file) res/xml/data_extraction_rules.xml type=XML

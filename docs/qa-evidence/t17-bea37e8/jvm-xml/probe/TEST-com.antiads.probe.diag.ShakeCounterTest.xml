@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.probe.diag.ShakeCounterTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:08:15" hostname="qa-windows-host" time="0.002">
+  <properties />
+  <testcase name="ignoresValuesWithinDeadZone" classname="com.antiads.probe.diag.ShakeCounterTest" time="0.001" />
+  <testcase name="countsShakeOnDirectionChangesWithinWindow" classname="com.antiads.probe.diag.ShakeCounterTest" time="0.001" />
+  <testcase name="resetsCounters" classname="com.antiads.probe.diag.ShakeCounterTest" time="0.0" />
+  <testcase name="windowExpiryClearsDirectionChanges" classname="com.antiads.probe.diag.ShakeCounterTest" time="0.0" />
+  <system-out />
+  <system-err />
+</testsuite>

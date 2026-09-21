@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.core.rules.ConservativeAdRuleEngineTest" tests="26" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:33:59" hostname="DESKTOP-26RJE8H" time="0.29">
+  <properties/>
+  <testcase name="englishMatchingIsCaseInsensitiveAndChineseContextAccepted" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.164"/>
+  <testcase name="extremeBoundsDoNotOverflow" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.004"/>
+  <testcase name="unconfiguredPackageIsUntouched" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <testcase name="emptyRuleSelectionDisablesTheRule" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <testcase name="fuzzyAdContextLabelsAreRejected" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.007"/>
+  <testcase name="masterOrGlobalSwitchOffProducesNoCandidate" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.001"/>
+  <testcase name="adContextFromSameNodeOnlyProducesNothing" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <testcase name="explicitAdContextAndSkipButtonProduceSingleCandidate" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.001"/>
+  <testcase name="rejectedSystemAndHostTargetsAreNeverTouched" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.003"/>
+  <testcase name="invisibleAdContextIsNotEnough" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <testcase name="geometryBoundariesAreExact" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.06"/>
+  <testcase name="editableOrPasswordNodeBlocksWholeWindow" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.002"/>
+  <testcase name="skipWithoutAdContextProducesNothing" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.001"/>
+  <testcase name="windowLevelGuardsBlockCandidates" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <testcase name="chineseAndEnglishSkipVariantsMatch" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.002"/>
+  <testcase name="invisibleOrDisabledOrNonClickableCandidatesAreIgnored" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.002"/>
+  <testcase name="invalidBoundsAreRejected" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.002"/>
+  <testcase name="foregroundWindowAgeBoundaryIsTenSeconds" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.002"/>
+  <testcase name="unknownSchemaVersionProducesNoCandidate" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <testcase name="emptyNodeListProducesNothing" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <testcase name="screenDimensionLimitIsExactAndConservative" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.001"/>
+  <testcase name="misMatchingLabelsAreRejected" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.002"/>
+  <testcase name="contentChangedCannotExtendTheWindow" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.004"/>
+  <testcase name="onlyOneCandidateIsReturnedWithDeterministicOrdering" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.001"/>
+  <testcase name="separateContextNodeLetsCandidateAlsoCarryAdLabel" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <testcase name="abnormalScreenDimensionsBlockCandidates" classname="com.antiads.core.rules.ConservativeAdRuleEngineTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

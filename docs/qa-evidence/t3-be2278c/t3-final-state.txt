@@ -1,0 +1,10 @@
+### bring app to front and tap 总开关 off (restore to state left by t17: masterEnabled=false)
+### config after restore attempt:
+{"schemaVersion":1,"revision":35,"masterEnabled":false,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["b
+### final secure settings:
+accessibility_enabled=0
+enabled_accessibility_services=null
+### home screenshot bytes=259734
+### doc hash of qa-flash t17 report (claim: 8cff3388...):
+8cff33884b5880b741de60583af30f0a346ee03053ba0a8d7a6f34ad2b99ded7 *docs/verification.md
+8cff33884b5880b741de60583af30f0a346ee03053ba0a8d7a6f34ad2b99ded7 *docs/qa-evidence/t17-bea37e8/t17-verification.md

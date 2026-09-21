@@ -1,0 +1,7 @@
+Starting: Intent { cmp=com.antiads.probe/.AdFixtureActivity (has extras) }
+Status: ok
+LaunchState: COLD
+Activity: com.antiads.probe/.AdFixtureActivity
+TotalTime: 2203
+WaitTime: 2252
+Complete

@@ -1,0 +1,434 @@
+{
+ "run": "t3-be2278c",
+ "source_commit": "bea37e8086276dd5475524b81bddf55ab17149e5",
+ "source_code_commit": "be2278cc31a4ab6683df5affa8dc967bba3fd063",
+ "command": "bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:testDebugUnitTest :hook:testDebugUnitTest :probe:testDebugUnitTest :app:lintDebug :accessibility:lintDebug :hook:lintDebug :probe:lintDebug :app:assembleDebug :probe:assembleDebug :app:assembleDebugAndroidTest :probe:assembleDebugAndroidTest --rerun-tasks --no-build-cache --max-workers=2",
+ "exit_code": 0,
+ "modules": {
+  "core": {
+   "tests": 67,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "suites": 6
+  },
+  "app": {
+   "tests": 46,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "suites": 6
+  },
+  "accessibility": {
+   "tests": 103,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "suites": 9
+  },
+  "hook": {
+   "tests": 46,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "suites": 10
+  },
+  "probe": {
+   "tests": 36,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "suites": 7
+  }
+ },
+ "total": {
+  "tests": 298,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suites": 38
+ },
+ "suites_detail": [
+  {
+   "module": "core",
+   "suite": "com.antiads.core.config.ConfigCodecTest",
+   "tests": 11,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:10:39",
+   "time_s": "1.043"
+  },
+  {
+   "module": "core",
+   "suite": "com.antiads.core.config.ConfigValidatorTest",
+   "tests": 9,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:10:40",
+   "time_s": "0.101"
+  },
+  {
+   "module": "core",
+   "suite": "com.antiads.core.config.PolicyResolverTest",
+   "tests": 5,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:10:40",
+   "time_s": "0.008"
+  },
+  {
+   "module": "core",
+   "suite": "com.antiads.core.policy.SensorPolicyEngineTest",
+   "tests": 9,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:10:40",
+   "time_s": "0.05"
+  },
+  {
+   "module": "core",
+   "suite": "com.antiads.core.policy.SensorPolicyScopeTest",
+   "tests": 7,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:10:40",
+   "time_s": "0.002"
+  },
+  {
+   "module": "core",
+   "suite": "com.antiads.core.rules.ConservativeAdRuleEngineTest",
+   "tests": 26,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:10:40",
+   "time_s": "0.189"
+  },
+  {
+   "module": "app",
+   "suite": "com.antiads.app.config.AppConfigRepositoryTest",
+   "tests": 15,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:46",
+   "time_s": "1.29"
+  },
+  {
+   "module": "app",
+   "suite": "com.antiads.app.config.ProviderCallRouterTest",
+   "tests": 14,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:47",
+   "time_s": "0.522"
+  },
+  {
+   "module": "app",
+   "suite": "com.antiads.app.config.ProviderEntryPolicyTest",
+   "tests": 2,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:48",
+   "time_s": "0.018"
+  },
+  {
+   "module": "app",
+   "suite": "com.antiads.app.config.RateLimiterTest",
+   "tests": 4,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:48",
+   "time_s": "0.011"
+  },
+  {
+   "module": "app",
+   "suite": "com.antiads.app.config.RuntimeReportStoreTest",
+   "tests": 4,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:48",
+   "time_s": "0.48"
+  },
+  {
+   "module": "app",
+   "suite": "com.antiads.app.ui.StatusFactsTest",
+   "tests": 7,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:48",
+   "time_s": "0.097"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.AccessibilityDependenciesTest",
+   "tests": 5,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:07",
+   "time_s": "0.333"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.AccessibilityRuntimeTest",
+   "tests": 12,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:08",
+   "time_s": "0.212"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.CoreRuleToExecutionIntegrationTest",
+   "tests": 11,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:08",
+   "time_s": "0.389"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.ExecutionGuardsTest",
+   "tests": 37,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:08",
+   "time_s": "0.075"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.PhaseCalculatorTest",
+   "tests": 9,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:08",
+   "time_s": "0.012"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.SensitivePackageRulesTest",
+   "tests": 4,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:08",
+   "time_s": "0.002"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.ServiceDeclarationTest",
+   "tests": 3,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:08",
+   "time_s": "0.202"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.SkipGateTest",
+   "tests": 18,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:09",
+   "time_s": "0.064"
+  },
+  {
+   "module": "accessibility",
+   "suite": "com.antiads.accessibility.TraversalBudgetTest",
+   "tests": 4,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:09",
+   "time_s": "0.003"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.HookSkipRulesTest",
+   "tests": 2,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:34",
+   "time_s": "0.183"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.SensorDispatchTargetTest",
+   "tests": 6,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:34",
+   "time_s": "0.096"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.SensorTypeResolverTest",
+   "tests": 7,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:34",
+   "time_s": "0.077"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.policy.FailOpenDecisionTest",
+   "tests": 6,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:34",
+   "time_s": "1.223"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.policy.HookPolicyLeaseTest",
+   "tests": 7,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:35",
+   "time_s": "0.034"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.policy.HookRefreshThrottleTest",
+   "tests": 3,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:35",
+   "time_s": "0.053"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.policy.HookReportSchedulingTest",
+   "tests": 3,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:35",
+   "time_s": "0.171"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.policy.HookStuckTransportTest",
+   "tests": 1,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:36",
+   "time_s": "0.047"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.policy.PolicyJsonTest",
+   "tests": 7,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:36",
+   "time_s": "0.071"
+  },
+  {
+   "module": "hook",
+   "suite": "com.antiads.hook.internal.policy.SingleThreadWorkerTest",
+   "tests": 4,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:11:36",
+   "time_s": "0.169"
+  },
+  {
+   "module": "probe",
+   "suite": "com.antiads.probe.diag.DiagFileThrottleTest",
+   "tests": 5,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:12:05",
+   "time_s": "0.014"
+  },
+  {
+   "module": "probe",
+   "suite": "com.antiads.probe.diag.DiagJsonTest",
+   "tests": 8,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:12:05",
+   "time_s": "0.636"
+  },
+  {
+   "module": "probe",
+   "suite": "com.antiads.probe.diag.DiagTrackerTest",
+   "tests": 7,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:12:06",
+   "time_s": "0.018"
+  },
+  {
+   "module": "probe",
+   "suite": "com.antiads.probe.diag.ProbeTypesTest",
+   "tests": 5,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:12:06",
+   "time_s": "0.038"
+  },
+  {
+   "module": "probe",
+   "suite": "com.antiads.probe.diag.ProbeUiStateRulesTest",
+   "tests": 4,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:12:06",
+   "time_s": "0.033"
+  },
+  {
+   "module": "probe",
+   "suite": "com.antiads.probe.diag.ShakeCounterTest",
+   "tests": 4,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:12:06",
+   "time_s": "0.006"
+  },
+  {
+   "module": "probe",
+   "suite": "com.antiads.probe.diag.SilenceWindowDetectorTest",
+   "tests": 3,
+   "failures": 0,
+   "errors": 0,
+   "skipped": 0,
+   "timestamp": "2026-09-21T02:12:06",
+   "time_s": "0.008"
+  }
+ ],
+ "note": "Counts parsed from XML written by this forced run (timestamps 2026-09-21T02:10..02:12Z). Instrumentation tests are not included; they need a device."
+}

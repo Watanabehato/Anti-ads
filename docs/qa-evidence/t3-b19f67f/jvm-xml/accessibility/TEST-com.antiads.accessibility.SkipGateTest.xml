@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.accessibility.SkipGateTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-09-20T09:18:39" hostname="qa-windows-host" time="0.024">
+  <properties/>
+  <testcase name="revocationResetClearsEpochAndThrottle" classname="com.antiads.accessibility.SkipGateTest" time="0.001"/>
+  <testcase name="nonWindowEventIsDropped" classname="com.antiads.accessibility.SkipGateTest" time="0.001"/>
+  <testcase name="newWindowReplacesEpochAndDropsTheOldQueuedScan" classname="com.antiads.accessibility.SkipGateTest" time="0.001"/>
+  <testcase name="eventsAreCoalescedAt250msAndScanIsConsumedOnce" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="windowGuardsFlowThroughEvaluate" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="policyGuardsFlowThroughEvaluate" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="evaluateRejectsRequestsForAnotherWindow" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="missingPackageNameIsDropped" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="contentEventsDoNotExtendTheTenSecondWindow" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="throttleTableStaysBounded" classname="com.antiads.accessibility.SkipGateTest" time="0.012"/>
+  <testcase name="repeatedContentEventsKeepEpochAndWindowStart" classname="com.antiads.accessibility.SkipGateTest" time="0.001"/>
+  <testcase name="initialEpochFromObservationIsAccepted" classname="com.antiads.accessibility.SkipGateTest" time="0.001"/>
+  <testcase name="oneAttemptPerEpochEvenWhenTheSystemRejectsTheAction" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="clockRollbackDoesNotBypassTheThrottle" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="cancelPendingDropsQueuedWork" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="windowStateChangeCreatesEpochAndScansImmediately" classname="com.antiads.accessibility.SkipGateTest" time="0.002"/>
+  <testcase name="newPackageStartsANewEpoch" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <testcase name="samePackageThrottleAppliesAcrossEpochsAt2000msBoundary" classname="com.antiads.accessibility.SkipGateTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

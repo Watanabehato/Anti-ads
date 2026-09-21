@@ -1,0 +1,30 @@
+[
+  {
+    "module": "app",
+    "issues": [
+      {
+        "id": "ExportedContentProvider",
+        "severity": "Warning",
+        "message": "Exported content providers can provide access to potentially sensitive data"
+      }
+    ]
+  },
+  {
+    "module": "accessibility",
+    "issues": []
+  },
+  {
+    "module": "hook",
+    "issues": [
+      {
+        "id": "PrivateApi",
+        "severity": "Warning",
+        "message": "Accessing internal APIs via reflection is not supported and may not work on all devices or in the future"
+      }
+    ]
+  },
+  {
+    "module": "probe",
+    "issues": []
+  }
+]

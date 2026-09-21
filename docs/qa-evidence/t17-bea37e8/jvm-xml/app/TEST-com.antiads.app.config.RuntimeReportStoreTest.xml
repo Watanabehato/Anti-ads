@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.app.config.RuntimeReportStoreTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:08:08" hostname="qa-windows-host" time="0.117">
+  <properties />
+  <testcase name="globalCapIsEnforced" classname="com.antiads.app.config.RuntimeReportStoreTest" time="0.083" />
+  <testcase name="sameProcessTokenReplacesPreviousEntry" classname="com.antiads.app.config.RuntimeReportStoreTest" time="0.001" />
+  <testcase name="snapshotIsSortedNewestFirst" classname="com.antiads.app.config.RuntimeReportStoreTest" time="0.002" />
+  <testcase name="keepsAtMostEightProcessesPerPackage" classname="com.antiads.app.config.RuntimeReportStoreTest" time="0.003" />
+  <system-out />
+  <system-err />
+</testsuite>

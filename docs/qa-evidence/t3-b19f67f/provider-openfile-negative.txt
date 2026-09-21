@@ -1,0 +1,10 @@
+Error while accessing provider:com.antiads.app.config
+java.lang.UnsupportedOperationException: 只读 Provider：OPEN_FILE 被拒绝
+	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:172)
+	at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:151)
+	at android.content.ContentProviderProxy.openFile(ContentProviderNative.java:604)
+	at com.android.commands.content.Content$ReadCommand.onExecute(Content.java:587)
+	at com.android.commands.content.Content$Command.execute(Content.java:469)
+	at com.android.commands.content.Content.main(Content.java:690)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:338)

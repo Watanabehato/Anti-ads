@@ -1,0 +1,11 @@
+date=2026-09-21T02:15:43Z
+HEAD=bea37e8086276dd5475524b81bddf55ab17149e5
+--- APK sizes and sha256 AFTER forced rerun (--rerun-tasks --no-build-cache):
+app/build/outputs/apk/debug/app-debug.apk 3392024 bytes
+a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5 *app/build/outputs/apk/debug/app-debug.apk
+probe/build/outputs/apk/debug/probe-debug.apk 3169147 bytes
+0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896 *probe/build/outputs/apk/debug/probe-debug.apk
+app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk 2174433 bytes
+9b72ae61121fa0fe400d13e7b57f04da32217c2866ec86a061aab4a6e9e8c153 *app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk 2172101 bytes
+a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680 *probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk

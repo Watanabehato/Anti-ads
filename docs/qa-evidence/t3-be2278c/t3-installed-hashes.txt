@@ -1,0 +1,13 @@
+### installed APK hash check, v2 (MSYS_NO_PATHCONV=1, on-device sha256sum)
+com.antiads.app
+  path=/data/app/com.antiads.app-0D3FXrDqx1GIimObdsVM0A==/base.apk
+  local=a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5
+  device=a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5 -> MATCH
+com.antiads.probe
+  path=/data/app/com.antiads.probe-Rao3Fxpsad0uB3zuMUUUrw==/base.apk
+  local=0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896
+  device=0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896 -> MATCH
+com.antiads.fixture.target
+  path=/data/app/com.antiads.fixture.target-D8nrX0ajbx8viGBynB313g==/base.apk
+  local=533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a
+  device=533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a -> MATCH

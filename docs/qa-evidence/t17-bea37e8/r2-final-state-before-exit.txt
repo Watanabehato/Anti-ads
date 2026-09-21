@@ -1,0 +1,6 @@
+avd=AntiAds_QA_API29
+OK
+boot=1
+config={"schemaVersion":1,"revision":33,"masterEnabled":false,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]},"com.antiads.fixture.target":{"accessibilityEnabled":false,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]}}}
+probe_diag={"tag":"AntiAdsProbe.Diag","kind":"probeDiagSnapshot","schemaVersion":1,"sessionId":"a8caa741-9ec7-44a2-97f5-d2449f80a61b","registrationSeq":18,"host":"ACTIVITY","pid":4427,"activityResumed":false,"sa
+installed=5

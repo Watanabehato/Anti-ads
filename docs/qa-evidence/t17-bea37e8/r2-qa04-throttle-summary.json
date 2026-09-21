@@ -1,0 +1,12 @@
+{
+  "logLines": 95,
+  "unforced": 89,
+  "forced": 6,
+  "minGapMs": 1003,
+  "maxGapMs": 6138,
+  "gapsBelow1000ms": 0,
+  "spanMs": 96561,
+  "firstWall": "09-21 02:21:36.730",
+  "lastWall": "09-21 02:23:13.286",
+  "source": "logcat -s AntiAdsProbe.Diag:I, device emulator-5580, fixed APK sha256 0a75edd0..."
+}

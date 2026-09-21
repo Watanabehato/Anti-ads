@@ -1,0 +1,5 @@
+ACTIVITY MANAGER SERVICES (dumpsys activity services)
+  Connection bindings to services:
+  * ConnectionRecord{a32f97b u0 CR FGSA DEAD com.antiads.app/com.antiads.accessibility.AdSkipService:@17afd0a}
+    binding=AppBindRecord{68fdcc2 com.antiads.app/com.antiads.accessibility.AdSkipService:system}
+    conn=android.app.LoadedApk$ServiceDispatcher$InnerConnection@17afd0a flags=0x2100001

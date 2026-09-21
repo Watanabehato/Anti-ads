@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.accessibility.AccessibilityRuntimeTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:11:08" hostname="DESKTOP-26RJE8H" time="0.212">
+  <properties/>
+  <testcase name="closeIsIdempotentAndStopsFurtherNotifications" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.034"/>
+  <testcase name="internalErrorMovesToErrorPhase" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.002"/>
+  <testcase name="interruptIsRecordedWithoutClaimingDisconnection" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.002"/>
+  <testcase name="listenerExceptionIsIsolated" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.005"/>
+  <testcase name="connectedWithMasterOffIsPaused" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.113"/>
+  <testcase name="actionRecordIsPublishedAsIs" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.003"/>
+  <testcase name="connectedWithoutDependencyIsError" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.0"/>
+  <testcase name="duplicatePhasePublicationDoesNotNotifyTwice" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.025"/>
+  <testcase name="disconnectKeepsLastActionButClearsConnection" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.006"/>
+  <testcase name="defaultStateIsDisconnected" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.001"/>
+  <testcase name="connectedWithTargetIsWatching" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.001"/>
+  <testcase name="observeReceivesCurrentStateImmediately" classname="com.antiads.accessibility.AccessibilityRuntimeTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

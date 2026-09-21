@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.probe.diag.DiagTrackerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:08:15" hostname="qa-windows-host" time="0.007">
+  <properties />
+  <testcase name="unregisterKeepsCountersButMarksState" classname="com.antiads.probe.diag.DiagTrackerTest" time="0.003" />
+  <testcase name="registrationSeqCountsSuccessfulRegistrationsOnly" classname="com.antiads.probe.diag.DiagTrackerTest" time="0.0" />
+  <testcase name="missingSensorTypeIsShownAsAbsentAndNotRegistered" classname="com.antiads.probe.diag.DiagTrackerTest" time="0.001" />
+  <testcase name="callbacksAccumulateAndResetPerRegistration" classname="com.antiads.probe.diag.DiagTrackerTest" time="0.0" />
+  <testcase name="failedRegistrationIsReportedVerbatim" classname="com.antiads.probe.diag.DiagTrackerTest" time="0.0" />
+  <testcase name="frameCarriesHostAndSessionIdentity" classname="com.antiads.probe.diag.DiagTrackerTest" time="0.001" />
+  <testcase name="controlTypeIsASeparateRow" classname="com.antiads.probe.diag.DiagTrackerTest" time="0.0" />
+  <system-out />
+  <system-err />
+</testsuite>

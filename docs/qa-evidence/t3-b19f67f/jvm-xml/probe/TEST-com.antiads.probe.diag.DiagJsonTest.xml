@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.probe.diag.DiagJsonTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-09-20T09:18:55" hostname="qa-windows-host" time="0.023">
+  <properties/>
+  <testcase name="noteIsEscaped" classname="com.antiads.probe.diag.DiagJsonTest" time="0.02"/>
+  <testcase name="summaryCarriesVerdictAndControlGate" classname="com.antiads.probe.diag.DiagJsonTest" time="0.0"/>
+  <testcase name="rowLineCarriesIdentityAndCounters" classname="com.antiads.probe.diag.DiagJsonTest" time="0.0"/>
+  <testcase name="nullFieldsAreEmittedAsJsonNull" classname="com.antiads.probe.diag.DiagJsonTest" time="0.0"/>
+  <testcase name="silenceWindowLineExposesBeforeAndAfterTimestamps" classname="com.antiads.probe.diag.DiagJsonTest" time="0.0"/>
+  <testcase name="controlRowIsMarked" classname="com.antiads.probe.diag.DiagJsonTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

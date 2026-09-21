@@ -1,0 +1,13 @@
+### tap ALLOW
+### secure state after grant:
+accessibility_enabled=1
+enabled_services=com.antiads.app/com.antiads.accessibility.AdSkipService
+### dumpsys accessibility (bound/enabled):
+     Bound services:{Service[label=Anti-ads 无障碍跳过, feedbackType[FEEDBACK_GENERIC], capabilities=1, eventTypes=[TYPE_WINDOW_STATE_CHANGED, TYPE_WINDOW_CONTENT_CHANGED], notificationTimeout=100]}
+     Enabled services:{{com.antiads.app/com.antiads.accessibility.AdSkipService}}
+     Binding services:{}]
+### back to app home (MainActivity):
+Status: ok
+LaunchState: HOT
+TotalTime: 899
+screenshot bytes=255814

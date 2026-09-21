@@ -1,0 +1,330 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :accessibility:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :accessibility:preBuild UP-TO-DATE
+> Task :accessibility:preDebugBuild UP-TO-DATE
+> Task :accessibility:generateDebugResValues
+> Task :accessibility:generateDebugResources
+> Task :accessibility:packageDebugResources
+> Task :accessibility:parseDebugLocalResources
+> Task :accessibility:generateDebugRFile
+> Task :accessibility:javaPreCompileDebug
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :accessibility:compileDebugLibraryResources
+> Task :core:processResources NO-SOURCE
+> Task :core:processTestResources NO-SOURCE
+> Task :accessibility:writeDebugAarMetadata
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :hook:preBuild UP-TO-DATE
+> Task :hook:preDebugBuild UP-TO-DATE
+> Task :hook:writeDebugAarMetadata
+> Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :hook:generateDebugResValues
+> Task :hook:generateDebugResources
+> Task :hook:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:mergeDebugResources
+> Task :app:packageDebugResources
+> Task :app:parseDebugLocalResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :accessibility:extractDeepLinksDebug
+> Task :accessibility:processDebugManifest
+> Task :app:extractDeepLinksDebug
+> Task :hook:extractDeepLinksDebug
+> Task :hook:processDebugManifest
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :hook:compileDebugLibraryResources
+> Task :hook:parseDebugLocalResources
+> Task :hook:generateDebugRFile
+> Task :app:processDebugResources
+> Task :hook:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :hook:javaPreCompileDebug
+> Task :app:javaPreCompileDebug
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest
+> Task :accessibility:preDebugUnitTestBuild UP-TO-DATE
+> Task :accessibility:generateDebugUnitTestStubRFile
+> Task :accessibility:javaPreCompileDebugUnitTest
+> Task :hook:preDebugUnitTestBuild UP-TO-DATE
+> Task :hook:generateDebugUnitTestStubRFile
+> Task :hook:javaPreCompileDebugUnitTest
+> Task :probe:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :probe:preBuild UP-TO-DATE
+> Task :probe:preDebugBuild UP-TO-DATE
+> Task :probe:checkDebugAarMetadata
+> Task :probe:generateDebugResValues
+> Task :probe:mapDebugSourceSetPaths
+> Task :probe:generateDebugResources
+> Task :probe:mergeDebugResources
+> Task :probe:packageDebugResources
+> Task :probe:parseDebugLocalResources
+> Task :probe:createDebugCompatibleScreenManifests
+> Task :probe:extractDeepLinksDebug
+> Task :probe:processDebugMainManifest
+> Task :probe:processDebugManifest
+> Task :probe:processDebugManifestForPackage
+> Task :probe:processDebugResources
+> Task :probe:javaPreCompileDebug
+> Task :probe:preDebugUnitTestBuild UP-TO-DATE
+> Task :probe:javaPreCompileDebugUnitTest
+> Task :accessibility:mergeDebugJniLibFolders
+> Task :accessibility:mergeDebugNativeLibs NO-SOURCE
+> Task :accessibility:stripDebugDebugSymbols NO-SOURCE
+> Task :accessibility:copyDebugJniLibsProjectAndLocalJars
+> Task :accessibility:extractDeepLinksForAarDebug
+> Task :accessibility:mergeDebugShaders
+> Task :accessibility:compileDebugShaders NO-SOURCE
+> Task :accessibility:generateDebugAssets UP-TO-DATE
+> Task :accessibility:packageDebugAssets
+> Task :accessibility:prepareDebugArtProfile
+> Task :accessibility:prepareLintJarForPublish
+> Task :accessibility:preDebugAndroidTestBuild UP-TO-DATE
+> Task :accessibility:generateDebugAndroidTestResValues
+> Task :accessibility:writeDebugLintModelMetadata
+> Task :accessibility:extractProguardFiles
+> Task :hook:mergeDebugJniLibFolders
+> Task :hook:mergeDebugNativeLibs NO-SOURCE
+> Task :hook:stripDebugDebugSymbols NO-SOURCE
+> Task :hook:copyDebugJniLibsProjectAndLocalJars
+> Task :hook:extractDeepLinksForAarDebug
+> Task :hook:mergeDebugShaders
+> Task :hook:compileDebugShaders NO-SOURCE
+> Task :hook:generateDebugAssets UP-TO-DATE
+> Task :hook:packageDebugAssets
+> Task :hook:prepareDebugArtProfile
+> Task :hook:prepareLintJarForPublish
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResValues
+> Task :hook:writeDebugLintModelMetadata
+> Task :app:extractProguardFiles
+> Task :hook:extractProguardFiles
+> Task :hook:preDebugAndroidTestBuild UP-TO-DATE
+> Task :hook:generateDebugAndroidTestResValues
+> Task :probe:preDebugAndroidTestBuild SKIPPED
+> Task :probe:generateDebugAndroidTestResValues
+> Task :probe:extractProguardFiles
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeExtDexDebug
+> Task :accessibility:copyDebugJniLibsProjectOnly
+> Task :app:mergeDebugJniLibFolders
+> Task :hook:copyDebugJniLibsProjectOnly
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :probe:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :probe:mergeDebugShaders
+> Task :probe:compileDebugShaders NO-SOURCE
+> Task :probe:generateDebugAssets UP-TO-DATE
+> Task :probe:mergeDebugAssets
+> Task :probe:compressDebugAssets
+> Task :probe:desugarDebugFileDependencies
+> Task :probe:checkDebugDuplicateClasses
+> Task :probe:mergeExtDexDebug
+> Task :probe:mergeDebugJniLibFolders
+> Task :probe:validateSigningDebug
+> Task :probe:writeDebugAppMetadata
+> Task :probe:writeDebugSigningConfigVersions
+> Task :app:checkDebugAndroidTestAarMetadata
+> Task :app:mapDebugAndroidTestSourceSetPaths
+> Task :app:generateDebugAndroidTestResources
+> Task :app:mergeDebugAndroidTestResources
+> Task :app:processDebugAndroidTestManifest
+> Task :app:processDebugAndroidTestResources
+> Task :app:javaPreCompileDebugAndroidTest
+> Task :app:mergeDebugAndroidTestShaders
+> Task :app:compileDebugAndroidTestShaders NO-SOURCE
+> Task :app:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :app:mergeDebugAndroidTestAssets
+> Task :app:compressDebugAndroidTestAssets
+> Task :app:desugarDebugAndroidTestFileDependencies
+> Task :app:checkDebugAndroidTestDuplicateClasses
+> Task :core:compileKotlin
+> Task :core:compileJava NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :app:mergeExtDexDebugAndroidTest
+> Task :core:jar
+> Task :probe:mergeLibDexDebug
+> Task :core:compileTestKotlin
+> Task :core:compileTestJava NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+> Task :core:test
+> Task :accessibility:compileDebugKotlin
+> Task :accessibility:compileDebugJavaWithJavac NO-SOURCE
+> Task :accessibility:bundleLibRuntimeToJarDebug
+> Task :accessibility:processDebugJavaRes
+> Task :accessibility:bundleLibCompileToJarDebug
+> Task :hook:compileDebugKotlin
+> Task :hook:compileDebugJavaWithJavac NO-SOURCE
+> Task :hook:bundleLibCompileToJarDebug
+> Task :accessibility:compileDebugUnitTestKotlin
+> Task :hook:bundleLibRuntimeToJarDebug
+> Task :hook:processDebugJavaRes
+> Task :accessibility:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :accessibility:processDebugUnitTestJavaRes
+> Task :accessibility:testDebugUnitTest
+> Task :hook:compileDebugUnitTestKotlin
+> Task :hook:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :hook:processDebugUnitTestJavaRes
+> Task :app:compileDebugKotlin
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:bundleDebugClassesToCompileJar
+> Task :hook:testDebugUnitTest
+> Task :app:processDebugJavaRes
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+> Task :app:testDebugUnitTest
+> Task :accessibility:extractDebugAnnotations
+> Task :accessibility:mergeDebugGeneratedProguardFiles
+> Task :accessibility:mergeDebugConsumerProguardFiles
+> Task :accessibility:mergeDebugJavaResource
+> Task :accessibility:syncDebugLibJars
+> Task :accessibility:bundleDebugLocalLintAar
+> Task :accessibility:createFullJarDebug
+> Task :accessibility:generateDebugAndroidTestLintModel
+> Task :accessibility:generateDebugLintModel
+> Task :accessibility:generateDebugUnitTestLintModel
+
+> Task :probe:compileDebugKotlin
+w: file:///D:/test/Anti-ads/probe/src/main/kotlin/com/antiads/probe/AdFixtureActivity.kt:48:31 'val systemWindowInsetTop: Int' is deprecated. Deprecated in Java.
+w: file:///D:/test/Anti-ads/probe/src/main/kotlin/com/antiads/probe/AdFixtureActivity.kt:49:34 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/test/Anti-ads/probe/src/main/kotlin/com/antiads/probe/AdFixtureActivity.kt:139:37 'val defaultDisplay: Display!' is deprecated. Deprecated in Java.
+w: file:///D:/test/Anti-ads/probe/src/main/kotlin/com/antiads/probe/AdFixtureActivity.kt:141:17 'fun getSize(p0: Point!): Unit' is deprecated. Deprecated in Java.
+
+> Task :probe:compileDebugJavaWithJavac NO-SOURCE
+> Task :probe:bundleDebugClassesToRuntimeJar
+> Task :probe:bundleDebugClassesToCompileJar
+> Task :probe:compileDebugUnitTestKotlin
+> Task :probe:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :probe:processDebugJavaRes
+> Task :probe:processDebugUnitTestJavaRes
+> Task :probe:testDebugUnitTest
+> Task :accessibility:lintAnalyzeDebugAndroidTest
+> Task :accessibility:lintAnalyzeDebug
+> Task :hook:extractDebugAnnotations
+> Task :hook:mergeDebugGeneratedProguardFiles
+> Task :hook:mergeDebugConsumerProguardFiles
+> Task :hook:mergeDebugJavaResource
+> Task :hook:syncDebugLibJars
+> Task :hook:bundleDebugLocalLintAar
+> Task :hook:createFullJarDebug
+> Task :app:generateDebugAndroidTestLintModel
+> Task :hook:generateDebugLintModel
+> Task :app:generateDebugLintReportModel
+> Task :app:generateDebugUnitTestLintModel
+> Task :accessibility:lintAnalyzeDebugUnitTest
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :hook:lintAnalyzeDebug
+> Task :app:lintAnalyzeDebugUnitTest
+> Task :hook:generateDebugAndroidTestLintModel
+> Task :hook:generateDebugUnitTestLintModel
+> Task :hook:lintAnalyzeDebugAndroidTest
+> Task :hook:lintAnalyzeDebugUnitTest
+> Task :accessibility:generateDebugLintReportModel
+> Task :accessibility:lintReportDebug
+> Task :accessibility:lintDebug
+> Task :hook:generateDebugLintReportModel
+
+> Task :hook:lintReportDebug
+Wrote HTML report to file:///D:/test/Anti-ads/hook/build/reports/lint-results-debug.html
+
+> Task :hook:lintDebug
+> Task :probe:generateDebugAndroidTestLintModel
+> Task :probe:generateDebugLintReportModel
+> Task :probe:generateDebugUnitTestLintModel
+> Task :app:lintAnalyzeDebug
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///D:/test/Anti-ads/app/build/reports/lint-results-debug.html
+
+> Task :app:lintDebug
+> Task :probe:lintAnalyzeDebugAndroidTest
+> Task :probe:lintAnalyzeDebugUnitTest
+> Task :probe:lintAnalyzeDebug
+> Task :probe:lintReportDebug
+> Task :probe:lintDebug
+> Task :accessibility:bundleLibRuntimeToDirDebug
+> Task :hook:bundleLibRuntimeToDirDebug
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics
+> Task :probe:dexBuilderDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeLibDexDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :probe:mergeDebugGlobalSynthetics
+> Task :probe:mergeDebugJavaResource
+> Task :probe:mergeProjectDexDebug
+> Task :probe:mergeDebugNativeLibs NO-SOURCE
+> Task :probe:stripDebugDebugSymbols NO-SOURCE
+> Task :app:packageDebug
+> Task :probe:packageDebug
+> Task :probe:createDebugApkListingFileRedirect
+> Task :probe:assembleDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :probe:checkDebugAndroidTestAarMetadata
+> Task :probe:mapDebugAndroidTestSourceSetPaths
+> Task :probe:generateDebugAndroidTestResources
+> Task :probe:mergeDebugAndroidTestResources
+> Task :probe:processDebugAndroidTestManifest
+> Task :probe:processDebugAndroidTestResources
+> Task :app:mergeLibDexDebugAndroidTest
+> Task :app:mergeDebugAndroidTestJniLibFolders
+> Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :app:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebugAndroidTest
+> Task :app:writeDebugAndroidTestSigningConfigVersions
+> Task :app:compileDebugAndroidTestKotlin
+> Task :app:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :app:dexBuilderDebugAndroidTest
+> Task :app:mergeDebugAndroidTestGlobalSynthetics
+> Task :app:processDebugAndroidTestJavaRes
+> Task :app:mergeDebugAndroidTestJavaResource
+> Task :app:mergeProjectDexDebugAndroidTest
+> Task :app:packageDebugAndroidTest
+> Task :app:createDebugAndroidTestApkListingFileRedirect
+> Task :app:assembleDebugAndroidTest
+> Task :probe:javaPreCompileDebugAndroidTest
+> Task :probe:mergeDebugAndroidTestShaders
+> Task :probe:compileDebugAndroidTestShaders NO-SOURCE
+> Task :probe:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :probe:mergeDebugAndroidTestAssets
+> Task :probe:compressDebugAndroidTestAssets
+> Task :probe:desugarDebugAndroidTestFileDependencies
+> Task :probe:checkDebugAndroidTestDuplicateClasses
+> Task :probe:compileDebugAndroidTestKotlin
+> Task :probe:compileDebugAndroidTestJavaWithJavac NO-SOURCE
+> Task :probe:dexBuilderDebugAndroidTest
+> Task :probe:mergeDebugAndroidTestGlobalSynthetics
+> Task :probe:mergeExtDexDebugAndroidTest
+> Task :probe:processDebugAndroidTestJavaRes
+> Task :probe:mergeLibDexDebugAndroidTest
+> Task :probe:mergeProjectDexDebugAndroidTest
+> Task :probe:mergeDebugAndroidTestJniLibFolders
+> Task :probe:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :probe:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :probe:validateSigningDebugAndroidTest
+> Task :probe:writeDebugAndroidTestSigningConfigVersions
+> Task :probe:mergeDebugAndroidTestJavaResource
+> Task :probe:packageDebugAndroidTest
+> Task :probe:createDebugAndroidTestApkListingFileRedirect
+> Task :probe:assembleDebugAndroidTest
+
+BUILD SUCCESSFUL in 3m 10s
+246 actionable tasks: 246 executed

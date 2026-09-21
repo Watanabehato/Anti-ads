@@ -1,0 +1,135 @@
+########## app: manifest print
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="0.1.0"
+    android:compileSdkVersion="35"
+    android:compileSdkVersionCodename="15"
+    package="com.antiads.app"
+    platformBuildVersionCode="35"
+    platformBuildVersionName="15">
+
+    <uses-sdk
+        android:minSdkVersion="29"
+        android:targetSdkVersion="35" />
+
+    <queries>
+
+        <intent>
+
+            <action
+                android:name="android.intent.action.MAIN" />
+
+            <category
+                android:name="android.intent.category.LAUNCHER" />
+        </intent>
+
+        <package
+            android:name="com.antiads.probe" />
+    </queries>
+
+    <application
+        android:theme="@ref/0x7f040000"
+        android:label="@ref/0x7f03000c"
+        android:icon="@ref/0x7f020000"
+        android:name="com.antiads.app.AntiAdsApplication"
+        android:debuggable="true"
+        android:allowBackup="false"
+        android:supportsRtl="true"
+        android:extractNativeLibs="false"
+        android:fullBackupContent="@ref/0x7f050001"
+        android:dataExtractionRules="@ref/0x7f050002">
+
+        <activity
+            android:name="com.antiads.app.MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:label="@ref/0x7f030042"
+            android:name="com.antiads.app.ui.PackageListActivity"
+            android:exported="false" />
+
+        <activity
+            android:label="@ref/0x7f03001a"
+            android:name="com.antiads.app.ui.PackageDetailActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="com.antiads.app.config.ConfigProvider"
+            android:exported="true"
+            android:authorities="com.antiads.app.config"
+            android:grantUriPermissions="false"
+            android:directBootAware="false" />
+
+        <service
+            android:label="@ref/0x7f030007"
+            android:name="com.antiads.accessibility.AdSkipService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true"
+            android:description="@ref/0x7f030006">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@ref/0x7f050000" />
+        </service>
+
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+
+        <meta-data
+            android:name="xposeddescription"
+            android:value="@ref/0x7f030032" />
+
+        <meta-data
+            android:name="xposedminversion"
+            android:value="82" />
+
+        <meta-data
+            android:name="xposedscope"
+            android:resource="@ref/0x7f010000" />
+    </application>
+</manifest>
+########## app: permissions
+(end permissions)
+########## app: min/target sdk
+29
+35
+########## app: files list (assets/dex)
+/assets/
+/assets/xposed_init
+/classes9.dex
+/classes8.dex
+/classes7.dex
+/classes6.dex
+/classes5.dex
+/classes4.dex
+/classes3.dex
+/classes2.dex
+/classes13.dex
+/classes12.dex
+/classes11.dex
+/classes10.dex
+/classes.dex
+/META-INF/
+/META-INF/com/
+/META-INF/com/android/
+/META-INF/com/android/build/
+/META-INF/com/android/build/gradle/

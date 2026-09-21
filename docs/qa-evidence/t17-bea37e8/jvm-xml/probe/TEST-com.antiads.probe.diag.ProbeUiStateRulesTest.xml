@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.probe.diag.ProbeUiStateRulesTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:08:15" hostname="qa-windows-host" time="0.013">
+  <properties />
+  <testcase name="autoStartIsNeverRequestedInAnyCombination" classname="com.antiads.probe.diag.ProbeUiStateRulesTest" time="0.008" />
+  <testcase name="returningToPageReEnablesExplicitStartAndPeriodicRefresh" classname="com.antiads.probe.diag.ProbeUiStateRulesTest" time="0.002" />
+  <testcase name="runningSamplingKeepsStartDisabled" classname="com.antiads.probe.diag.ProbeUiStateRulesTest" time="0.0" />
+  <testcase name="afterPauseStopsSamplingStartIsEnabledAndStopIsDisabled" classname="com.antiads.probe.diag.ProbeUiStateRulesTest" time="0.0" />
+  <system-out />
+  <system-err />
+</testsuite>

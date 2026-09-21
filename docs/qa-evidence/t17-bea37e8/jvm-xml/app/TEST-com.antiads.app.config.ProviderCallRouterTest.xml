@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.app.config.ProviderCallRouterTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:08:07" hostname="qa-windows-host" time="0.07">
+  <properties />
+  <testcase name="hookReportIsRateLimitedToOnePerSecond" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.021" />
+  <testcase name="rejectedPackageNamesAreNeverServable" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.001" />
+  <testcase name="sharedUidWithMultiplePackagesIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.001" />
+  <testcase name="crossUserAndNonApplicationUidsAreRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.001" />
+  <testcase name="unknownAndMutationMethodsAreRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.008" />
+  <testcase name="policyReadIsRateLimitedPerUid" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.008" />
+  <testcase name="forgedArgPackageIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.0" />
+  <testcase name="hookReportWithNonPositiveCapturedPidIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.0" />
+  <testcase name="hookReportPidIsOverriddenWithCapturedPid" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.002" />
+  <testcase name="unknownAndIsolatedUidsAreRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.001" />
+  <testcase name="unconfiguredPackageStillGetsDisabledPolicy" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.002" />
+  <testcase name="hookReportForOtherPackageIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.0" />
+  <testcase name="hookReportWithBadPayloadIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.02" />
+  <testcase name="singleMatchingPackageGetsOnlyItsOwnMinimalPolicy" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.001" />
+  <system-out />
+  <system-err />
+</testsuite>

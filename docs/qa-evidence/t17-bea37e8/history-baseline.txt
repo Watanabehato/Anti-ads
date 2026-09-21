@@ -1,0 +1,3 @@
+3fc901f168bd3d9f8fad5ac1efd3145509a89a197d1b8a3df4373a9881ce937f *docs/verification.md
+3fc901f168bd3d9f8fad5ac1efd3145509a89a197d1b8a3df4373a9881ce937f *docs/qa-evidence/history/t3-b19f67f-verification.md
+c2679c212887965bd4be4b43a74d3f2d79665ca9a675004d9466e72f51f6861c *docs/qa-evidence/t3-b19f67f-evidence.zip

@@ -1,0 +1,2 @@
+1
+com.antiads.app/com.antiads.accessibility.AdSkipService

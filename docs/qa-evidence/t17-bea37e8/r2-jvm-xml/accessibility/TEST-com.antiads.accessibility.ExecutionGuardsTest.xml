@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.accessibility.ExecutionGuardsTest" tests="37" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:34:31" hostname="DESKTOP-26RJE8H" time="0.152">
+  <properties/>
+  <testcase name="foreignRuleCandidateIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.005"/>
+  <testcase name="nonApplicationWindowIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="snapshotTextFieldIsLimitedTo256Chars" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="disabledTargetIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="rootPackageMismatchIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="refreshTurnedEditableIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="refreshTurnedInvisibleIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="revisionChangeBetweenSnapshotAndClickIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="missingDependencyIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="degenerateScreenSizeIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="clockRollbackIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="sensitiveActionTextIsRefusedEvenWhenUnchanged" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="sensitiveActionTermsAndSafeSkipTerms" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.008"/>
+  <testcase name="nodeFieldsActionableRequiresAllThreeFlags" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="invalidPackageNameIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="failedRefreshIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.002"/>
+  <testcase name="nonClickableCandidateIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="unknownWindowIdentityIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="whitespaceAndCaseNormalizationKeepsCandidateAllowed" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="windowAgeBehindForegroundStartIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.002"/>
+  <testcase name="unknownRootPackageIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="incompleteTraversalIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="editableCandidateIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="missingBuiltinRuleIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="windowAgeAtBoundaryIsAllowed" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="rootWindowMismatchIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="staleSnapshotIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="unexpectedReasonIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="windowAgeBeyondBoundaryIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.029"/>
+  <testcase name="rejectedPackageIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="sensitivePackageIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.003"/>
+  <testcase name="snapshotAgeAtBoundaryIsAllowed" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="changedCountdownTextIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="matchingPolicyIsAllowed" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <testcase name="disconnectedIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="lockedKeyguardIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.001"/>
+  <testcase name="editableNodeAnywhereInWindowIsRefused" classname="com.antiads.accessibility.ExecutionGuardsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

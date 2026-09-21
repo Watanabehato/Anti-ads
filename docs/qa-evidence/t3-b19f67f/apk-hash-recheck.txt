@@ -1,0 +1,5 @@
+app/build/outputs/apk/debug/app-debug.apk: OK
+probe/build/outputs/apk/debug/probe-debug.apk: OK
+app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk: OK
+probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk: OK
+qa/fixtures/noqueries/build/outputs/apk/debug/noqueries-debug.apk: OK

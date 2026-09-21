@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.probe.diag.ProbeTypesTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-09-20T09:18:55" hostname="qa-windows-host" time="0.016">
+  <properties/>
+  <testcase name="fallsBackToSmallestAvailableUnselectedType" classname="com.antiads.probe.diag.ProbeTypesTest" time="0.007"/>
+  <testcase name="returnsNullWhenNoUsableControlExists" classname="com.antiads.probe.diag.ProbeTypesTest" time="0.002"/>
+  <testcase name="prefersMagneticFieldWhenAvailableAndNotSelected" classname="com.antiads.probe.diag.ProbeTypesTest" time="0.001"/>
+  <testcase name="displayNamesCoverDegradedType" classname="com.antiads.probe.diag.ProbeTypesTest" time="0.006"/>
+  <testcase name="selectionIsCappedAtFiveTypes" classname="com.antiads.probe.diag.ProbeTypesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

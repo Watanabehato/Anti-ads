@@ -1,0 +1,7 @@
+accessibility_enabled=0
+enabled_services=
+     Bound services:{}
+     Enabled services:{}
+     Binding services:{}]
+avd=AntiAds_QA_API29
+OK

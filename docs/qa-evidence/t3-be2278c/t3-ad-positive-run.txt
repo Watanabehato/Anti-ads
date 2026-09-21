@@ -1,0 +1,16 @@
+### tap 总开关 checkbox
+### config after UI toggle:
+{"schemaVersion":1,"revision":34,"masterEnabled":true,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]},"com.antiads.fixture.target":{"accessibilityEnabled":fa
+### POSITIVE ad_positive round 1
+Status: ok
+TotalTime: 1812
+--- fixture log:
+--------- beginning of main
+--------- beginning of system
+09-21 02:38:12.002  3780  3780 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=502392
+09-21 02:38:12.004  3780  3780 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-21 02:38:12.942  3780  3780 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-21 02:38:13.214  3780  3780 I AntiAdsProbe.Fixture: fixture_skip_clicked scenario=ad_positive view=Button center_x=886 center_y=84 elapsed_realtime_ms=503605
+--- host accessibility-action log (if any):
+--------- beginning of main
+--------- beginning of system

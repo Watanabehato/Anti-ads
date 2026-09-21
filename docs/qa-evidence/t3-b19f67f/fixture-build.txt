@@ -1,0 +1,59 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :preBuild UP-TO-DATE
+> Task :preDebugBuild UP-TO-DATE
+> Task :mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :checkDebugAarMetadata
+> Task :javaPreCompileDebug
+> Task :generateDebugResValues
+> Task :mapDebugSourceSetPaths
+> Task :generateDebugResources
+> Task :packageDebugResources
+> Task :mergeDebugResources
+> Task :createDebugCompatibleScreenManifests
+> Task :extractDeepLinksDebug
+> Task :parseDebugLocalResources
+> Task :processDebugMainManifest
+> Task :processDebugManifest
+> Task :mergeDebugShaders
+> Task :compileDebugShaders NO-SOURCE
+> Task :generateDebugAssets UP-TO-DATE
+> Task :processDebugManifestForPackage
+> Task :mergeDebugAssets
+> Task :compressDebugAssets
+> Task :desugarDebugFileDependencies
+> Task :processDebugJavaRes NO-SOURCE
+> Task :mergeDebugJavaResource
+> Task :checkDebugDuplicateClasses
+> Task :mergeExtDexDebug
+> Task :mergeLibDexDebug
+> Task :mergeDebugJniLibFolders
+> Task :mergeDebugNativeLibs NO-SOURCE
+> Task :stripDebugDebugSymbols NO-SOURCE
+> Task :validateSigningDebug
+> Task :writeDebugAppMetadata
+> Task :writeDebugSigningConfigVersions
+> Task :preDebugAndroidTestBuild SKIPPED
+> Task :generateDebugAndroidTestResValues
+> Task :extractProguardFiles
+> Task :preDebugUnitTestBuild UP-TO-DATE
+> Task :processDebugResources
+> Task :compileDebugJavaWithJavac
+> Task :dexBuilderDebug
+> Task :mergeDebugGlobalSynthetics
+> Task :bundleDebugClassesToCompileJar
+> Task :generateDebugAndroidTestLintModel
+> Task :mergeProjectDexDebug
+> Task :generateDebugLintReportModel
+> Task :generateDebugUnitTestLintModel
+> Task :packageDebug
+> Task :createDebugApkListingFileRedirect
+> Task :assembleDebug
+> Task :lintAnalyzeDebugAndroidTest
+> Task :lintAnalyzeDebugUnitTest
+> Task :lintAnalyzeDebug
+> Task :lintReportDebug
+> Task :lintDebug
+
+BUILD SUCCESSFUL in 1m 42s
+43 actionable tasks: 43 executed

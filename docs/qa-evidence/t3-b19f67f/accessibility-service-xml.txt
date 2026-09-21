@@ -1,0 +1,12 @@
+N: android=http://schemas.android.com/apk/res/android (line=19)
+  E: accessibility-service (line=19)
+    A: http://schemas.android.com/apk/res/android:description(0x01010020)=@0x7f030006
+    A: http://schemas.android.com/apk/res/android:summary(0x010101e9)=@0x7f030008
+    A: http://schemas.android.com/apk/res/android:accessibilityEventTypes(0x01010380)=0x00000820
+    A: http://schemas.android.com/apk/res/android:accessibilityFeedbackType(0x01010382)=0x00000010
+    A: http://schemas.android.com/apk/res/android:notificationTimeout(0x01010383)=100
+    A: http://schemas.android.com/apk/res/android:accessibilityFlags(0x01010384)=0x00000050
+    A: http://schemas.android.com/apk/res/android:canRetrieveWindowContent(0x01010385)=true
+    A: http://schemas.android.com/apk/res/android:canRequestTouchExplorationMode(0x010103d7)=false
+    A: http://schemas.android.com/apk/res/android:canRequestFilterKeyEvents(0x010103d9)=false
+    A: http://schemas.android.com/apk/res/android:canPerformGestures(0x0101050d)=false

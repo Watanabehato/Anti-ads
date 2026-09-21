@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.accessibility.SensitivePackageRulesTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:07:57" hostname="qa-windows-host" time="0.003">
+  <properties />
+  <testcase name="unknownOrEmptyPackageIsSensitive" classname="com.antiads.accessibility.SensitivePackageRulesTest" time="0.003" />
+  <testcase name="hostAndSystemUiAreAlwaysSensitive" classname="com.antiads.accessibility.SensitivePackageRulesTest" time="0.0" />
+  <testcase name="ordinaryThirdPartyPackageIsNotSensitive" classname="com.antiads.accessibility.SensitivePackageRulesTest" time="0.0" />
+  <testcase name="resolvedSystemPackagesAreSensitive" classname="com.antiads.accessibility.SensitivePackageRulesTest" time="0.0" />
+  <system-out />
+  <system-err />
+</testsuite>

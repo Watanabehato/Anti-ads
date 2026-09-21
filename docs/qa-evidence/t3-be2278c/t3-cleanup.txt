@@ -1,0 +1,9 @@
+### confirm AVD name before killing (must be AntiAds_QA_API29):
+AntiAds_QA_API29
+### emu kill:
+OK: killing emulator, bye bye
+OK
+kill_exit=0
+### devices after kill:
+List of devices attached
+

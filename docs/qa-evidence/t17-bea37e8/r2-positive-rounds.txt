@@ -1,0 +1,21 @@
+--- round 1 ---
+--------- beginning of main
+--------- beginning of system
+09-21 02:13:59.187  3481  3481 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=419012
+09-21 02:13:59.231  3481  3481 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-21 02:14:01.911  3481  3481 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-21 02:14:02.639  3481  3481 I AntiAdsProbe.Fixture: fixture_skip_clicked scenario=ad_positive view=Button center_x=886 center_y=84 elapsed_realtime_ms=422464
+--- round 2 ---
+--------- beginning of main
+--------- beginning of system
+09-21 02:14:15.917  3524  3524 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=435739
+09-21 02:14:15.941  3524  3524 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-21 02:14:18.661  3524  3524 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-21 02:14:19.555  3524  3524 I AntiAdsProbe.Fixture: fixture_skip_clicked scenario=ad_positive view=Button center_x=886 center_y=84 elapsed_realtime_ms=439379
+--- round 3 ---
+--------- beginning of main
+--------- beginning of system
+09-21 02:14:34.283  3565  3565 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=454108
+09-21 02:14:34.313  3565  3565 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-21 02:14:36.780  3565  3565 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-21 02:14:37.574  3565  3565 I AntiAdsProbe.Fixture: fixture_skip_clicked scenario=ad_positive view=Button center_x=886 center_y=84 elapsed_realtime_ms=457399

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.accessibility.PhaseCalculatorTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:11:08" hostname="DESKTOP-26RJE8H" time="0.012">
+  <properties/>
+  <testcase name="missingDependencyIsError" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.0"/>
+  <testcase name="unselectedPackageIsIdle" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.006"/>
+  <testcase name="disconnected" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.001"/>
+  <testcase name="masterSwitchOffIsPaused" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.0"/>
+  <testcase name="missingConfigIsError" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.0"/>
+  <testcase name="packageSwitchOffIsIdle" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.0"/>
+  <testcase name="globalAccessibilityOffIsPaused" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.001"/>
+  <testcase name="noForegroundPackageIsIdle" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.0"/>
+  <testcase name="qualifyingTargetIsWatching" classname="com.antiads.accessibility.PhaseCalculatorTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

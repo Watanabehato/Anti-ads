@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.hook.internal.SensorTypeResolverTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:08:06" hostname="qa-windows-host" time="0.029">
+  <properties />
+  <testcase name="handleIsNotAssumedToBeSensorType" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.014" />
+  <testcase name="shapeCheckAcceptsBothSupportedPaths" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.002" />
+  <testcase name="missingPathIsUnresolvedAndDetectedByShapeCheck" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.001" />
+  <testcase name="outOfRangeSensorTypeIsUnresolved" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.001" />
+  <testcase name="unknownHandleIsUnresolved" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.0" />
+  <testcase name="resolvesViaManagerMap" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.009" />
+  <testcase name="resolvesViaQueueOwnMap" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.0" />
+  <system-out />
+  <system-err />
+</testsuite>

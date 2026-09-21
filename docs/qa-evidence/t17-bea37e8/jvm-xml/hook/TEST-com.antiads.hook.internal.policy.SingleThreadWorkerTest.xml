@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.hook.internal.policy.SingleThreadWorkerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:08:07" hostname="qa-windows-host" time="0.129">
+  <properties />
+  <testcase name="submitAfterCloseIsIgnored" classname="com.antiads.hook.internal.policy.SingleThreadWorkerTest" time="0.001" />
+  <testcase name="tasksRunSeriallyOnExactlyOneThread" classname="com.antiads.hook.internal.policy.SingleThreadWorkerTest" time="0.01" />
+  <testcase name="taskFailureIsIsolatedAndWorkerKeepsRunning" classname="com.antiads.hook.internal.policy.SingleThreadWorkerTest" time="0.001" />
+  <testcase name="stuckTaskDoesNotSpawnReplacementThreads" classname="com.antiads.hook.internal.policy.SingleThreadWorkerTest" time="0.116" />
+  <system-out />
+  <system-err />
+</testsuite>

@@ -1,0 +1,47 @@
+[
+  {
+    "package": "com.antiads.app",
+    "path": "app/build/outputs/apk/debug/app-debug.apk",
+    "bytes": 3392024,
+    "sha256": "a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5",
+    "installedSha256": "a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5",
+    "installedPath": "/data/app/com.antiads.app-ICUz5JV8YU5bv55qjU56Fg==/base.apk",
+    "uidListing": "package:com.antiads.app uid:10116\npackage:com.antiads.app.test uid:10118"
+  },
+  {
+    "package": "com.antiads.probe",
+    "path": "probe/build/outputs/apk/debug/probe-debug.apk",
+    "bytes": 3169147,
+    "sha256": "0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896",
+    "installedSha256": "0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896",
+    "installedPath": "/data/app/com.antiads.probe-aSZu4UAhixs-WvW-n43Ahw==/base.apk",
+    "uidListing": "package:com.antiads.probe uid:10117\npackage:com.antiads.probe.test uid:10119"
+  },
+  {
+    "package": "com.antiads.app.test",
+    "path": "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk",
+    "bytes": 2174433,
+    "sha256": "9b72ae61121fa0fe400d13e7b57f04da32217c2866ec86a061aab4a6e9e8c153",
+    "installedSha256": "9b72ae61121fa0fe400d13e7b57f04da32217c2866ec86a061aab4a6e9e8c153",
+    "installedPath": "/data/app/com.antiads.app.test-ggRLoNJIQ4N6t-N9poXGRg==/base.apk",
+    "uidListing": "package:com.antiads.app.test uid:10118"
+  },
+  {
+    "package": "com.antiads.probe.test",
+    "path": "probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk",
+    "bytes": 2172101,
+    "sha256": "a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680",
+    "installedSha256": "a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680",
+    "installedPath": "/data/app/com.antiads.probe.test-_3bk0dgnuj_Yxa9Nxxn7_w==/base.apk",
+    "uidListing": "package:com.antiads.probe.test uid:10119"
+  },
+  {
+    "package": "com.antiads.fixture.target",
+    "path": "qa/fixtures/noqueries/build/outputs/apk/debug/noqueries-debug.apk",
+    "bytes": 29369,
+    "sha256": "533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a",
+    "installedSha256": "533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a",
+    "installedPath": "/data/app/com.antiads.fixture.target-g88-IdtrXB8ZIMOgYoS9zQ==/base.apk",
+    "uidListing": "package:com.antiads.fixture.target uid:10120"
+  }
+]

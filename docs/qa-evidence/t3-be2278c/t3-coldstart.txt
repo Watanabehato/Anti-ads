@@ -1,0 +1,4 @@
+Starting: Intent { cmp=com.antiads.app/.MainActivity }
+Status: timeout
+LaunchState: UNKNOWN (-1)
+Activity: com.antiads.app/.MainActivity

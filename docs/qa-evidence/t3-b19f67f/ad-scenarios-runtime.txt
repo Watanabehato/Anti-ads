@@ -1,0 +1,19 @@
+--------- beginning of main
+--------- beginning of system
+--------- beginning of crash
+09-20 09:34:07.652  3810  3810 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=903656
+09-20 09:34:07.660  3810  3810 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-20 09:34:08.780  3810  3810 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-20 09:34:09.451  3810  3810 I AntiAdsProbe.Fixture: fixture_skip_clicked scenario=ad_positive view=Button center_x=886 center_y=84 elapsed_realtime_ms=905456
+09-20 09:35:02.333  3854  3854 I AntiAdsProbe.Fixture: fixture_open scenario=no_ad_label package=com.antiads.probe elapsed_realtime_ms=958337
+09-20 09:35:02.367  3854  3854 I AntiAdsProbe.Fixture: fixture_resume scenario=no_ad_label window=0x0
+09-20 09:35:03.106  3854  3854 I AntiAdsProbe.Fixture: fixture_layout scenario=no_ad_label screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=false clickable=true
+09-20 09:35:16.162  3891  3891 I AntiAdsProbe.Fixture: fixture_open scenario=non_clickable package=com.antiads.probe elapsed_realtime_ms=972167
+09-20 09:35:16.170  3891  3891 I AntiAdsProbe.Fixture: fixture_resume scenario=non_clickable window=0x0
+09-20 09:35:16.658  3891  3891 I AntiAdsProbe.Fixture: fixture_layout scenario=non_clickable screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=false
+09-20 09:35:30.895  3928  3928 I AntiAdsProbe.Fixture: fixture_open scenario=bottom_button package=com.antiads.probe elapsed_realtime_ms=986900
+09-20 09:35:30.903  3928  3928 I AntiAdsProbe.Fixture: fixture_resume scenario=bottom_button window=0x0
+09-20 09:35:31.589  3928  3928 I AntiAdsProbe.Fixture: fixture_layout scenario=bottom_button screen=1080x1794 skip_center_x=886 skip_center_y=1710 center_x_ratio=0.8204 center_y_ratio=0.9532 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-20 09:35:46.254  3965  3965 I AntiAdsProbe.Fixture: fixture_open scenario=editable_window package=com.antiads.probe elapsed_realtime_ms=1002259
+09-20 09:35:46.261  3965  3965 I AntiAdsProbe.Fixture: fixture_resume scenario=editable_window window=0x0
+09-20 09:35:47.353  3965  3965 I AntiAdsProbe.Fixture: fixture_layout scenario=editable_window screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true

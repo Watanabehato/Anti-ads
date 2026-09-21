@@ -1,0 +1,30 @@
+{
+  "app": {
+    "total": 1,
+    "bySeverity": {
+      "Warning": 1
+    },
+    "ids": [
+      "ExportedContentProvider"
+    ]
+  },
+  "accessibility": {
+    "total": 0,
+    "bySeverity": {},
+    "ids": []
+  },
+  "hook": {
+    "total": 1,
+    "bySeverity": {
+      "Warning": 1
+    },
+    "ids": [
+      "PrivateApi"
+    ]
+  },
+  "probe": {
+    "total": 0,
+    "bySeverity": {},
+    "ids": []
+  }
+}

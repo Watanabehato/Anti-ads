@@ -1,0 +1,5 @@
+1
+User state[attributes:{id=0, currentUser=true, touchExplorationEnabled=false, displayMagnificationEnabled=false, navBarMagnificationEnabled=false, autoclickEnabled=false, nonInteractiveUiTimeout=0, interactiveUiTimeout=0, installedServiceCount=1}
+     Bound services:{Service[label=Anti-ads 无障碍跳过, feedbackType[FEEDBACK_GENERIC], capabilities=1, eventTypes=[TYPE_WINDOW_STATE_CHANGED, TYPE_WINDOW_CONTENT_CHANGED], notificationTimeout=100]}
+     Enabled services:{{com.antiads.app/com.antiads.accessibility.AdSkipService}}
+     Binding services:{}]

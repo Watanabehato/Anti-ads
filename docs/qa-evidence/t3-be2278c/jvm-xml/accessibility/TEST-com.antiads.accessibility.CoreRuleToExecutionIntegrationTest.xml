@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:11:08" hostname="DESKTOP-26RJE8H" time="0.389">
+  <properties/>
+  <testcase name="ruleSelectionOffBreaksTheChain" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.208"/>
+  <testcase name="missingRefreshedNodeIsRejected" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.124"/>
+  <testcase name="sensitiveWindowAndKeyguardBreakTheChainBeforeAndAfterTheEngine" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.001"/>
+  <testcase name="textChangeBetweenSnapshotAndRefreshIsRejected" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.017"/>
+  <testcase name="configRevisionChangedBetweenSnapshotAndExecutionIsRejected" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.001"/>
+  <testcase name="leftSideButtonIsRejectedByTheRealEngine" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.004"/>
+  <testcase name="masterSwitchOffBreaksTheChainAtTheEngine" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.002"/>
+  <testcase name="sameEpochIsAuthorizedOnlyOnce" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.006"/>
+  <testcase name="windowChangedAfterSnapshotIsRejected" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.001"/>
+  <testcase name="editableNodeInWindowBlocksARealisticAdLayout" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.001"/>
+  <testcase name="realCoreCandidateIsAuthorizedForExecution" classname="com.antiads.accessibility.CoreRuleToExecutionIntegrationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

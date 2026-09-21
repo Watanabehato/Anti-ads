@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.accessibility.AccessibilityDependenciesTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-09-20T09:18:39" hostname="qa-windows-host" time="0.073">
+  <properties/>
+  <testcase name="installExposesRepositoryWithoutClaimingConnection" classname="com.antiads.accessibility.AccessibilityDependenciesTest" time="0.061"/>
+  <testcase name="detachStopsFurtherNotifications" classname="com.antiads.accessibility.AccessibilityDependenciesTest" time="0.004"/>
+  <testcase name="closingAttachmentStopsNotifications" classname="com.antiads.accessibility.AccessibilityDependenciesTest" time="0.003"/>
+  <testcase name="installAfterAttachNotifiesAttachedService" classname="com.antiads.accessibility.AccessibilityDependenciesTest" time="0.001"/>
+  <testcase name="attachAfterInstallReceivesRepositoryImmediately" classname="com.antiads.accessibility.AccessibilityDependenciesTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

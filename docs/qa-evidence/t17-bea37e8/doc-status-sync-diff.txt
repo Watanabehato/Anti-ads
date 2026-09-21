@@ -1,0 +1,148 @@
+diff --git a/docs/accessibility.md b/docs/accessibility.md
+index 68705c6..d2a5d6a 100644
+--- a/docs/accessibility.md
++++ b/docs/accessibility.md
+@@ -139,9 +139,11 @@ JVM 单测（`accessibility/src/test`，JUnit4，纯 JVM，无 Robolectric、无
+ 
+ 这些结果只证明“纯逻辑与静态声明按合同成立 + 模块可组装”，**不**证明设备上能跳过任何广告。
+ 
+-## 10. 未实测与已知限制（不得据此宣称已覆盖）
++## 10. 设备验证范围、未实测项与已知限制（不得据此宣称已覆盖）
+ 
+-- **无设备/模拟器**：本机没有 adb 设备或 AVD，`AccessibilityService` 的真实连接、系统授权、真实广告页点击均**未在设备上验证**；单测与 lint/组装通过不等于设备可用。
++- **已在项目 API29 模拟器（AVD `AntiAds_QA_API29`）完成**：`AccessibilityService` 的真实连接与系统 UI 授权/撤权后的状态、`ad_positive` 正例 4 轮自动点击、3 个关键反例（下方按钮/含输入框/无独立广告上下文）各 12 秒不点击、全局·每包·总开关三层独立关闭、以及关闭期间保持无动作的 12 秒观察。证据见 [docs/verification.md](verification.md) 第 3.1/4.1/4.2 节与 `docs/qa-evidence/t17-bea37e8/`。
++- **未执行**：真机与 OEM ROM、Root/LSPosed、API30+ 包可见性、API35+ Insets；模拟器结果不能替代真机结论，单测与 lint/组装通过也不等于设备可用。
++- **未复现的时序观察（建议加测）**：开机后第一个正例窗口用了 7.4 秒才 `Displayed`，6 秒观察窗内未发生点击；重跑即 3.07 秒内点击、其后 4 轮全部点击。未复现、机制未定位，不记为缺陷也不记为通过（`r2-positive-rounds.txt`）。
+ - **依赖 core 规则实现**：`:core` 的 `ConservativeAdRuleEngine` 已在 t7 实现；跨模块链路（真实 core 候选 → 快照 → `SkipRequestBuilder` → `SkipGate`/`ExecutionGuards` 复核）已由 `CoreRuleToExecutionIntegrationTest`（11 例）在 JVM 上覆盖。**这仍是纯逻辑验证**：系统授权、真实无障碍连接、真实页面变化必须在设备上验证，不能用该测试代替。
+ - **系统/应用差异**：不同 ROM 的窗口类型、`windowId` 复用、包可见性、系统无障碍策略都会影响行为；本模块不承诺覆盖所有应用，对 WebView/自绘/视频贴片/PiP/系统弹窗等场景可能完全不动作。
+ - **同一 windowId 长时间停留**：超过 10 秒窗口期不再动作（合同要求），需要新的窗口事件建立 epoch。
+diff --git a/docs/build.md b/docs/build.md
+index 3b06036..d38d700 100644
+--- a/docs/build.md
++++ b/docs/build.md
+@@ -68,7 +68,7 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
+ #   probe/build/outputs/apk/debug/probe-debug.apk
+ ```
+ 
+-设备相关（当前无设备，见第 5 节）：
++设备相关（当前无真机、无 Root/LSPosed 设备；项目 AVD 按需启停，见第 5 节与[模拟器环境记录](emulator-environment.md)）：
+ 
+ ```bash
+ /d/test/Anti-ads/.tooling/android-sdk/platform-tools/adb.exe devices -l
+@@ -193,15 +193,16 @@ EXIT=0
+ | AVD | **已创建**项目专用 AVD `AntiAds_QA_API29`（`ANDROID_AVD_HOME=.tooling/emulator-qa/avd`，Pixel 模板 1080×1920、swiftshader 无窗口）；未改动或删除用户 AVD |
+ | 曾启动 | t15 记录一次启动成功：serial `emulator-5580`、`sys.boot_completed=1`、`ro.build.version.sdk=29`（**那是当时的记录，不等于当前在线**） |
+ | t3 复用 | QA 以自有受管进程重新启动同一 AVD，安装固定 `b19f67f` 的五个 APK 并执行有限场景；运行区间与命令见环境记录“t3实际复用与清理”一节 |
+-| 当前实例 | **已清理**：t3 结束时按 serial 执行 `emu kill`（exit 0），随后 `adb devices` 为空；SDK、官方镜像、AVD 与测试 APK **保留**供修复后复测 |
++| t17 复测 | 独立 QA（qa-flash）以自有受管 job（`bash-33`）重启同一 AVD，安装修复版 `bea37e8` 的五个 APK，完成 QA-01～04 与受影响路径回归；运行区间、异常早退的首个实例与清理见环境记录“t17 修复版复测的设备复用与清理”一节 |
++| 当前实例 | **已清理**：t17 结束时按 serial 执行 `emu kill`（exit 0），随后 `adb devices` 为空（t3 的清理过程见其小节）；SDK、官方镜像、AVD 与测试 APK **保留**供后续复测 |
+ | 重新启动 | 按 [模拟器环境记录](emulator-environment.md) 的启动命令以受管后台任务启动，先确认 AVD 名称与 `sys.boot_completed` 再安装 APK；不要在同一端口启动第二实例 |
+ 
+-### 5.2 已执行的实际设备验证与结论（t3，源码 `b19f67f`）
++### 5.2 已执行的实际设备验证与结论（t3 首轮 `b19f67f`；t17 复测 `bea37e8`）
+ 
+ - app instrumentation **1 例通过**（`ConfigToggleTest`）；probe 的 `RegistrationHoldTest` **未执行**。
+ - API29 上完成有限场景：无障碍正例/反例、策略读取、故障回退取证；同时记录到**授权真值错报（QA-01）**、probe 生命周期（QA-03）与诊断快照缺失（QA-04）。
+ - 门禁结论为**失败／需修订**，该结论只针对 `b19f67f` 构建，**不得移用**到修复后的版本。
+-- 三个缺陷已由 t16 修复并附 JVM/设备级回归用例（见 [修复对照](repair-qa01-04.md)），但**修复版尚未在设备上复测**，复测由独立 QA 执行。
++- 三个缺陷已由 t16 修复（见 [修复对照](repair-qa01-04.md)），且**修复版已由独立 QA 在 API29 模拟器复测通过**：QA-01 授权真值双向、QA-03 返回页按钮与“无自动重注册”、QA-04 Activity 诊断快照与 1 次/秒节流；另完成无障碍正例 4 轮/反例 3 例、三层独立关闭、真实 UID 读取与两个 instrumentation（`ConfigToggleTest`、`ServiceOwnershipTest`）。完整证据见 [独立 QA 报告（第二版）](verification.md) 与 `docs/qa-evidence/t17-bea37e8/`。**该“通过”只限 API29 模拟器范围**，不改变 5.3 的未测边界。
+ 
+ ### 5.3 仍未验证
+ 
+@@ -210,6 +211,8 @@ EXIT=0
+ - **真机**：未连接任何真机；模拟器传感器是**模拟来源**，不能冒充真机传感器结论。
+ - **GitHub CI**：`.github/workflows/build.yml` 已覆盖五模块单测 + 四模块 lint + 两个 APK + 两个测试 APK，但**尚未在 GitHub 上执行过**（仓库尚未推送）。
+ - **构建成功 ≠ 服务已连接/框架已注入**：编译、单测与 lint 通过只说明工程与接口可解析。
++- **未复现的时序观察（建议加测）**：开机后第一个 `ad_positive` 夹具窗口 7.4s 才 `Displayed`、6 秒观察窗内未点击；重跑即 3.07s 内点击、其后 4 轮全部点击。未复现、机制未定位——不记为缺陷也不记为通过（`docs/qa-evidence/t17-bea37e8/r2-positive-rounds.txt`）。
++- **撤权后的系统侧残留（环境现象）**：产品 UI 在撤权后立即显示“未授权/未连接”，但模拟器上系统 secure `accessibility_enabled` 与 Binding 中的 DEAD 连接需重启系统才归零（`docs/qa-evidence/t17-bea37e8/r2-post-reboot-system.txt`）。
+ - 跨模块“纯逻辑链”（真实 core 候选 → 快照 → `SkipRequestBuilder` → `SkipGate`/`ExecutionGuards`）由 JVM 用例覆盖，但**不能**替代系统授权与真实页面实验。
+ - 本机到 Maven 仓库存在**间歇性 TLS 失败**（实测约 20% 请求失败），已在 `gradle.properties` 提高传输层重试与超时；依赖缓存就绪后可稳定复现。
+ 
+diff --git a/docs/hook-probe-observability.md b/docs/hook-probe-observability.md
+index 7316c9e..251e1c3 100644
+--- a/docs/hook-probe-observability.md
++++ b/docs/hook-probe-observability.md
+@@ -19,13 +19,13 @@
+ | 同一注册判据 sessionId/registrationSeq/pid/host | `diag/DiagTracker.kt` | 已实现，单测覆盖 |
+ | 静默窗口（silenceWindow 行） | `diag/SilenceWindowDetector.kt` | 已实现，单测覆盖 |
+ | A1 instrumentation 承载 | `probe/src/androidTest/kotlin/com/antiads/probe/diag/RegistrationHoldTest.kt` | 已实现，未在设备执行 |
+-| A2 宿主切换开关 | `app/src/androidTest/.../ConfigToggleTest.kt`（B 提供）+ probe 前台 | 已由 B 提供，未在设备执行 |
+-| 策略自查（可选，默认关闭） | `probe/src/main/kotlin/com/antiads/probe/PolicySelfCheck.kt` | 已实现，未在设备执行 |
++| A2 宿主切换开关 | `app/src/androidTest/.../ConfigToggleTest.kt`（B 提供）+ probe 前台 | 已在 API29 模拟器执行：`OK (1 test)`、`SAVED`、`revision 32→33`（t17，[docs/verification.md](verification.md) 4.5 节）；“同次注册保持/5 秒恢复”仍需 Root 或框架条件 |
++| 策略自查（可选，默认关闭） | `probe/src/main/kotlin/com/antiads/probe/PolicySelfCheck.kt` | 已在 API29 模拟器执行：probe 自读 `OK`、`revision=32`、`hookEnabled=true`、`blockedTypes=[1]`（t17） |
+ | Hook 侧租约/节流/报告 | `hook/src/main/kotlin/com/antiads/hook/internal/policy/HookPolicyClientCore.kt` | 已实现，M1–M10 单测 |
+ | 目标点形状验证与 type 解析 | `hook/src/main/kotlin/com/antiads/hook/internal/SensorDispatchTarget.kt`、`SensorTypeResolver.kt` | 已实现，单测覆盖 |
+ | 路径 C（Root 诊断服务） | —— | 按 captain 决策取消 |
+ 
+-以上全部仍是**待验证方案**：本环境无 Root 设备、`adb devices` 为空，真机实验（H01 A1/A2、H03、跨应用夹具）必须由 QA 在设备上执行后才有结论；JVM 单测只能证明决策/格式逻辑，不能证明注入或传感器实际行为。相关命令与证据字段见 `docs/hook.md`、`docs/probe.md`。
++上表中**非 Root 侧已有设备结论**（API29 模拟器 t17：probe 生命周期与诊断快照、A2 开关、策略自查、独立夹具以真实 UID 读取策略，见 [docs/verification.md](verification.md) 与 `docs/qa-evidence/t17-bea37e8/`）；**H01 A1（`RegistrationHoldTest` 同次注册保持）、H03、以及全部 Hook 注入/作用域结论仍无设备证据**——本环境无 Root/LSPosed 设备，JVM 单测只能证明决策/格式逻辑，不能证明注入或传感器实际行为。相关命令与证据字段见 `docs/hook.md`、`docs/probe.md`。
+ 
+ ## 1. probe 公共面（不改，对应 contracts 第 8 节）
+ 
+diff --git a/docs/install.md b/docs/install.md
+index 1e45486..6455f0d 100644
+--- a/docs/install.md
++++ b/docs/install.md
+@@ -3,8 +3,8 @@
+ 适用对象：Android 10（API 29）及以上设备。管理端 APK（`app-debug.apk`）同时充当 **LSPosed 模块**；
+ 诊断 APK（`probe-debug.apk`）只用于验证与实验，不参与防护。
+ 
+-> 本页描述的操作步骤**已在代码与单一来源合同中定义**，但**尚未在真机/模拟器上逐条执行**（当前开发环境无设备）。
+-> 设备实测结论以 QA 的执行记录为准，见 [docs/qa-plan.md](qa-plan.md)。
++> 本页描述的步骤已在项目 API29 模拟器（AVD `AntiAds_QA_API29`，serial `emulator-5580`）上按序列实际执行：安装、系统 UI 授权与撤权、应用选择与每应用开关、probe 采样/暂停/返回、Provider 真实 UID 读取（证据见 [独立 QA 报告](verification.md) 与 `docs/qa-evidence/t17-bea37e8/`）。
++> **仍未在真机、Root/LSPosed 设备与 API30+ 上逐条执行**；这些环境的结论不得由本页或模拟器结果推断。设备实测结论以 QA 的执行记录为准。
+ 
+ ## 1. 安装
+ 
+diff --git a/docs/probe.md b/docs/probe.md
+index d727cb7..b605ae7 100644
+--- a/docs/probe.md
++++ b/docs/probe.md
+@@ -1,7 +1,7 @@
+ # :probe 独立诊断 APK 实现说明
+ 
+ 所有者：D（hook-engineer，t10）。配套：`docs/hook.md`、`docs/hook-probe-observability.md`。
+-**验证状态：源码与 JVM 单测在本机通过；设备实验（含 instrumentation 会话）未执行**（本环境无设备/模拟器）。
++**验证状态：源码与 JVM 单测在本机通过；非 Root 侧设备实验已在项目 API29 模拟器（`emulator-5580`）执行**——采样/暂停/返回/显式重启、真实注册轮次、`files/probe-diag.json` 快照与 ≤1 次/秒节流，证据见 [docs/verification.md](verification.md) 第 3.3/3.4 节与 `docs/qa-evidence/t17-bea37e8/`。**`RegistrationHoldTest`（A1 同次注册保持）、Root/LSPosed 条件与真机仍未执行**。
+ 
+ ## 1. 产物、权限与可见性
+ 
+@@ -94,8 +94,10 @@ bash ./gradlew --no-daemon :probe:testDebugUnitTest :probe:lintDebug :probe:asse
+ 
+ JVM 单测：`DiagJsonTest`（单行 JSON/空值/转义/汇总）、`DiagTrackerTest`（计数、注册序号、从未注册类型、对照行）、`SilenceWindowDetectorTest`（静默窗口阈值）、`ShakeCounterTest`（阈值/方向翻转/重置）、`ProbeTypesTest`（对照选择与 5 类型上限）。
+ 
+-## 7. 未测与限制
++## 7. 设备验证范围、未测项与限制
+ 
+-- 无设备/模拟器：所有真机项（传感器存在性、注册返回值、前后台行为、instrumentation 会话、样例页坐标实测、与无障碍点击的联动）**未测**，必须由 QA 在真机上补证据。
++- **已在 API29 模拟器完成**（t17）：传感器存在性与注册返回值、回调计数、HOME 暂停后返回**不自动重启**、显式重新开始产生新注册、样例页坐标与自动点击联动、诊断文件快照与节流。证据见 [docs/verification.md](verification.md) 第 3.3/3.4/4.1 节与 `docs/qa-evidence/t17-bea37e8/`。
++- **仍未测**：真机传感器（模拟器为模拟来源）、Root/LSPosed 注入与作用域、`RegistrationHoldTest` 的 instrumentation 会话、无传感器/注册被拒/息屏/后台限制等“不可判定”条件。不得用模拟器结果替代真机结论。
++- **未复现的时序观察（建议加测）**：开机后第一个 `ad_positive` 夹具窗口 7.4s 才 `Displayed`，6 秒观察窗内未发生点击；`force-stop` 后重跑即 3.07s 内点击，其后 4 轮（含恢复对照 1.06s）全部点击。未复现、机制未定位——既不记为缺陷也不记为通过，需在真机/更高帧率条件下继续观察（`r2-positive-rounds.txt`）。
+ - 样例页只验证"标题/按钮/坐标"这一层，不模拟真实广告 SDK 的窗口层级、WebView 或自定义绘制；不处理的情况不代表真实广告一定能处理。
+ - 无对照类型、无传感器、注册被拒、息屏、后台限制等条件下必须写"不可判定/无对照"，不得记为成功。
+diff --git a/docs/ui.md b/docs/ui.md
+index 6861f09..286aba9 100644
+--- a/docs/ui.md
++++ b/docs/ui.md
+@@ -104,7 +104,7 @@
+ `app/src/androidTest/kotlin/com/antiads/app/ConfigToggleTest.kt`：宿主 UID、真实仓储写路径，不启动 Activity、不使用 exported 写接口。
+ 该用例已在 QA 的 API29 模拟器上执行 1 例通过（t3 报告）。
+ 
+-`app/src/androidTest/kotlin/com/antiads/app/ServiceOwnershipTest.kt`（t16 新增，QA-01 设备级回归）：用真实 `PackageManager` 断言无障碍服务组件归属 `com.antiads.app`，且用库 namespace `com.antiads.accessibility` 解析不到该组件。**尚未在设备上执行**，由修复后的独立 QA 复测运行。
++`app/src/androidTest/kotlin/com/antiads/app/ServiceOwnershipTest.kt`（t16 新增，QA-01 设备级回归）：用真实 `PackageManager` 断言无障碍服务组件归属 `com.antiads.app`，且用库 namespace `com.antiads.accessibility` 解析不到该组件。**已在项目 API29 模拟器上执行并通过 1 例**（`OK (1 test)`；独立 QA t17，见 [docs/verification.md](verification.md) 第 4.5 节）。
+ 
+     adb shell am instrument -w -e action master_off com.antiads.app.test/androidx.test.runner.AndroidJUnitRunner
+     adb shell am instrument -w -e class com.antiads.app.ConfigToggleTest -e action master_on com.antiads.app.test/androidx.test.runner.AndroidJUnitRunner
+@@ -138,9 +138,9 @@
+ | 配置可持久保存并被其他模块使用 | 通过 | Application 安装仓储到 AccessibilityDependencies；Provider 从同一单例生成最小策略 |
+ | 系统设置返回后刷新服务状态 | 通过（静态） | onResume 重新核查 enabledAccessibilityServiceList、刷新事实并重建订阅 |
+ | 包可见性（Android 11+） | 通过（静态） | 只用 LAUNCHER queries + probe 明确包查询；列表不完整时中文解释 + 手工添加入口 |
+-| 交互与视觉真机验证 | **未做** | 本任务环境无设备/模拟器：未做点击、渲染、无障碍授权流程、系统设置返回、WindowInsets 视觉效果、包可见性列表实测 |
+-| Provider 真实身份捕获与跨进程成功读 | **未做** | 需设备上由真实包 UID 发起：`adb shell content call` 只能证明 shell UID 被拒；同 UID 成功读需 probe 进程（t10/t13）自己调用 |
+-| Android 15 边到边 / API29 最低版本行为 | **未做** | 无设备；UiInsets 只做 API 分支处理，未在真机确认 |
++| 交互与视觉设备验证 | **部分完成（API29 模拟器）** | 已在 AVD `AntiAds_QA_API29` 上完成点击与渲染、无障碍授权/撤权与“打开系统无障碍设置→返回”刷新、开关切换落盘核验（[docs/verification.md](verification.md) 第 3.1/4.2 节）；**WindowInsets 视觉效果、包可见性列表与真机仍未做** |
++| Provider 真实身份捕获与跨进程成功读 | **已完成（API29 模拟器）** | probe（真实 UID 10117）与无 queries 夹具（真实 UID 10120）各以自身 UID 成功读取本包最小策略；`adb shell content call`（UID 2000）仍被 `UNAUTHORIZED` 拒绝（[docs/verification.md](verification.md) 第 4.4 节） |
++| Android 15 边到边 / API29 最低版本行为 | **API29 已确认；API35+ 未做** | API29 模拟器上完成授权/点击/关闭/返回刷新实测；API35+ 强制边到边与 Insets、真机仍未确认（UiInsets 仅做 API 分支静态处理） |
+ 
+ ## 9. 交接与集成检查点（给 t11 及后续）
+ 

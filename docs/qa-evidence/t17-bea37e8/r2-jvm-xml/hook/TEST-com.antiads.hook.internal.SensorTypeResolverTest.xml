@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.hook.internal.SensorTypeResolverTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:35:06" hostname="DESKTOP-26RJE8H" time="0.359">
+  <properties/>
+  <testcase name="handleIsNotAssumedToBeSensorType" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.207"/>
+  <testcase name="shapeCheckAcceptsBothSupportedPaths" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.004"/>
+  <testcase name="missingPathIsUnresolvedAndDetectedByShapeCheck" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.002"/>
+  <testcase name="outOfRangeSensorTypeIsUnresolved" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.002"/>
+  <testcase name="unknownHandleIsUnresolved" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.01"/>
+  <testcase name="resolvesViaManagerMap" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.021"/>
+  <testcase name="resolvesViaQueueOwnMap" classname="com.antiads.hook.internal.SensorTypeResolverTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

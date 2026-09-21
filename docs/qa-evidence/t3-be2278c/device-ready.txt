@@ -1,0 +1,11 @@
+date=2026-09-21T02:32:14Z
+started_by=t3-round3 (job bash-36) after t17 documented exit
+get-state: device
+boot_completed: 1
+avd_name: AntiAds_QA_API29
+ro.build.version.sdk: 29
+ro.build.version.release: 10
+ro.build.version.security_patch: 2019-09-05
+ro.build.fingerprint: Android/sdk_phone_x86_64/generic_x86_64:10/QSR1.210820.001/7663313:userdebug/test-keys
+ro.product.cpu.abilist: x86_64,x86
+adb devices -l: 

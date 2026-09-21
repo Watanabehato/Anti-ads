@@ -1,0 +1,497 @@
+########## app: xposed_init content
+com.antiads.hook.AntiAdsHookEntry
+########## app: dex de.robv reference check (defined-only, grep robv/xposed)
+C d 0	0	82	kotlin.ExposedCopyVisibility
+M d 1	1	94	com.antiads.hook.internal.HookRuntime$installApplicationAttachHook$1 void afterHookedMethod(de.robv.android.xposed.XC_MethodHook$MethodHookParam)
+M d 1	1	167	com.antiads.hook.internal.SensorDispatchHookInstaller$DispatchHook void beforeHookedMethod(de.robv.android.xposed.XC_MethodHook$MethodHookParam)
+M d 1	1	237	com.antiads.hook.AntiAdsHookEntry void handleLoadPackage(de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam)
+########## app: xposed entry class defined?
+P d 262	262	25109	com.antiads.hook
+P d 257	257	24418	com.antiads.hook.internal
+P d 112	112	9746	com.antiads.hook.internal.policy
+C d 24	24	1901	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot
+M d 1	1	84	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot <init>(com.antiads.core.config.CachedPackagePolicy,com.antiads.core.status.ConfigTransportState,java.lang.String,long,long,long,long,long,boolean)
+M d 1	1	243	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot copy$default(com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot,com.antiads.core.config.CachedPackagePolicy,com.antiads.core.status.ConfigTransportState,java.lang.String,long,long,long,long,long,boolean,int,java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot com.antiads.core.config.CachedPackagePolicy component1()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot com.antiads.core.status.ConfigTransportState component2()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot java.lang.String component3()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long component4()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long component5()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long component6()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long component7()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long component8()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot boolean component9()
+M d 1	1	92	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot copy(com.antiads.core.config.CachedPackagePolicy,com.antiads.core.status.ConfigTransportState,java.lang.String,long,long,long,long,long,boolean)
+M d 1	1	218	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot com.antiads.core.config.CachedPackagePolicy getCachedPolicy()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long getDroppedCallbacks()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long getFetchSubmissions()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot boolean getInFlight()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot java.lang.String getLastErrorCode()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long getObservedCallbacks()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long getReportSubmissions()
+M d 1	1	42	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot com.antiads.core.status.ConfigTransportState getTransportState()
+M d 1	1	34	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long getTypeResolveFailures()
+M d 1	1	210	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot int hashCode()
+M d 1	1	280	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot com.antiads.core.config.CachedPackagePolicy cachedPolicy
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long droppedCallbacks
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long fetchSubmissions
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot boolean inFlight
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot java.lang.String lastErrorCode
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long observedCallbacks
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long reportSubmissions
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot com.antiads.core.status.ConfigTransportState transportState
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot long typeResolveFailures
+C d 23	23	3005	com.antiads.hook.internal.policy.HookPolicyClientCore
+M d 1	1	37	com.antiads.hook.internal.policy.HookPolicyClientCore void $r8$lambda$CKhuN8kS4sVXKWKHiSaRZJgzc5w(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	37	com.antiads.hook.internal.policy.HookPolicyClientCore void $r8$lambda$pz5dbmaGHDBEhQdjVQ9coTz7ur0(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	37	com.antiads.hook.internal.policy.HookPolicyClientCore void $r8$lambda$qRggDKXKuzqridDIpWALgsNbQ4M(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	48	com.antiads.hook.internal.policy.HookPolicyClientCore <clinit>()
+M d 1	1	348	com.antiads.hook.internal.policy.HookPolicyClientCore <init>(java.lang.String,kotlin.jvm.functions.Function0,com.antiads.hook.internal.policy.HookTaskScheduler,com.antiads.hook.internal.policy.PolicyTransport,com.antiads.hook.internal.policy.PolicyDecoder,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function0,long,long,long,long)
+M d 1	1	160	com.antiads.hook.internal.policy.HookPolicyClientCore <init>(java.lang.String,kotlin.jvm.functions.Function0,com.antiads.hook.internal.policy.HookTaskScheduler,com.antiads.hook.internal.policy.PolicyTransport,com.antiads.hook.internal.policy.PolicyDecoder,kotlin.jvm.functions.Function1,kotlin.jvm.functions.Function0,long,long,long,long,int,kotlin.jvm.internal.DefaultConstructorMarker)
+M d 1	1	343	com.antiads.hook.internal.policy.HookPolicyClientCore void handleReply(long,long,com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply)
+M d 1	1	196	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.core.status.ConfigTransportState mapErrorToState(java.lang.String)
+M d 1	1	96	com.antiads.hook.internal.policy.HookPolicyClientCore void maybeScheduleFetch(long)
+M d 1	1	36	com.antiads.hook.internal.policy.HookPolicyClientCore void maybeScheduleFetch$lambda$2(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	106	com.antiads.hook.internal.policy.HookPolicyClientCore void maybeScheduleReport(long)
+M d 1	1	36	com.antiads.hook.internal.policy.HookPolicyClientCore void maybeScheduleReport$lambda$3(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	38	com.antiads.hook.internal.policy.HookPolicyClientCore void publishState(com.antiads.core.status.ConfigTransportState,java.lang.String)
+M d 1	1	88	com.antiads.hook.internal.policy.HookPolicyClientCore boolean refreshDue(long)
+M d 1	1	88	com.antiads.hook.internal.policy.HookPolicyClientCore boolean reportDue(long)
+M d 1	1	36	com.antiads.hook.internal.policy.HookPolicyClientCore void requestInitialFetch$lambda$0(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	144	com.antiads.hook.internal.policy.HookPolicyClientCore void onFetchCompleted(long,com.antiads.hook.internal.policy.PolicyFetchOutcome)
+M d 1	1	110	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.core.policy.SensorDecision onSensorCallback(int,long)
+M d 1	1	48	com.antiads.hook.internal.policy.HookPolicyClientCore void recordTypeResolveFailure()
+M d 1	1	90	com.antiads.hook.internal.policy.HookPolicyClientCore void requestInitialFetch()
+M d 1	1	171	com.antiads.hook.internal.policy.HookPolicyClientCore void runFetch()
+M d 1	1	247	com.antiads.hook.internal.policy.HookPolicyClientCore void runReport()
+M d 1	1	140	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot snapshot()
+F d 0	0	11	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.hook.internal.policy.HookPolicyClientCore$Companion Companion
+F d 0	0	27	com.antiads.hook.internal.policy.HookPolicyClientCore long NEVER
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.core.config.CachedPackagePolicy cachedPolicy
+F d 0	0	18	com.antiads.hook.internal.policy.HookPolicyClientCore kotlin.jvm.functions.Function0 clock
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.hook.internal.policy.PolicyDecoder decoder
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicLong droppedCallbacks
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicBoolean fetchScheduled
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicLong fetchSubmissions
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.lang.String lastErrorCode
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicLong lastReportAt
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicLong lastRequestStartedAt
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore long leaseMs
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicLong observedCallbacks
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.lang.String packageName
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore long readDeadlineMs
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore long refreshIntervalMs
+F d 0	0	18	com.antiads.hook.internal.policy.HookPolicyClientCore kotlin.jvm.functions.Function0 reportContext
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore long reportIntervalMs
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicBoolean reportScheduled
+F d 0	0	18	com.antiads.hook.internal.policy.HookPolicyClientCore kotlin.jvm.functions.Function1 reportSink
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicLong reportSubmissions
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.hook.internal.policy.HookTaskScheduler scheduler
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.hook.internal.policy.PolicyTransport transport
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore com.antiads.core.status.ConfigTransportState transportState
+F d 0	0	10	com.antiads.hook.internal.policy.HookPolicyClientCore java.util.concurrent.atomic.AtomicLong typeResolveFailures
+C d 16	16	1179	com.antiads.hook.internal.policy.HookReportContext
+M d 1	1	96	com.antiads.hook.internal.policy.HookReportContext <init>(java.lang.String,java.lang.String,int,int,com.antiads.core.status.HookInstallState)
+M d 1	1	119	com.antiads.hook.internal.policy.HookReportContext com.antiads.hook.internal.policy.HookReportContext copy$default(com.antiads.hook.internal.policy.HookReportContext,java.lang.String,java.lang.String,int,int,com.antiads.core.status.HookInstallState,int,java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext java.lang.String component1()
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext java.lang.String component2()
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext int component3()
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext int component4()
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext com.antiads.core.status.HookInstallState component5()
+M d 1	1	82	com.antiads.hook.internal.policy.HookReportContext com.antiads.hook.internal.policy.HookReportContext copy(java.lang.String,java.lang.String,int,int,com.antiads.core.status.HookInstallState)
+M d 1	1	142	com.antiads.hook.internal.policy.HookReportContext boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext int getApiLevel()
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext com.antiads.core.status.HookInstallState getInstallState()
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext int getPid()
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext java.lang.String getProcessName()
+M d 1	1	34	com.antiads.hook.internal.policy.HookReportContext java.lang.String getProcessToken()
+M d 1	1	114	com.antiads.hook.internal.policy.HookReportContext int hashCode()
+M d 1	1	180	com.antiads.hook.internal.policy.HookReportContext java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.policy.HookReportContext int apiLevel
+F d 0	0	10	com.antiads.hook.internal.policy.HookReportContext com.antiads.core.status.HookInstallState installState
+F d 0	0	10	com.antiads.hook.internal.policy.HookReportContext int pid
+F d 0	0	10	com.antiads.hook.internal.policy.HookReportContext java.lang.String processName
+F d 0	0	10	com.antiads.hook.internal.policy.HookReportContext java.lang.String processToken
+C d 12	12	825	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply
+M d 1	1	58	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply <init>(boolean,java.lang.String,java.lang.String)
+M d 1	1	75	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply copy$default(com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply,boolean,java.lang.String,java.lang.String,int,java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply boolean component1()
+M d 1	1	34	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply java.lang.String component2()
+M d 1	1	34	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply java.lang.String component3()
+M d 1	1	40	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply copy(boolean,java.lang.String,java.lang.String)
+M d 1	1	114	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply java.lang.String getErrorCode()
+M d 1	1	34	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply boolean getOk()
+M d 1	1	34	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply java.lang.String getPayloadJson()
+M d 1	1	102	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply int hashCode()
+M d 1	1	132	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply java.lang.String errorCode
+F d 0	0	10	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply boolean ok
+F d 0	0	10	com.antiads.hook.internal.policy.PolicyFetchOutcome$Reply java.lang.String payloadJson
+C d 8	8	513	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed
+M d 1	1	60	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed <init>(java.lang.String)
+M d 1	1	51	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed copy$default(com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed,java.lang.String,int,java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed java.lang.String component1()
+M d 1	1	50	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed copy(java.lang.String)
+M d 1	1	78	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed java.lang.String getErrorCode()
+M d 1	1	42	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed int hashCode()
+M d 1	1	84	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.policy.PolicyFetchOutcome$Failed java.lang.String errorCode
+C d 8	8	538	com.antiads.hook.internal.policy.SingleThreadWorker
+M d 1	1	39	com.antiads.hook.internal.policy.SingleThreadWorker java.lang.Thread $r8$lambda$6tOZ155osbVvvbJplU3zVu5202Q(com.antiads.hook.internal.policy.SingleThreadWorker,java.lang.String,java.lang.Runnable)
+M d 1	1	37	com.antiads.hook.internal.policy.SingleThreadWorker void $r8$lambda$kLB4DNc4PddfnRRyPfYbcK9N3jw(java.lang.Runnable)
+M d 1	1	98	com.antiads.hook.internal.policy.SingleThreadWorker <init>(java.lang.String)
+M d 1	1	62	com.antiads.hook.internal.policy.SingleThreadWorker java.lang.Thread executor$lambda$1(com.antiads.hook.internal.policy.SingleThreadWorker,java.lang.String,java.lang.Runnable)
+M d 1	1	55	com.antiads.hook.internal.policy.SingleThreadWorker void submit$lambda$2(java.lang.Runnable)
+M d 1	1	48	com.antiads.hook.internal.policy.SingleThreadWorker void close()
+M d 1	1	42	com.antiads.hook.internal.policy.SingleThreadWorker int createdThreadCount()
+M d 1	1	87	com.antiads.hook.internal.policy.SingleThreadWorker void submit(java.lang.Runnable)
+F d 0	0	10	com.antiads.hook.internal.policy.SingleThreadWorker java.util.concurrent.atomic.AtomicInteger createdThreads
+F d 0	0	10	com.antiads.hook.internal.policy.SingleThreadWorker java.util.concurrent.ExecutorService executor
+C d 3	3	232	com.antiads.hook.internal.policy.HookPolicyClientCore$Companion
+M d 1	1	38	com.antiads.hook.internal.policy.HookPolicyClientCore$Companion <init>()
+M d 1	1	38	com.antiads.hook.internal.policy.HookPolicyClientCore$Companion <init>(kotlin.jvm.internal.DefaultConstructorMarker)
+M d 1	1	84	com.antiads.hook.internal.policy.HookPolicyClientCore$Companion long saturatingAdd(long,long)
+C d 3	3	313	com.antiads.hook.internal.policy.PolicyJson
+M d 1	1	46	com.antiads.hook.internal.policy.PolicyJson <clinit>()
+M d 1	1	38	com.antiads.hook.internal.policy.PolicyJson <init>()
+M d 1	1	163	com.antiads.hook.internal.policy.PolicyJson com.antiads.core.config.PackagePolicy decodePolicy(java.lang.String,java.lang.String)
+F d 0	0	18	com.antiads.hook.internal.policy.PolicyJson com.antiads.hook.internal.policy.PolicyJson INSTANCE
+C d 2	2	139	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda0
+M d 1	1	42	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda0 <init>(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	40	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda0 void run()
+F d 0	0	11	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda0 com.antiads.hook.internal.policy.HookPolicyClientCore f$0
+C d 2	2	139	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda1
+M d 1	1	42	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda1 <init>(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	40	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda1 void run()
+F d 0	0	11	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda1 com.antiads.hook.internal.policy.HookPolicyClientCore f$0
+C d 2	2	139	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda2
+M d 1	1	42	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda2 <init>(com.antiads.hook.internal.policy.HookPolicyClientCore)
+M d 1	1	40	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda2 void run()
+F d 0	0	11	com.antiads.hook.internal.policy.HookPolicyClientCore$$ExternalSyntheticLambda2 com.antiads.hook.internal.policy.HookPolicyClientCore f$0
+C d 2	2	232	com.antiads.hook.internal.policy.HookTransportCodes
+M d 1	1	46	com.antiads.hook.internal.policy.HookTransportCodes <clinit>()
+M d 1	1	38	com.antiads.hook.internal.policy.HookTransportCodes <init>()
+F d 0	0	11	com.antiads.hook.internal.policy.HookTransportCodes com.antiads.hook.internal.policy.HookTransportCodes INSTANCE
+F d 0	0	12	com.antiads.hook.internal.policy.HookTransportCodes java.lang.String INVALID_PAYLOAD
+F d 0	0	12	com.antiads.hook.internal.policy.HookTransportCodes java.lang.String MISSING_PAYLOAD
+F d 0	0	12	com.antiads.hook.internal.policy.HookTransportCodes java.lang.String REPLY_DEADLINE_EXCEEDED
+F d 0	0	12	com.antiads.hook.internal.policy.HookTransportCodes java.lang.String TIME_REWIND
+F d 0	0	12	com.antiads.hook.internal.policy.HookTransportCodes java.lang.String TYPE_RESOLVE_FAILED
+F d 0	0	12	com.antiads.hook.internal.policy.HookTransportCodes java.lang.String UNAVAILABLE
+C d 2	2	160	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda0
+M d 1	1	46	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda0 <init>(com.antiads.hook.internal.policy.SingleThreadWorker,java.lang.String)
+M d 1	1	46	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda0 java.lang.Thread newThread(java.lang.Runnable)
+F d 0	0	11	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda0 com.antiads.hook.internal.policy.SingleThreadWorker f$0
+F d 0	0	11	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda0 java.lang.String f$1
+C d 2	2	139	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda1
+M d 1	1	42	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda1 <init>(java.lang.Runnable)
+M d 1	1	40	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda1 void run()
+F d 0	0	11	com.antiads.hook.internal.policy.SingleThreadWorker$$ExternalSyntheticLambda1 java.lang.Runnable f$0
+C d 1	1	76	com.antiads.hook.internal.policy.HookTaskScheduler
+M d 1	1	12	com.antiads.hook.internal.policy.HookTaskScheduler void submit(java.lang.Runnable)
+C d 1	1	76	com.antiads.hook.internal.policy.PolicyDecoder
+M d 1	1	12	com.antiads.hook.internal.policy.PolicyDecoder com.antiads.core.config.PackagePolicy decode(java.lang.String,java.lang.String)
+C d 1	1	76	com.antiads.hook.internal.policy.PolicyTransport
+M d 1	1	12	com.antiads.hook.internal.policy.PolicyTransport com.antiads.hook.internal.policy.PolicyFetchOutcome fetch(java.lang.String)
+C d 0	0	64	com.antiads.hook.internal.policy.PolicyFetchOutcome
+C d 22	22	2498	com.antiads.hook.internal.HookRuntime
+M d 1	1	37	com.antiads.hook.internal.HookRuntime void $r8$lambda$0teyTCxNxGz571lHGZkRSpYf288(com.antiads.hook.internal.policy.SingleThreadWorker,java.lang.Runnable)
+M d 1	1	39	com.antiads.hook.internal.HookRuntime boolean $r8$lambda$SJlT4Sl8tjtK2Fz1LVaKn-PmHGA(java.lang.Object,int)
+M d 1	1	39	com.antiads.hook.internal.HookRuntime long $r8$lambda$YaNIRP5auqkGUZYg5DyBCWR2_ns()
+M d 1	1	39	com.antiads.hook.internal.HookRuntime com.antiads.core.config.PackagePolicy $r8$lambda$eL2-7D2o0G1mp2SmHYaTCJJ1mYM(java.lang.String,java.lang.String)
+M d 1	1	39	com.antiads.hook.internal.HookRuntime com.antiads.hook.internal.policy.HookReportContext $r8$lambda$gjGYWATftLKeAvXwkK6Fy-1yqLQ()
+M d 1	1	126	com.antiads.hook.internal.HookRuntime <clinit>()
+M d 1	1	38	com.antiads.hook.internal.HookRuntime <init>()
+M d 1	1	38	com.antiads.hook.internal.HookRuntime long attachContext$lambda$3()
+M d 1	1	46	com.antiads.hook.internal.HookRuntime void attachContext$lambda$4(com.antiads.hook.internal.policy.SingleThreadWorker,java.lang.Runnable)
+M d 1	1	62	com.antiads.hook.internal.HookRuntime com.antiads.core.config.PackagePolicy attachContext$lambda$5(java.lang.String,java.lang.String)
+M d 1	1	66	com.antiads.hook.internal.HookRuntime com.antiads.hook.internal.policy.HookReportContext attachContext$lambda$6()
+M d 1	1	59	com.antiads.hook.internal.HookRuntime android.app.Application currentApplication()
+M d 1	1	159	com.antiads.hook.internal.HookRuntime void installApplicationAttachHook()
+M d 1	1	52	com.antiads.hook.internal.HookRuntime boolean onLoadPackage$lambda$0(java.lang.Object,int)
+M d 1	1	595	com.antiads.hook.internal.HookRuntime void attachContext(android.content.Context)
+M d 1	1	50	com.antiads.hook.internal.HookRuntime com.antiads.hook.internal.policy.HookPolicyClientCore$Snapshot clientSnapshot()
+M d 1	1	34	com.antiads.hook.internal.HookRuntime com.antiads.core.status.HookInstallState installStateSnapshot()
+M d 1	1	396	com.antiads.hook.internal.HookRuntime void onLoadPackage(java.lang.String,java.lang.String,java.lang.ClassLoader)
+M d 1	1	150	com.antiads.hook.internal.HookRuntime boolean shouldDropSensorCallback(java.lang.Object,int)
+M d 1	1	111	com.antiads.hook.internal.HookRuntime void shutdown()
+M d 1	1	74	com.antiads.hook.internal.HookRuntime java.util.List targetIdentity()
+M d 1	1	74	com.antiads.hook.internal.HookRuntime java.lang.String transportSummary()
+F d 0	0	19	com.antiads.hook.internal.HookRuntime com.antiads.hook.internal.HookRuntime INSTANCE
+F d 0	0	13	com.antiads.hook.internal.HookRuntime java.lang.String WORKER_NAME
+F d 0	0	10	com.antiads.hook.internal.HookRuntime com.antiads.hook.internal.policy.HookPolicyClientCore client
+F d 0	0	10	com.antiads.hook.internal.HookRuntime java.util.concurrent.atomic.AtomicBoolean contextGuard
+F d 0	0	10	com.antiads.hook.internal.HookRuntime java.util.concurrent.atomic.AtomicBoolean installGuard
+F d 0	0	10	com.antiads.hook.internal.HookRuntime com.antiads.core.status.HookInstallState installState
+F d 0	0	10	com.antiads.hook.internal.HookRuntime java.lang.String processToken
+F d 0	0	10	com.antiads.hook.internal.HookRuntime com.antiads.hook.internal.SensorTypeResolver resolver
+F d 0	0	10	com.antiads.hook.internal.HookRuntime java.lang.String targetPackageName
+F d 0	0	10	com.antiads.hook.internal.HookRuntime java.lang.String targetProcessName
+F d 0	0	10	com.antiads.hook.internal.HookRuntime com.antiads.hook.internal.policy.SingleThreadWorker worker
+C d 16	16	2752	com.antiads.hook.internal.SensorTypeResolver
+M d 1	1	41	com.antiads.hook.internal.SensorTypeResolver com.antiads.hook.internal.SensorTypeResolver$TypeReader $r8$lambda$vmvz9YYPV9oWbs0u3R4MyrSiyTk(com.antiads.hook.internal.SensorTypeResolver,java.lang.Class)
+M d 1	1	40	com.antiads.hook.internal.SensorTypeResolver com.antiads.hook.internal.SensorTypeResolver$TypeReader $r8$lambda$zk62J-DyN1-30aSETOHLRtUC2gw(kotlin.jvm.functions.Function1,java.lang.Object)
+M d 1	1	49	com.antiads.hook.internal.SensorTypeResolver <clinit>()
+M d 1	1	51	com.antiads.hook.internal.SensorTypeResolver <init>()
+M d 1	1	111	com.antiads.hook.internal.SensorTypeResolver <init>(java.util.List,java.util.List,java.util.List)
+M d 1	1	99	com.antiads.hook.internal.SensorTypeResolver <init>(java.util.List,java.util.List,java.util.List,int,kotlin.jvm.internal.DefaultConstructorMarker)
+M d 1	1	238	com.antiads.hook.internal.SensorTypeResolver com.antiads.hook.internal.SensorTypeResolver$MapAccessor buildMapAccessor(java.lang.String,java.lang.reflect.Field,java.lang.reflect.Field,java.lang.reflect.Field)
+M d 1	1	351	com.antiads.hook.internal.SensorTypeResolver java.util.List buildMapAccessors(java.lang.Class)
+M d 1	1	162	com.antiads.hook.internal.SensorTypeResolver java.lang.reflect.Field findField(java.lang.Class,java.lang.String)
+M d 1	1	166	com.antiads.hook.internal.SensorTypeResolver boolean hasIntGet(java.lang.Class)
+M d 1	1	218	com.antiads.hook.internal.SensorTypeResolver java.lang.Integer readSensorType(java.lang.Object)
+M d 1	1	197	com.antiads.hook.internal.SensorTypeResolver com.antiads.hook.internal.SensorTypeResolver$TypeReader readSensorType$lambda$3(com.antiads.hook.internal.SensorTypeResolver,java.lang.Class)
+M d 1	1	43	com.antiads.hook.internal.SensorTypeResolver com.antiads.hook.internal.SensorTypeResolver$TypeReader readSensorType$lambda$4(kotlin.jvm.functions.Function1,java.lang.Object)
+M d 1	1	266	com.antiads.hook.internal.SensorTypeResolver java.lang.Integer readType(com.antiads.hook.internal.SensorTypeResolver$MapAccessor,java.lang.Object,int)
+M d 1	1	269	com.antiads.hook.internal.SensorTypeResolver boolean hasCandidatePath(java.lang.Class)
+M d 1	1	237	com.antiads.hook.internal.SensorTypeResolver com.antiads.hook.internal.SensorTypeResolver$Resolution resolve(java.lang.Object,int)
+F d 0	0	11	com.antiads.hook.internal.SensorTypeResolver com.antiads.hook.internal.SensorTypeResolver$Companion Companion
+F d 0	0	20	com.antiads.hook.internal.SensorTypeResolver int MAX_SENSOR_TYPE
+F d 0	0	20	com.antiads.hook.internal.SensorTypeResolver int MIN_SENSOR_TYPE
+F d 0	0	18	com.antiads.hook.internal.SensorTypeResolver java.util.concurrent.atomic.AtomicReference cachedMapAccessor
+F d 0	0	18	com.antiads.hook.internal.SensorTypeResolver java.util.List managerFields
+F d 0	0	18	com.antiads.hook.internal.SensorTypeResolver java.util.List managerMapFields
+F d 0	0	18	com.antiads.hook.internal.SensorTypeResolver java.util.List queueMapFields
+F d 0	0	18	com.antiads.hook.internal.SensorTypeResolver java.util.concurrent.ConcurrentHashMap typeReaders
+C d 10	10	665	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved
+M d 1	1	57	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved <init>(int,java.lang.String)
+M d 1	1	63	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved copy$default(com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved,int,java.lang.String,int,java.lang.Object)
+M d 1	1	35	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved int component1()
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved java.lang.String component2()
+M d 1	1	50	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved copy(int,java.lang.String)
+M d 1	1	92	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved java.lang.String getPath()
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved int getSensorType()
+M d 1	1	60	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved int hashCode()
+M d 1	1	108	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved java.lang.String path
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$Resolution$Resolved int sensorType
+C d 9	9	551	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed
+M d 1	1	52	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed <init>(java.lang.String)
+M d 1	1	51	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed copy$default(com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed,java.lang.String,int,java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed java.lang.String component1()
+M d 1	1	50	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed copy(java.lang.String)
+M d 1	1	78	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed java.lang.String getReason()
+M d 1	1	38	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed java.lang.String getReasonOrEmpty()
+M d 1	1	42	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed int hashCode()
+M d 1	1	84	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Failed java.lang.String reason
+C d 9	9	551	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported
+M d 1	1	52	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported <init>(java.lang.String)
+M d 1	1	51	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported copy$default(com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported,java.lang.String,int,java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported java.lang.String component1()
+M d 1	1	50	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported copy(java.lang.String)
+M d 1	1	78	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported java.lang.String getReason()
+M d 1	1	38	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported java.lang.String getReasonOrEmpty()
+M d 1	1	42	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported int hashCode()
+M d 1	1	84	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Unsupported java.lang.String reason
+C d 8	8	513	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok
+M d 1	1	52	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok <init>(java.lang.reflect.Method)
+M d 1	1	51	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok copy$default(com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok,java.lang.reflect.Method,int,java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok java.lang.reflect.Method component1()
+M d 1	1	50	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok copy(java.lang.reflect.Method)
+M d 1	1	78	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok java.lang.reflect.Method getMethod()
+M d 1	1	42	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok int hashCode()
+M d 1	1	84	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Ok java.lang.reflect.Method method
+C d 8	8	513	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected
+M d 1	1	52	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected <init>(java.lang.String)
+M d 1	1	51	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected copy$default(com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected,java.lang.String,int,java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected java.lang.String component1()
+M d 1	1	50	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected copy(java.lang.String)
+M d 1	1	78	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected boolean equals(java.lang.Object)
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected java.lang.String getReason()
+M d 1	1	42	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected int hashCode()
+M d 1	1	84	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.SensorDispatchTarget$Analysis$Rejected java.lang.String reason
+C d 6	6	336	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed
+M d 1	1	46	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed <clinit>()
+M d 1	1	38	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed <init>()
+M d 1	1	56	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed boolean equals(java.lang.Object)
+M d 1	1	38	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed java.lang.String getReasonOrEmpty()
+M d 1	1	36	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed int hashCode()
+M d 1	1	34	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed com.antiads.hook.internal.SensorDispatchHookInstaller$Result$Installed INSTANCE
+C d 6	6	372	com.antiads.hook.internal.SensorTypeResolver$MapAccessor
+M d 1	1	79	com.antiads.hook.internal.SensorTypeResolver$MapAccessor <init>(java.lang.String,java.lang.reflect.Field,java.lang.reflect.Field,java.lang.reflect.Field,java.lang.reflect.Method)
+M d 1	1	35	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.reflect.Field getDirectMapField()
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.reflect.Field getManagerField()
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.reflect.Field getManagerMapField()
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.reflect.Method getMapGetMethod()
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.String getPath()
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.reflect.Field directMapField
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.reflect.Field managerField
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.reflect.Field managerMapField
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.reflect.Method mapGetMethod
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$MapAccessor java.lang.String path
+C d 5	5	521	com.antiads.hook.internal.HookLog
+M d 1	1	46	com.antiads.hook.internal.HookLog <clinit>()
+M d 1	1	38	com.antiads.hook.internal.HookLog <init>()
+M d 1	1	111	com.antiads.hook.internal.HookLog void diag(java.lang.String)
+M d 1	1	111	com.antiads.hook.internal.HookLog void info(java.lang.String)
+M d 1	1	111	com.antiads.hook.internal.HookLog void warn(java.lang.String)
+F d 0	0	12	com.antiads.hook.internal.HookLog java.lang.String DIAG_TAG
+F d 0	0	11	com.antiads.hook.internal.HookLog com.antiads.hook.internal.HookLog INSTANCE
+F d 0	0	12	com.antiads.hook.internal.HookLog java.lang.String TAG
+C d 5	5	300	com.antiads.hook.internal.SensorTypeResolver$Resolution$Unresolved
+M d 1	1	47	com.antiads.hook.internal.SensorTypeResolver$Resolution$Unresolved <clinit>()
+M d 1	1	38	com.antiads.hook.internal.SensorTypeResolver$Resolution$Unresolved <init>()
+M d 1	1	57	com.antiads.hook.internal.SensorTypeResolver$Resolution$Unresolved boolean equals(java.lang.Object)
+M d 1	1	36	com.antiads.hook.internal.SensorTypeResolver$Resolution$Unresolved int hashCode()
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$Resolution$Unresolved java.lang.String toString()
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$Resolution$Unresolved com.antiads.hook.internal.SensorTypeResolver$Resolution$Unresolved INSTANCE
+C d 4	4	419	com.antiads.hook.internal.HookSkipRules
+M d 1	1	94	com.antiads.hook.internal.HookSkipRules <clinit>()
+M d 1	1	38	com.antiads.hook.internal.HookSkipRules <init>()
+M d 1	1	34	com.antiads.hook.internal.HookSkipRules java.util.Set getSKIPPED_PACKAGES()
+M d 1	1	114	com.antiads.hook.internal.HookSkipRules boolean shouldSkip(java.lang.String,java.lang.String)
+F d 0	0	13	com.antiads.hook.internal.HookSkipRules java.lang.String HOST_PACKAGE
+F d 0	0	19	com.antiads.hook.internal.HookSkipRules com.antiads.hook.internal.HookSkipRules INSTANCE
+F d 0	0	19	com.antiads.hook.internal.HookSkipRules java.util.Set SKIPPED_PACKAGES
+F d 0	0	13	com.antiads.hook.internal.HookSkipRules java.lang.String SYSTEM_PACKAGE
+F d 0	0	13	com.antiads.hook.internal.HookSkipRules java.lang.String SYSTEM_PROCESS_NAME
+F d 0	0	13	com.antiads.hook.internal.HookSkipRules java.lang.String SYSTEM_UI_PACKAGE
+C d 3	3	845	com.antiads.hook.internal.ProviderHookReportSender
+M d 1	1	52	com.antiads.hook.internal.ProviderHookReportSender <init>(android.content.Context)
+M d 1	1	47	com.antiads.hook.internal.ProviderHookReportSender java.lang.Object invoke(java.lang.Object)
+M d 1	1	658	com.antiads.hook.internal.ProviderHookReportSender void invoke(com.antiads.core.status.HookProcessReport)
+F d 0	0	10	com.antiads.hook.internal.ProviderHookReportSender android.content.Context context
+C d 3	3	431	com.antiads.hook.internal.SensorDispatchHookInstaller
+M d 1	1	46	com.antiads.hook.internal.SensorDispatchHookInstaller <clinit>()
+M d 1	1	38	com.antiads.hook.internal.SensorDispatchHookInstaller <init>()
+M d 1	1	269	com.antiads.hook.internal.SensorDispatchHookInstaller com.antiads.hook.internal.SensorDispatchHookInstaller$Result install(java.lang.ClassLoader,com.antiads.hook.internal.SensorTypeResolver,kotlin.jvm.functions.Function2)
+F d 0	0	10	com.antiads.hook.internal.SensorDispatchHookInstaller com.antiads.hook.internal.SensorDispatchHookInstaller INSTANCE
+C d 3	3	667	com.antiads.hook.internal.SensorDispatchTarget
+M d 1	1	104	com.antiads.hook.internal.SensorDispatchTarget <clinit>()
+M d 1	1	38	com.antiads.hook.internal.SensorDispatchTarget <init>()
+M d 1	1	384	com.antiads.hook.internal.SensorDispatchTarget com.antiads.hook.internal.SensorDispatchTarget$Analysis analyze(java.lang.Class,com.antiads.hook.internal.SensorTypeResolver)
+F d 0	0	13	com.antiads.hook.internal.SensorDispatchTarget java.lang.String CLASS_NAME
+F d 0	0	19	com.antiads.hook.internal.SensorDispatchTarget java.lang.Class[] EXPECTED_PARAMETER_TYPES
+F d 0	0	12	com.antiads.hook.internal.SensorDispatchTarget int HANDLE_ARG_INDEX
+F d 0	0	11	com.antiads.hook.internal.SensorDispatchTarget com.antiads.hook.internal.SensorDispatchTarget INSTANCE
+F d 0	0	13	com.antiads.hook.internal.SensorDispatchTarget java.lang.String METHOD_NAME
+C d 3	3	208	com.antiads.hook.internal.SensorTypeResolver$TypeReader
+M d 1	1	47	com.antiads.hook.internal.SensorTypeResolver$TypeReader <init>(java.lang.reflect.Method,java.lang.reflect.Field)
+M d 1	1	35	com.antiads.hook.internal.SensorTypeResolver$TypeReader java.lang.reflect.Field getTypeField()
+M d 1	1	34	com.antiads.hook.internal.SensorTypeResolver$TypeReader java.lang.reflect.Method getTypeGetMethod()
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$TypeReader java.lang.reflect.Field typeField
+F d 0	0	10	com.antiads.hook.internal.SensorTypeResolver$TypeReader java.lang.reflect.Method typeGetMethod
+C d 2	2	130	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda0
+M d 1	1	38	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda0 <init>()
+M d 1	1	46	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda0 java.lang.Object invoke()
+C d 2	2	139	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda1
+M d 1	1	42	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda1 <init>(com.antiads.hook.internal.policy.SingleThreadWorker)
+M d 1	1	40	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda1 void submit(java.lang.Runnable)
+F d 0	0	11	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda1 com.antiads.hook.internal.policy.SingleThreadWorker f$0
+C d 2	2	122	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda2
+M d 1	1	38	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda2 <init>()
+M d 1	1	38	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda2 com.antiads.core.config.PackagePolicy decode(java.lang.String,java.lang.String)
+C d 2	2	122	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda3
+M d 1	1	38	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda3 <init>()
+M d 1	1	38	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda3 java.lang.Object invoke()
+C d 2	2	142	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda4
+M d 1	1	38	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda4 <init>()
+M d 1	1	58	com.antiads.hook.internal.HookRuntime$$ExternalSyntheticLambda4 java.lang.Object invoke(java.lang.Object,java.lang.Object)
+C d 2	2	204	com.antiads.hook.internal.HookRuntime$installApplicationAttachHook$1
+M d 1	1	38	com.antiads.hook.internal.HookRuntime$installApplicationAttachHook$1 <init>()
+M d 1	1	94	com.antiads.hook.internal.HookRuntime$installApplicationAttachHook$1 void afterHookedMethod(de.robv.android.xposed.XC_MethodHook$MethodHookParam)
+C d 2	2	413	com.antiads.hook.internal.ProviderPolicyTransport
+M d 1	1	52	com.antiads.hook.internal.ProviderPolicyTransport <init>(android.content.Context)
+M d 1	1	281	com.antiads.hook.internal.ProviderPolicyTransport com.antiads.hook.internal.policy.PolicyFetchOutcome fetch(java.lang.String)
+F d 0	0	10	com.antiads.hook.internal.ProviderPolicyTransport android.content.Context context
+C d 2	2	309	com.antiads.hook.internal.SensorDispatchHookInstaller$DispatchHook
+M d 1	1	52	com.antiads.hook.internal.SensorDispatchHookInstaller$DispatchHook <init>(kotlin.jvm.functions.Function2)
+M d 1	1	167	com.antiads.hook.internal.SensorDispatchHookInstaller$DispatchHook void beforeHookedMethod(de.robv.android.xposed.XC_MethodHook$MethodHookParam)
+F d 0	0	18	com.antiads.hook.internal.SensorDispatchHookInstaller$DispatchHook kotlin.jvm.functions.Function2 dispatcher
+C d 2	2	147	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticLambda1
+M d 1	1	43	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticLambda1 <init>(com.antiads.hook.internal.SensorTypeResolver)
+M d 1	1	47	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticLambda1 java.lang.Object invoke(java.lang.Object)
+F d 0	0	11	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticLambda1 com.antiads.hook.internal.SensorTypeResolver f$0
+C d 2	2	143	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticLambda2
+M d 1	1	43	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticLambda2 <init>(kotlin.jvm.functions.Function1)
+M d 1	1	43	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticLambda2 java.lang.Object apply(java.lang.Object)
+F d 0	0	11	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticLambda2 kotlin.jvm.functions.Function1 f$0
+C d 2	2	149	com.antiads.hook.internal.SensorTypeResolver$Companion
+M d 1	1	39	com.antiads.hook.internal.SensorTypeResolver$Companion <init>()
+M d 1	1	38	com.antiads.hook.internal.SensorTypeResolver$Companion <init>(kotlin.jvm.internal.DefaultConstructorMarker)
+C d 1	1	176	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$DefaultImpls
+M d 1	1	104	com.antiads.hook.internal.SensorDispatchHookInstaller$Result$DefaultImpls java.lang.String getReasonOrEmpty(com.antiads.hook.internal.SensorDispatchHookInstaller$Result)
+C d 1	1	88	com.antiads.hook.internal.SensorDispatchHookInstaller$Result
+M d 1	1	12	com.antiads.hook.internal.SensorDispatchHookInstaller$Result java.lang.String getReasonOrEmpty()
+C d 1	1	102	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticBackportWithForwarding0
+M d 1	1	62	com.antiads.hook.internal.SensorTypeResolver$$ExternalSyntheticBackportWithForwarding0 boolean m(java.util.concurrent.atomic.AtomicReference,java.lang.Object,java.lang.Object)
+C d 0	0	72	com.antiads.hook.internal.SensorDispatchTarget$Analysis
+C d 0	0	72	com.antiads.hook.internal.SensorTypeResolver$Resolution
+C d 2	2	345	com.antiads.hook.AntiAdsHookEntry
+M d 1	1	38	com.antiads.hook.AntiAdsHookEntry <init>()
+M d 1	1	237	com.antiads.hook.AntiAdsHookEntry void handleLoadPackage(de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam)
+C d 1	1	122	com.antiads.hook.R$array
+M d 1	1	38	com.antiads.hook.R$array <init>()
+F d 0	0	15	com.antiads.hook.R$array int hook_suggested_scope
+C d 1	1	122	com.antiads.hook.R$string
+M d 1	1	38	com.antiads.hook.R$string <init>()
+F d 0	0	15	com.antiads.hook.R$string int hook_module_description
+C d 1	1	102	com.antiads.hook.R
+M d 1	1	38	com.antiads.hook.R <init>()
+########## probe: manifest print
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="0.1.0"
+    android:compileSdkVersion="35"
+    android:compileSdkVersionCodename="15"
+    package="com.antiads.probe"
+    platformBuildVersionCode="35"
+    platformBuildVersionName="15">
+
+    <uses-sdk
+        android:minSdkVersion="29"
+        android:targetSdkVersion="35" />
+
+    <queries>
+
+        <provider
+            android:authorities="com.antiads.app.config" />
+    </queries>
+
+    <application
+        android:theme="@ref/0x7f030000"
+        android:label="@ref/0x7f020007"
+        android:icon="@ref/0x7f010000"
+        android:debuggable="true"
+        android:allowBackup="false"
+        android:supportsRtl="true"
+        android:extractNativeLibs="false"
+        android:fullBackupContent="@ref/0x7f040000"
+        android:dataExtractionRules="@ref/0x7f040001">
+
+        <activity
+            android:name="com.antiads.probe.MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.antiads.probe.AdFixtureActivity"
+            android:exported="true"
+            android:windowSoftInputMode="0x10" />
+    </application>
+</manifest>
+########## probe: permissions

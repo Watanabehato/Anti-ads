@@ -1,0 +1,1 @@
+{"schemaVersion":1,"revision":10,"masterEnabled":true,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]}}}

@@ -1,0 +1,1 @@
+533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a *qa/fixtures/noqueries/build/outputs/apk/debug/noqueries-debug.apk

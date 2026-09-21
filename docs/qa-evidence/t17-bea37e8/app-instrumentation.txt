@@ -1,0 +1,45 @@
+INSTRUMENTATION_STATUS: class=com.antiads.app.ServiceOwnershipTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+com.antiads.app.ServiceOwnershipTest:
+INSTRUMENTATION_STATUS: test=adSkipServiceComponentBelongsToHostPackage
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.antiads.app.ServiceOwnershipTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=adSkipServiceComponentBelongsToHostPackage
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.antiads.app.ConfigToggleTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+com.antiads.app.ConfigToggleTest:
+INSTRUMENTATION_STATUS: test=toggleMasterSwitchThroughHostRepositoryWritePath
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: anti_ads_action=master_off
+INSTRUMENTATION_STATUS: anti_ads_elapsed_ms=27
+INSTRUMENTATION_STATUS: anti_ads_flipped=true
+INSTRUMENTATION_STATUS: anti_ads_result=SAVED
+INSTRUMENTATION_STATUS: anti_ads_revision_after=25
+INSTRUMENTATION_STATUS: anti_ads_revision_before=24
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.antiads.app.ConfigToggleTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=toggleMasterSwitchThroughHostRepositoryWritePath
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 0.063
+
+OK (2 tests)
+
+
+INSTRUMENTATION_CODE: -1

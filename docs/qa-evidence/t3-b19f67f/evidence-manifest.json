@@ -1,0 +1,871 @@
+{
+  "commit": "b19f67f2262dff74d08fddca2ce457c28f857afe",
+  "verdict": "needs_revision",
+  "files": [
+    {
+      "path": "docs/build.md",
+      "bytes": 14919,
+      "sha256": "b54eb030d3bf1cdefebb0c079cd23cda7e470119291fb4f7ead9be0373319f14"
+    },
+    {
+      "path": "docs/emulator-environment.md",
+      "bytes": 14078,
+      "sha256": "d775e6198c7f7a28f9748a4dfd644970a26a138894759ee7e2f612418b91e407"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/accessibility-authorized.txt",
+      "bytes": 1295,
+      "sha256": "532a343dc50adc9bc7f9d95cbed0ff72ab995d8230a12e2e37e01dd3df46eaa7"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/accessibility-confirmation.png",
+      "bytes": 141524,
+      "sha256": "052af2a4be82083249886fab5d69c844b0812912916d667065398e57eb1d0039"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/accessibility-master-off-connected.txt",
+      "bytes": 490,
+      "sha256": "f6d036516ff769ae9e323ff9fbf96a51ceb73a9cb6d71e5ecf8c911f0fc1d957"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/accessibility-master-off.txt",
+      "bytes": 490,
+      "sha256": "f6d036516ff769ae9e323ff9fbf96a51ceb73a9cb6d71e5ecf8c911f0fc1d957"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/accessibility-service-before.png",
+      "bytes": 125588,
+      "sha256": "82b0df9a061e5c10f94ffda7bc4f08a515c5ff6eeb522330c27ed809028a7ede"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/accessibility-service-xml.txt",
+      "bytes": 1027,
+      "sha256": "3d8ff7189fdd6cb9bcf4e3bed347562acdbceaa59ed6cd836118ae7e31122c30"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/accessibility-settings.png",
+      "bytes": 119720,
+      "sha256": "9a15672936e05cf2c75de99b028fdf6338b513927ee06cddeec8efd3d6e45d3c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/ad-all-rounds-runtime.txt",
+      "bytes": 4771,
+      "sha256": "6582133432d3d7bdbc17783c1b53ee487323b19f5dabf33609c4d4f27ff7116d"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/ad-bottom_button.png",
+      "bytes": 41350,
+      "sha256": "83e5d017237cd5a4d36bb766dbc347d295b5a9b84f2bc3e5dfee8033053f91b4"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/ad-editable_window.png",
+      "bytes": 58240,
+      "sha256": "ffc3ec280f8d366b376367644cc95cfb1758a4353b194c7e0069bec6ced54cab"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/ad-no_ad_label.png",
+      "bytes": 41204,
+      "sha256": "bd11e45c8f173908ef3a5cc7d9430788a1d9fea8ffd3a1da9c51a6b54406763a"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/ad-non_clickable.png",
+      "bytes": 42345,
+      "sha256": "b04421b8a3ac7b22b45a1c85b1c7e4427cce2fccdd76436904f4636bf4baff21"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/ad-positive-start.txt",
+      "bytes": 198,
+      "sha256": "4e2df273e8be05270faff1ee22528cb485d1230e515cbca9e5db34e385da4ac5"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/ad-positive.png",
+      "bytes": 43739,
+      "sha256": "bbd96ca1a00b981af86be835197f242beda327099ba9f79b0292f87bd398eb31"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/ad-scenarios-runtime.txt",
+      "bytes": 2881,
+      "sha256": "fdeba2910f3d33f1bda034363a8723361be9f33076689e52860bef335b0aa1a4"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/apk-hash-recheck.txt",
+      "bytes": 310,
+      "sha256": "b14f24e140d3cc4d417124b03a0b52c056ccf68d6ab8a3efc4290293c66e1a62"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/apk-sha256.txt",
+      "bytes": 620,
+      "sha256": "9b8ef18a9d64828015e24d57f46cec784186b6c7626cc437d447c56ce1bf3f19"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/app-manifest.txt",
+      "bytes": 6567,
+      "sha256": "bc498221a664f22d0df121353d466876694e69b0d39f3539761776be89fc592e"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/app-resources.txt",
+      "bytes": 13845,
+      "sha256": "40615ee1d74e2417d942baf0e49db7b11e346cc38341b86ad6f19931ebc27a5c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/app-signature.txt",
+      "bytes": 972,
+      "sha256": "c79d407984e61e21d34a798a9da12b2ceff5e73242633715a7e89eb173ac7a5f"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/app-test-signature.txt",
+      "bytes": 972,
+      "sha256": "c79d407984e61e21d34a798a9da12b2ceff5e73242633715a7e89eb173ac7a5f"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/avd-before-reboot.txt",
+      "bytes": 24,
+      "sha256": "7a78192292821dc79bb52239be1c9f1c62b96b98bc0bc7147fa38d0e0b9d9826"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/backup_rules.txt",
+      "bytes": 425,
+      "sha256": "71db897e5ad47b9508f49508ebf0d1777dec7002894df192d223906c482676c6"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/commands-and-outcomes.md",
+      "bytes": 4894,
+      "sha256": "c40bd8501cb2b4dc8c6a7655faef9462738a35a1f50edb7aef3335c89909fa74"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/config-before-corrupt.json",
+      "bytes": 389,
+      "sha256": "dff0b39313f961f8e0f1104ad2541c3ec61cb2af70f1528f44f711dbb4ec7611"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/config-before-restart.json",
+      "bytes": 246,
+      "sha256": "427ca04bd9640e247485bf856ee2198df395e51c7e31bf13319c85ae239b3fef"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/config-restored-home.png",
+      "bytes": 260249,
+      "sha256": "cd826cc66ab00ad506eb794fa73e0da0a87b51b7c2c88a8d616603c822c016e5"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/config-restored.json",
+      "bytes": 389,
+      "sha256": "dff0b39313f961f8e0f1104ad2541c3ec61cb2af70f1528f44f711dbb4ec7611"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/corrupt-config-home.png",
+      "bytes": 263391,
+      "sha256": "1ad2d0de82a807601f9c5ea2025a0d635a1a9ea4ac56e5779e702344943c82f7"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/corrupt-file-size.txt",
+      "bytes": 81,
+      "sha256": "54fa698b6cbe6ac9969eb2fb93e0a7f3c66dd9c2bc84a839ad2fa64ab3a2b212"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/corrupt-provider-fail-closed.png",
+      "bytes": 281532,
+      "sha256": "979fe78ca88342e3afc52cba0061a52fa6e4514984a74bb65e4a3c58dfe11486"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/crash-log-after-instrumentation.txt",
+      "bytes": 4866,
+      "sha256": "e74d1fe9749a8a9df0c89865ab866489c5aa7d07bac6b9948e476f32b5e515e0"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/crash-log.txt",
+      "bytes": 4866,
+      "sha256": "e74d1fe9749a8a9df0c89865ab866489c5aa7d07bac6b9948e476f32b5e515e0"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/data_extraction_rules.txt",
+      "bytes": 983,
+      "sha256": "2a563039d4be87e654fdc35eb44aab13ba5b55ea27c3d814c9b8b0fe22d21113"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/device-online.txt",
+      "bytes": 35,
+      "sha256": "cfea7704180d7f73ac6da06f46acaa166e3a6c613fe4ecd0fc5c081d3b15666c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/devices-after-cleanup.txt",
+      "bytes": 156,
+      "sha256": "4cfb4e888c2c5d0c5c4a79d8bef14c301798a0a4d359da568d1c9fddbd33abb3"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/devices-after-emulator-exit.txt",
+      "bytes": 28,
+      "sha256": "bbfcc7239a6f1be3544814ebdc6bcc9b66bf5b1f0b03baa3340808f19265a630"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/dex-inspection.json",
+      "bytes": 501,
+      "sha256": "ee2b3caf5ffe43b9b7de53d2dfbadab34f90233aedea41fdfc887c1bdc6ad5f3"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/emulator-cleanup.txt",
+      "bytes": 37,
+      "sha256": "2f2464ff20db7f0caaf9d7ea8b3e7d1356fb4e22dc58d0e17a15faf96bf41822"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/environment-attempts.txt",
+      "bytes": 2319,
+      "sha256": "255a785c9697c69976c813750b6ce5ac55eb1a201ee1fd808e5a051bc46183a7"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/final-authorization-revoked.txt",
+      "bytes": 385,
+      "sha256": "31920ab1546fd80518b5417be34f896933deaebfb87cfa69453cac8fc13079ae"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/final-crash-log.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/final-service-off.png",
+      "bytes": 75219,
+      "sha256": "d4235a7971985fc53829a0bb0a12898b2b80087706790c0f3fe589f5a2fd2983"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-build.txt",
+      "bytes": 2167,
+      "sha256": "5c555ceb427e6fc0ed852ec94555ed3b6b6a86093108e35785c0a5ea0c41bd2a"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-configured.png",
+      "bytes": 265796,
+      "sha256": "1ecad833652df3db8199c8fc2b3716aa8e4def5418ad829ea9ac3437ab2f6cb9"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-initial.png",
+      "bytes": 298233,
+      "sha256": "d75125e0565d44904942456c6000ccfce21443d80f636338ef3c2e03b7b628b4"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-manifest.txt",
+      "bytes": 2343,
+      "sha256": "3bf51a54401154b5c9cd7a4d2135ef63998ad179c14a0eaabca215701384b60e"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-policy-before.png",
+      "bytes": 305269,
+      "sha256": "c075469049aafa66e18b855b743bf0e0fbe12ea1bebd932f3378530f42ff325d"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-runtime-initial.txt",
+      "bytes": 772,
+      "sha256": "1a9380af2aca417f93b2aa15a911c2135023588e98e7e65548d0f67226b27434"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-sampling.png",
+      "bytes": 304524,
+      "sha256": "8d5617813734aa41c5542aa2a147fb69a4ded5fc033829013f730663ef84b061"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-selected-policy-full.png",
+      "bytes": 306756,
+      "sha256": "9cbb8cb458c111906bdd02c76322ef9ee956f6067a9e39f478dc3f276545c97e"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-selected-policy.png",
+      "bytes": 324299,
+      "sha256": "65fe921feb8553dd09b4783656626a0591f55327354966b822971dd1ca598f09"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-signature.txt",
+      "bytes": 972,
+      "sha256": "c79d407984e61e21d34a798a9da12b2ceff5e73242633715a7e89eb173ac7a5f"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/fixture-unselected-policy.png",
+      "bytes": 294693,
+      "sha256": "ea662215ef71246798ea5aefd6ecdaa493d3f0ec95975399cc44b265c358870a"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/gradle-full.txt",
+      "bytes": 14660,
+      "sha256": "e088ac359f1aa57c069ee0f4bd32ac684aa32c4ef5e606036bc0cbc6cd2678f2"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-after-restart.png",
+      "bytes": 259483,
+      "sha256": "3507e6fc979e94fffff649064c6f5d9b8e1b6a0ec7f8f525ec59888eb8446f70"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-after-system-reboot.png",
+      "bytes": 255821,
+      "sha256": "5183290fea7bec7818bdfee99a39478139ee1880778dbd44d989c3b069e84319"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-authorized-later.png",
+      "bytes": 257355,
+      "sha256": "1956563961d5b9360966fcdeb40c01f226d9d5a88b2e1bfa764af6305a281eb9"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-authorized.png",
+      "bytes": 257945,
+      "sha256": "89106d0af35abfea103fdfbd6bb7f16b12916ddcec3b2be50b66fceb292848f6"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-configured-unconnected.png.partial",
+      "bytes": 8,
+      "sha256": "4c4b6a3be1314ab86138bef4314dde022e600960d8689a2c8f8631802d20dab6"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-default.png",
+      "bytes": 263449,
+      "sha256": "ceacd3ff3be4cf9ba5580ee7254832ee8a0694c0b864440fcf96e72ff09aa86e"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-master-off-connected.png",
+      "bytes": 259716,
+      "sha256": "b8847c111b831ce5c56a32b74b2d107b45f67993030fcea6a48768c935bbd0ee"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-master-off.png",
+      "bytes": 259832,
+      "sha256": "fa47ce3e5a4b8bda218e4a7c21c6d1177df3c999d641e4f66f003b2145a18410"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/home-mode-off-connected.png",
+      "bytes": 265207,
+      "sha256": "a4913f27b27dfcfbe47938599a33de356298698e2055a6e9026d625a5f2fb12c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/install-cold-start.txt",
+      "bytes": 323,
+      "sha256": "ea46769ca6eae057fc126a88060f159eee1209c3ed5a90a661c79ab3a162d0b4"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/instrument-master-off.txt",
+      "bytes": 1111,
+      "sha256": "d2a7f30bf9d3a21036e9c3de1c15cd999bcd0948ee83ae180ed07a3da5b39ed5"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-results.json",
+      "bytes": 14624,
+      "sha256": "dea17f74f51030128867828d37df59867c0dfd5fd2bcc7d1cb3e4a823638ab42"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.AccessibilityDependenciesTest.xml",
+      "bytes": 1059,
+      "sha256": "094cb3e57837a8e90511286faf5969f14abefa5b034d6a7be1783b85e5be8165"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.AccessibilityRuntimeTest.xml",
+      "bytes": 1928,
+      "sha256": "9ea1748ab9a813d62bd56d8f3fccc2d06b1984bf3ca24358ce1f1751490ddd66"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.CoreRuleToExecutionIntegrationTest.xml",
+      "bytes": 1985,
+      "sha256": "1308ff72dd1644335489690daa1625f8d34af3e2001b5da1b564bfd39bf499f8"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.ExecutionGuardsTest.xml",
+      "bytes": 4809,
+      "sha256": "79532bdec0386e549da06640a639b1806633f2be3203d021ae5126978663f924"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.PhaseCalculatorTest.xml",
+      "bytes": 1355,
+      "sha256": "3b50d145e3f2da58617d08dbaf8b6f7180fea93d20bbd9dfc4f43cb3c8f99e77"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.SensitivePackageRulesTest.xml",
+      "bytes": 867,
+      "sha256": "dd30df832088f4d089ee139f089518e358c5a9f86ce6314f71014fb63a1b9c3a"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.ServiceDeclarationTest.xml",
+      "bytes": 734,
+      "sha256": "46cef6ab7b803f8a8501b86ab368a7540ffbc8a54686c5e4ac2893a225747f5b"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.SkipGateTest.xml",
+      "bytes": 2522,
+      "sha256": "1b245ba2c9cb9c53186845b950cce84b592dba9762d50257df96b0a62b19a0dd"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/accessibility/TEST-com.antiads.accessibility.TraversalBudgetTest.xml",
+      "bytes": 824,
+      "sha256": "23a47e474c530bb92518b9cba9cec335434e96c8efd59c06c687e0b640ba7169"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/app/TEST-com.antiads.app.config.AppConfigRepositoryTest.xml",
+      "bytes": 2307,
+      "sha256": "81441769baf881c7d7ed76edb314dcccd3d0d7a7248ae8b7b252e1ea3838f26a"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/app/TEST-com.antiads.app.config.ProviderCallRouterTest.xml",
+      "bytes": 2155,
+      "sha256": "3765989ded924bd49225415a790fb719c6fc14459f1581298f7fd034b1179828"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/app/TEST-com.antiads.app.config.ProviderEntryPolicyTest.xml",
+      "bytes": 607,
+      "sha256": "c64ea7c23ed5cfca074d8006bbf34c93299f14ad767f7bb308e4f9ea124c14ea"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/app/TEST-com.antiads.app.config.RateLimiterTest.xml",
+      "bytes": 787,
+      "sha256": "a65d381daeea1c95621099566193f07f8a1d13dd97ff7b8d2c48e7e9a5ef6bf5"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/app/TEST-com.antiads.app.config.RuntimeReportStoreTest.xml",
+      "bytes": 817,
+      "sha256": "87a259000be22688c36eff60b41913de7269cf4c35f42794944cbe682b521c47"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/app/TEST-com.antiads.app.ui.StatusFactsTest.xml",
+      "bytes": 944,
+      "sha256": "73963598a7bcb1fae4b66c7a822c689547c5fbbb60fa9faf883f5f2c73ca561e"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/core/TEST-com.antiads.core.config.ConfigCodecTest.xml",
+      "bytes": 1598,
+      "sha256": "e9e576d6b6ab7708e52fa4022caaeb0d52bc438bbe4545090f2a8215013263ba"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/core/TEST-com.antiads.core.config.ConfigValidatorTest.xml",
+      "bytes": 1362,
+      "sha256": "9fd8b652dcd323b52a81588ab6afa17176ac268866407ee3a19d11e9f23be0b0"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/core/TEST-com.antiads.core.config.PolicyResolverTest.xml",
+      "bytes": 909,
+      "sha256": "a5efde5cb02da77fa3630231b13308bdeb4c784fcda9e463f2a7575b70d1a1c0"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/core/TEST-com.antiads.core.policy.SensorPolicyEngineTest.xml",
+      "bytes": 1404,
+      "sha256": "5aace3aadbdc9fb1eab2847f69f183c26471504387a01085b1f8ed530b9f8e9a"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/core/TEST-com.antiads.core.policy.SensorPolicyScopeTest.xml",
+      "bytes": 1226,
+      "sha256": "aabaff4bad8df7b276cf2b876685f44266fe91e535e36ff16b320027942736d8"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/core/TEST-com.antiads.core.rules.ConservativeAdRuleEngineTest.xml",
+      "bytes": 3858,
+      "sha256": "5d3704ec7bface2981d1f02aa794a30bc7939c6548403cef7d2115dfd4bd872c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.HookSkipRulesTest.xml",
+      "bytes": 567,
+      "sha256": "91e97a924533910d86fb2b1a4c7186c50c3c702d9e588bb5ea9573dd0ab91cd2"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.policy.FailOpenDecisionTest.xml",
+      "bytes": 1167,
+      "sha256": "a03cde537ff7c539fad3b728b4a5a43de4f49080ef6413731439067247f9d677"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.policy.HookPolicyLeaseTest.xml",
+      "bytes": 1396,
+      "sha256": "5c3a6da2517d1c72fb4eb7c2a18156eb67be8ff97b94d22956608c8a3b543e9d"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.policy.HookRefreshThrottleTest.xml",
+      "bytes": 776,
+      "sha256": "4d1008edcb1d116dbc9f95b80e21ed7596961e7f722ea5a8dc40684908c16557"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.policy.HookReportSchedulingTest.xml",
+      "bytes": 785,
+      "sha256": "13bbd89a2b605e88d0d2b6fa222c303933a1981b63f15450284a9dc9fa8bbcef"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.policy.HookStuckTransportTest.xml",
+      "bytes": 491,
+      "sha256": "3d0202b979cb473fff22ed3ff776e99a3d50f7d3847fab86b7317c4a7afb08d2"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.policy.PolicyJsonTest.xml",
+      "bytes": 1234,
+      "sha256": "230899666fd08078568a2c1a6e39f6065d357f7825f64464bf50d24748faacf6"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.policy.SingleThreadWorkerTest.xml",
+      "bytes": 891,
+      "sha256": "4c370966cfa1ca546521c6cb57f5fba111e243c059946720c6fb623392a69ea8"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.SensorDispatchTargetTest.xml",
+      "bytes": 1091,
+      "sha256": "9f05a4f6ea57d26e65c994108c212ac75aa2b35e8556799cba51eb419c13cab8"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/hook/TEST-com.antiads.hook.internal.SensorTypeResolverTest.xml",
+      "bytes": 1215,
+      "sha256": "4d93ce3a554a94cc68f03c410dba7577a622f258206b04b797cc2fb31085975e"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/probe/TEST-com.antiads.probe.diag.DiagJsonTest.xml",
+      "bytes": 985,
+      "sha256": "53cb51cc270bd0130f48dbf4adf69b9e06fa0c09d8d524ad05c5d84ae73dcfd1"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/probe/TEST-com.antiads.probe.diag.DiagTrackerTest.xml",
+      "bytes": 1186,
+      "sha256": "6a09f6e80bf37621307eca522ef5da86235b7d75e42496d3e1d853ccf59d10d0"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/probe/TEST-com.antiads.probe.diag.ProbeTypesTest.xml",
+      "bytes": 928,
+      "sha256": "bbd6fd6aa65e6b0a1ebed8e9e9fe8ce42b1edb3d699ef8e59dc804c3b30cedba"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/probe/TEST-com.antiads.probe.diag.ShakeCounterTest.xml",
+      "bytes": 781,
+      "sha256": "8d05abc6b53f067efb8adb42ee54e88b69c6b8685d97366b136dddb26568d409"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/jvm-xml/probe/TEST-com.antiads.probe.diag.SilenceWindowDetectorTest.xml",
+      "bytes": 721,
+      "sha256": "3a4e8171d552731435c3f9ec1410b8aaf1e3abd2d0154bb84a15765a0267a0c6"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/lint-accessibility.xml",
+      "bytes": 86,
+      "sha256": "c8e151904708b4938aec5bb119081b5b2392cc42a9defb5d2be72a70fb7d4f22"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/lint-app.xml",
+      "bytes": 1062,
+      "sha256": "c7fe7eb3f4775ace3b08fa896cd8111d6f278b435842d03e345214177ae4756f"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/lint-fixture.xml",
+      "bytes": 86,
+      "sha256": "c8e151904708b4938aec5bb119081b5b2392cc42a9defb5d2be72a70fb7d4f22"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/lint-hook.xml",
+      "bytes": 1228,
+      "sha256": "a40b3f76dff92623c30d43c20e063dedaa66ac5d9816358d632f1a5e8710c106"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/lint-probe.xml",
+      "bytes": 86,
+      "sha256": "c8e151904708b4938aec5bb119081b5b2392cc42a9defb5d2be72a70fb7d4f22"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/lint-summary.json",
+      "bytes": 600,
+      "sha256": "36339ddc494d26d28fc8fd6e8659177c0d50aabecbf715c4f77fd216fe1afb8c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/master-off-positive-start.txt",
+      "bytes": 198,
+      "sha256": "b9a16b70c7e16990c991d1c0df1e4ce0175513d162584f84a7b8012090048554"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/master-off-positive.png",
+      "bytes": 42598,
+      "sha256": "6a98b61935c83587e872d4ddcf0c1a926ba670bc4166f181b67af3fe6bf54573"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/mode-off-positive-start.txt",
+      "bytes": 198,
+      "sha256": "51c9b3d85086ef17fae2ab50ec96be4488f8544f5eb1c28eb2bfffbad48c73e6"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/mode-off-positive.png",
+      "bytes": 43039,
+      "sha256": "0799cfbb5ce084550c738c7743a8dccb3b641e8b1d60505edb359a8f591fa076"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/packages.png",
+      "bytes": 203878,
+      "sha256": "f8dce6e8ee155b478b355513d8e4fbfe52518e7823a9b58bce3762cee9b41fde"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/per-app-off-bound.txt",
+      "bytes": 1293,
+      "sha256": "2ce2c729c8665c54e344264b0a34207e4a34da2dc4304f9307a3ba2f1cfc20b3"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/per-app-off-positive.png",
+      "bytes": 42923,
+      "sha256": "d6990c45b406c5ebe154bed57258195db92a0102686ab32279c30bacae3d65d2"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/per-app-off-start.txt",
+      "bytes": 198,
+      "sha256": "e47b70445a5b1ca6d074a21b32b0f26b2bce1a2ac95341db31283f057ae06b54"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/positive-round-2-start.txt",
+      "bytes": 198,
+      "sha256": "ab5b302648094d7c0a93f31d3346a4aa331fe3ff2bfd22aaaba1ac8b9c2e9572"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/positive-round-2.png",
+      "bytes": 43753,
+      "sha256": "981f45918a632f3cf62cfdc6877394dc855c8e5f3b90cb194b49eed194b1d7cf"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/positive-round-3-start.txt",
+      "bytes": 198,
+      "sha256": "990063c13d431067c43ff34c94ddb592e0850efb98cfa29a0025aec3074abfd7"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/positive-round-3.png",
+      "bytes": 43753,
+      "sha256": "981f45918a632f3cf62cfdc6877394dc855c8e5f3b90cb194b49eed194b1d7cf"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/post-reboot-accessibility.txt",
+      "bytes": 1292,
+      "sha256": "f055c6d0778eed3ee56d21132c50c4fddeae13839b24f54056b3d6628ca48030"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/post-reboot-ad-runtime.txt",
+      "bytes": 2302,
+      "sha256": "bbb5a959f12f47fa9be623a0303fc852bd82d803a56d7c47a8394c0640932b36"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/post-reboot-readiness.txt",
+      "bytes": 35,
+      "sha256": "cfea7704180d7f73ac6da06f46acaa166e3a6c613fe4ecd0fc5c081d3b15666c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-after-home.png",
+      "bytes": 409273,
+      "sha256": "6b0e48dabef7a8c3996f6780a21c6c14759ebf5ca274da3360e65293314fb8db"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-config-added.png",
+      "bytes": 192359,
+      "sha256": "9c8a2c8b090497b7f6a10d4e647ccd1333cc66410a84ac8dd3b605fb05494e59"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-detail-before.png",
+      "bytes": 259518,
+      "sha256": "7420a17ea917013d05c2150750531f7297bb404dffe16d12dd4b7ccb638b79c4"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-detail-configured.png",
+      "bytes": 289533,
+      "sha256": "983944080bd04a899314c87f034570ac7cf52145a36e5ede9f1f545586b204f8"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-lifecycle-runtime.txt",
+      "bytes": 256405,
+      "sha256": "ad17651242c66f99c04494ee0ca9c44c0d1806961a95ff764eda1cd332ddd88f"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-main-stopped.png",
+      "bytes": 395495,
+      "sha256": "7b70f24ac73c115b2e168a04bfbef85eafa2412bda0f7ef1e5fff0474bb5e9a2"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-manifest.txt",
+      "bytes": 2892,
+      "sha256": "06c9c79a84b339fc15e67d2bbaf4c392d47cfa6581fc9a7ed4cccdf244df098c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-missing-snapshot.txt",
+      "bytes": 54,
+      "sha256": "8e5b0b6b738bf426d6ef165ef0550caebc7785169f3e7d0c7cd1457d109f5317"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-per-app-off.png",
+      "bytes": 263464,
+      "sha256": "32599a0f5d2f07acfd67d1ac908a17bc07be696a93921e32abe1f901e42634c6"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-policy-before.png",
+      "bytes": 333042,
+      "sha256": "ac2afa7305b18bbd9ef4d5bbf37c42529c367882b810823b16677d6a9ce5e7b4"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-policy-success.png",
+      "bytes": 332850,
+      "sha256": "21f5f89d0e66eda6dbe8f90325d5bf02e05eacff632150c3381e6adabdc0c447"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-sampling.png",
+      "bytes": 410070,
+      "sha256": "b0f7dfc6dce40bb5231f041794bcdcb5bae2c67d5dfa2c58bd8fc22e0237b4b4"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-signature.txt",
+      "bytes": 972,
+      "sha256": "c79d407984e61e21d34a798a9da12b2ceff5e73242633715a7e89eb173ac7a5f"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/probe-test-signature.txt",
+      "bytes": 972,
+      "sha256": "c79d407984e61e21d34a798a9da12b2ceff5e73242633715a7e89eb173ac7a5f"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/provider-cold-pid-after-call.txt",
+      "bytes": 6,
+      "sha256": "26d8dc9e3aac815e68b800ae242047f22f708c03a976fe0d85836594d79d979f"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/provider-cold-pid-after-stop.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/provider-cold-pid-before.txt",
+      "bytes": 6,
+      "sha256": "7ae49a8fe7a7e551c76590d39ffcbd47dd920d2ddac1af6a08eb005b4640b91a"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/provider-cold-success.png",
+      "bytes": 282559,
+      "sha256": "5219d282e39558097774757ab71aa03c046102ea583ca0cd55889f710f1031f0"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/provider-cold-system-log.txt",
+      "bytes": 2663,
+      "sha256": "4a23bfff3a76dd679bb367c4e7b92038b5ff2562e6e313bc6870c6f56dacb230"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/provider-insert-negative.txt",
+      "bytes": 747,
+      "sha256": "896b06065d8857ee054d579d20d1d0d9b547f1691db11833099e06dee33e0fb4"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/provider-openfile-negative.txt",
+      "bytes": 775,
+      "sha256": "e5bb4c205aedbabf6bc16df8c78dbc3e72f60ff5405cb1c67b057df2e4261307"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/provider-shell-negative.txt",
+      "bytes": 523,
+      "sha256": "ab7c1efd8d645ba1b462a8eaa90095fbdb7093e902cd09dd5037e3fb378dbc0c"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-boot-completed.txt",
+      "bytes": 2,
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-master-off-bound.txt",
+      "bytes": 1293,
+      "sha256": "d6b7d1ff06e8a2e40af6330f1f11fb140bd0adadc2eb26ade91eb20a0fada1c3"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-master-off-home.png",
+      "bytes": 274746,
+      "sha256": "3964cc0da4d096d7d2d18c1a0f7d75c54e860c7d38a8dc0a5283b35b6500b2d5"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-master-off-positive.png",
+      "bytes": 43056,
+      "sha256": "991e1b7b3d95c9f3dca282202ffbbf5b58baaebd10b1fb4a350be26dd50c8c35"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-master-off-start.txt",
+      "bytes": 198,
+      "sha256": "623ab38e37f9b4edbfd35ee02073a2637db5d90a47ba3f2aa20c34d7247b38ba"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-mode-off-bound.txt",
+      "bytes": 1292,
+      "sha256": "a6537eac9422dba454eac38668b1d102d6f8feda82a5158871ecdb3eaa333939"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-mode-off-positive.png",
+      "bytes": 42443,
+      "sha256": "836485368f6cfa48b700115ec02bab5077d3f7042513492c4e770cc4fd5da856"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-mode-off-start.txt",
+      "bytes": 198,
+      "sha256": "9b5a9b3bd02b9689936b4ce13eabe286d87e7ddf1a6073bb910c9d7d7325ff43"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-positive-control-start.txt",
+      "bytes": 196,
+      "sha256": "5b9aef9e0a4339c5c0d8facc95340a60ccf968c2851a467d4c96f6b976f06673"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/reboot-positive-control.png",
+      "bytes": 44045,
+      "sha256": "91c78d91001b16df73c1b620fbbbf91481d487ca234eece64da3ba5466d96913"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/service-after-instrumentation.png",
+      "bytes": 126660,
+      "sha256": "67447895f8c089717934ca3d16adaa946c0710cb08f9765f80658b35ed6b735d"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/service-binding-activity-dump.txt",
+      "bytes": 392,
+      "sha256": "ac3fd16c3c132fdea30ef42114c1aac1a8a5d19cca9227d1414b0ddd34f957ce"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/service-binding-later.txt",
+      "bytes": 490,
+      "sha256": "f6d036516ff769ae9e323ff9fbf96a51ceb73a9cb6d71e5ecf8c911f0fc1d957"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/service-binding-system-log.txt",
+      "bytes": 5497,
+      "sha256": "6867ef42e7967ceb0595b408cb759b4933167d9176d7cfd7296dcf23829a3ff2"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/service-disable-confirm.png",
+      "bytes": 130863,
+      "sha256": "bc2ab411e35296ac702a9642705b1fb1a978b0f7bae1c5862ceca878c7cdd6f2"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/system-authorization-readonly.txt",
+      "bytes": 60,
+      "sha256": "1e8b7907e2eaee8ac8538280c101000bc8b750ac07e884a7e7a5c90f503e9deb"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/system-revoked-readonly.txt",
+      "bytes": 5,
+      "sha256": "19a365f45a230083f170074b49072583c406ce5e20fa5929201d3f5d1be914a5"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/unknown-scenario-start.txt",
+      "bytes": 198,
+      "sha256": "73c0dfff2eef1887c11f3689495607545919c83b5e231b7b5f6554b97e65ea76"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/unknown-scenario.png",
+      "bytes": 41343,
+      "sha256": "9b257559b7d5b9f378d0afb2ce0971ce0e3d1e7403f11437e2fc8a43d5599512"
+    },
+    {
+      "path": "docs/qa-evidence/t3-b19f67f/xposed_init.txt",
+      "bytes": 34,
+      "sha256": "b489b1ae9c6f82f46bf65d8398b4d9eda4dca2dba6474eed4d0b2579713aafd1"
+    },
+    {
+      "path": "docs/qa-plan.md",
+      "bytes": 37750,
+      "sha256": "a48162c73c96d0a6c66b75afbe363a402973e3860f97fac680a7bb34484d7121"
+    },
+    {
+      "path": "docs/verification.md",
+      "bytes": 25714,
+      "sha256": "3fc901f168bd3d9f8fad5ac1efd3145509a89a197d1b8a3df4373a9881ce937f"
+    }
+  ],
+  "checks": {
+    "validPngCount": 50,
+    "png": "All complete .png files passed chunk CRC validation; the single .png.partial is an explicitly excluded failed capture.",
+    "json": "all JSON parsed",
+    "jvm": {
+      "tests": 285,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "lintErrors": 0,
+    "apkHashRecheck": "all five matched",
+    "reportScenarioIds": 46
+  },
+  "note": "Manifest excludes itself. Paths are relative to repository root. The .png.partial is retained only to document failure. Artifact integrity is not a product pass."
+}

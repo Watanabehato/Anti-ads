@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.hook.internal.policy.FailOpenDecisionTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:35:07" hostname="DESKTOP-26RJE8H" time="2.601">
+  <properties/>
+  <testcase name="noPolicyMeansEverySensorTypeIsAllowed" classname="com.antiads.hook.internal.policy.FailOpenDecisionTest" time="0.31"/>
+  <testcase name="disablingHookRestoresFutureCallbacks" classname="com.antiads.hook.internal.policy.FailOpenDecisionTest" time="2.247"/>
+  <testcase name="onlySelectedTypesAreDroppedWhilePolicyEnabled" classname="com.antiads.hook.internal.policy.FailOpenDecisionTest" time="0.018"/>
+  <testcase name="emptyTypeSelectionNeverDrops" classname="com.antiads.hook.internal.policy.FailOpenDecisionTest" time="0.009"/>
+  <testcase name="typeResolveFailuresAreCountedAndNeverDrop" classname="com.antiads.hook.internal.policy.FailOpenDecisionTest" time="0.001"/>
+  <testcase name="policyForAnotherPackageIsNeverApplied" classname="com.antiads.hook.internal.policy.FailOpenDecisionTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

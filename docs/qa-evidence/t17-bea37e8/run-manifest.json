@@ -1,0 +1,198 @@
+{
+  "run": "t17-bea37e8",
+  "task": "t17 QA 独立复测四项修复与受影响设备场景",
+  "qa_member": "qa-flash",
+  "attempt_id": "31c6ae6d-b553-4ea6-a78f-ab5433b11076",
+  "date": "2026-09-21",
+  "fixed_source": {
+    "head_commit": "bea37e8086276dd5475524b81bddf55ab17149e5",
+    "repair_commit": "be2278c",
+    "delta_vs_repair": [
+      "docs/build.md",
+      "docs/repair-qa01-04.md"
+    ],
+    "baseline_reference": "b19f67f (首轮失败报告对象，仅作对照，不复用其设备结论)",
+    "working_tree": "只改 docs/emulator-environment.md；docs/qa-evidence/、docs/verification.md 未跟踪；未改任何产品/测试代码"
+  },
+  "builds": [
+    {
+      "command": "bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:testDebugUnitTest :hook:testDebugUnitTest :probe:testDebugUnitTest :app:lintDebug :accessibility:lintDebug :hook:lintDebug :probe:lintDebug :app:assembleDebug :probe:assembleDebug :app:assembleDebugAndroidTest :probe:assembleDebugAndroidTest --rerun-tasks --no-build-cache --max-workers=2",
+      "exit_code": 0,
+      "duration": "7m16s",
+      "tasks": "246 executed",
+      "log": "r2-gradle-full.txt (GRADLE_EXIT=0)"
+    },
+    {
+      "command": "bash ./gradlew --no-daemon -p qa/fixtures/noqueries assembleDebug lintDebug --rerun-tasks --no-build-cache --max-workers=2",
+      "exit_code": 0,
+      "duration": "54s",
+      "tasks": "43 executed",
+      "log": "r2-fixture-build.txt (GRADLE_EXIT=0)"
+    }
+  ],
+  "jvm_tests": {
+    "total": {
+      "tests": 298,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 38
+    },
+    "modules": {
+      "core": {
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 6
+      },
+      "app": {
+        "tests": 46,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 6
+      },
+      "accessibility": {
+        "tests": 103,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 9
+      },
+      "hook": {
+        "tests": 46,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 10
+      },
+      "probe": {
+        "tests": 36,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "suites": 7
+      }
+    },
+    "source": "r2-jvm-results.json / r2-jvm-xml/<module>/*.xml（同次运行）"
+  },
+  "lint": {
+    "app": {
+      "errors": 0,
+      "warnings": 1,
+      "ids": [
+        "ExportedContentProvider"
+      ]
+    },
+    "accessibility": {
+      "errors": 0,
+      "warnings": 0,
+      "ids": []
+    },
+    "hook": {
+      "errors": 0,
+      "warnings": 1,
+      "ids": [
+        "PrivateApi"
+      ]
+    },
+    "probe": {
+      "errors": 0,
+      "warnings": 0,
+      "ids": []
+    },
+    "fixture": {
+      "errors": 0,
+      "warnings": 0,
+      "ids": []
+    },
+    "source": "r2-lint-summary.json + r2-lint-*.xml"
+  },
+  "apks": [
+    {
+      "artifact": "app-debug.apk",
+      "bytes": 3392024,
+      "sha256": "a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5",
+      "installed_sha256": "a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5"
+    },
+    {
+      "artifact": "probe-debug.apk",
+      "bytes": 3169147,
+      "sha256": "0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896",
+      "installed_sha256": "0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896"
+    },
+    {
+      "artifact": "app-debug-androidTest.apk",
+      "bytes": 2174433,
+      "sha256": "9b72ae61121fa0fe400d13e7b57f04da32217c2866ec86a061aab4a6e9e8c153",
+      "installed_sha256": "9b72ae61121fa0fe400d13e7b57f04da32217c2866ec86a061aab4a6e9e8c153"
+    },
+    {
+      "artifact": "probe-debug-androidTest.apk",
+      "bytes": 2172101,
+      "sha256": "a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680",
+      "installed_sha256": "a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680"
+    },
+    {
+      "artifact": "noqueries-debug.apk",
+      "bytes": 29369,
+      "sha256": "533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a",
+      "installed_sha256": "533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a"
+    }
+  ],
+  "reproducibility_note": "本轮同一命令带 --rerun-tasks --no-build-cache 重建后四个主/测试 APK 哈希与安装前逐字节一致；t16 报告中的 afa9a786…/abfa1014…/3a0b2c94… 来自 t16 自己的构建调用，两组哈希不得互换使用。",
+  "device": {
+    "avd": "AntiAds_QA_API29",
+    "serial": "emulator-5580",
+    "api": 29,
+    "fingerprint": "Android/sdk_phone_x86_64/generic_x86_64:10/QSR1.210820.001/7663313:userdebug/test-keys",
+    "shell_uid": 2000,
+    "adb_serial_scope": "-s emulator-5580 only",
+    "emulator_jobs": [
+      {
+        "job": "bash-31",
+        "start": "2026-09-21T02:03:48.846Z",
+        "end": "2026-09-21T02:04:04.026Z",
+        "exit": 0,
+        "note": "启动约 15s 后收到正常关闭请求，原因未定位"
+      },
+      {
+        "job": "bash-33",
+        "start": "2026-09-21T02:06:54.995Z",
+        "end": "2026-09-21T02:28:50.603Z",
+        "exit": 0,
+        "note": "本轮实际使用的实例，emu kill 定向退出"
+      }
+    ]
+  },
+  "device_results": {
+    "QA-01": "passed",
+    "QA-03": "passed",
+    "QA-04": "passed",
+    "accessibility_positive": "passed (4/4 轮点击；含冷启动首轮未点击的时序观察)",
+    "accessibility_negatives": "passed (bottom_button/editable_window/no_ad_label 各 12s 无点击)",
+    "close_conditions": "passed (全局/每包/总开关各自单独关闭后正例 12s 无点击，恢复后 1.06s 再次点击)",
+    "provider_real_uid": "passed (probe UID 10117 OK / 夹具 UID 10120 OK / shell UID 2000 UNAUTHORIZED)",
+    "instrumentation": "passed (ConfigToggleTest 1 例、ServiceOwnershipTest 1 例；首次误传参数导致 ConfigToggleTest 按设计失败，属调用方式问题)"
+  },
+  "cleanup": {
+    "config_final": "revision=33, masterEnabled=false",
+    "accessibility_final": "enabled_accessibility_services=null, Enabled/Bound/Binding 全空（重启后 accessibility_enabled=0）",
+    "emu_kill": "exit 0，adb devices 为空",
+    "jobs_collected": [
+      "bash-31",
+      "bash-33",
+      "bash-37"
+    ],
+    "user_devices_untouched": true
+  },
+  "untested": [
+    "Root/LSPosed 注入与作用域",
+    "API30+ 包可见性",
+    "API35+ WindowInsets",
+    "真机传感器",
+    "GitHub CI 实际运行",
+    "probe RegistrationHoldTest（H01 A1）"
+  ]
+}

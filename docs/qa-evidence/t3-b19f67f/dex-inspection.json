@@ -1,0 +1,21 @@
+{
+  "app": {
+    "definedClassCount": 1700,
+    "packagedXposedClasses": [],
+    "hookEntryClass": true,
+    "xmlResources": [
+      "res/xml/accessibility_service_config.xml",
+      "res/xml/backup_rules.xml",
+      "res/xml/data_extraction_rules.xml"
+    ]
+  },
+  "probe": {
+    "definedClassCount": 1529,
+    "packagedXposedClasses": [],
+    "hookEntryClass": false,
+    "xmlResources": [
+      "res/xml/backup_rules.xml",
+      "res/xml/data_extraction_rules.xml"
+    ]
+  }
+}

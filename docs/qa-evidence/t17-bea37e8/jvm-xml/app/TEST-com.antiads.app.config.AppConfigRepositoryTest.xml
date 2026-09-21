@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="com.antiads.app.config.AppConfigRepositoryTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-09-20T11:08:07" hostname="qa-windows-host" time="0.138">
+  <properties />
+  <testcase name="observeEmitsCurrentSnapshotAndCloseIsIdempotent" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.081" />
+  <testcase name="packageSnapshotIsNotAffectedByLaterCallerMutation" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.024" />
+  <testcase name="outOfRangeSensorTypesAreRejected" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.001" />
+  <testcase name="writePersistsNewRevisionAndPublishesSnapshot" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.026" />
+  <testcase name="unknownSchemaFileIsRejectedAndDoesNotReuseEnableValues" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.0" />
+  <testcase name="staleExpectedRevisionIsRejectedWithoutTouchingDisk" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.001" />
+  <testcase name="invalidConfigIsRejected" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.0" />
+  <testcase name="explicitSaveReplacesCorruptFile" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.001" />
+  <testcase name="listenerExceptionDoesNotFailPersistedWrite" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.001" />
+  <testcase name="readFailureReportsIoError" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.0" />
+  <testcase name="revisionExhaustionIsRejectedExplicitly" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.001" />
+  <testcase name="corruptFileFallsBackToAllOff" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.001" />
+  <testcase name="ioFailureKeepsPreviousSnapshotAndReportsIoError" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.0" />
+  <testcase name="defaultsWhenNoFile" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.0" />
+  <testcase name="mismatchedInputRevisionIsRejectedAsInvalid" classname="com.antiads.app.config.AppConfigRepositoryTest" time="0.0" />
+  <system-out />
+  <system-err />
+</testsuite>

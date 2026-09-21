@@ -1,0 +1,33 @@
+09-20 09:20:20.013  2309  2817 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x30 in tid 2817 (Binder:2309_5), pid 2309 (droid.launcher3)
+09-20 09:20:20.597  2837  2837 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+09-20 09:20:20.598  2837  2837 F DEBUG   : Build fingerprint: 'Android/sdk_phone_x86_64/generic_x86_64:10/QSR1.210820.001/7663313:userdebug/test-keys'
+09-20 09:20:20.598  2837  2837 F DEBUG   : Revision: '0'
+09-20 09:20:20.598  2837  2837 F DEBUG   : ABI: 'x86_64'
+09-20 09:20:20.598  2837  2837 F DEBUG   : Timestamp: 2026-09-20 09:20:20+0000
+09-20 09:20:20.598  2837  2837 F DEBUG   : pid: 2309, tid: 2817, name: Binder:2309_5  >>> com.android.launcher3 <<<
+09-20 09:20:20.598  2837  2837 F DEBUG   : uid: 10100
+09-20 09:20:20.598  2837  2837 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x30
+09-20 09:20:20.598  2837  2837 F DEBUG   : Cause: null pointer dereference
+09-20 09:20:20.598  2837  2837 F DEBUG   :     rax 0000000000000000  rbx 0000000000000000  rcx 0000000000000000  rdx 00000000fffffffd
+09-20 09:20:20.598  2837  2837 F DEBUG   :     r8  0000000000000000  r9  7000000000000000  r10 0000000000000001  r11 0000000000000000
+09-20 09:20:20.598  2837  2837 F DEBUG   :     r12 0000000000001000  r13 000078a3d9c0ca80  r14 000078a3d9c032f8  r15 000078a3d9c0ca80
+09-20 09:20:20.598  2837  2837 F DEBUG   :     rdi 000078a3d9c03360  rsi 000078a3d9c0ca80
+09-20 09:20:20.598  2837  2837 F DEBUG   :     rbp 000078a46958e808  rsp 000078a38c6a02d0  rip 000078a4652fb635
+09-20 09:20:20.677  2837  2837 F DEBUG   : 
+09-20 09:20:20.677  2837  2837 F DEBUG   : backtrace:
+09-20 09:20:20.677  2837  2837 F DEBUG   :       #00 pc 000000000006f635  /apex/com.android.runtime/lib64/bionic/libc.so (je_extent_heap_remove+725) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.677  2837  2837 F DEBUG   :       #01 pc 000000000007126d  /apex/com.android.runtime/lib64/bionic/libc.so (extents_remove_locked+221) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.677  2837  2837 F DEBUG   :       #02 pc 000000000006ff3b  /apex/com.android.runtime/lib64/bionic/libc.so (extent_recycle+523) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.677  2837  2837 F DEBUG   :       #03 pc 0000000000071441  /apex/com.android.runtime/lib64/bionic/libc.so (je_extent_alloc_wrapper+241) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.677  2837  2837 F DEBUG   :       #04 pc 0000000000059cd9  /apex/com.android.runtime/lib64/bionic/libc.so (arena_bin_malloc_hard+473) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.677  2837  2837 F DEBUG   :       #05 pc 00000000000598b3  /apex/com.android.runtime/lib64/bionic/libc.so (je_arena_tcache_fill_small+323) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.677  2837  2837 F DEBUG   :       #06 pc 0000000000086f01  /apex/com.android.runtime/lib64/bionic/libc.so (je_tcache_alloc_small_hard+17) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.677  2837  2837 F DEBUG   :       #07 pc 000000000004dfb5  /apex/com.android.runtime/lib64/bionic/libc.so (je_malloc+1189) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.678  2837  2837 F DEBUG   :       #08 pc 000000000004a37a  /apex/com.android.runtime/lib64/bionic/libc.so (malloc+26) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.678  2837  2837 F DEBUG   :       #09 pc 0000000000071469  /system/lib64/libc++.so (operator new(unsigned long)+25) (BuildId: 6e7d445478dfe67181dda7edc9b59365)
+09-20 09:20:20.678  2837  2837 F DEBUG   :       #10 pc 00000000005a369c  /apex/com.android.runtime/lib64/libart.so (art::Thread::Attach(char const*, bool, _jobject*, bool)+332) (BuildId: 07c1a2774578f1e2358fb54658aa19df)
+09-20 09:20:20.678  2837  2837 F DEBUG   :       #11 pc 0000000000551dc6  /apex/com.android.runtime/lib64/libart.so (art::Runtime::AttachCurrentThread(char const*, bool, _jobject*, bool)+70) (BuildId: 07c1a2774578f1e2358fb54658aa19df)
+09-20 09:20:20.678  2837  2837 F DEBUG   :       #12 pc 00000000003f5139  /apex/com.android.runtime/lib64/libart.so (art::JII::AttachCurrentThreadInternal(_JavaVM*, _JNIEnv**, void*, bool)+313) (BuildId: 07c1a2774578f1e2358fb54658aa19df)
+09-20 09:20:20.678  2837  2837 F DEBUG   :       #13 pc 00000000000da195  /system/lib64/libandroid_runtime.so (android::AndroidRuntime::javaThreadShell(void*)+85) (BuildId: 42de2a6ec7d307e7401625e2a3f3eb95)
+09-20 09:20:20.678  2837  2837 F DEBUG   :       #14 pc 0000000000100fce  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+30) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)
+09-20 09:20:20.678  2837  2837 F DEBUG   :       #15 pc 0000000000098fe7  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+55) (BuildId: b5c6019a3b4ea61b5e9a2f56319b584e)

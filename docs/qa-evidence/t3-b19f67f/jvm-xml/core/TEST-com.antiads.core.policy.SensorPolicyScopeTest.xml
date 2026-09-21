@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.core.policy.SensorPolicyScopeTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-09-20T09:18:30" hostname="qa-windows-host" time="0.002">
+  <properties/>
+  <testcase name="leaseExpiryAlwaysFallsBackToAllow" classname="com.antiads.core.policy.SensorPolicyScopeTest" time="0.001"/>
+  <testcase name="masterOrGlobalOffMeansOriginalBehaviour" classname="com.antiads.core.policy.SensorPolicyScopeTest" time="0.0"/>
+  <testcase name="emptySensorSelectionKeepsOriginalBehaviour" classname="com.antiads.core.policy.SensorPolicyScopeTest" time="0.0"/>
+  <testcase name="allowedMotionAppKeepsReceivingCallbacks" classname="com.antiads.core.policy.SensorPolicyScopeTest" time="0.001"/>
+  <testcase name="wrongOrMissingPackageNeverDrops" classname="com.antiads.core.policy.SensorPolicyScopeTest" time="0.0"/>
+  <testcase name="unselectedSensorTypesKeepWorking" classname="com.antiads.core.policy.SensorPolicyScopeTest" time="0.0"/>
+  <testcase name="userKeptMotionAppOffEvenWhenConfigured" classname="com.antiads.core.policy.SensorPolicyScopeTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

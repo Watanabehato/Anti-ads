@@ -1,0 +1,15 @@
+--------- beginning of main
+--------- beginning of system
+09-20 06:01:31.649  3258  3258 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=172294
+09-20 06:01:31.725  3258  3258 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-20 06:01:33.014  3258  3258 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-20 06:05:03.693  3445  3445 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=384339
+09-20 06:05:03.699  3445  3445 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-20 06:05:05.184  3445  3445 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-20 06:08:04.521  3589  3589 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=565166
+09-20 06:08:04.541  3589  3589 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-20 06:08:05.125  3589  3589 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+09-20 06:08:05.487  3589  3589 I AntiAdsProbe.Fixture: fixture_skip_clicked scenario=ad_positive view=Button center_x=886 center_y=84 elapsed_realtime_ms=566133
+09-20 06:09:21.986  3656  3656 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=642631
+09-20 06:09:21.995  3656  3656 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-20 06:09:23.066  3656  3656 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true

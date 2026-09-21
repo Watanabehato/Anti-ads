@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.app.ui.StatusFactsTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:35:31" hostname="DESKTOP-26RJE8H" time="0.012">
+  <properties/>
+  <testcase name="libraryNamespaceIsNotTheServiceOwningPackage" classname="com.antiads.app.ui.StatusFactsTest" time="0.001"/>
+  <testcase name="serviceIdentityUsesHostPackageAndExactServiceClass" classname="com.antiads.app.ui.StatusFactsTest" time="0.001"/>
+  <testcase name="accessibilityReportsLastActionAgeAndAcceptedFlag" classname="com.antiads.app.ui.StatusFactsTest" time="0.003"/>
+  <testcase name="serviceIdentityRejectsWrongOrMissingIdentifiers" classname="com.antiads.app.ui.StatusFactsTest" time="0.001"/>
+  <testcase name="hookReportsOrderFreshFirstThenNewest" classname="com.antiads.app.ui.StatusFactsTest" time="0.006"/>
+  <testcase name="freshnessUsesFifteenSecondBoundary" classname="com.antiads.app.ui.StatusFactsTest" time="0.0"/>
+  <testcase name="accessibilityAuthorizedAndConnectedStaySeparateFacts" classname="com.antiads.app.ui.StatusFactsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

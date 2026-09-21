@@ -1,0 +1,9 @@
+### config before restart:
+{"schemaVersion":1,"revision":34,"masterEnabled":true,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes
+### force-stop + cold restart app
+Status: ok
+LaunchState: COLD
+TotalTime: 2910
+### config after restart (persistence):
+{"schemaVersion":1,"revision":34,"masterEnabled":true,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes
+### home screenshot bytes=260769

@@ -1,0 +1,20 @@
+257a258,276
+> 
+> ---
+> 
+> ## 附：第三轮（t3 / architect-flash）独立验证报告入口
+> 
+> - 对象：源码 `bea37e8`（含 t16 修复提交 `be2278c`），与本报告实际安装并复测的是**同一组字节**：app `a08a04b9…`、probe `0a75edd0…`、测试 APK `9b72ae61…`/`a351fc57…`、夹具 `533cbe72…`。
+> - 报告全文与证据：[docs/qa-evidence/t3-be2278c/verification-round3.md](qa-evidence/t3-be2278c/verification-round3.md)（证据目录 `docs/qa-evidence/t3-be2278c/`）。
+> - 本节为**纯追加**：追加前本文 SHA-256 为 `8cff33884b5880b741de60583af30f0a346ee03053ba0a8d7a6f34ad2b99ded7`，原有正文与结论未作任何修改。
+> - 第三轮结论摘要：QA-01～04 全部关闭（源码 + JVM + 设备三重证据）；合同命令与强制全量重跑 exit=0（298 JVM 用例 0 失败、四模块 lint 0 error、五个 APK 组装 + 签名核验）；最终 APK 与 AVD 实际安装件字节相同；另报 3 项**文档/证据一致性**发现（哈希表、六份文档的“无设备”表述、probe 行字段枚举），均不改变产品与设备结论。
+> - 仍未验证（与本文一致，不得外推）：Root/LSPosed 注入与作用域、H01 同次注册、5 秒租约的设备观测、API30+ 包可见性、API35+ Insets、真机/OEM ROM、GitHub CI 实际运行、`non_clickable` 以外的更广真实应用负例。
+> 
+> ---
+> 
+> ## 附：t18 文档设备验证状态同步（纯追加）
+> 
+> - 本节由 t18（qa-flash）追加，**只追加、未改动本文任何原有正文与结论**；上一节（第三轮 t3 报告入口）也保持原样。
+> - 内容：把本文第 6 节列出的“无设备/未复测”过时表述，逐处同步为“已在 API29 模拟器完成哪些场景”，并保留 Root/LSPosed、API30+ 可见性、API35+ Insets、真机、CI 的未测边界。涉及 `docs/install.md`、`docs/probe.md`、`docs/accessibility.md`、`docs/ui.md`、`docs/hook-probe-observability.md`、`docs/build.md` 共 6 份文档、11 处（+1 处同类表行），未改产品源码/测试/构建脚本。
+> - 前后对照与证据来源：[docs/qa-evidence/t17-bea37e8/doc-status-sync.md](qa-evidence/t17-bea37e8/doc-status-sync.md)；完整 diff：[doc-status-sync-diff.txt](qa-evidence/t17-bea37e8/doc-status-sync-diff.txt)。
+> - 注意：本文第 6 节列出的行号是**同步前**的文本行号，行号与措辞以 `doc-status-sync.md` 第 2 节为准；这些文档现已不再声称“本机无设备”，但仍明确标注真机/高版本未测。

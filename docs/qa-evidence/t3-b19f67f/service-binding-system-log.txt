@@ -1,0 +1,44 @@
+# Filtered to test package/service lines; unrelated system app entries removed.
+--------- beginning of main
+--------- beginning of system
+--------- beginning of crash
+09-20 09:23:08.555  1923  1950 I ActivityManager: Start proc 3255:com.antiads.app/u0a116 for activity {com.antiads.app/com.antiads.app.MainActivity}
+09-20 09:29:19.150  1923  2915 I ActivityManager: Force stopping com.antiads.app appid=10116 user=0: from pid 3629
+09-20 09:29:19.150  1923  2915 I ActivityManager: Killing 3255:com.antiads.app/u0a116 (adj 0): stop com.antiads.app
+09-20 09:29:20.441  1923  1950 I ActivityManager: Start proc 3640:com.antiads.app/u0a116 for activity {com.antiads.app/com.antiads.app.MainActivity}
+09-20 09:34:06.700  1923  1950 I ActivityManager: Start proc 3810:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.AdFixtureActivity}
+09-20 09:35:01.339  1923  2220 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 3844
+09-20 09:35:01.340  1923  2220 I ActivityManager: Killing 3810:com.antiads.probe/u0a117 (adj 0): stop com.antiads.probe
+09-20 09:35:01.832  1923  1950 I ActivityManager: Start proc 3854:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.AdFixtureActivity}
+09-20 09:35:14.399  1923  3847 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 3882
+09-20 09:35:14.401  1923  3847 I ActivityManager: Killing 3854:com.antiads.probe/u0a117 (adj 0): stop com.antiads.probe
+09-20 09:35:15.194  1923  1950 I ActivityManager: Start proc 3891:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.AdFixtureActivity}
+09-20 09:35:29.446  1923  3847 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 3919
+09-20 09:35:29.447  1923  3847 I ActivityManager: Killing 3891:com.antiads.probe/u0a117 (adj 0): stop com.antiads.probe
+09-20 09:35:30.229  1923  1950 I ActivityManager: Start proc 3928:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.AdFixtureActivity}
+09-20 09:35:44.676  1923  3922 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 3956
+09-20 09:35:44.677  1923  3922 I ActivityManager: Killing 3928:com.antiads.probe/u0a117 (adj 0): stop com.antiads.probe
+09-20 09:35:45.453  1923  1950 I ActivityManager: Start proc 3965:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.AdFixtureActivity}
+09-20 09:37:18.000  1923  3885 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 3999
+09-20 09:37:18.001  1923  3885 I ActivityManager: Killing 3965:com.antiads.probe/u0a117 (adj 0): stop com.antiads.probe
+09-20 09:37:18.584  1923  3885 I ActivityManager: Start proc 4008:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.AdFixtureActivity}
+09-20 09:37:32.161  1923  3847 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 4036
+09-20 09:37:32.162  1923  3847 I ActivityManager: Killing 4008:com.antiads.probe/u0a117 (adj 0): stop com.antiads.probe
+09-20 09:37:32.753  1923  1950 I ActivityManager: Start proc 4045:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.AdFixtureActivity}
+09-20 09:37:46.594  1923  3885 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 4073
+09-20 09:37:46.594  1923  3885 I ActivityManager: Killing 4045:com.antiads.probe/u0a117 (adj 0): stop com.antiads.probe
+09-20 09:37:47.124  1923  1950 I ActivityManager: Start proc 4082:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.AdFixtureActivity}
+09-20 09:38:01.816  1923  2568 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 4114
+09-20 09:38:01.816  1923  2568 I ActivityManager: Killing 4082:com.antiads.probe/u0a117 (adj 0): stop com.antiads.probe
+09-20 09:38:02.444  1923  1950 I ActivityManager: Start proc 4123:com.antiads.probe/u0a117 for activity {com.antiads.probe/com.antiads.probe.MainActivity}
+09-20 09:41:19.425  1923  1950 I ActivityManager: Start proc 4281:com.antiads.fixture.target/u0a120 for activity {com.antiads.fixture.target/com.antiads.fixture.target.MainActivity}
+09-20 09:48:14.232  1923  1939 I ActivityManager: Force stopping com.antiads.app appid=10116 user=0: start instr
+09-20 09:48:14.233  1923  1939 I ActivityManager: Killing 3640:com.antiads.app/u0a116 (adj 100): stop com.antiads.app
+09-20 09:48:14.240  1923  1939 W ActivityManager: Scheduling restart of crashed service com.antiads.app/com.antiads.accessibility.AdSkipService in 1000ms
+09-20 09:48:14.322  1923  1939 I ActivityManager:   Force stopping service ServiceRecord{fd9e398 u0 com.antiads.app/com.antiads.accessibility.AdSkipService}
+09-20 09:48:14.431  1923  1950 I ActivityManager: Start proc 4659:com.antiads.app/u0a116 for added application com.antiads.app
+09-20 09:48:15.449  1923  1939 I ActivityManager: Force stopping com.antiads.app appid=10116 user=0: finished inst
+09-20 09:48:15.451  1923  1939 I ActivityManager: Killing 4659:com.antiads.app/u0a116 (adj 0): stop com.antiads.app
+09-20 09:48:16.553  1923  1950 I ActivityManager: Start proc 4687:com.antiads.app/u0a116 for activity {com.antiads.app/com.antiads.app.MainActivity}
+09-20 09:54:02.690  1923  4658 I ActivityManager: Force stopping com.antiads.probe appid=10117 user=0: from pid 4870
+09-20 09:54:02.691  1923  4658 I ActivityManager: Killing 4123:com.antiads.probe/u0a117 (adj 910): stop com.antiads.probe

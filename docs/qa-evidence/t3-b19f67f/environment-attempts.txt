@@ -1,0 +1,13 @@
+Observed tool outcomes, transcribed from managed job/command results. These are not successful product tests.
+
+1. Redundant adb server bash-12: exit127, bind 5037 failed (10048: address already in use). Existing server was retained.
+2. uiautomator: ERROR: could not get idle state.; ERROR: null root node returned by UiTestAutomationBridge.; pull failed exit1. No valid XML was used.
+3. A multi-operation foreground adb batch timed out at 30s. UI/config snapshots showed already-completed changes; read-only capture continued without replaying toggles. Final PNG integrity validation found home-configured-unconnected.png contained only the 8-byte PNG header. It is retained as home-configured-unconnected.png.partial, not used as a screenshot or pass criterion. Valid later screenshots/config snapshots support the reported results.
+4. probe snapshot archive transfer: local Python tarfile.ReadError (bad checksum). Binary diagnostic found: tar: files/probe-diag.json: No such file or directory. Remote exec-out exit0 alone was misleading. Later ls exit1 confirms absence (probe-missing-snapshot.txt). Invalid tar files remain temporary and are not packaged as JSON evidence.
+5. bash-18 reboot wait fragment: job overall exit0, stderr:
+/usr/bin/bash: line 5: getprop: command not found
+/system/bin/sh: [: 1: unexpected operator/operand
+The bad fragment is not boot evidence. Later direct get-state/sys.boot_completed/AVD-name checks passed independently (post-reboot-readiness.txt).
+6. After app instrumentation, service-binding-activity-dump.txt showed DEAD, service-binding-later.txt showed Enabled/Binding with no Bound service. Off-state observations during this interval are indeterminate; reboot restored Bound and tests were repeated.
+7. Immediately after emu kill, a stale transport still appeared. After the managed emulator job ended exit0, devices-after-emulator-exit.txt was empty.
+8. The first report-integrity checker had a nested-regex quoting mistake (AttributeError: tuple has no attribute split). Its trailing git command masked the Python failure in the overall exit code. The checker was corrected to use literal character classes and set -e; the second run exited0 with all46 IDs, links, XML285 counts, lint and restoration assertions passing. Product code and test expectations were not changed.

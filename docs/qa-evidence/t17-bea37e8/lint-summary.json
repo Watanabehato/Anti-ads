@@ -1,0 +1,34 @@
+{
+  "app": [
+    {
+      "id": "ExportedContentProvider",
+      "severity": "Warning",
+      "message": "Exported content providers can provide access to potentially sensitive data",
+      "category": "Security",
+      "priority": "5",
+      "summary": "Content provider does not require permission",
+      "explanation": "Content providers are exported by default and any application on the system can potentially use them to read and write data. If the content provider provides access to sensitive data, it should be protected by specifying `export=false` in the manifest or by protecting it with a permission that can be granted to other applications.",
+      "url": "https://goo.gle/ExportedContentProvider",
+      "urls": "https://goo.gle/ExportedContentProvider",
+      "errorLine1": "        <provider",
+      "errorLine2": "         ~~~~~~~~"
+    }
+  ],
+  "accessibility": [],
+  "hook": [
+    {
+      "id": "PrivateApi",
+      "severity": "Warning",
+      "message": "Accessing internal APIs via reflection is not supported and may not work on all devices or in the future",
+      "category": "Correctness",
+      "priority": "6",
+      "summary": "Using Private APIs",
+      "explanation": "Using reflection to access hidden/private Android APIs is not safe; it will often not work on devices from other vendors, and it may suddenly stop working (if the API is removed) or crash spectacularly (if the API behavior changes, since there are no guarantees for compatibility).",
+      "url": "https://developer.android.com/preview/restrictions-non-sdk-interfaces",
+      "urls": "https://developer.android.com/preview/restrictions-non-sdk-interfaces",
+      "errorLine1": "            Class.forName(SensorDispatchTarget.CLASS_NAME, false, classLoader)",
+      "errorLine2": "            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    }
+  ],
+  "probe": []
+}

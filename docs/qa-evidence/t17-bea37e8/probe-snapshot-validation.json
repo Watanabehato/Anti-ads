@@ -1,0 +1,51 @@
+{
+  "snapshots": 8,
+  "sessionId": "2e71af60-9e8c-417d-b882-0f43961afc96",
+  "pid": 3616,
+  "registrationSequence": [
+    0,
+    6,
+    6,
+    12
+  ],
+  "snapshotFileLogs": 240,
+  "unforcedWrites": 234,
+  "minimumUnforcedGapMs": 1003,
+  "forcedWrites": 6,
+  "kinds": {
+    "probe_open": 1,
+    "snapshotFile": 240,
+    "row": 834,
+    "summary": 4
+  },
+  "lastWrites": [
+    {
+      "tag": "AntiAdsProbe.Diag",
+      "kind": "snapshotFile",
+      "force": false,
+      "path": "/data/user/0/com.antiads.probe/files/probe-diag.json",
+      "elapsedMs": 875052
+    },
+    {
+      "tag": "AntiAdsProbe.Diag",
+      "kind": "snapshotFile",
+      "force": false,
+      "path": "/data/user/0/com.antiads.probe/files/probe-diag.json",
+      "elapsedMs": 876061
+    },
+    {
+      "tag": "AntiAdsProbe.Diag",
+      "kind": "snapshotFile",
+      "force": true,
+      "path": "/data/user/0/com.antiads.probe/files/probe-diag.json",
+      "elapsedMs": 876525
+    },
+    {
+      "tag": "AntiAdsProbe.Diag",
+      "kind": "snapshotFile",
+      "force": false,
+      "path": "/data/user/0/com.antiads.probe/files/probe-diag.json",
+      "elapsedMs": 877548
+    }
+  ]
+}

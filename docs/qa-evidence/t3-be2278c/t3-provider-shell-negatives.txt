@@ -1,0 +1,45 @@
+### date=2026-09-21T02:35:28Z
+### shell UID: uid=2000(shell) gid=2000(shell) groups=2000(shell),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats),3009(readproc),3011(uhid) context=u:r:shell:s0
+
+=== S01 negative: shell calls get_policy_v1 for probe (expect UNAUTHORIZED) ===
+Result: Bundle[{ok=false, error=UNAUTHORIZED}]
+exit=0
+
+=== S01 negative 2: shell calls get_policy_v1 with unrelated arg (expect UNAUTHORIZED) ===
+Result: Bundle[{ok=false, error=UNAUTHORIZED}]
+exit=0
+
+=== S02 negative: shell calls write_config (expect INVALID_REQUEST / no such method) ===
+Result: Bundle[{ok=false, error=INVALID_REQUEST}]
+exit=0
+
+=== S02 negative: content query (expect null cursor / error) ===
+No result found.
+exit=0
+
+=== S02 negative: content insert (expect exception) ===
+Error while accessing provider:com.antiads.app.config
+java.lang.UnsupportedOperationException: 只读 Provider：INSERT 被拒绝
+	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:172)
+	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:140)
+	at android.content.ContentProviderProxy.insert(ContentProviderNative.java:481)
+	at com.android.commands.content.Content$InsertCommand.onExecute(Content.java:511)
+	at com.android.commands.content.Content$Command.execute(Content.java:469)
+	at com.android.commands.content.Content.main(Content.java:690)
+	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
+	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:338)
+exit=0
+
+=== provider process / host pid after shell calls ===
+3293
+=== config unchanged? ===
+{"schemaVersion":1,"revision":33,"masterEnabled":false,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]},"com.antiads.fixture.target":{"accessibilityEnabled":false,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]}}}
+### tap read-once button
+bytes=289222
+### fixture logcat (if any):
+09-21 02:39:57.214  1922  2331 I ActivityTaskManager: START u0 {flg=0x10000000 cmp=com.antiads.fixture.target/.MainActivity} from uid 2000
+09-21 02:39:57.619  1922  1950 I ActivityManager: Start proc 4034:com.antiads.fixture.target/u0a120 for activity {com.antiads.fixture.target/com.antiads.fixture.target.MainActivity}
+09-21 02:39:58.130  4034  4034 W RenderThread: type=1400 audit(0.0:104): avc: denied { write } for name="property_service" dev="tmpfs" ino=7742 scontext=u:r:untrusted_app:s0:c120,c256,c512,c768 tcontext=u:object_r:property_socket:s0 tclass=sock_file permissive=0 app=com.antiads.fixture.target
+09-21 02:39:58.413  4034  4034 I NoQueriesFixture: event=CREATE sessionId=8430e4e3-6ffa-4e9d-a960-4718ffc6247c pid=4034 registrationSeq=0 unregisterCount=0 resumed=false elapsed_ms=608803
+09-21 02:39:58.418  4034  4034 I NoQueriesFixture: event=RESUME sessionId=8430e4e3-6ffa-4e9d-a960-4718ffc6247c pid=4034 registrationSeq=0 unregisterCount=0 resumed=true elapsed_ms=608808
+09-21 02:39:59.458  1922  1948 I ActivityTaskManager: Displayed com.antiads.fixture.target/.MainActivity: +2s241ms

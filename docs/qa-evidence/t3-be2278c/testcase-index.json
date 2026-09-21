@@ -1,0 +1,386 @@
+{
+ "core": {
+  "ConfigCodecTest": [
+   "missingSchemaVersionIsRejected",
+   "defaultConfigRoundTrip",
+   "brokenJsonIsRejected",
+   "unknownExtraFieldIsIgnored",
+   "policyEncodeDecodeAndValidation",
+   "configRoundTripKeepsFieldsAndDefaults",
+   "reportEncodeDecodeAndBounds",
+   "wrongFieldTypeIsRejected",
+   "oversizedPayloadIsRejected",
+   "invalidPackageNameAndSensorTypeAreRejected",
+   "unknownSchemaVersionIsRejected"
+  ],
+  "ConfigValidatorTest": [
+   "unsupportedSchemaVersionRejected",
+   "errorCodesDoNotLeakInput",
+   "revisionBoundaries",
+   "ruleIdsOnlyBuiltinOrEmpty",
+   "sensorTypesOnlyAllowedSubset",
+   "defaultConfigIsValidAndAllOff",
+   "packageCountLimitIs500",
+   "hostAndSystemUiKeysRejected",
+   "packageNameSyntax"
+  ],
+  "PolicyResolverTest": [
+   "minimalPolicyHasNoOtherPackages",
+   "unknownPackageIsAllOff",
+   "anySwitchOffMeansDisabled",
+   "disabledPolicyKeepsRealRevision",
+   "allThreeSwitchesOnMeansEnabled"
+  ],
+  "SensorPolicyEngineTest": [
+   "contractScenario5999DropsAnd6000Allows",
+   "negativeAndRollbackTimestampsAllow",
+   "emptyTypeSetNeverDrops",
+   "unknownSchemaAllows",
+   "noSnapshotAllows",
+   "packageMismatchAllows",
+   "notSelectedTypeAndDisabledPolicyAllow",
+   "leaseLengthBoundaries",
+   "validSnapshotDropsSelectedType"
+  ],
+  "SensorPolicyScopeTest": [
+   "leaseExpiryAlwaysFallsBackToAllow",
+   "masterOrGlobalOffMeansOriginalBehaviour",
+   "emptySensorSelectionKeepsOriginalBehaviour",
+   "allowedMotionAppKeepsReceivingCallbacks",
+   "wrongOrMissingPackageNeverDrops",
+   "unselectedSensorTypesKeepWorking",
+   "userKeptMotionAppOffEvenWhenConfigured"
+  ],
+  "ConservativeAdRuleEngineTest": [
+   "englishMatchingIsCaseInsensitiveAndChineseContextAccepted",
+   "extremeBoundsDoNotOverflow",
+   "unconfiguredPackageIsUntouched",
+   "emptyRuleSelectionDisablesTheRule",
+   "fuzzyAdContextLabelsAreRejected",
+   "masterOrGlobalSwitchOffProducesNoCandidate",
+   "adContextFromSameNodeOnlyProducesNothing",
+   "explicitAdContextAndSkipButtonProduceSingleCandidate",
+   "rejectedSystemAndHostTargetsAreNeverTouched",
+   "invisibleAdContextIsNotEnough",
+   "geometryBoundariesAreExact",
+   "editableOrPasswordNodeBlocksWholeWindow",
+   "skipWithoutAdContextProducesNothing",
+   "windowLevelGuardsBlockCandidates",
+   "chineseAndEnglishSkipVariantsMatch",
+   "invisibleOrDisabledOrNonClickableCandidatesAreIgnored",
+   "invalidBoundsAreRejected",
+   "foregroundWindowAgeBoundaryIsTenSeconds",
+   "unknownSchemaVersionProducesNoCandidate",
+   "emptyNodeListProducesNothing",
+   "screenDimensionLimitIsExactAndConservative",
+   "misMatchingLabelsAreRejected",
+   "contentChangedCannotExtendTheWindow",
+   "onlyOneCandidateIsReturnedWithDeterministicOrdering",
+   "separateContextNodeLetsCandidateAlsoCarryAdLabel",
+   "abnormalScreenDimensionsBlockCandidates"
+  ]
+ },
+ "app": {
+  "AppConfigRepositoryTest": [
+   "observeEmitsCurrentSnapshotAndCloseIsIdempotent",
+   "packageSnapshotIsNotAffectedByLaterCallerMutation",
+   "outOfRangeSensorTypesAreRejected",
+   "writePersistsNewRevisionAndPublishesSnapshot",
+   "unknownSchemaFileIsRejectedAndDoesNotReuseEnableValues",
+   "staleExpectedRevisionIsRejectedWithoutTouchingDisk",
+   "invalidConfigIsRejected",
+   "explicitSaveReplacesCorruptFile",
+   "listenerExceptionDoesNotFailPersistedWrite",
+   "readFailureReportsIoError",
+   "revisionExhaustionIsRejectedExplicitly",
+   "corruptFileFallsBackToAllOff",
+   "ioFailureKeepsPreviousSnapshotAndReportsIoError",
+   "defaultsWhenNoFile",
+   "mismatchedInputRevisionIsRejectedAsInvalid"
+  ],
+  "ProviderCallRouterTest": [
+   "hookReportIsRateLimitedToOnePerSecond",
+   "rejectedPackageNamesAreNeverServable",
+   "sharedUidWithMultiplePackagesIsRejected",
+   "crossUserAndNonApplicationUidsAreRejected",
+   "unknownAndMutationMethodsAreRejected",
+   "policyReadIsRateLimitedPerUid",
+   "forgedArgPackageIsRejected",
+   "hookReportWithNonPositiveCapturedPidIsRejected",
+   "hookReportPidIsOverriddenWithCapturedPid",
+   "unknownAndIsolatedUidsAreRejected",
+   "unconfiguredPackageStillGetsDisabledPolicy",
+   "hookReportForOtherPackageIsRejected",
+   "hookReportWithBadPayloadIsRejected",
+   "singleMatchingPackageGetsOnlyItsOwnMinimalPolicy"
+  ],
+  "ProviderEntryPolicyTest": [
+   "callMethodPolicyOnlyAllowsTwoReadOnlyMethods",
+   "readEntryPointsReturnNullAndAllMutationsThrow"
+  ],
+  "RateLimiterTest": [
+   "trackedUidMapIsBounded",
+   "allowsUpToLimitInsideWindowAndBlocksNext",
+   "clockRollbackKeepsLimiting",
+   "separateUidsHaveSeparateWindows"
+  ],
+  "RuntimeReportStoreTest": [
+   "globalCapIsEnforced",
+   "sameProcessTokenReplacesPreviousEntry",
+   "snapshotIsSortedNewestFirst",
+   "keepsAtMostEightProcessesPerPackage"
+  ],
+  "StatusFactsTest": [
+   "libraryNamespaceIsNotTheServiceOwningPackage",
+   "serviceIdentityUsesHostPackageAndExactServiceClass",
+   "accessibilityReportsLastActionAgeAndAcceptedFlag",
+   "serviceIdentityRejectsWrongOrMissingIdentifiers",
+   "hookReportsOrderFreshFirstThenNewest",
+   "freshnessUsesFifteenSecondBoundary",
+   "accessibilityAuthorizedAndConnectedStaySeparateFacts"
+  ]
+ },
+ "accessibility": {
+  "AccessibilityDependenciesTest": [
+   "installExposesRepositoryWithoutClaimingConnection",
+   "detachStopsFurtherNotifications",
+   "closingAttachmentStopsNotifications",
+   "installAfterAttachNotifiesAttachedService",
+   "attachAfterInstallReceivesRepositoryImmediately"
+  ],
+  "AccessibilityRuntimeTest": [
+   "closeIsIdempotentAndStopsFurtherNotifications",
+   "internalErrorMovesToErrorPhase",
+   "interruptIsRecordedWithoutClaimingDisconnection",
+   "listenerExceptionIsIsolated",
+   "connectedWithMasterOffIsPaused",
+   "actionRecordIsPublishedAsIs",
+   "connectedWithoutDependencyIsError",
+   "duplicatePhasePublicationDoesNotNotifyTwice",
+   "disconnectKeepsLastActionButClearsConnection",
+   "defaultStateIsDisconnected",
+   "connectedWithTargetIsWatching",
+   "observeReceivesCurrentStateImmediately"
+  ],
+  "CoreRuleToExecutionIntegrationTest": [
+   "ruleSelectionOffBreaksTheChain",
+   "missingRefreshedNodeIsRejected",
+   "sensitiveWindowAndKeyguardBreakTheChainBeforeAndAfterTheEngine",
+   "textChangeBetweenSnapshotAndRefreshIsRejected",
+   "configRevisionChangedBetweenSnapshotAndExecutionIsRejected",
+   "leftSideButtonIsRejectedByTheRealEngine",
+   "masterSwitchOffBreaksTheChainAtTheEngine",
+   "sameEpochIsAuthorizedOnlyOnce",
+   "windowChangedAfterSnapshotIsRejected",
+   "editableNodeInWindowBlocksARealisticAdLayout",
+   "realCoreCandidateIsAuthorizedForExecution"
+  ],
+  "ExecutionGuardsTest": [
+   "foreignRuleCandidateIsRefused",
+   "nonApplicationWindowIsRefused",
+   "snapshotTextFieldIsLimitedTo256Chars",
+   "disabledTargetIsRefused",
+   "rootPackageMismatchIsRefused",
+   "refreshTurnedEditableIsRefused",
+   "refreshTurnedInvisibleIsRefused",
+   "revisionChangeBetweenSnapshotAndClickIsRefused",
+   "missingDependencyIsRefused",
+   "degenerateScreenSizeIsRefused",
+   "clockRollbackIsRefused",
+   "sensitiveActionTextIsRefusedEvenWhenUnchanged",
+   "sensitiveActionTermsAndSafeSkipTerms",
+   "nodeFieldsActionableRequiresAllThreeFlags",
+   "invalidPackageNameIsRefused",
+   "failedRefreshIsRefused",
+   "nonClickableCandidateIsRefused",
+   "unknownWindowIdentityIsRefused",
+   "whitespaceAndCaseNormalizationKeepsCandidateAllowed",
+   "windowAgeBehindForegroundStartIsRefused",
+   "unknownRootPackageIsRefused",
+   "incompleteTraversalIsRefused",
+   "editableCandidateIsRefused",
+   "missingBuiltinRuleIsRefused",
+   "windowAgeAtBoundaryIsAllowed",
+   "rootWindowMismatchIsRefused",
+   "staleSnapshotIsRefused",
+   "unexpectedReasonIsRefused",
+   "windowAgeBeyondBoundaryIsRefused",
+   "rejectedPackageIsRefused",
+   "sensitivePackageIsRefused",
+   "snapshotAgeAtBoundaryIsAllowed",
+   "changedCountdownTextIsRefused",
+   "matchingPolicyIsAllowed",
+   "disconnectedIsRefused",
+   "lockedKeyguardIsRefused",
+   "editableNodeAnywhereInWindowIsRefused"
+  ],
+  "PhaseCalculatorTest": [
+   "missingDependencyIsError",
+   "unselectedPackageIsIdle",
+   "disconnected",
+   "masterSwitchOffIsPaused",
+   "missingConfigIsError",
+   "packageSwitchOffIsIdle",
+   "globalAccessibilityOffIsPaused",
+   "noForegroundPackageIsIdle",
+   "qualifyingTargetIsWatching"
+  ],
+  "SensitivePackageRulesTest": [
+   "unknownOrEmptyPackageIsSensitive",
+   "hostAndSystemUiAreAlwaysSensitive",
+   "ordinaryThirdPartyPackageIsNotSensitive",
+   "resolvedSystemPackagesAreSensitive"
+  ],
+  "ServiceDeclarationTest": [
+   "serviceConfigDeclaresContractAttributes",
+   "manifestDeclaresSystemBoundServiceOnly",
+   "serviceClassIsAnAccessibilityService"
+  ],
+  "SkipGateTest": [
+   "revocationResetClearsEpochAndThrottle",
+   "nonWindowEventIsDropped",
+   "newWindowReplacesEpochAndDropsTheOldQueuedScan",
+   "eventsAreCoalescedAt250msAndScanIsConsumedOnce",
+   "windowGuardsFlowThroughEvaluate",
+   "policyGuardsFlowThroughEvaluate",
+   "evaluateRejectsRequestsForAnotherWindow",
+   "missingPackageNameIsDropped",
+   "contentEventsDoNotExtendTheTenSecondWindow",
+   "throttleTableStaysBounded",
+   "repeatedContentEventsKeepEpochAndWindowStart",
+   "initialEpochFromObservationIsAccepted",
+   "oneAttemptPerEpochEvenWhenTheSystemRejectsTheAction",
+   "clockRollbackDoesNotBypassTheThrottle",
+   "cancelPendingDropsQueuedWork",
+   "windowStateChangeCreatesEpochAndScansImmediately",
+   "newPackageStartsANewEpoch",
+   "samePackageThrottleAppliesAcrossEpochsAt2000msBoundary"
+  ],
+  "TraversalBudgetTest": [
+   "defaultsMatchContractNumbers",
+   "depthLimitIsInclusive",
+   "timeBudgetReachingTheLimitMarksIncomplete",
+   "nodeLimitMarksTraversalIncomplete"
+  ]
+ },
+ "hook": {
+  "HookSkipRulesTest": [
+   "skipsHostSystemUiAndSystemServer",
+   "installsForOrdinaryTargets"
+  ],
+  "SensorDispatchTargetTest": [
+   "rejectsStaticMethod",
+   "rejectsDifferentParameterList",
+   "rejectsMissingTargetMethod",
+   "rejectsQueueWithoutTheExpectedMethod",
+   "acceptsExpectedShape",
+   "rejectsQueueWithoutHandleToSensorPath"
+  ],
+  "SensorTypeResolverTest": [
+   "handleIsNotAssumedToBeSensorType",
+   "shapeCheckAcceptsBothSupportedPaths",
+   "missingPathIsUnresolvedAndDetectedByShapeCheck",
+   "outOfRangeSensorTypeIsUnresolved",
+   "unknownHandleIsUnresolved",
+   "resolvesViaManagerMap",
+   "resolvesViaQueueOwnMap"
+  ],
+  "FailOpenDecisionTest": [
+   "noPolicyMeansEverySensorTypeIsAllowed",
+   "disablingHookRestoresFutureCallbacks",
+   "onlySelectedTypesAreDroppedWhilePolicyEnabled",
+   "emptyTypeSelectionNeverDrops",
+   "typeResolveFailuresAreCountedAndNeverDrop",
+   "policyForAnotherPackageIsNeverApplied"
+  ],
+  "HookPolicyLeaseTest": [
+   "lateReplyIsDiscardedAndDoesNotExtendExistingLease",
+   "providerUnreachableClearsCacheAndNeverBlocksSensors",
+   "clockRewindNeverDropsAndIsReportedAsInvalid",
+   "publishesLeaseFromRequestStartAndRespectsExpiryBoundary",
+   "decisionsIgnoreWallClockChangesAndKeepDroppingWhileLeaseValid",
+   "lateReplyWithoutExistingCacheAllowsImmediately",
+   "rejectedReadClearsCacheImmediatelyAndKeepsFailingOpen"
+  ],
+  "HookRefreshThrottleTest": [
+   "firstFetchIsNotThrottledByInitialRead",
+   "noSensorTrafficMeansNoFurtherProviderAccess",
+   "refreshIsThrottledToAtMostOnePerTwoSeconds"
+  ],
+  "HookReportSchedulingTest": [
+   "reportFailureIsIsolatedAndStillThrottled",
+   "unsupportedInstallStateIsReportedVerbatim",
+   "reportsAreMergedToOnePerFiveSecondsAndStayValid"
+  ],
+  "HookStuckTransportTest": [
+   "stuckRequestKeepsOneWorkerThreadAndNeverPilesUp"
+  ],
+  "PolicyJsonTest": [
+   "acceptsDisabledPolicyWithEmptyTypeSet",
+   "rejectsMissingOrUnknownSchemaVersion",
+   "rejectsBrokenJsonAndWrongTypes",
+   "rejectsPackageMismatch",
+   "rejectsSensorTypeOutsideAllowedSet",
+   "acceptsValidPolicyAndIgnoresUnknownFields",
+   "rejectsPayloadLargerThanProtocolLimit"
+  ],
+  "SingleThreadWorkerTest": [
+   "submitAfterCloseIsIgnored",
+   "tasksRunSeriallyOnExactlyOneThread",
+   "taskFailureIsIsolatedAndWorkerKeepsRunning",
+   "stuckTaskDoesNotSpawnReplacementThreads"
+  ]
+ },
+ "probe": {
+  "DiagFileThrottleTest": [
+   "writesWithinOneSecondAreThrottled",
+   "firstWriteIsAllowed",
+   "resetClearsThrottleWindow",
+   "forceWriteIsImmediateAndResetsWindow",
+   "customIntervalIsRespected"
+  ],
+  "DiagJsonTest": [
+   "noteIsEscaped",
+   "summaryCarriesVerdictAndControlGate",
+   "rowLineCarriesIdentityAndCounters",
+   "nullFieldsAreEmittedAsJsonNull",
+   "snapshotIsParseableAndCarriesOnlyDiagFields",
+   "silenceWindowLineExposesBeforeAndAfterTimestamps",
+   "controlRowIsMarked",
+   "snapshotFileLineRecordsPathAndForce"
+  ],
+  "DiagTrackerTest": [
+   "unregisterKeepsCountersButMarksState",
+   "registrationSeqCountsSuccessfulRegistrationsOnly",
+   "missingSensorTypeIsShownAsAbsentAndNotRegistered",
+   "callbacksAccumulateAndResetPerRegistration",
+   "failedRegistrationIsReportedVerbatim",
+   "frameCarriesHostAndSessionIdentity",
+   "controlTypeIsASeparateRow"
+  ],
+  "ProbeTypesTest": [
+   "fallsBackToSmallestAvailableUnselectedType",
+   "returnsNullWhenNoUsableControlExists",
+   "prefersMagneticFieldWhenAvailableAndNotSelected",
+   "displayNamesCoverDegradedType",
+   "selectionIsCappedAtFiveTypes"
+  ],
+  "ProbeUiStateRulesTest": [
+   "autoStartIsNeverRequestedInAnyCombination",
+   "returningToPageReEnablesExplicitStartAndPeriodicRefresh",
+   "runningSamplingKeepsStartDisabled",
+   "afterPauseStopsSamplingStartIsEnabledAndStopIsDisabled"
+  ],
+  "ShakeCounterTest": [
+   "ignoresValuesWithinDeadZone",
+   "countsShakeOnDirectionChangesWithinWindow",
+   "resetsCounters",
+   "windowExpiryClearsDirectionChanges"
+  ],
+  "SilenceWindowDetectorTest": [
+   "tracksPerSensorTypeIndependently",
+   "firstCallbackNeverCreatesWindow",
+   "recordsWindowOnlyForGapsAboveThreshold"
+  ]
+ }
+}

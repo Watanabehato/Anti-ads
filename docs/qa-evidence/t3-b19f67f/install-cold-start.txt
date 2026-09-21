@@ -1,0 +1,15 @@
+Performing Streamed Install
+Success
+Performing Streamed Install
+Success
+Performing Streamed Install
+Success
+Performing Streamed Install
+Success
+Starting: Intent { cmp=com.antiads.app/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: com.antiads.app/.MainActivity
+TotalTime: 1838
+WaitTime: 1855
+Complete

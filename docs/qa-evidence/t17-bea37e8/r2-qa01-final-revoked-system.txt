@@ -1,0 +1,6 @@
+accessibility_enabled=1
+enabled_services=
+User state[attributes:{id=0, currentUser=true, touchExplorationEnabled=false, displayMagnificationEnabled=false, navBarMagnificationEnabled=false, autoclickEnabled=false, nonInteractiveUiTimeout=0, interactiveUiTimeout=0, installedServiceCount=1}
+     Bound services:{}
+     Enabled services:{}
+     Binding services:{{com.antiads.app/com.antiads.accessibility.AdSkipService}}]

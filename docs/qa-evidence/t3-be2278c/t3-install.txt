@@ -1,0 +1,15 @@
+### app/build/outputs/apk/debug/app-debug.apk
+Performing Streamed Install
+Success
+### probe/build/outputs/apk/debug/probe-debug.apk
+Performing Streamed Install
+Success
+### app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+Performing Streamed Install
+Success
+### probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk
+Performing Streamed Install
+Success
+### qa/fixtures/noqueries/build/outputs/apk/debug/noqueries-debug.apk
+Performing Streamed Install
+Success

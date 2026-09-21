@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.accessibility.ServiceDeclarationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-20T09:18:39" hostname="qa-windows-host" time="0.059">
+  <properties/>
+  <testcase name="serviceConfigDeclaresContractAttributes" classname="com.antiads.accessibility.ServiceDeclarationTest" time="0.04"/>
+  <testcase name="manifestDeclaresSystemBoundServiceOnly" classname="com.antiads.accessibility.ServiceDeclarationTest" time="0.001"/>
+  <testcase name="serviceClassIsAnAccessibilityService" classname="com.antiads.accessibility.ServiceDeclarationTest" time="0.017"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

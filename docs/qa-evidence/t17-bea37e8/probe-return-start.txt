@@ -1,0 +1,8 @@
+Starting: Intent { cmp=com.antiads.probe/.MainActivity }
+Warning: Activity not started, its current task has been brought to the front
+Status: ok
+LaunchState: HOT
+Activity: com.antiads.probe/.MainActivity
+TotalTime: 121
+WaitTime: 273
+Complete

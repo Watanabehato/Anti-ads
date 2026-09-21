@@ -1,0 +1,440 @@
+{
+  "commit": "b19f67f2262dff74d08fddca2ce457c28f857afe",
+  "independentRerun": true,
+  "totals": {
+    "core": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 6
+    },
+    "accessibility": {
+      "tests": 103,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 9
+    },
+    "hook": {
+      "tests": 46,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 10
+    },
+    "app": {
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 6
+    },
+    "probe": {
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "suites": 5
+    }
+  },
+  "suites": [
+    {
+      "path": "core/build/test-results/test/TEST-com.antiads.core.config.PolicyResolverTest.xml",
+      "name": "com.antiads.core.config.PolicyResolverTest",
+      "tests": "5",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:30",
+      "hostname": "qa-windows-host",
+      "time": "0.003"
+    },
+    {
+      "path": "core/build/test-results/test/TEST-com.antiads.core.config.ConfigCodecTest.xml",
+      "name": "com.antiads.core.config.ConfigCodecTest",
+      "tests": "11",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:30",
+      "hostname": "qa-windows-host",
+      "time": "0.319"
+    },
+    {
+      "path": "core/build/test-results/test/TEST-com.antiads.core.config.ConfigValidatorTest.xml",
+      "name": "com.antiads.core.config.ConfigValidatorTest",
+      "tests": "9",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:30",
+      "hostname": "qa-windows-host",
+      "time": "0.042"
+    },
+    {
+      "path": "core/build/test-results/test/TEST-com.antiads.core.policy.SensorPolicyEngineTest.xml",
+      "name": "com.antiads.core.policy.SensorPolicyEngineTest",
+      "tests": "9",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:30",
+      "hostname": "qa-windows-host",
+      "time": "0.007"
+    },
+    {
+      "path": "core/build/test-results/test/TEST-com.antiads.core.policy.SensorPolicyScopeTest.xml",
+      "name": "com.antiads.core.policy.SensorPolicyScopeTest",
+      "tests": "7",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:30",
+      "hostname": "qa-windows-host",
+      "time": "0.002"
+    },
+    {
+      "path": "core/build/test-results/test/TEST-com.antiads.core.rules.ConservativeAdRuleEngineTest.xml",
+      "name": "com.antiads.core.rules.ConservativeAdRuleEngineTest",
+      "tests": "26",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:30",
+      "hostname": "qa-windows-host",
+      "time": "0.05"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.AccessibilityRuntimeTest.xml",
+      "name": "com.antiads.accessibility.AccessibilityRuntimeTest",
+      "tests": "12",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.066"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.ServiceDeclarationTest.xml",
+      "name": "com.antiads.accessibility.ServiceDeclarationTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.059"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.SkipGateTest.xml",
+      "name": "com.antiads.accessibility.SkipGateTest",
+      "tests": "18",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.024"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.AccessibilityDependenciesTest.xml",
+      "name": "com.antiads.accessibility.AccessibilityDependenciesTest",
+      "tests": "5",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.073"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.ExecutionGuardsTest.xml",
+      "name": "com.antiads.accessibility.ExecutionGuardsTest",
+      "tests": "37",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.012"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.SensitivePackageRulesTest.xml",
+      "name": "com.antiads.accessibility.SensitivePackageRulesTest",
+      "tests": "4",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.002"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.CoreRuleToExecutionIntegrationTest.xml",
+      "name": "com.antiads.accessibility.CoreRuleToExecutionIntegrationTest",
+      "tests": "11",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.137"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.PhaseCalculatorTest.xml",
+      "name": "com.antiads.accessibility.PhaseCalculatorTest",
+      "tests": "9",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.001"
+    },
+    {
+      "path": "accessibility/build/test-results/testDebugUnitTest/TEST-com.antiads.accessibility.TraversalBudgetTest.xml",
+      "name": "com.antiads.accessibility.TraversalBudgetTest",
+      "tests": "4",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:39",
+      "hostname": "qa-windows-host",
+      "time": "0.003"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.SensorTypeResolverTest.xml",
+      "name": "com.antiads.hook.internal.SensorTypeResolverTest",
+      "tests": "7",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.033"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.policy.FailOpenDecisionTest.xml",
+      "name": "com.antiads.hook.internal.policy.FailOpenDecisionTest",
+      "tests": "6",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.259"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.policy.PolicyJsonTest.xml",
+      "name": "com.antiads.hook.internal.policy.PolicyJsonTest",
+      "tests": "7",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.019"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.policy.HookPolicyLeaseTest.xml",
+      "name": "com.antiads.hook.internal.policy.HookPolicyLeaseTest",
+      "tests": "7",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.043"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.HookSkipRulesTest.xml",
+      "name": "com.antiads.hook.internal.HookSkipRulesTest",
+      "tests": "2",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:45",
+      "hostname": "qa-windows-host",
+      "time": "0.039"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.policy.HookReportSchedulingTest.xml",
+      "name": "com.antiads.hook.internal.policy.HookReportSchedulingTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.082"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.SensorDispatchTargetTest.xml",
+      "name": "com.antiads.hook.internal.SensorDispatchTargetTest",
+      "tests": "6",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.032"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.policy.HookStuckTransportTest.xml",
+      "name": "com.antiads.hook.internal.policy.HookStuckTransportTest",
+      "tests": "1",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.091"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.policy.SingleThreadWorkerTest.xml",
+      "name": "com.antiads.hook.internal.policy.SingleThreadWorkerTest",
+      "tests": "4",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.15"
+    },
+    {
+      "path": "hook/build/test-results/testDebugUnitTest/TEST-com.antiads.hook.internal.policy.HookRefreshThrottleTest.xml",
+      "name": "com.antiads.hook.internal.policy.HookRefreshThrottleTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:46",
+      "hostname": "qa-windows-host",
+      "time": "0.018"
+    },
+    {
+      "path": "app/build/test-results/testDebugUnitTest/TEST-com.antiads.app.config.RuntimeReportStoreTest.xml",
+      "name": "com.antiads.app.config.RuntimeReportStoreTest",
+      "tests": "4",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:51",
+      "hostname": "qa-windows-host",
+      "time": "0.035"
+    },
+    {
+      "path": "app/build/test-results/testDebugUnitTest/TEST-com.antiads.app.config.ProviderEntryPolicyTest.xml",
+      "name": "com.antiads.app.config.ProviderEntryPolicyTest",
+      "tests": "2",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:51",
+      "hostname": "qa-windows-host",
+      "time": "0.005"
+    },
+    {
+      "path": "app/build/test-results/testDebugUnitTest/TEST-com.antiads.app.config.AppConfigRepositoryTest.xml",
+      "name": "com.antiads.app.config.AppConfigRepositoryTest",
+      "tests": "15",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:51",
+      "hostname": "qa-windows-host",
+      "time": "0.3"
+    },
+    {
+      "path": "app/build/test-results/testDebugUnitTest/TEST-com.antiads.app.config.RateLimiterTest.xml",
+      "name": "com.antiads.app.config.RateLimiterTest",
+      "tests": "4",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:51",
+      "hostname": "qa-windows-host",
+      "time": "0.005"
+    },
+    {
+      "path": "app/build/test-results/testDebugUnitTest/TEST-com.antiads.app.ui.StatusFactsTest.xml",
+      "name": "com.antiads.app.ui.StatusFactsTest",
+      "tests": "5",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:51",
+      "hostname": "qa-windows-host",
+      "time": "0.011"
+    },
+    {
+      "path": "app/build/test-results/testDebugUnitTest/TEST-com.antiads.app.config.ProviderCallRouterTest.xml",
+      "name": "com.antiads.app.config.ProviderCallRouterTest",
+      "tests": "14",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:51",
+      "hostname": "qa-windows-host",
+      "time": "0.163"
+    },
+    {
+      "path": "probe/build/test-results/testDebugUnitTest/TEST-com.antiads.probe.diag.SilenceWindowDetectorTest.xml",
+      "name": "com.antiads.probe.diag.SilenceWindowDetectorTest",
+      "tests": "3",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:55",
+      "hostname": "qa-windows-host",
+      "time": "0.003"
+    },
+    {
+      "path": "probe/build/test-results/testDebugUnitTest/TEST-com.antiads.probe.diag.DiagTrackerTest.xml",
+      "name": "com.antiads.probe.diag.DiagTrackerTest",
+      "tests": "7",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:55",
+      "hostname": "qa-windows-host",
+      "time": "0.02"
+    },
+    {
+      "path": "probe/build/test-results/testDebugUnitTest/TEST-com.antiads.probe.diag.DiagJsonTest.xml",
+      "name": "com.antiads.probe.diag.DiagJsonTest",
+      "tests": "6",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:55",
+      "hostname": "qa-windows-host",
+      "time": "0.023"
+    },
+    {
+      "path": "probe/build/test-results/testDebugUnitTest/TEST-com.antiads.probe.diag.ShakeCounterTest.xml",
+      "name": "com.antiads.probe.diag.ShakeCounterTest",
+      "tests": "4",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:55",
+      "hostname": "qa-windows-host",
+      "time": "0.001"
+    },
+    {
+      "path": "probe/build/test-results/testDebugUnitTest/TEST-com.antiads.probe.diag.ProbeTypesTest.xml",
+      "name": "com.antiads.probe.diag.ProbeTypesTest",
+      "tests": "5",
+      "skipped": "0",
+      "failures": "0",
+      "errors": "0",
+      "timestamp": "2026-09-20T09:18:55",
+      "hostname": "qa-windows-host",
+      "time": "0.016"
+    }
+  ],
+  "evidenceNormalization": "Only the hostname field is redacted; testcase names, results, counts, durations, timestamps and tested source are unchanged. Original build XML remains in the ignored module build directories."
+}

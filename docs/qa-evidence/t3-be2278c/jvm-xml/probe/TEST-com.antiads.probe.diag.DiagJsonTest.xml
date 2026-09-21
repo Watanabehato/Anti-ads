@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.probe.diag.DiagJsonTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:12:05" hostname="DESKTOP-26RJE8H" time="0.636">
+  <properties/>
+  <testcase name="noteIsEscaped" classname="com.antiads.probe.diag.DiagJsonTest" time="0.042"/>
+  <testcase name="summaryCarriesVerdictAndControlGate" classname="com.antiads.probe.diag.DiagJsonTest" time="0.001"/>
+  <testcase name="rowLineCarriesIdentityAndCounters" classname="com.antiads.probe.diag.DiagJsonTest" time="0.003"/>
+  <testcase name="nullFieldsAreEmittedAsJsonNull" classname="com.antiads.probe.diag.DiagJsonTest" time="0.001"/>
+  <testcase name="snapshotIsParseableAndCarriesOnlyDiagFields" classname="com.antiads.probe.diag.DiagJsonTest" time="0.585"/>
+  <testcase name="silenceWindowLineExposesBeforeAndAfterTimestamps" classname="com.antiads.probe.diag.DiagJsonTest" time="0.0"/>
+  <testcase name="controlRowIsMarked" classname="com.antiads.probe.diag.DiagJsonTest" time="0.0"/>
+  <testcase name="snapshotFileLineRecordsPathAndForce" classname="com.antiads.probe.diag.DiagJsonTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

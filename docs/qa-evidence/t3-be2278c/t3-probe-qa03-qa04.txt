@@ -1,0 +1,28 @@
+### t0=2026-09-21T02:36:11Z
+### tap 开始采样 (160,1315)
+### diag file right after start (run-as cat):
+{"tag":"AntiAdsProbe.Diag","kind":"probeDiagSnapshot","schemaVersion":1,"sessionId":"2f978bd1-db44-493d-98c6-b130b8e8ea60","registrationSeq":6,"host":"ACTIVITY","pid":3495,"activityResumed":true,"samplingRunning":true,"elapsedMs":387536,"writtenAtElapsedMs":387536,"controlType":2,"rows":[{"tag":"AntiAdsProbe.Diag","seq":72,"sessionId":"2f978bd1-db44-493d-98c6-b130b8e8ea60","registrationSeq":6,"host":"ACTIVITY","activityResumed":true,"pid":3495,"elapsedMs":387536,"type":1,"exists":true,"selected":true,"registerResult":true,"samplingState":"REGISTERED","callbacks":37,"callbacksSinceRegister":37,"lastCallbackElapsedMs":387455,"gapSinceLastMs":81,"shakes":4,"control":false},{"tag":"AntiAdsProbe.
+### registration logcat:
+     11 "kind":"snapshotFile"
+      1 "kind":"summary"
+     73 "pid":3495
+      6 "registrationSeq":1
+      6 "registrationSeq":2
+      6 "registrationSeq":3
+      6 "registrationSeq":4
+      6 "registrationSeq":5
+     43 "registrationSeq":6
+### press HOME
+### diag snapshot while paused:
+{"tag":"AntiAdsProbe.Diag","kind":"probeDiagSnapshot","schemaVersion":1,"sessionId":"2f978bd1-db44-493d-98c6-b130b8e8ea60","registrationSeq":6,"host":"ACTIVITY","pid":3495,"activityResumed":false,"samplingRunning":false,"elapsedMs":389106,"writtenAtElapsedMs":389106,"controlType":2,"rows":[{"tag":"AntiAdsProbe.Diag","seq":84,"sessionId":"2f978bd1-db44-493d-98c6-b130b8e8ea60","registrationSeq":6,"h
+### return to probe activity (bring to front):
+Status: ok
+LaunchState: HOT
+TotalTime: 648
+### tap 开始采样 again (explicit restart)
+### registrationSeq/session after restart:
+09-21 02:36:33.675  3495  3495 I AntiAdsProbe.Diag: {"tag":"AntiAdsProbe.Diag","seq":144,"sessionId":"2f978bd1-db44-493d-98c6-b130b8e8ea60","registrationSeq":12,"host":"ACTIVITY","activityResumed":true,"pid":3495,"elapse
+09-21 02:36:33.675  3495  3495 I AntiAdsProbe.Diag: {"tag":"AntiAdsProbe.Diag","seq":144,"sessionId":"2f978bd1-db44-493d-98c6-b130b8e8ea60","registrationSeq":12,"host":"ACTIVITY","activityResumed":true,"pid":3495,"elapse
+09-21 02:36:33.676  3495  3495 I AntiAdsProbe.Diag: {"tag":"AntiAdsProbe.Diag","seq":144,"sessionId":"2f978bd1-db44-493d-98c6-b130b8e8ea60","registrationSeq":12,"host":"ACTIVITY","activityResumed":true,"pid":3495,"elapse
+### snapshotFile lines sample + gap analysis:
+{'snapshotFileLines': 25, 'forced': 4, 'minGapMs': 188, 'gapsBelow1000ms': 2, 'spanMs': 26874}

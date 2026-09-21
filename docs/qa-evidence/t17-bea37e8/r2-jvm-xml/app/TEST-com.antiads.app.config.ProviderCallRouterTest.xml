@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.antiads.app.config.ProviderCallRouterTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-09-21T02:35:31" hostname="DESKTOP-26RJE8H" time="0.166">
+  <properties/>
+  <testcase name="hookReportIsRateLimitedToOnePerSecond" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.043"/>
+  <testcase name="rejectedPackageNamesAreNeverServable" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.002"/>
+  <testcase name="sharedUidWithMultiplePackagesIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.002"/>
+  <testcase name="crossUserAndNonApplicationUidsAreRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.0"/>
+  <testcase name="unknownAndMutationMethodsAreRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.015"/>
+  <testcase name="policyReadIsRateLimitedPerUid" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.015"/>
+  <testcase name="forgedArgPackageIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.0"/>
+  <testcase name="hookReportWithNonPositiveCapturedPidIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.001"/>
+  <testcase name="hookReportPidIsOverriddenWithCapturedPid" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.002"/>
+  <testcase name="unknownAndIsolatedUidsAreRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.002"/>
+  <testcase name="unconfiguredPackageStillGetsDisabledPolicy" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.005"/>
+  <testcase name="hookReportForOtherPackageIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.017"/>
+  <testcase name="hookReportWithBadPayloadIsRejected" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.048"/>
+  <testcase name="singleMatchingPackageGetsOnlyItsOwnMinimalPolicy" classname="com.antiads.app.config.ProviderCallRouterTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

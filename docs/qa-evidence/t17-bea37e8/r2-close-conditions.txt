@@ -1,0 +1,18 @@
+--- global_a11y_off : waited 12s, config={"schemaVersion":1,"revision":27,"masterEnabled":true,"accessibilityEnabled":false,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]},"com.antiads.fixture.target":{"accessibilityEnabled":false,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]}}}
+--------- beginning of main
+--------- beginning of system
+09-21 02:16:28.562  3781  3781 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=568387
+09-21 02:16:28.591  3781  3781 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-21 02:16:30.762  3781  3781 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+--- per_app_a11y_off : config={"schemaVersion":1,"revision":29,"masterEnabled":true,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":false,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]},"com.antiads.fixture.target":{"accessibilityEnabled":false,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]}}}
+--------- beginning of system
+--------- beginning of main
+09-21 02:17:41.287  3912  3912 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=641113
+09-21 02:17:41.309  3912  3912 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-21 02:17:44.729  3912  3912 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
+--- master_off : config={"schemaVersion":1,"revision":31,"masterEnabled":false,"accessibilityEnabled":true,"hookEnabled":true,"packages":{"com.antiads.probe":{"accessibilityEnabled":true,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]},"com.antiads.fixture.target":{"accessibilityEnabled":false,"hookEnabled":true,"blockedSensorTypes":[1],"ruleIds":["builtin.conservative.v1"]}}}
+--------- beginning of system
+--------- beginning of main
+09-21 02:19:02.789  4025  4025 I AntiAdsProbe.Fixture: fixture_open scenario=ad_positive package=com.antiads.probe elapsed_realtime_ms=722614
+09-21 02:19:02.945  4025  4025 I AntiAdsProbe.Fixture: fixture_resume scenario=ad_positive window=0x0
+09-21 02:19:04.955  4025  4025 I AntiAdsProbe.Fixture: fixture_layout scenario=ad_positive screen=1080x1794 skip_center_x=886 skip_center_y=84 center_x_ratio=0.8204 center_y_ratio=0.0468 area_ratio=0.0225 insets_top=0 insets_bottom=0 ad_context_visible=true clickable=true
