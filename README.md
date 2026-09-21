@@ -37,6 +37,12 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 
 工具链版本、工具绝对路径、SDK 已装包与复现方法见 [docs/build.md](docs/build.md)（本仓库不携带 JDK/SDK/工具缓存）。
 
+## 仓库与 CI
+
+- 源码仓库：<https://github.com/Watanabehato/Anti-ads>（public，MIT）
+- GitHub Actions：<https://github.com/Watanabehato/Anti-ads/actions/workflows/build.yml> —— 每次推送运行五模块单测、四模块 lint、组装两个应用 APK 与两个仪器测试 APK，并上传 `debug-apks` 产物。
+- **产物哈希注意**：CI 产物与设备逐字节核对过的那组 APK **字节数相同但 SHA-256 不同**（跨构建环境不可复现）。作为安装/验证依据的是 [docs/delivery.md](docs/delivery.md) §3.1 记录的那组，说明见同文件 §3.2。
+
 ## 使用与边界
 
 - 安装、授予无障碍权限、启用增强模式（框架作用域）、停用与卸载：[docs/install.md](docs/install.md)

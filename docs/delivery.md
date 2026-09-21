@@ -41,7 +41,13 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 
 日志与原始统计：`docs/qa-evidence/t17-bea37e8/`（`r2-gradle-full.txt`、`r2-jvm-results.json`、`r2-lint-summary.json`）与 `docs/qa-evidence/t3-be2278c/`（`gradle-rerun.txt`、`jvm-results.json`、`lint/`）。
 
-## 3. 交付 APK（本地文件，未入库）
+## 3. 产物与产物哈希
+
+### 3.1 作为安装依据的一组：本机构建、经 API29 设备逐字节核对
+
+本机（与设备验证同一次构建）产出的四个 APK，**它们才是设备逐字节核对过的那组**：
+核对方式为设备内 `installedSha256` 与本地 `sha256` 完全相同（`docs/qa-evidence/t17-bea37e8/installed-apks.json`），
+并在第三轮独立验证中复现（`docs/qa-evidence/t3-be2278c/apk-sha256.txt`）。
 
 | 产物 | 字节数 | SHA-256 | 说明 |
 | --- | --- | --- | --- |
@@ -51,9 +57,26 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 | `probe/build/outputs/apk/androidTest/debug/probe-debug-androidTest.apk` | 2,172,101 | `a351fc57caa93bac8c399e848034d5fb28121c23199653457c8c51e9b5730680` | 仪器测试 APK |
 | `qa/fixtures/noqueries/build/outputs/apk/debug/noqueries-debug.apk` | 见来源 | `533cbe72ffa12dd1c276aad1f43aafd9f71d086005859be7b16a96d5479e611a` | QA 无 queries 夹具（跨应用读取负例） |
 
-- **可复现且经设备逐字节核对**：来源 `docs/qa-evidence/t17-bea37e8/installed-apks.json`（`sha256` 与设备内 `installedSha256` 相同）与 `docs/qa-evidence/t3-be2278c/apk-sha256.txt`。
-- 两个应用 APK 均为 **debug 签名**，不是生产发布包；**重新构建会改变字节**，任何新安装都应重新计算并记录哈希（见 `docs/repair-qa01-04.md` §3 的不可复现说明）。
-- 安装：`adb install -r app/build/outputs/apk/debug/app-debug.apk`、`adb install -r probe/build/outputs/apk/debug/probe-debug.apk`（分别执行）。
+两个应用 APK 均为 **debug 签名**，不是生产发布包。
+安装：`adb install -r app/build/outputs/apk/debug/app-debug.apk`、`adb install -r probe/build/outputs/apk/debug/probe-debug.apk`（分别执行）。
+
+### 3.2 产物不可复现：CI artifact 与本机组字节数相同、SHA-256 不同（如实记录）
+
+GitHub Actions 的 `debug-apks` artifact 是**同一提交（`bf98279`）在 CI 环境中的另一次构建**：
+
+| 产物 | 字节数（两组相同） | 本机组（设备核对，见 §3.1） | CI artifact 组 |
+| --- | --- | --- | --- |
+| `app-debug.apk` | 3,392,024 | `a08a04b9…f8f5` | `0a7d37ab…b952` |
+| `probe-debug.apk` | 3,169,147 | `0a75edd0…3896` | `19ec3900…eb1b` |
+| `app-debug-androidTest.apk` | 2,174,433 | `9b72ae61…c153` | `ff4ee8d3…b952` |
+| `probe-debug-androidTest.apk` | 2,172,101 | `a351fc57…0680` | `ef8b2fd1…8e63` |
+
+结论与使用约束：
+
+- **CI artifact 不能当作设备验证过的那组产物**：设备上安装并逐字节核对的是 §3.1 的本机组；CI 组只证明“同一提交在 CI 环境可构建、可上传”。
+- 该现象与 `docs/repair-qa01-04.md` §3.1 的 QA-R3-01(F1) 一致：**APK 跨构建环境不可复现**（字节数相同、哈希不同）。
+- **任何重新构建都会改变字节**：安装前请自行重新计算哈希并记录到对应证据里，不要长期引用本表数字。
+- 本文**不宣称“可复现构建”**，也未加入任何未经验证的签名/时间戳处理（不通过固定时间戳、重排 zip 等手段去凑哈希）。
 
 ## 4. 安装 / 开启 / 关闭 / 恢复 / 卸载
 
@@ -90,3 +113,23 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 
 - APK：`app/build/outputs/apk/debug/app-debug.apk`、`probe/build/outputs/apk/debug/probe-debug.apk`（校验和见第 3 节）
 - 主要文档：`README.md`、`docs/install.md`、`docs/privacy.md`、`docs/verification.md`、`docs/delivery.md`（本文件）、`docs/repair-qa01-04.md`、`docs/build.md`
+
+## 8. 公开仓库与 CI（已实际执行的事实）
+
+| 项目 | 事实 |
+| --- | --- |
+| 仓库 | **https://github.com/Watanabehato/Anti-ads** —— public、默认分支 `main`、`LICENSE`=MIT、topics=`android, accessibility-service, lsposed, xposed, adblock` |
+| 远端 main HEAD | `bf98279b302686a4cbbb06e8d075a4b7cac84cbf`（= 本地 HEAD，推送时一致；其后仅本文档修订） |
+| CI run | **https://github.com/Watanabehato/Anti-ads/actions/runs/35555546226** —— `conclusion=success`、事件 push、attempt 1、总时长 211s（job `build` 3m26s） |
+| CI 步骤 | 13/13 全部 success：Checkout → JDK 17 (Temurin) → Android SDK (platform 35 / build-tools 35.0.0) → Gradle 缓存 → **五模块单测** → **四模块 lint** → **两个 APK + 两个测试 APK 组装** → 上传 artifact |
+| Artifact | name=`debug-apks`（id `10619189887`、3,887,556B、未过期）；下载页 https://github.com/Watanabehato/Anti-ads/actions/runs/35555546226/artifacts/10619189887 ；内含 4 个 APK（校验和见 §3.2：**与设备核对组不同**） |
+| 未做 | 未创建 release、未推送 tag、未部署任何服务；仓库只有 `main` 一个分支 |
+
+**已知告警（非阻断，原文记录；本轮未改工作流）**：
+
+1. `actions/checkout@v4`、`actions/setup-java@v4`、`actions/cache@v4`、`actions/upload-artifact@v4`、`android-actions/setup-android@v3` 以 Node.js 20 为目标，被 GitHub 强制运行在 Node.js 24（Node 20 弃用提示）。
+2. `actions/setup-java@v4` 官方标记为弃用，建议迁移到 `@v5`。
+3. `ubuntu-latest` 将于 2026-10 迁移到 Ubuntu 26。
+
+以上均不影响本次 `success` 结论；升级 actions 主版本属于工作流变更，需单独验证新 run 成功后再采纳，本文只做记录。
+
