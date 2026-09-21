@@ -1,0 +1,8 @@
+# Anti-ads v0.1.0 预览版 —— 产物校验和（SHA256SUMS）
+# 来源：t17/t3 独立验证期间**设备逐字节核对过**的那一组（本地 sha256 == 设备内 installedSha256）
+#   docs/qa-evidence/t17-bea37e8/installed-apks.json 与 docs/qa-evidence/t3-be2278c/apk-sha256.txt
+# 说明：APK 跨构建环境不可复现；CI artifact 与下列哈希不同，不能互相替代（见 docs/delivery.md §3.2）。
+# 签名：Android Debug 证书（CN=Android Debug, RSA 2048, APK Signature Scheme v2），仅供测试体验。
+
+3392024  app-debug.apk    a08a04b94462a09ec740f26988732362a40a20b9b69d50bb8797ce368857f8f5
+3169147  probe-debug.apk  0a75edd07c17ade8cd86baef87f27adb74e6211706074ae202a26bad95e73896

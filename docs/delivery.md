@@ -130,7 +130,8 @@ GitHub Actions 的 `debug-apks` artifact 是**同一提交（`bf98279`）在 CI 
 | 当前 main HEAD | **以 GitHub 为准**：<https://github.com/Watanabehato/Anti-ads/commits/main>。本文件不复述具体 SHA——文档自身的每次提交都会让该值变化 |
 | CI 步骤 | 13/13 全部 success：Checkout → JDK 17 (Temurin) → Android SDK (platform 35 / build-tools 35.0.0) → Gradle 缓存 → **五模块单测** → **四模块 lint** → **两个 APK + 两个测试 APK 组装** → 上传 artifact |
 | 最新 run | 见仓库 Actions：<https://github.com/Watanabehato/Anti-ads/actions/workflows/build.yml> |
-| 未做 | 未创建 release、未推送 tag、未部署任何服务；仓库只有 `main` 一个分支 |
+| 发布（Release） | **v0.1.0 预览版（pre-release）**：<https://github.com/Watanabehato/Anti-ads/releases/tag/v0.1.0> —— 发版日志 `docs/releases/v0.1.0.md`，附带**设备逐字节核对过**的 `app-debug.apk`、`probe-debug.apk` 与 `SHA256SUMS.txt`（tag 指向包含发版日志的 main 提交） |
+| 未做 | 未创建**正式**（非预发布）版本、未部署任何服务、未上架任何商店；仓库只有 `main` 一个分支 |
 
 **已发生的 CI run（历史记录）**：
 
