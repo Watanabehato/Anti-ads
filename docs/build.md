@@ -68,7 +68,7 @@ bash ./gradlew --no-daemon :core:test :app:testDebugUnitTest :accessibility:test
 #   probe/build/outputs/apk/debug/probe-debug.apk
 ```
 
-设备相关（当前无设备，见第 5 节）：
+设备相关（当前无真机、无 Root/LSPosed 设备；项目 AVD 按需启停，见第 5 节与[模拟器环境记录](emulator-environment.md)）：
 
 ```bash
 /d/test/Anti-ads/.tooling/android-sdk/platform-tools/adb.exe devices -l
@@ -193,15 +193,16 @@ EXIT=0
 | AVD | **已创建**项目专用 AVD `AntiAds_QA_API29`（`ANDROID_AVD_HOME=.tooling/emulator-qa/avd`，Pixel 模板 1080×1920、swiftshader 无窗口）；未改动或删除用户 AVD |
 | 曾启动 | t15 记录一次启动成功：serial `emulator-5580`、`sys.boot_completed=1`、`ro.build.version.sdk=29`（**那是当时的记录，不等于当前在线**） |
 | t3 复用 | QA 以自有受管进程重新启动同一 AVD，安装固定 `b19f67f` 的五个 APK 并执行有限场景；运行区间与命令见环境记录“t3实际复用与清理”一节 |
-| 当前实例 | **已清理**：t3 结束时按 serial 执行 `emu kill`（exit 0），随后 `adb devices` 为空；SDK、官方镜像、AVD 与测试 APK **保留**供修复后复测 |
+| t17 复测 | 独立 QA（qa-flash）以自有受管 job（`bash-33`）重启同一 AVD，安装修复版 `bea37e8` 的五个 APK，完成 QA-01～04 与受影响路径回归；运行区间、异常早退的首个实例与清理见环境记录“t17 修复版复测的设备复用与清理”一节 |
+| 当前实例 | **已清理**：t17 结束时按 serial 执行 `emu kill`（exit 0），随后 `adb devices` 为空（t3 的清理过程见其小节）；SDK、官方镜像、AVD 与测试 APK **保留**供后续复测 |
 | 重新启动 | 按 [模拟器环境记录](emulator-environment.md) 的启动命令以受管后台任务启动，先确认 AVD 名称与 `sys.boot_completed` 再安装 APK；不要在同一端口启动第二实例 |
 
-### 5.2 已执行的实际设备验证与结论（t3，源码 `b19f67f`）
+### 5.2 已执行的实际设备验证与结论（t3 首轮 `b19f67f`；t17 复测 `bea37e8`）
 
 - app instrumentation **1 例通过**（`ConfigToggleTest`）；probe 的 `RegistrationHoldTest` **未执行**。
 - API29 上完成有限场景：无障碍正例/反例、策略读取、故障回退取证；同时记录到**授权真值错报（QA-01）**、probe 生命周期（QA-03）与诊断快照缺失（QA-04）。
 - 门禁结论为**失败／需修订**，该结论只针对 `b19f67f` 构建，**不得移用**到修复后的版本。
-- 三个缺陷已由 t16 修复并附 JVM/设备级回归用例（见 [修复对照](repair-qa01-04.md)），但**修复版尚未在设备上复测**，复测由独立 QA 执行。
+- 三个缺陷已由 t16 修复（见 [修复对照](repair-qa01-04.md)），且**修复版已由独立 QA 在 API29 模拟器复测通过**：QA-01 授权真值双向、QA-03 返回页按钮与“无自动重注册”、QA-04 Activity 诊断快照与 1 次/秒节流；另完成无障碍正例 4 轮/反例 3 例、三层独立关闭、真实 UID 读取与两个 instrumentation（`ConfigToggleTest`、`ServiceOwnershipTest`）。完整证据见 [独立 QA 报告（第二版）](verification.md) 与 `docs/qa-evidence/t17-bea37e8/`。**该“通过”只限 API29 模拟器范围**，不改变 5.3 的未测边界。
 
 ### 5.3 仍未验证
 
@@ -210,6 +211,8 @@ EXIT=0
 - **真机**：未连接任何真机；模拟器传感器是**模拟来源**，不能冒充真机传感器结论。
 - **GitHub CI**：`.github/workflows/build.yml` 已覆盖五模块单测 + 四模块 lint + 两个 APK + 两个测试 APK，但**尚未在 GitHub 上执行过**（仓库尚未推送）。
 - **构建成功 ≠ 服务已连接/框架已注入**：编译、单测与 lint 通过只说明工程与接口可解析。
+- **未复现的时序观察（建议加测）**：开机后第一个 `ad_positive` 夹具窗口 7.4s 才 `Displayed`、6 秒观察窗内未点击；重跑即 3.07s 内点击、其后 4 轮全部点击。未复现、机制未定位——不记为缺陷也不记为通过（`docs/qa-evidence/t17-bea37e8/r2-positive-rounds.txt`）。
+- **撤权后的系统侧残留（环境现象）**：产品 UI 在撤权后立即显示“未授权/未连接”，但模拟器上系统 secure `accessibility_enabled` 与 Binding 中的 DEAD 连接需重启系统才归零（`docs/qa-evidence/t17-bea37e8/r2-post-reboot-system.txt`）。
 - 跨模块“纯逻辑链”（真实 core 候选 → 快照 → `SkipRequestBuilder` → `SkipGate`/`ExecutionGuards`）由 JVM 用例覆盖，但**不能**替代系统授权与真实页面实验。
 - 本机到 Maven 仓库存在**间歇性 TLS 失败**（实测约 20% 请求失败），已在 `gradle.properties` 提高传输层重试与超时；依赖缓存就绪后可稳定复现。
 

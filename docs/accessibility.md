@@ -139,9 +139,11 @@ JVM 单测（`accessibility/src/test`，JUnit4，纯 JVM，无 Robolectric、无
 
 这些结果只证明“纯逻辑与静态声明按合同成立 + 模块可组装”，**不**证明设备上能跳过任何广告。
 
-## 10. 未实测与已知限制（不得据此宣称已覆盖）
+## 10. 设备验证范围、未实测项与已知限制（不得据此宣称已覆盖）
 
-- **无设备/模拟器**：本机没有 adb 设备或 AVD，`AccessibilityService` 的真实连接、系统授权、真实广告页点击均**未在设备上验证**；单测与 lint/组装通过不等于设备可用。
+- **已在项目 API29 模拟器（AVD `AntiAds_QA_API29`）完成**：`AccessibilityService` 的真实连接与系统 UI 授权/撤权后的状态、`ad_positive` 正例 4 轮自动点击、3 个关键反例（下方按钮/含输入框/无独立广告上下文）各 12 秒不点击、全局·每包·总开关三层独立关闭、以及关闭期间保持无动作的 12 秒观察。证据见 [docs/verification.md](verification.md) 第 3.1/4.1/4.2 节与 `docs/qa-evidence/t17-bea37e8/`。
+- **未执行**：真机与 OEM ROM、Root/LSPosed、API30+ 包可见性、API35+ Insets；模拟器结果不能替代真机结论，单测与 lint/组装通过也不等于设备可用。
+- **未复现的时序观察（建议加测）**：开机后第一个正例窗口用了 7.4 秒才 `Displayed`，6 秒观察窗内未发生点击；重跑即 3.07 秒内点击、其后 4 轮全部点击。未复现、机制未定位，不记为缺陷也不记为通过（`r2-positive-rounds.txt`）。
 - **依赖 core 规则实现**：`:core` 的 `ConservativeAdRuleEngine` 已在 t7 实现；跨模块链路（真实 core 候选 → 快照 → `SkipRequestBuilder` → `SkipGate`/`ExecutionGuards` 复核）已由 `CoreRuleToExecutionIntegrationTest`（11 例）在 JVM 上覆盖。**这仍是纯逻辑验证**：系统授权、真实无障碍连接、真实页面变化必须在设备上验证，不能用该测试代替。
 - **系统/应用差异**：不同 ROM 的窗口类型、`windowId` 复用、包可见性、系统无障碍策略都会影响行为；本模块不承诺覆盖所有应用，对 WebView/自绘/视频贴片/PiP/系统弹窗等场景可能完全不动作。
 - **同一 windowId 长时间停留**：超过 10 秒窗口期不再动作（合同要求），需要新的窗口事件建立 epoch。

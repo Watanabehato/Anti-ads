@@ -3,8 +3,8 @@
 适用对象：Android 10（API 29）及以上设备。管理端 APK（`app-debug.apk`）同时充当 **LSPosed 模块**；
 诊断 APK（`probe-debug.apk`）只用于验证与实验，不参与防护。
 
-> 本页描述的操作步骤**已在代码与单一来源合同中定义**，但**尚未在真机/模拟器上逐条执行**（当前开发环境无设备）。
-> 设备实测结论以 QA 的执行记录为准，见 [docs/qa-plan.md](qa-plan.md)。
+> 本页描述的步骤已在项目 API29 模拟器（AVD `AntiAds_QA_API29`，serial `emulator-5580`）上按序列实际执行：安装、系统 UI 授权与撤权、应用选择与每应用开关、probe 采样/暂停/返回、Provider 真实 UID 读取（证据见 [独立 QA 报告](verification.md) 与 `docs/qa-evidence/t17-bea37e8/`）。
+> **仍未在真机、Root/LSPosed 设备与 API30+ 上逐条执行**；这些环境的结论不得由本页或模拟器结果推断。设备实测结论以 QA 的执行记录为准。
 
 ## 1. 安装
 

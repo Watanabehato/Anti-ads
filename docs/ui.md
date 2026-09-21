@@ -104,7 +104,7 @@
 `app/src/androidTest/kotlin/com/antiads/app/ConfigToggleTest.kt`：宿主 UID、真实仓储写路径，不启动 Activity、不使用 exported 写接口。
 该用例已在 QA 的 API29 模拟器上执行 1 例通过（t3 报告）。
 
-`app/src/androidTest/kotlin/com/antiads/app/ServiceOwnershipTest.kt`（t16 新增，QA-01 设备级回归）：用真实 `PackageManager` 断言无障碍服务组件归属 `com.antiads.app`，且用库 namespace `com.antiads.accessibility` 解析不到该组件。**尚未在设备上执行**，由修复后的独立 QA 复测运行。
+`app/src/androidTest/kotlin/com/antiads/app/ServiceOwnershipTest.kt`（t16 新增，QA-01 设备级回归）：用真实 `PackageManager` 断言无障碍服务组件归属 `com.antiads.app`，且用库 namespace `com.antiads.accessibility` 解析不到该组件。**已在项目 API29 模拟器上执行并通过 1 例**（`OK (1 test)`；独立 QA t17，见 [docs/verification.md](verification.md) 第 4.5 节）。
 
     adb shell am instrument -w -e action master_off com.antiads.app.test/androidx.test.runner.AndroidJUnitRunner
     adb shell am instrument -w -e class com.antiads.app.ConfigToggleTest -e action master_on com.antiads.app.test/androidx.test.runner.AndroidJUnitRunner
@@ -138,9 +138,9 @@
 | 配置可持久保存并被其他模块使用 | 通过 | Application 安装仓储到 AccessibilityDependencies；Provider 从同一单例生成最小策略 |
 | 系统设置返回后刷新服务状态 | 通过（静态） | onResume 重新核查 enabledAccessibilityServiceList、刷新事实并重建订阅 |
 | 包可见性（Android 11+） | 通过（静态） | 只用 LAUNCHER queries + probe 明确包查询；列表不完整时中文解释 + 手工添加入口 |
-| 交互与视觉真机验证 | **未做** | 本任务环境无设备/模拟器：未做点击、渲染、无障碍授权流程、系统设置返回、WindowInsets 视觉效果、包可见性列表实测 |
-| Provider 真实身份捕获与跨进程成功读 | **未做** | 需设备上由真实包 UID 发起：`adb shell content call` 只能证明 shell UID 被拒；同 UID 成功读需 probe 进程（t10/t13）自己调用 |
-| Android 15 边到边 / API29 最低版本行为 | **未做** | 无设备；UiInsets 只做 API 分支处理，未在真机确认 |
+| 交互与视觉设备验证 | **部分完成（API29 模拟器）** | 已在 AVD `AntiAds_QA_API29` 上完成点击与渲染、无障碍授权/撤权与“打开系统无障碍设置→返回”刷新、开关切换落盘核验（[docs/verification.md](verification.md) 第 3.1/4.2 节）；**WindowInsets 视觉效果、包可见性列表与真机仍未做** |
+| Provider 真实身份捕获与跨进程成功读 | **已完成（API29 模拟器）** | probe（真实 UID 10117）与无 queries 夹具（真实 UID 10120）各以自身 UID 成功读取本包最小策略；`adb shell content call`（UID 2000）仍被 `UNAUTHORIZED` 拒绝（[docs/verification.md](verification.md) 第 4.4 节） |
+| Android 15 边到边 / API29 最低版本行为 | **API29 已确认；API35+ 未做** | API29 模拟器上完成授权/点击/关闭/返回刷新实测；API35+ 强制边到边与 Insets、真机仍未确认（UiInsets 仅做 API 分支静态处理） |
 
 ## 9. 交接与集成检查点（给 t11 及后续）
 

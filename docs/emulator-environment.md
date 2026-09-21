@@ -1,6 +1,6 @@
 # Android 10 模拟器环境准备记录
 
-任务 t15，qa-release。仅准备最终集成后t3使用的环境，不安装旧骨架APK、不将环境准备当产品运行验证。范围为本项目`.tooling/`与本文；不修改系统功能、驱动、BIOS、真实手机、用户AVD、产品或主构建。
+任务 t15，qa-release。下方原始盘点和启动结果是t15交接时的历史记录；当前状态以文末“t3实际复用与清理”“t17 修复版复测的设备复用与清理”两节及[独立QA报告](verification.md)为准。t15仅准备环境，不将准备结果当产品验证；t3随后使用完整集成APK。范围为本项目工具和文档，不修改系统功能、驱动、BIOS、真实手机、用户AVD、产品或主构建。
 
 ## 当前主机盘点
 
@@ -96,7 +96,7 @@ emu avd name: AntiAds_QA_API29 (OK)
 
 ## t3交接与后续清理
 
-**唯一保留运行的本任务实例：** 管理job `bash-6`（qa-release会话所有），AVD `AntiAds_QA_API29`，adb serial `emulator-5580`，控制台5580／adb5581。此job是长时运行进程，不填“exit=0”；最后检查为running。安装/list jobs bash-3/4/5都已结束exit=0，额外adb诊断job bash-8已结束exit=127，全部已收集。
+**t15交接时唯一保留运行的本任务实例（历史状态）：** 管理job `bash-6`（qa-release会话所有），AVD `AntiAds_QA_API29`，adb serial `emulator-5580`，控制台5580／adb5581。此job是长时运行进程，不填“exit=0”；最后检查为running。安装/list jobs bash-3/4/5都已结束exit=0，额外adb诊断job bash-8已结束exit=127，全部已收集。
 
 后续在同一主机使用：
 
@@ -126,5 +126,43 @@ JAVA_HOME="D:/test/Anti-ads/.tooling/jdk17/jdk-17.0.20.1+1" ANDROID_USER_HOME="D
 ### 本地证据索引
 
 `.tooling/emulator-qa/`包含：host-command.txt、host-capabilities.json、sdk-list.txt、install-emulator.txt、install-api29-image.txt、accel-check.txt、emulator-version.txt、device-profiles.txt、create-avd.txt、launch-command.txt、emulator.log、adb-devices-after-start.txt（首次未连上）、adb-server.log（失败诊断）、boot-verification.txt（最终成功）。AVD数据和证据均在本项目内；本文给出可公开的必要结论，无产品/主构建文件改动、无系统驱动或功能变更、无smoke-test脚本。
+
+## t3实际复用与清理（2026-09-20）
+
+- t3接手时旧bash-6已经不可查询，adb列表空、5580/5581无监听、无emulator/qemu进程。未声称t15到t3持续在线；复用本项目SDK、镜像和AVD，以自有bash-11重新启动。
+- bash-11实际运行自2026-09-20T09:19:00.225Z至10:20:52.452Z；AVD仍为AntiAds_QA_API29，serial仍为emulator-5580。启动后两次独立确认device、boot=1和AVD名称，再安装固定b19f67f的五个完整APK。没有单独下载另一套工具链。
+- 额外adb服务器bash-12因5037已占用exit127，已收集；继续使用原有服务器。重复的127.0.0.1:5581运输连接已disconnect，所有实际设备操作都限定emulator-5580。
+- app instrumentation导致宿主被强停，系统一度保留DEAD/Binding连接；那段时间“不点击”不计关闭测试通过。重启本AVD后Bound恢复，再取得正例和三层关闭控制。一次等待shell片段引号错误不作为boot证据；后续直接get-state/sys.boot_completed/AVD名称通过。
+- 实际运行结果见[verification.md](verification.md)：JVM285例通过，app instrumentation1例通过；API29正例、反例、策略读取及故障回退取证，同时记录授权真值与probe缺陷。没有Root/LSPosed注入或真机实测。
+- 收尾逐字节恢复专用测试配置revision23、master=false，并通过系统UI撤销无障碍授权，secure=0、enabled=null，Bound/Enabled/Binding为空。
+- 核对AVD名称后仅执行本serial的emu kill（exit0），bash-11正常完成exit0。立即kill后的旧transport短暂残留已如实保留；job退出后的再次adb devices为空。所有相关后台job都已结束收集，没有停全局adb服务器。
+- SDK、官方镜像、项目AVD和测试APK保留供修复后复测；没有删除用户AVD或真实设备。后续应以受管理job重新启动并确认就绪，不把本文历史截图当当前在线状态。
+
+公开必要证据位于`docs/qa-evidence/t3-b19f67f/`；初始完整环境记录仍保留于被忽略的`.tooling/emulator-qa/`，本轮诊断中间文件在`.tooling/t3-qa/`。产品测试结论以固定版本独立报告为准。
+
+## t17 修复版复测的设备复用与清理（2026-09-21）
+
+- 起始状态：本次 QA 接手时 `adb devices -l` 为空、无 emulator/qemu 进程、5580/5581 无监听（与 t3 收尾一致）；复用同一项目 SDK、官方镜像与 AVD `AntiAds_QA_API29`，未新建、未删除任何 AVD。
+- 第一次启动（job `bash-31`，2026-09-21T02:03:48.846Z 起）在约 15 秒后收到“正常关闭”请求而退出：日志为 `Wait for emulator ... shutdown gracefully` 与 `Saving snapshot 'default_boot'`，job exit code 0，原始日志 `.tooling/t17-qa/emulator-r2.log`。原因未定位，本文只记录事实、不据此下产品结论；同期另一位成员 architect-flash 书面确认未启动任何 emulator、未对 5580 执行 `emu kill`（只做过只读 adb/tasklist 查询）。
+- 第二次启动（job `bash-33`，2026-09-21T02:06:54.995Z 至 02:28:50.603Z，exit code 0）成功。参数与 t3 相同，仅将 `-no-snapshot` 改为 `-no-snapshot-save`，端口仍为 5580，日志 `.tooling/t17-qa/emulator-r3.log`。
+- 就绪核验（安装前）：`adb -s emulator-5580 get-state`=device、`sys.boot_completed`=1、`emu avd name`=`AntiAds_QA_API29`、fingerprint=`Android/sdk_phone_x86_64/generic_x86_64:10/QSR1.210820.001/7663313:userdebug/test-keys`、shell 身份 uid=2000；未设置全局 `ANDROID_SERIAL`，全部设备操作限定 `-s emulator-5580`。
+- 安装与固定：五个 APK 均为修复版固定 SHA-256（`docs/qa-evidence/t17-bea37e8/apk-sha256.txt`、`installed-apks.json`），安装后逐一比对“本机构建产物哈希 == 从设备拉取的实际 `base.apk` 哈希”。
+- 本轮设备操作范围：真实系统 UI 授权与撤权、无障碍正例 4 轮（含关闭后恢复的对照轮）、反例 3 例、三层独立关闭条件、probe 生命周期与诊断快照、真实 UID 策略读取（probe UID 10117 与夹具 UID 10120 成功、shell UID 2000 被拒）、app instrumentation 两个测试类。清单、截图与原始输出见 `docs/qa-evidence/t17-bea37e8/`。
+- 收尾：经产品 UI 将总开关关闭（配置 revision 33，`masterEnabled=false`）；经系统 UI 撤销无障碍授权后 `enabled_accessibility_services` 为空、`Enabled services`/`Bound services` 为空；撤权后 secure `accessibility_enabled` 仍残留 1 且 Binding 列表残留一条 DEAD 连接，重启本 AVD 后归零（`0`/null/三者全空），见 `r2-post-reboot-system.txt`。该残留与 t3 记录的“instrumentation 强停宿主后连接残留”一致，按系统侧记账副作用记录，不当作产品缺陷。
+- 定向退出：核对 AVD 名称后仅对本 serial 执行 `emu kill`（exit 0），随后 `adb devices -l` 为空；job `bash-31`/`bash-33` 均已结束并收集，未执行全机 `adb kill-server`，未操作任何用户 AVD 或真机。
+- 保留：项目 SDK、官方镜像、AVD 与五个测试 APK 全部保留供后续复测；本轮中间文件在 `.tooling/t17-qa/`。
+
+## t3 第三轮（修复版）设备复用与清理（2026-09-21，architect-flash）
+
+- 起始状态：t17 已按流程 `emu kill` 并记录 `r2-devices-after-exit.txt`；本轮启动前再次确认无 emulator/qemu 进程、`adb devices` 为空，**未与 t17 并发**（t17 工作期间本轮只做过只读 adb/tasklist 查询，未启动或杀死任何实例）。
+- 启动：受管 job `bash-36`（2026-09-21T02:31Z 起）使用与前面各轮相同的 SDK/镜像/AVD/端口：`AntiAds_QA_API29`、`-port 5580`、`-no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader -memory 2048 -cores 2 -accel on`，日志 `.tooling/t3-qa3/emulator.log`。
+- 就绪核验：`get-state=device`、`sys.boot_completed=1`、`emu avd name=AntiAds_QA_API29`、SDK 29 / Android 10 / fingerprint 同前；证据 `docs/qa-evidence/t3-be2278c/device-ready.txt`。
+- 安装与字节核对：五个 APK `install -r` 全部 `Success`，设备内 `base.apk` 的 SHA-256 与本轮重建逐字节相同（app `a08a04b9…`、probe `0a75edd0…`、夹具 `533cbe72…`）。第一次用 `adb exec-out cat <设备路径> | sha256sum` 得到假 MISMATCH，原因是 Git Bash 的 MSYS 路径改写；改为 `MSYS_NO_PATHCONV=1` + 设备内 `sha256sum` 后全部 MATCH（过程与修正都保留在证据文件里）。
+- 本轮设备操作范围：系统 UI 真实授权（含系统 ALLOW 对话框）、授权后首页“授权=是/连接=是”、广告正例 2 轮 + 反例 `non_clickable`/`unknown_case`（补上 t17 本轮未跑的一项）、probe 生命周期（HOME 注销→返回→显式重注册，`registrationSeq` 6→12）、诊断快照文件与节流（非强制写入间隔 ≥1003ms）、配置保存与 force-stop 冷启动保留、Provider 的 shell 未授权负例与无 queries 夹具真实 UID 读取。清单与截图见 `docs/qa-evidence/t3-be2278c/`。
+- 平台行为记录：`am force-stop com.antiads.app` 后系统自行把 `accessibility_enabled` 置 0 并清空服务集合，因此首页随即显示“授权=否”是真实状态，不是 QA-01 复发（证据 `t3-force-stop-a11y-state.txt`）。
+- 收尾：把设备内配置恢复到 t17 留下的状态（**revision 35、masterEnabled=false**），`accessibility_enabled=0`、服务集合 null；核对 AVD 名后仅对本 serial 执行 `emu kill`（exit 0），job `bash-36` 以 exit 0 收束，随后 `adb devices` 为空；未执行全机 `adb kill-server`，未操作任何用户 AVD 或真机。证据 `t3-cleanup.txt`、`t3-final-state.txt`。
+- 本节的追加未改动上文任何内容（追加前本文件 SHA-256：`ce33e693c0a2729b91a17661121fb97779f9d9e8b8af08e65f8a940a18432321`）。
+
+
 
 
