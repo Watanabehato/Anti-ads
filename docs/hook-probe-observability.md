@@ -19,13 +19,13 @@
 | 同一注册判据 sessionId/registrationSeq/pid/host | `diag/DiagTracker.kt` | 已实现，单测覆盖 |
 | 静默窗口（silenceWindow 行） | `diag/SilenceWindowDetector.kt` | 已实现，单测覆盖 |
 | A1 instrumentation 承载 | `probe/src/androidTest/kotlin/com/antiads/probe/diag/RegistrationHoldTest.kt` | 已实现，未在设备执行 |
-| A2 宿主切换开关 | `app/src/androidTest/.../ConfigToggleTest.kt`（B 提供）+ probe 前台 | 已由 B 提供，未在设备执行 |
-| 策略自查（可选，默认关闭） | `probe/src/main/kotlin/com/antiads/probe/PolicySelfCheck.kt` | 已实现，未在设备执行 |
+| A2 宿主切换开关 | `app/src/androidTest/.../ConfigToggleTest.kt`（B 提供）+ probe 前台 | 已在 API29 模拟器执行：`OK (1 test)`、`SAVED`、`revision 32→33`（t17，[docs/verification.md](verification.md) 4.5 节）；“同次注册保持/5 秒恢复”仍需 Root 或框架条件 |
+| 策略自查（可选，默认关闭） | `probe/src/main/kotlin/com/antiads/probe/PolicySelfCheck.kt` | 已在 API29 模拟器执行：probe 自读 `OK`、`revision=32`、`hookEnabled=true`、`blockedTypes=[1]`（t17） |
 | Hook 侧租约/节流/报告 | `hook/src/main/kotlin/com/antiads/hook/internal/policy/HookPolicyClientCore.kt` | 已实现，M1–M10 单测 |
 | 目标点形状验证与 type 解析 | `hook/src/main/kotlin/com/antiads/hook/internal/SensorDispatchTarget.kt`、`SensorTypeResolver.kt` | 已实现，单测覆盖 |
 | 路径 C（Root 诊断服务） | —— | 按 captain 决策取消 |
 
-以上全部仍是**待验证方案**：本环境无 Root 设备、`adb devices` 为空，真机实验（H01 A1/A2、H03、跨应用夹具）必须由 QA 在设备上执行后才有结论；JVM 单测只能证明决策/格式逻辑，不能证明注入或传感器实际行为。相关命令与证据字段见 `docs/hook.md`、`docs/probe.md`。
+上表中**非 Root 侧已有设备结论**（API29 模拟器 t17：probe 生命周期与诊断快照、A2 开关、策略自查、独立夹具以真实 UID 读取策略，见 [docs/verification.md](verification.md) 与 `docs/qa-evidence/t17-bea37e8/`）；**H01 A1（`RegistrationHoldTest` 同次注册保持）、H03、以及全部 Hook 注入/作用域结论仍无设备证据**——本环境无 Root/LSPosed 设备，JVM 单测只能证明决策/格式逻辑，不能证明注入或传感器实际行为。相关命令与证据字段见 `docs/hook.md`、`docs/probe.md`。
 
 ## 1. probe 公共面（不改，对应 contracts 第 8 节）
 
@@ -36,7 +36,7 @@ MainActivity：真实 SensorManager + SensorEventListener。每个实验类型�
 | `exists` | 设备是否存在该类型 | `getDefaultSensor(type)` |
 | `registerResult` | `registerListener` 实际返回值 | 真实调用返回 |
 | `callbacks` | 累计 Java 回调数 | 监听器计数 |
-| `lastElapsedMs` | 最近一次回调的 `SystemClock.elapsedRealtime()` | 回调时戳 |
+| `lastCallbackElapsedMs` | 最近一次回调的 `SystemClock.elapsedRealtime()` | 回调时戳 |
 | `samplingState` | IDLE / REGISTERED / REGISTER_FAILED / UNREGISTERED | 注册动作结果 |
 
 - 默认 `SENSOR_DELAY_NORMAL`，开始/停止为显式按钮；`onPause` 注销所有监听并停 UI timer；`onResume` 不偷跑（这正是 QA 指出的冲突来源）。
@@ -58,9 +58,9 @@ SensorDiagSession(types, delay, host)   // host = ACTIVITY | INSTRUMENTATION
 
 ```json
 {"tag":"AntiAdsProbe.Diag","seq":3,"sessionId":"<UUID>","registrationSeq":4,"host":"INSTRUMENTATION",
- "activityResumed":false,"pinned":true,"type":1,"exists":true,"selected":true,"registerResult":true,
- "samplingState":"REGISTERED","callbacks":812,"callbacksSinceRegister":812,"lastElapsedMs":40213,
- "gapSinceLastMs":37,"elapsedMs":40250,"pid":12345}
+ "activityResumed":false,"pid":12345,"elapsedMs":40250,"type":1,"exists":true,"selected":true,
+ "registerResult":true,"samplingState":"REGISTERED","callbacks":812,"callbacksSinceRegister":812,
+ "lastCallbackElapsedMs":40213,"gapSinceLastMs":37,"shakes":3,"control":false}
 ```
 
 输出通道：
